@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
     title: "Sleepy Gallows Studio",
+    description: `Blazing fast modern site generator for React`,
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -20,11 +21,16 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: "./src/data/",
         name: "images",
         path: "./src/images/", 
       },
       __key: "images",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: "./src/data/",
+      },
     },
   ],
 };
