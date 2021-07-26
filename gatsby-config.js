@@ -26,11 +26,12 @@ module.exports = {
       },
       __key: "images",
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: "./src/data/",
-      },
-    },
+    // {
+    //   resolve: "gatsby-source-filesystem",
+    //   options: {
+    //     // name: "data",
+    //     path: "./src/data/",
+    //   },
+    // },
   ],
 };
