@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
@@ -25,6 +29,19 @@ module.exports = {
         path: "./src/images/", 
       },
       __key: "images",
+    },
+    {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: process.env.API_TOKEN,
+  
+        environment: `main`,
+  
+           previewMode: false,
+  
+        disableLiveReload: false,
+  
+      },
     },
     // {
     //   resolve: "gatsby-source-filesystem",

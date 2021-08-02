@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700&display=swap");
+@import url("https://use.typekit.net/fgw1lke.css");
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:root {
+  --brandColor: #4A287C;
+  --dark-highlight: #983025;
+  --brandFont: "Cinzel Decorative", cursive, ;
+  --textFont: "futura-pt", sans-serif;
+  --gray: #5c5c5c;
+  --form-gray: #c4c4c4;
+  --faded-highlight: #ffe2d6;
+}
