@@ -6,13 +6,8 @@ import '../styles/global.css'
 const StyledDiv = styled.div`
     background: linear-gradient(180deg,#b5dbff,#d0c1f4);
     width: 100%;
-    height:650px;
-    @media (min-width: 481px){
-        height: 1300px;
-    }
-    @media (max-width: 480px){
-        height: 900px;
-    }
+    height:100vh;
+
     section{
         text-align:center;
     }
@@ -24,6 +19,9 @@ const StyledDiv = styled.div`
             padding:0;
             li{
                 padding: 1rem;
+                @media (max-width: 480px){
+                    font-size: 2rem;
+                }
                 a{
                     text-decoration: none;
                     color: var(--brand-color);
@@ -41,7 +39,7 @@ const StyledDiv = styled.div`
         color: var(--brand-color);
         margin: 0;
         padding: 2rem;
-        @media (max-width: 480px){
+        @media (max-width: 780px){
             font-size: 2rem;
         }
     }
