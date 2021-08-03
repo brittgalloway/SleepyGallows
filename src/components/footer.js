@@ -5,26 +5,26 @@ export default function SGFooter({ children }) {
    <footer>
        <small>Copyright © 2020 <em>Sleepy Gallows Studio</em>- All Rights Reserved.</small>
    </footer>
-  )
+  );
 }
-export default function BrittFooter({ children }) {
+export function BrittFooter({ children }) {
   return (
    <footer>
        <small>Copyright © 2020 <em>Brittney Galloway</em>- All Rights Reserved.</small>
    </footer>
-  )
+  );
 }
-export default function CrystalFooter({ children }) {
+export function CrystalFooter({ children }) {
   return (
    <footer>
        <small>Copyright © 2020 <em>Crystal Galloway</em>- All Rights Reserved.</small>
    </footer>
-  )
+  );
 }
-export default function ComicFooter({ children }) {
+export function ComicFooter({ children }) {
   return (
    <footer>
        <small>Copyright © 2020 <em>2Heroes</em>- All Rights Reserved.</small>
    </footer>
-  )
+  );
 }
