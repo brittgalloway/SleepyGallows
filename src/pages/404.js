@@ -1,53 +1,51 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import styled from "styled-components"
+import '../styles/global.css'
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
+const StyledDiv = styled.div`
+  background: linear-gradient(180deg,#b5dbff,#d0c1f4);
+  width: 100%;
+  height:100vh;
+  color: var(--text-color);
+  font-family: var(--textFont);
+  font-size: 1.5rem;
+  text-align:center;
 
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+  a{
 
-// markup
+      font-weight:bold;
+      text-decoration: none;
+      color: var(--brand-color);
+      &:hover{
+          color: var(--pink-highlight);
+      }
+  }
+  h1{
+      font-family: var(--brandFont);
+      font-size: 3rem;
+      color: var(--brand-color);
+      margin: 0;
+      padding: 2rem;
+      @media (max-width: 480px){
+          font-size: 2rem;
+      }
+  }
+`
+
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
+    <StyledDiv >
       <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
+      <h1 >Page not found</h1>
+      <p>
+        Sorry
+        <br/>
         we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
+        <br/>
+        <Link to="/">Return Home</Link>.
       </p>
-    </main>
+    </StyledDiv>
   )
 }
 
