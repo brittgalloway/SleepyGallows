@@ -4,17 +4,15 @@ import {AnimationNav} from '../components/nav'
 import {SGFooter} from '../components/footer'
 
 
-const ClientPage = ({ data }) => (
+const FunPage = ({ data }) => (
   <>
   <AnimationNav/>
   <article>
-    {data.allDatoCmsClientWork.edges.map(({node})=> (
+    {data.allDatoCmsForFun.edges.map(({node})=> (
       <div>
         <iframe width="640" height="360" src={node.link}  frameborder="0" allowfullscreen></iframe>
         <p>{node.title}</p> 
         <p>{node.year}</p> 
-        <p>{node.website}</p> 
-        <p>{node.socialMedia}</p> 
         <p>{node.summary}</p> 
 
 
@@ -25,19 +23,17 @@ const ClientPage = ({ data }) => (
   </>
 )
 
-  export default ClientPage
+  export default FunPage
 
 export const query = graphql`
-query ClientQuery {
-  allDatoCmsClientWork {
+query FunQuery {
+  allDatoCmsForFun {
     edges {
       node {
-        year
-        website
-        title
-        summary
-        socialMedia
         link
+        summary
+        title
+        year
       }
     }
   }

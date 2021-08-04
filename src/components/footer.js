@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function SGFooter({ children }) {
+export function SGFooter({ children }) {
   return (
    <footer>
        <small>Copyright © 2020 <em>Sleepy Gallows Studio</em>- All Rights Reserved.</small>

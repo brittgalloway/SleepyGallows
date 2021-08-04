@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import {CrystalNav} from '../components/nav'
 import {CrystalFooter} from '../components/footer'
 
-//   export default CrystalPage
+
 const IllustrationPage = ({ data }) => (
   <>
   <CrystalNav/>

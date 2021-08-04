@@ -9,6 +9,14 @@ const VisDevPage = ({ data }) => (
   <>
   <CrystalNav/>
   <article>
+    {data.allDatoCmsMermaidVisdev.edges.map(({node})=> (
+      <div>
+      <GatsbyImage image={node.visArt.gatsbyImageData} alt={node.visArt.alt}/>
+      <p>{node.visArt.title}</p> 
+      </div>
+    ))}
+  </article>
+  <article>
     {data.allDatoCmsVisdev.edges.map(({node})=> (
       <div>
       <GatsbyImage image={node.plhVisdev.gatsbyImageData} alt={node.plhVisdev.alt}/>
