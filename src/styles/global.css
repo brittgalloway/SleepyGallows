@@ -17,6 +17,8 @@
   --text-color: #363636;
   --seagreen-highlight: #3bcacb;
   --purple-highlight: #9370db;
+  --blue-highlight: #9ac8f3;
+  --text-shadow: 3px 3px 0px var(--brand-color);
 }
 
 body {
@@ -24,5 +26,51 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
+}
+
+main {
+  margin-left: 20rem;
+  padding: 2rem;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav.siteMenu {
+  position: fixed;
+  height: 100vh;
+  width: 20rem;
+  z-index: 1;
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--blue-highlight)), to(rgba(196, 196, 196, 0)));
+  background: linear-gradient(180deg, var(--blue-highlight), rgba(196, 196, 196, 0));
+}
+
+nav.siteMenu li {
+  padding: 1.25rem;
+}
+
+nav.siteMenu li:hover {
+  background-color: var(--purple-highlight);
+}
+
+nav.siteMenu li:hover a {
+  text-decoration: none;
+  color: white;
+}
+
+nav.siteMenu li a {
+  color: var(--brand-color);
+  font-family: var(--brandFont);
+  text-decoration: none;
+  font-size: 1.75rem;
+  font-weight: normal;
+}
+
+footer {
+  margin-left: 20rem;
+  text-align: center;
 }
 /*# sourceMappingURL=global.css.map */

@@ -5,7 +5,7 @@ import '../styles/global.css'
 
 const StyledDiv = styled.div`
   background: linear-gradient(180deg,#b5dbff,#d0c1f4);
-  width: 100%;
+  width: 100vw;
   height:100vh;
   color: var(--text-color);
   font-family: var(--textFont);

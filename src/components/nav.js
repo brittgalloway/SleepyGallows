@@ -1,30 +1,40 @@
 import React from "react"
 import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
+import '../styles/global.css'
+
 
 export default function MainNavigation() {
   return (
-   <nav aria-label="Site Menu">
-       <ul>
-           <li>
-               <Link to="/Animation">Animation</Link>
-           </li>
-       </ul>
-       <ul>
-           <li>
-               <Link to="/Comics">Comics</Link>
-           </li>
-       </ul>
-       <ul>
-           <li>
-               <Link to="/Art">Art</Link>
-           </li>
-       </ul>
-       <ul>
-           <li>
-               <Link to="/Design">Graphic Design</Link>
-           </li>
-       </ul>
-   </nav>
+        <nav className="siteMenu" aria-label="Site Menu">
+            <ul>
+                <li>
+                    <Link to="/about">
+                        SG
+                        <StaticImage src="" alt="logo, click here to learn about the Sleepy Gallows."/>
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/animation">Animation</Link>
+                </li>
+            
+            
+                <li>
+                    <Link to="/comics">Comics</Link>
+                </li>
+            
+            
+                <li>
+                    <Link to="/art">Art</Link>
+                </li>
+            
+            
+                <li>
+                    <Link to="/design">Design</Link>
+                </li>
+            </ul>
+        </nav>
+
   );
 }
 export function CrystalNav() {
@@ -34,8 +44,7 @@ export function CrystalNav() {
            <li>
                <Link to="/crystalsart">Illustration</Link>
            </li>
-       </ul>
-       <ul>
+    
            <li>
                <Link to="/visdev">Visual Development</Link>
            </li>
@@ -51,8 +60,7 @@ export function BrittneyNav() {
            <li>
                <Link to="/brittneysart">Drawings</Link>
            </li>
-       </ul>
-       <ul>
+    
            <li>
                <Link to="/papercut">Paper Cutouts</Link>
            </li>
@@ -68,13 +76,11 @@ export function AnimationNav() {
            <li>
                <Link to="/originals">Originals</Link>
            </li>
-       </ul>
-       <ul>
+     
            <li>
                <Link to="/client">Client Work</Link>
            </li>
-       </ul>
-       <ul>
+      
            <li>
                <Link to="/fun">For Fun</Link>
            </li>
@@ -90,13 +96,11 @@ export function OriginalsNav() {
            <li>
                <Link to="/plh">Watch</Link>
            </li>
-       </ul>
-       <ul>
+       
            <li>
                <Link to="/aboutplh">About</Link>
            </li>
-       </ul>
-       <ul>
+      
            <li>
                <Link to="/plhart">Art</Link>
            </li>
