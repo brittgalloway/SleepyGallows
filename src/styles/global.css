@@ -43,7 +43,6 @@ nav.siteMenu {
   position: fixed;
   height: 100vh;
   width: 20rem;
-  z-index: 1;
   background: -webkit-gradient(linear, left top, left bottom, from(var(--blue-highlight)), to(rgba(196, 196, 196, 0)));
   background: linear-gradient(180deg, var(--blue-highlight), rgba(196, 196, 196, 0));
 }
@@ -59,6 +58,7 @@ nav.siteMenu li:hover {
 nav.siteMenu li:hover a {
   text-decoration: none;
   color: white;
+  padding: .6em 10em .6em 0;
 }
 
 nav.siteMenu li a {
