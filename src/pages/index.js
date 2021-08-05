@@ -20,16 +20,16 @@ a p{
   color: white;
   text-shadow: 3px 3px 0px var(--brand-color);
   font-weight: bold;
-  background-color: #FC79B4;
-  width: fit-content;
-  height: fit-content;
+  background-color: var(--pink-highlight);
   line-height: 1em;
   z-index: 1;  
   margin: auto ;
+
 }
 a{
   width: fit-content;
   position: absolute;
+
 }
 
 img {
@@ -46,15 +46,32 @@ img {
     50% { -webkit-filter: blur(5px);}
   }
  
+  #animation p{
+      top: 20vh;
+      left:13vw;
+    }
+  }
   a#comics {
     left: 50vw;
+    p{
+      top: 20vh;
+      right:18vw;
+    }
   }
   a#art{
     top: 50vh;
+    p{
+      bottom: 23vh;
+      left:20vw;
+    }
   }
   a#design {
     left: 50vw;
     top: 50vh;
+    p{
+      bottom: 23vh;
+      right:19vw;
+    }
   }
 `
 
@@ -63,20 +80,20 @@ const IndexPage = () => {
   <StyledDiv>
       <Link to="/animation" id="animation">
         <p>Animation</p>
-        <StaticImage width={"50vw"} src="https://www.datocms-assets.com/53347/1628108199-rectangle1animation.png" alt="animation"/>
+        <StaticImage width={"50vw"} src="https://www.datocms-assets.com/53347/1628108199-rectangle1animation.png" alt="Image of Harmony, Love, and Tranquility from PLH jumping over an earth attch from Damhan. Clicking here directs you to the animation page."/>
       </Link>
       
       <Link to="/comics" id="comics">
         <p>comics</p>
-        <StaticImage width={"50vw"}src="https://www.datocms-assets.com/53347/1628108650-rectangle3comics.png" alt="animation"/>
+        <StaticImage width={"50vw"}src="https://www.datocms-assets.com/53347/1628108650-rectangle3comics.png" alt="Close up on the surprised faces of Anacoana, Necahual, and Quetzalli's face's (characters from the Comic Necahual) Clicking here directs you to the Comics page."/>
       </Link>
       <Link to="/art" id="art">
         <p>art</p>
-        <StaticImage width={"50vw"} src="https://www.datocms-assets.com/53347/1628108278-rectangle2art.png" alt="animation"/>
+        <StaticImage width={"50vw"} src="https://www.datocms-assets.com/53347/1628108278-rectangle2art.png" alt="Drawing of man floating in space with a ouroboros dragon behind him. Clicking here directs you to the art page."/>
       </Link>
       <Link to="/design" id="design">
         <p>design</p>
-        <StaticImage width={"50vw"} src="https://www.datocms-assets.com/53347/1628108742-rectangle4web.png" alt="animation"/>
+        <StaticImage width={"50vw"} src="https://www.datocms-assets.com/53347/1628108742-rectangle4web.png" alt="image  of the web page 'Space Chasers' with light cyan blues and purlpes as the primary colors and shpes. Clicking here directs you to the Graphic design page."/>
       </Link>
   </StyledDiv>
   )
