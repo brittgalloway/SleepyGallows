@@ -1,9 +1,18 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import styled from "styled-components"
+import Layout from "../components/layout"
+import '../styles/global.css'
+
+const StyledDiv = styled.div`
+
+`
 
 const AnimationPage = () => {
     return (
-      <div className="container">
+      <StyledDiv>
+          <Layout />
+          <main>
           <h1>Animation</h1>
           <Link to="/originals">
             Originals
@@ -14,7 +23,8 @@ const AnimationPage = () => {
           <Link to="/fun">
             For Fun
           </Link>
-      </div>
+       </main>
+       </StyledDiv>
     )
   }
   
