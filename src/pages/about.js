@@ -7,9 +7,6 @@ import Layout from "../components/layout"
 import '../styles/global.css'
 
 const StyledDiv = styled.div`
-  color: var(--text-color);
-  font-family: var(--textFont);
-  font-size: 1.25rem;
   img{
    justify:center;
   }
