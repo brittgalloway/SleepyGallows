@@ -7,9 +7,13 @@ import Layout from "../components/layout"
 import '../styles/global.css'
 
 const StyledDiv = styled.div`
-color: var(--text-color);
-font-family: var(--textFont);
-font-size: 1.25rem;
+
+section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: masonry;
+  grid-gap:1rem;
+}
 
 `
 

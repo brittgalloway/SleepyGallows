@@ -11,8 +11,8 @@
 :root {
   --brandFont: "Cinzel Decorative", cursive;
   --linkFont: "futura-pt", sans-serif;
-  --textFont: "Lato",sans-serif;
-  --brand-color: #4A287C;
+  --textFont: "Lato", sans-serif;
+  --brand-color: #4a287c;
   --pink-highlight: #fc79b4;
   --text-color: #363636;
   --seagreen-highlight: #3bcacb;
@@ -68,7 +68,7 @@ nav.siteMenu li:hover {
 nav.siteMenu li:hover a {
   text-decoration: none;
   color: white;
-  padding: .6em 10em .6em 0;
+  padding: 0.6em 10em 0.6em 0;
 }
 
 nav.siteMenu li a {

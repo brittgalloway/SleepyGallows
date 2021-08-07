@@ -8,7 +8,13 @@ import Layout from "../components/layout"
 import '../styles/global.css'
 
 const StyledDiv = styled.div`
-
+section {
+  column-count: 3;
+  column-gap: .1rem;
+}
+img{
+  margin: 1rem;
+}
 `
 const SketchPage = ({ data }) => (
   <StyledDiv>
@@ -19,7 +25,6 @@ const SketchPage = ({ data }) => (
         {data.allDatoCmsSketchImg.edges.map(({node})=> (
           <div>
           <GatsbyImage image={node.sketchImg.gatsbyImageData} alt={node.sketchImg.alt}/>
-          <p>{node.sketchImg.title}</p> 
           </div>
         ))}
       </section>

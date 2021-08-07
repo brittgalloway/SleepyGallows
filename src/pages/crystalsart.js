@@ -8,7 +8,13 @@ import Layout from "../components/layout"
 import '../styles/global.css'
 
 const StyledDiv = styled.div`
-
+section {
+  column-count: 3;
+  column-gap: .1rem;
+}
+img{
+  margin: 1rem;
+}
 `
 
 const IllustrationPage = ({ data }) => (
@@ -20,7 +26,6 @@ const IllustrationPage = ({ data }) => (
         {data.allDatoCmsIllustraion.edges.map(({node})=> (
           <div>
           <GatsbyImage image={node.art.gatsbyImageData} alt={node.art.alt}/>
-          <p>{node.art.title}</p> 
           </div>
         ))}
       </section>
