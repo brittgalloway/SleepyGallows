@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+// import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import '../styles/global.css'
 
@@ -80,20 +80,20 @@ const IndexPage = () => {
   <StyledDiv>
       <Link to="/animation" id="animation">
         <p>Animation</p>
-        <StaticImage style={"width:50vw"} src="https://www.datocms-assets.com/53347/1628108199-rectangle1animation.png" alt="Image of Harmony, Love, and Tranquility from PLH jumping over an earth attch from Damhan. Clicking here directs you to the animation page."/>
+        <img  src="https://www.datocms-assets.com/53347/1628108199-rectangle1animation.png" alt="Image of Harmony, Love, and Tranquility from PLH jumping over an earth attch from Damhan. Clicking here directs you to the animation page."/>
       </Link>
       
       <Link to="/comics" id="comics">
         <p>comics</p>
-        <StaticImage style={"width:50vw"}src="https://www.datocms-assets.com/53347/1628108650-rectangle3comics.png" alt="Close up on the surprised faces of Anacoana, Necahual, and Quetzalli's face's (characters from the Comic Necahual) Clicking here directs you to the Comics page."/>
+        <img src="https://www.datocms-assets.com/53347/1628108650-rectangle3comics.png" alt="Close up on the surprised faces of Anacoana, Necahual, and Quetzalli's face's (characters from the Comic Necahual) Clicking here directs you to the Comics page."/>
       </Link>
       <Link to="/art" id="art">
         <p>art</p>
-        <StaticImage style={"width:50vw"} src="https://www.datocms-assets.com/53347/1628108278-rectangle2art.png" alt="Drawing of man floating in space with a ouroboros dragon behind him. Clicking here directs you to the art page."/>
+        <img  src="https://www.datocms-assets.com/53347/1628108278-rectangle2art.png" alt="Drawing of man floating in space with a ouroboros dragon behind him. Clicking here directs you to the art page."/>
       </Link>
       <Link to="/design" id="design">
         <p>design</p>
-        <StaticImage style={"width:50vw"} src="https://www.datocms-assets.com/53347/1628108742-rectangle4web.png" alt="image  of the web page 'Space Chasers' with light cyan blues and purlpes as the primary colors and shpes. Clicking here directs you to the Graphic design page."/>
+        <img  src="https://www.datocms-assets.com/53347/1628108742-rectangle4web.png" alt="image  of the web page 'Space Chasers' with light cyan blues and purlpes as the primary colors and shpes. Clicking here directs you to the Graphic design page."/>
       </Link>
   </StyledDiv>
   )

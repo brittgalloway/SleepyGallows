@@ -34,8 +34,6 @@ body {
 main {
   margin-left: 20rem;
   padding: 2rem;
-  // display: flex;
-  // flex-direction: column;
 }
 
 ul {
@@ -48,13 +46,17 @@ a {
   font-family: var(--linkFont);
   text-decoration: none;
   font-weight: bold;
+  &:hover {
+    color: var(--pink-highlight);
+    text-decoration: underline;
+  }
 }
 
 nav.siteMenu {
   position: fixed;
   height: 100vh;
   width: 20rem;
-  // z-index:1;
+  text-align: justify;
   background: linear-gradient(
     180deg,
     var(--blue-highlight),
@@ -77,6 +79,16 @@ nav.siteMenu {
       font-size: 1.75rem;
       font-weight: normal;
     }
+  }
+}
+
+main nav ul {
+  text-align: center;
+  display: block;
+  margin-bottom: 4rem;
+  li {
+    display: inline;
+    padding: 2rem;
   }
 }
 

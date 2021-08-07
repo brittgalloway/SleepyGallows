@@ -15,6 +15,11 @@ const StyledDiv = styled.div`
 img{
   margin: .5rem;
 }
+h1, h2{
+  font-family: var(--brandFont);
+  font-size: 2rem;
+  text-align: center;
+}
 `
 
 //   export default CrystalPage

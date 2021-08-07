@@ -7,7 +7,25 @@ import Layout from "../components/layout"
 import '../styles/global.css'
 
 const StyledDiv = styled.div`
-
+section {
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: masonry;
+  grid-gap:1rem;
+}
+div{
+  justify-self: center;
+}
+h1{
+  font-family: var(--brandFont);
+    font-size: 2rem;
+    text-align: center;
+}
+h2, p{
+  font-size: .875rem;
+  padding:none;
+}
 `
 
 const FunPage = ({ data }) => (
@@ -19,12 +37,10 @@ const FunPage = ({ data }) => (
     <section>
       {data.allDatoCmsForFun.edges.map(({node})=> (
         <div>
-          <iframe width="640" height="360" src={node.link}  frameborder="0" allowfullscreen></iframe>
-          <p>{node.title}</p> 
+          <iframe width="300" src={node.link}  frameborder="0" allowfullscreen></iframe>
+          <h2>{node.title}</h2> 
           <p>{node.year}</p> 
-          <p>{node.summary}</p> 
-
-
+          {/* <p>{node.summary}</p>  */}
         </div>
       ))}
     </section>
