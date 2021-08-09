@@ -12,7 +12,7 @@ text-align: center;
 section {
   padding-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: masonry;
   grid-gap:1rem;
 }

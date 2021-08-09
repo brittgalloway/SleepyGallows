@@ -13,17 +13,43 @@ h1{
 }
 
 .links, .image{
-  width: 24rem;
   border: solid 2px var(--seagreen-highlight);
+  margin: 1rem;
 }
 section{
-  display: inline-block;
+  display: flex;
+  flex:direction: row;
+  justify-content: center;
+  h2{
+    text-decoration: solid underline var(--seagreen-highlight);
+    text-underline-offset: 1.5em;
+  }
+  .image{
+    max-width: 550px;
+    
+  }
+  .links{
+    align-self: center;
+    width:20rem;
+    height: fit-content;
+    ul{
+      
+      padding:3em;
+      font-size: 1.5rem;
+    }
+  }
 }
 .products{
   margin: 2rem;
   width: 100%;
   [data-gatsby-image-wrapper]{
     margin:1rem 3rem;
+  }
+  @media (max-width: 1300px){
+    margin: 1rem;
+    [data-gatsby-image-wrapper]{
+      margin:1rem 1rem;
+    }
   }
 }
 `
