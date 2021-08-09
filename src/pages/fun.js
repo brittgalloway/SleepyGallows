@@ -11,19 +11,23 @@ section {
   padding-top: 2rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: masonry;
+  grid-template-rows: auto;
   grid-gap:1rem;
+  justify-items:center;
 }
 div{
-  justify-self: center;
+  width:300px;
 }
 h1{
   font-family: var(--brandFont);
     font-size: 2rem;
     text-align: center;
 }
-h2, p{
-  font-size: .875rem;
+summary{
+  font-weight:bold;
+}
+summary, p{
+  font-size: 1rem;
   padding:none;
 }
 `
@@ -38,9 +42,13 @@ const FunPage = ({ data }) => (
       {data.allDatoCmsForFun.edges.map(({node})=> (
         <div>
           <iframe width="300" src={node.link}  frameborder="0" allowfullscreen></iframe>
-          <h2>{node.title}</h2> 
-          <p>{node.year}</p> 
-          {/* <p>{node.summary}</p>  */}
+          <details>
+            <summary>
+             {node.title}
+            </summary>
+            <p>{node.year}</p> 
+            <p>{node.summary}</p> 
+          </details>
         </div>
       ))}
     </section>
