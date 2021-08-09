@@ -14,6 +14,10 @@ section {
 }
 img{
   margin: 1rem;
+  &:hover{
+    transform: scale(1.05);
+    transition: all .2s ease-in-out;
+  }
 }
 `
 const SketchPage = ({ data }) => (
@@ -23,10 +27,18 @@ const SketchPage = ({ data }) => (
       <BrittneyNav/>
       <section>
         {data.allDatoCmsSketchImg.edges.map(({node})=> (
+          <>
           <div>
-          <GatsbyImage image={node.sketchImg.gatsbyImageData} alt={node.sketchImg.alt}/>
+          <GatsbyImage id={node.originalId} image={node.sketchImg.gatsbyImageData} alt={node.sketchImg.alt}/>
           </div>
+          	<div>
+            <h3>{node.sketchImg.title}</h3>
+            
+          </div>
+
+          </>
         ))}
+        
       </section>
     </main>
     <BrittFooter/>
@@ -40,6 +52,7 @@ query SketchQuery {
   allDatoCmsSketchImg {
     edges {
       node {
+        originalId
         sketchImg {
           gatsbyImageData(placeholder: BLURRED)
           title
