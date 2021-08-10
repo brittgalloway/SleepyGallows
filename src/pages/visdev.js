@@ -13,8 +13,11 @@ const StyledDiv = styled.div`
   column-gap: .1rem;
 }
 img{
-  margin: .5rem;
-}
+  margin: 1rem;
+  &:hover{
+    transform: scale(1.05);
+    transition: all .2s ease-in-out;
+  }
 h1, h2{
   font-family: var(--brandFont);
   font-size: 2rem;

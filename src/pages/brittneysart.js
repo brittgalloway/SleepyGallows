@@ -31,10 +31,18 @@ const SketchPage = ({ data }) => (
           <div>
           <GatsbyImage id={node.originalId} image={node.sketchImg.gatsbyImageData} alt={node.sketchImg.alt}/>
           </div>
-          <div>
-            <h3>{node.sketchImg.title}</h3>
-          </div>
+          <div id="myModal" class="modal">
 
+            <span class="close">&times;</span>
+            <img class="modal-content" id={node.originalId}/>
+            <div id="caption">
+              <a href="https://www.gatsbyjs.com/blog/2018-11-03-building-an-accessible-lightbox/">Build a Lightbox</a>
+              <h3>
+                {node.sketchImg.title}
+              </h3>
+            </div>
+        
+          </div>
           </>
         ))}
         
@@ -51,11 +59,11 @@ query SketchQuery {
   allDatoCmsSketchImg {
     edges {
       node {
-        originalId
         sketchImg {
           gatsbyImageData(placeholder: BLURRED)
           title
           alt
+          originalId
         }
       }
     }

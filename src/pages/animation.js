@@ -14,7 +14,7 @@ const AnimationPage = () => {
           <Layout />
           <main>
           <h1>Animation</h1>
-          <Link to="/originals">
+          <Link to="/plh">
             Originals
           </Link>
           <Link to="/client">
