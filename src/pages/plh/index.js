@@ -7,15 +7,15 @@ import Layout from '../../components/layout'
 
 const StyledDiv = styled.div`
 section {
-  padding-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  grid-gap:1rem;
-  justify-items:center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:center;
 }
 div{
-  width:300px;
+  max-width:600px;
+  height:auto;
+  margin:1rem;
 }
 h1{
   font-family: var(--brandFont);
@@ -33,11 +33,11 @@ const PlhPage = ({ data }) => (
     <main>
     <AnimationNav/>
     <OriginalsNav/>
-    <h1>Watch {data.datoCmsOriginal.name}</h1>
+    <h1>{data.datoCmsOriginal.name}</h1>
     <section>
       {data.datoCmsOriginal.watch.map((video)=> (
         <div>
-          <iframe width="300" src={video.link}  frameborder="0" allowfullscreen></iframe>
+          <iframe width={376} height={212} src={video.link}  frameBorder="0" allowFullScreen></iframe>
             <h2>
               {video.title}
               </h2> 
@@ -59,8 +59,6 @@ export const query = graphql`
 query PlhQuery {
   datoCmsOriginal {
     name
-    link
-    summary
     watch {
       link
       title

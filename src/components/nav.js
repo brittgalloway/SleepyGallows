@@ -11,7 +11,7 @@ export default function MainNavigation() {
                 <li>
                     <Link to="/about">
                         SG
-                        <StaticImage src="" alt="logo, click here to learn about the Sleepy Gallows."/>
+                        {/* <StaticImage src="" alt="logo, click here to learn about the Sleepy Gallows."/> */}
                     </Link>
                 </li>
                 <li>

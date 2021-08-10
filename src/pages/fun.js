@@ -16,7 +16,7 @@ section {
   justify-items:center;
 }
 div{
-  width:300px;
+  width:376px;
 }
 h1{
   font-family: var(--brandFont);
@@ -41,7 +41,7 @@ const FunPage = ({ data }) => (
     <section>
       {data.allDatoCmsForFun.edges.map(({node})=> (
         <div>
-          <iframe width="300" src={node.link}  frameborder="0" allowfullscreen></iframe>
+          <iframe width={376} height={212}src={node.link}  frameborder="0" allowfullscreen></iframe>
           <details>
             <summary>
              {node.title}
@@ -65,9 +65,9 @@ query FunQuery {
     edges {
       node {
         link
-        summary
         title
         year
+        summary
       }
     }
   }

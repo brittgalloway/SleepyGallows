@@ -14,11 +14,11 @@ section {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   grid-gap:1rem;
-  justify-items:center;
   
 }
 div{
-  width: 300px;
+  justify-self:center;
+  width:376px;
 }
 h1{
   font-family: var(--brandFont);
@@ -50,7 +50,7 @@ const ClientPage = ({ data }) => (
     <section>
       {data.allDatoCmsClientWork.edges.map(({node})=> (
         <div>
-          <iframe width="300"  src={node.link}  frameborder="0" allowfullscreen></iframe>
+          <iframe src={node.link} width={376} height={212} frameBorder="0" allowFullScreen></iframe>
           <details>
             <summary>
              {node.title}

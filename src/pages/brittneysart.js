@@ -31,9 +31,8 @@ const SketchPage = ({ data }) => (
           <div>
           <GatsbyImage id={node.originalId} image={node.sketchImg.gatsbyImageData} alt={node.sketchImg.alt}/>
           </div>
-          	<div>
+          <div>
             <h3>{node.sketchImg.title}</h3>
-            
           </div>
 
           </>
