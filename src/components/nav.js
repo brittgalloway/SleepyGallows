@@ -98,11 +98,11 @@ export function OriginalsNav() {
            </li>
        
            <li>
-               <Link to="/aboutplh">About</Link>
+               <Link to="/plh/about">About</Link>
            </li>
       
            <li>
-               <Link to="/plhart">Art</Link>
+               <Link to="/plh/art">Art</Link>
            </li>
        </ul>
    
