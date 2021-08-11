@@ -5,20 +5,28 @@ import {BrittneyNav} from '../components/nav'
 import {BrittFooter} from '../components/footer'
 import styled from "styled-components"
 import Layout from "../components/layout"
+import ImageList from '@material-ui/core/ImageList';
+import ImageListItem from '@material-ui/core/ImageListItem';
 import '../styles/global.css'
 
 const StyledDiv = styled.div`
 section {
-  column-count: 3;
-  column-gap: .1rem;
+  display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+   
 }
 img{
-  margin: 1rem;
+  // margin: 1rem;
   &:hover{
     transform: scale(1.05);
     transition: all .2s ease-in-out;
   }
 }
+imageList: {
+  width: 500,
+  
+},
 `
 const SketchPage = ({ data }) => (
   <StyledDiv>
@@ -26,26 +34,13 @@ const SketchPage = ({ data }) => (
     <main>
       <BrittneyNav/>
       <section>
+      <ImageList rowHeight={1}  cols={3}>
         {data.allDatoCmsSketchImg.edges.map(({node})=> (
-          <>
-          <div>
-          <GatsbyImage id={node.originalId} image={node.sketchImg.gatsbyImageData} alt={node.sketchImg.alt}/>
-          </div>
-          <div id="myModal" class="modal">
-
-            <span className="close">&times;</span>
-            <img alt="" className="modal-content" id={node.originalId}/>
-            <div id="caption">
-              <a href="https://www.gatsbyjs.com/blog/2018-11-03-building-an-accessible-lightbox/">Build a Lightbox</a>
-              <h3>
-                {node.sketchImg.title}
-              </h3>
-            </div>
-        
-          </div>
-          </>
+          <ImageListItem key={node.sketchImg.gatsbyImageData} cols={node.cols || 1}>
+            <GatsbyImage id={node.originalId} image={node.sketchImg.gatsbyImageData} alt={node.sketchImg.alt}/>
+          </ImageListItem>
         ))}
-        
+        </ImageList>
       </section>
     </main>
     <BrittFooter/>

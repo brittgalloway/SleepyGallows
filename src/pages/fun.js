@@ -8,15 +8,15 @@ import '../styles/global.css'
 
 const StyledDiv = styled.div`
 section {
-  padding-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  grid-gap:1rem;
-  justify-items:center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:center;
 }
 div{
-  width:376px;
+  width:375px;
+  height:auto;
+  margin:1rem;
 }
 h1{
   font-family: var(--brandFont);
