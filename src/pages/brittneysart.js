@@ -33,8 +33,8 @@ const SketchPage = ({ data }) => (
           </div>
           <div id="myModal" class="modal">
 
-            <span class="close">&times;</span>
-            <img class="modal-content" id={node.originalId}/>
+            <span className="close">&times;</span>
+            <img alt="" className="modal-content" id={node.originalId}/>
             <div id="caption">
               <a href="https://www.gatsbyjs.com/blog/2018-11-03-building-an-accessible-lightbox/">Build a Lightbox</a>
               <h3>

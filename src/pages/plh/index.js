@@ -37,7 +37,7 @@ const PlhPage = ({ data }) => (
     <section>
       {data.datoCmsOriginal.watch.map((video)=> (
         <div>
-          <iframe width={376} height={212} src={video.link}  frameBorder="0" allowFullScreen></iframe>
+          <iframe width={376} height={212} src={video.link} title={"Watch "+ video.title} frameBorder="0" allowFullScreen></iframe>
             <h2>
               {video.title}
               </h2> 
