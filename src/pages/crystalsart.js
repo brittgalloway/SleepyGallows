@@ -6,6 +6,7 @@ import {CrystalFooter} from '../components/footer'
 import styled from "styled-components"
 import Layout from "../components/layout"
 import '../styles/global.css'
+import ImgsViewer from "react-images-viewer";
 
 const StyledDiv = styled.div`
 section {
@@ -32,6 +33,7 @@ const IllustrationPage = ({ data }) => (
           </div>
         ))}
       </section>
+      
     </main>
     <CrystalFooter/>
   </StyledDiv>

@@ -11,13 +11,12 @@ import '../styles/global.css'
 
 const StyledDiv = styled.div`
 section {
-  display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
+  column-count: 3;
+  column-gap: .1rem;
    
 }
 img{
-  // margin: 1rem;
+  margin: 1rem;
   &:hover{
     transform: scale(1.05);
     transition: all .2s ease-in-out;
@@ -34,13 +33,11 @@ const SketchPage = ({ data }) => (
     <main>
       <BrittneyNav/>
       <section>
-      <ImageList rowHeight={1}  cols={3}>
+     
         {data.allDatoCmsSketchImg.edges.map(({node})=> (
-          <ImageListItem key={node.sketchImg.gatsbyImageData} cols={node.cols || 1}>
-            <GatsbyImage id={node.originalId} image={node.sketchImg.gatsbyImageData} alt={node.sketchImg.alt}/>
-          </ImageListItem>
+            <GatsbyImage image={node.sketchImg.gatsbyImageData} alt={node.sketchImg.alt}/>
         ))}
-        </ImageList>
+
       </section>
     </main>
     <BrittFooter/>
