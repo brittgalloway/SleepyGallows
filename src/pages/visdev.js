@@ -64,7 +64,7 @@ const VisDevPage = ({ data }) => (
 
 export const query = graphql`
 query VisDevQuery {
-    allDatoCmsVisdev {
+    allDatoCmsVisdev(sort: {fields: plhVisdev___createdAt}) {
       edges {
         node {
           plhVisdev {
@@ -75,7 +75,7 @@ query VisDevQuery {
         }
       }
     }
-    allDatoCmsMermaidVisdev {
+    allDatoCmsMermaidVisdev(sort: {fields: visArt___createdAt}) {
       edges {
         node {
           visArt {

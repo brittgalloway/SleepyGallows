@@ -19,29 +19,34 @@ main > a{
   justify-content: center;
   width:50%;
   height: 100%;
+  background-color: var(--purple-highlight); 
   p{
     font-family: var(--brandFont);
     font-size: 2.5em;
     color: white;
-    text-shadow: 3px 3px 0px var(--brand-color);
+    text-shadow: 3px 3px 10px var(--brand-color);
     text-align: center;
     align-self: center;
-
+    z-index:1;
+    position: absolute;
   }
-  &:hover{
-    text-decoration:none;
-    // animation: blurry 2s;
+  img{
+   object-fit: cover;
+   width:100%;
+  }
+  img[src*="brittney"]{
+     object-position: top;
+  }
+&:hover{
+  text-decoration:none;
+  img{
+    animation: blurry 2s;
+    }
   }
 }
 @keyframes blurry{
   0% { -webkit-filter: blur(0px);}
   50% { -webkit-filter: blur(5px);}
-}
-a[href*="crystal"]{
-  background-color: var(--pink-highlight); 
-}
-a[href*="brittney"]{
-  background-color: var(--seagreen-highlight); 
 }
 `
 
@@ -50,8 +55,14 @@ const ArtPage = () => {
       <StyledDiv>
           <Layout />
           <main>
-          <Link to="/crystalsart"><p>Crystal</p></Link>
-          <Link to="/brittneysart"><p>brittney</p></Link>
+          <Link to="/crystalsart">
+            <p>Crystal</p>
+            <img src="https://www.datocms-assets.com/53347/1629472253-crystalsart.svg" alt="Link to Crystal's art. Drawing of Baby Harmony and His Parents" />
+          </Link>
+          <Link to="/brittneysart">
+            <p>Brittney</p>
+            <img src="https://www.datocms-assets.com/53347/1629472435-brittneysart.svg" alt="Link to Brittney's art. Drawing of a woman in a blue patterned dress and a headwrap"/>
+          </Link>
           </main>
       </StyledDiv>
     )

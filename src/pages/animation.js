@@ -13,26 +13,39 @@ main{
   padding:0;
 }
 main > a{ 
-  display:block;
+  display:flex;
   height: 33.33vh;
-  font-family: var(--brandFont);
-  text-align: center;
-  font-size: 2.5em;
-  color: white;
-  text-shadow: 3px 3px 0px var(--brand-color);
-  padding-top: 10vh;
+  justify-content: center;
+  p{
+    font-family: var(--brandFont);
+    font-size: 2em;
+    color: white;
+    text-shadow: 3px 3px 10px var(--text-color);
+    align-self: center;
+    z-index:1;
+    position: absolute;
+  }
+  img{
+   object-fit: cover;
+   object-position: top;
+   width:100%;
+  }
+  img[src*="original"]{
+    object-position: 0 -100px;
+ }
   &:hover{
     text-decoration:none;
-    // animation: blurry 2s;
-  }
+    img{
+      animation: blurry 2s;
+      overflow: hidden;
+      }
+    }
 }
 @keyframes blurry{
   0% { -webkit-filter: blur(0px);}
   50% { -webkit-filter: blur(5px);}
 }
-a[href*="plh"]{
-  background-color: var(--purple-highlight); 
-}
+
 a[href*="client"]{
   background-color: var(--seagreen-highlight); 
 }
@@ -47,13 +60,16 @@ const AnimationPage = () => {
           <Layout />
           <main>
           <Link to="/plh">
-            Originals
+           <p>Originals</p>
+            <img src="https://www.datocms-assets.com/53347/1629471501-originals.jpg" alt="Link to Original animations page. Nirvana sitting on the branch" />
           </Link>
           <Link to="/client">
-            Client Work
+            <p>Client Work</p>
+            <img src="https://www.datocms-assets.com/53347/1629471975-cleintwork.jpg" alt="Link to Client animation page. Still from Double Mind music video" />
           </Link>
           <Link to="/fun">
-            For Fun
+            <p>For Fun</p>
+            <img src="https://www.datocms-assets.com/53347/1629484062-forfun.jpg" alt="Link to page of short fun animations. This is a drawing of Yuna inspired by her Chapters album visuals" />
           </Link>
        </main>
        </StyledDiv>

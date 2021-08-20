@@ -10,21 +10,26 @@ const StyledDiv = styled.div`
 
 `
 
-const DesignPage = () => {
+const DesignPage = ({data}) => {
     return (
       <StyledDiv>
           <Layout />
           <main>
-            <h1>Graphic Design</h1>
-            {/* loop here */}
-            {/* image */}
-            <details>
-              <summary>
-                Title
-              </summary>
-              <p>some info and maybe a link</p>
-            </details>
-            {/* end loop */}
+            <h1>Graphic & Web Design</h1>
+            <section>
+              {data.allDatoCmsGDesign.edges.map(({node})=> (
+                <div>
+                  <details>
+                    <summary>
+                      {node.name}
+                    </summary>
+                    <p>{node.details}</p>
+                    <p><a href={node.projectLink}>Find it here.</a></p>
+                  </details>
+                </div>
+              ))}
+            </section>
+        
             <SGFooter/>
           </main>
       </StyledDiv>
@@ -32,3 +37,24 @@ const DesignPage = () => {
   }
   
   export default DesignPage
+
+  export const query = graphql`
+  query DesignQuery {
+    allDatoCmsGDesign {
+      edges {
+        node {
+          details
+          projectLink
+          name
+          logo{
+            image2 {
+              gatsbyImageData
+              alt
+              title
+            }
+          }
+        }
+      }
+    }
+  }
+`
