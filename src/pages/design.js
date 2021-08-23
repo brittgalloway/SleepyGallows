@@ -7,11 +7,13 @@ import Layout from "../components/layout"
 import '../styles/global.css'
 
 const StyledDiv = styled.div`
+
+
 section {
   display:flex;
   flex-direction: row-reverse;
   flex-wrap: wrap-reverse;
-  justify-content: center;
+  width: 70%;
 }
 .card{
   margin: 1rem;
@@ -40,6 +42,7 @@ const DesignPage = ({data}) => {
                   </details>
                 </div>
               ))}
+
             </section>
         
             <SGFooter/>
