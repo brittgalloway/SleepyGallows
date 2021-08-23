@@ -7,10 +7,21 @@ import Layout from "../components/layout"
 import '../styles/global.css'
 
 const StyledDiv = styled.div`
-
+section {
+  display:flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+}
+.card{
+  margin: 1rem;
+  width: 20rem; 
+  height: 520px;
+}
 `
 
 const DesignPage = ({data}) => {
+  
     return (
       <StyledDiv>
           <Layout />
@@ -18,7 +29,8 @@ const DesignPage = ({data}) => {
             <h1>Graphic & Web Design</h1>
             <section>
               {data.allDatoCmsGDesign.edges.map(({node})=> (
-                <div>
+                <div className="card">
+                  <GatsbyImage image={node.logo.gatsbyImageData} alt={node.logo.alt}/>
                   <details>
                     <summary>
                       {node.name}
@@ -43,15 +55,33 @@ const DesignPage = ({data}) => {
     allDatoCmsGDesign {
       edges {
         node {
-          details
-          projectLink
           name
-          logo{
-            image2 {
-              gatsbyImageData
-              alt
-              title
-            }
+          projectLink
+          details
+          logo {
+            gatsbyImageData
+            title
+            alt
+          }
+          image2 {
+            gatsbyImageData
+            alt
+            title
+          }
+          image3 {
+            gatsbyImageData
+            alt
+            title
+          }
+          image4 {
+            gatsbyImageData
+            alt
+            title
+          }
+          image5 {
+            gatsbyImageData
+            alt
+            title
           }
         }
       }
