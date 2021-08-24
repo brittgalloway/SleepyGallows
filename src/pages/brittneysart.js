@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import {BrittneyNav} from '../components/nav'
 import {BrittFooter} from '../components/footer'
-import Lightbox  from 'react-lightbox-pack'
+import {Lightbox}  from 'react-lightbox-pack'
 import styled from 'styled-components'
 import Layout from '../components/layout'
 import "react-lightbox-pack/dist/index.css"
@@ -23,18 +23,19 @@ img{
   }
 }
 `
+//https://simple-react-lightbox.dev/documentation
 // https://reactjsexample.com/a-minimal-lightbox-package-for-react/
 // https://codesandbox.io/s/5vn3lvz2n4?file=/package.json:3-52
 const SketchPage = ({ data }) => {
-  // // State
-	// const [toggle, setToggle] =  React.useState(false);
-	// const [sIndex, setSIndex] =  React.useState(0);
+  // State
+	const [toggle, setToggle] =  React.useState(false);
+	const [sIndex, setSIndex] =  React.useState(0);
 
-	// // Handler
-	// const  lightBoxHandler  = (state, sIndex) => {
-	// 	setToggle(state);
-	// 	setSIndex(sIndex);
-	// };
+	// Handler
+	const  lightBoxHandler  = (state, sIndex) => {
+		setToggle(state);
+		setSIndex(sIndex);
+	};
   return(
 
   <StyledDiv>
@@ -48,13 +49,13 @@ const SketchPage = ({ data }) => {
             image={node.sketchImg.gatsbyImageData} 
             alt={node.sketchImg.alt}
             key= {node.sketchImg.originalId}
-            // onClick={() => {
-            //   lightBoxHandler(true, index);
-            //   }}
+            onClick={() => {
+              lightBoxHandler(true, index);
+              }}
              
             />
         ))}
-			{/* <LightBox
+			<LightBox
 				state={toggle}
         event={lightBoxHandler}
         data={data}
@@ -64,7 +65,7 @@ const SketchPage = ({ data }) => {
         thumbnailWidth={50}
         setImageIndex={setSIndex}
         imageIndex={sIndex}
-			/> */}
+			/>
       </section>
     </main>
     <BrittFooter/>

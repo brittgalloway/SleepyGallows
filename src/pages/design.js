@@ -8,6 +8,11 @@ import '../styles/global.css'
 
 const StyledDiv = styled.div`
 
+div.card:first-child{
+  display: none;
+  visibility:hidden;
+  opacity: 0;
+}
 
 section {
   display:flex;
@@ -15,14 +20,23 @@ section {
   flex-wrap: wrap-reverse;
   width: 70%;
 }
-.card{
+div.card{
   margin: 1rem;
   width: 20rem; 
   height: 520px;
 }
+summary::marker{
+  color: var(--brand-color);
+  transition: .25s transform ease;
+}
+details[open] > summary::marker {
+  transform: rotate(90deg);
+}
 `
 
 const DesignPage = ({data}) => {
+
+  
   
     return (
       <StyledDiv>
