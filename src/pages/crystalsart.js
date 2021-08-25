@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from "gatsby-plugin-image"
+import { SRLWrapper } from "simple-react-lightbox";
 import {CrystalNav} from '../components/nav'
 import {CrystalFooter} from '../components/footer'
 import styled from "styled-components"
 import Layout from "../components/layout"
 import '../styles/global.css'
-import ImgsViewer from "react-images-viewer";
 
 const StyledDiv = styled.div`
 section {
@@ -20,6 +20,41 @@ img{
     transition: all .2s ease-in-out;
   }
 `
+const options = {
+ 
+  settings: {
+    boxShadow: 'none',
+    disableKeyboardControls: false,
+    disablePanzoom: false,
+    disableWheelControls: false,
+    hideControlsAfter: false,
+    lightboxTransitionSpeed: 0.3,
+    lightboxTransitionTimingFunction: 'linear',
+    overlayColor: 'rgba(30, 30, 30, 0.9)',
+    slideAnimationType: 'fade',
+    slideSpringValues: [300, 50],
+    slideTransitionSpeed: 0.6,
+    slideTransitionTimingFunction: 'linear',
+    usingPreact: false
+  },
+  buttons: {
+    backgroundColor: 'rgba(30,30,36,0.8)',
+    iconColor: 'rgba(255, 255, 255, 0.8)',
+    iconPadding: '10px',
+    showAutoplayButton: false,
+    showCloseButton: true,
+    showDownloadButton: false,
+    showFullscreenButton: true,
+    showNextButton: true,
+    showPrevButton: true,
+    showThumbnailsButton: false,
+    size: '40px'
+  },
+  
+  thumbnails: {
+    showThumbnails: false,
+  }
+  };
 
 const IllustrationPage = ({ data }) => (
   <StyledDiv>
@@ -27,11 +62,13 @@ const IllustrationPage = ({ data }) => (
     <main>
       <CrystalNav/>
       <section>
-        {data.allDatoCmsIllustraion.edges.map(({node})=> (
-          <div>
-          <GatsbyImage image={node.art.gatsbyImageData} alt={node.art.alt}/>
-          </div>
-        ))}
+        <SRLWrapper options={options}>
+          {data.allDatoCmsIllustraion.edges.map(({node})=> (
+            <div>
+            <GatsbyImage image={node.art.gatsbyImageData} alt={node.art.alt}/>
+            </div>
+          ))}
+        </SRLWrapper>
       </section>
       
     </main>

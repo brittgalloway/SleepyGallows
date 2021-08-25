@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from "gatsby-plugin-image"
+import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 import {CrystalNav} from '../components/nav'
 import {CrystalFooter} from '../components/footer'
 import styled from "styled-components"
@@ -24,6 +25,41 @@ h1, h2{
   text-align: center;
 }
 `
+const options = {
+ 
+  settings: {
+    boxShadow: 'none',
+    disableKeyboardControls: false,
+    disablePanzoom: false,
+    disableWheelControls: false,
+    hideControlsAfter: false,
+    lightboxTransitionSpeed: 0.3,
+    lightboxTransitionTimingFunction: 'linear',
+    overlayColor: 'rgba(30, 30, 30, 0.9)',
+    slideAnimationType: 'fade',
+    slideSpringValues: [300, 50],
+    slideTransitionSpeed: 0.6,
+    slideTransitionTimingFunction: 'linear',
+    usingPreact: false
+  },
+  buttons: {
+    backgroundColor: 'rgba(30,30,36,0.8)',
+    iconColor: 'rgba(255, 255, 255, 0.8)',
+    iconPadding: '10px',
+    showAutoplayButton: false,
+    showCloseButton: true,
+    showDownloadButton: false,
+    showFullscreenButton: true,
+    showNextButton: true,
+    showPrevButton: true,
+    showThumbnailsButton: false,
+    size: '40px'
+  },
+  
+  thumbnails: {
+    showThumbnails: false,
+  }
+  };
 
 //   export default CrystalPage
 const VisDevPage = ({ data }) => (
@@ -38,21 +74,29 @@ const VisDevPage = ({ data }) => (
         </p>
         <h2>Characters</h2>
         <div className="grid">
-        {data.allDatoCmsMermaidVisdev.edges.map(({node})=> (
-          <div>
-          <GatsbyImage image={node.visArt.gatsbyImageData} alt={node.visArt.alt}/>
-          </div>
-        ))}
+          <SimpleReactLightbox>
+            <SRLWrapper options={options}>
+              {data.allDatoCmsMermaidVisdev.edges.map(({node})=> (
+                <div>
+                  <GatsbyImage image={node.visArt.gatsbyImageData} alt={node.visArt.alt}/>
+                </div>
+              ))}
+            </SRLWrapper>
+          </SimpleReactLightbox>
         </div>
       </section>
       <section>
         <h2>Visual Design</h2>
         <div className="grid">
-        {data.allDatoCmsVisdev.edges.map(({node})=> (
-          <div>
-          <GatsbyImage image={node.plhVisdev.gatsbyImageData} alt={node.plhVisdev.alt}/>
-          </div>
-        ))}
+          <SimpleReactLightbox>
+              <SRLWrapper options={options}>
+              {data.allDatoCmsVisdev.edges.map(({node})=> (
+                <div>
+                  <GatsbyImage image={node.plhVisdev.gatsbyImageData} alt={node.plhVisdev.alt}/>
+                </div>
+              ))}
+            </SRLWrapper>
+          </SimpleReactLightbox>
         </div>
       </section>
     </main>

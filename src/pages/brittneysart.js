@@ -3,10 +3,9 @@ import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import {BrittneyNav} from '../components/nav'
 import {BrittFooter} from '../components/footer'
-import {Lightbox}  from 'react-lightbox-pack'
+import { SRLWrapper } from "simple-react-lightbox";
 import styled from 'styled-components'
 import Layout from '../components/layout'
-import "react-lightbox-pack/dist/index.css"
 import '../styles/global.css'
 
 const StyledDiv = styled.div`
@@ -23,54 +22,65 @@ img{
   }
 }
 `
-//https://simple-react-lightbox.dev/documentation
-// https://reactjsexample.com/a-minimal-lightbox-package-for-react/
-// https://codesandbox.io/s/5vn3lvz2n4?file=/package.json:3-52
-const SketchPage = ({ data }) => {
-  // State
-	const [toggle, setToggle] =  React.useState(false);
-	const [sIndex, setSIndex] =  React.useState(0);
 
-	// Handler
-	const  lightBoxHandler  = (state, sIndex) => {
-		setToggle(state);
-		setSIndex(sIndex);
-	};
-  return(
+const options = {
+ 
+settings: {
+  boxShadow: 'none',
+  disableKeyboardControls: false,
+  disablePanzoom: false,
+  disableWheelControls: false,
+  hideControlsAfter: false,
+  lightboxTransitionSpeed: 0.3,
+  lightboxTransitionTimingFunction: 'linear',
+  overlayColor: 'rgba(30, 30, 30, 0.9)',
+  slideAnimationType: 'fade',
+  slideSpringValues: [300, 50],
+  slideTransitionSpeed: 0.6,
+  slideTransitionTimingFunction: 'linear',
+  usingPreact: false
+},
+buttons: {
+  backgroundColor: 'rgba(30,30,36,0.8)',
+  iconColor: 'rgba(255, 255, 255, 0.8)',
+  iconPadding: '10px',
+  showAutoplayButton: false,
+  showCloseButton: true,
+  showDownloadButton: false,
+  showFullscreenButton: true,
+  showNextButton: true,
+  showPrevButton: true,
+  showThumbnailsButton: false,
+  size: '40px'
+},
+
+thumbnails: {
+  showThumbnails: false,
+}
+};
+const SketchPage = ({ data }) => (
 
   <StyledDiv>
     <Layout />
     <main>
       <BrittneyNav/>
       <section>
-     
-        {data.allDatoCmsSketchImg.edges.map(({node, index})=> (
+        <SRLWrapper options={options}>
+
+          {data.allDatoCmsSketchImg.edges.map(({node})=> (
             <GatsbyImage 
             image={node.sketchImg.gatsbyImageData} 
             alt={node.sketchImg.alt}
             key= {node.sketchImg.originalId}
-            onClick={() => {
-              lightBoxHandler(true, index);
-              }}
-             
             />
-        ))}
-			<LightBox
-				state={toggle}
-        event={lightBoxHandler}
-        data={data}
-        imageWidth="60vw"
-        imageHeight="70vh"
-        thumbnailHeight={50}
-        thumbnailWidth={50}
-        setImageIndex={setSIndex}
-        imageIndex={sIndex}
-			/>
+            ))}
+        </SRLWrapper>
+		
       </section>
     </main>
     <BrittFooter/>
   </StyledDiv>
-)}
+)
   export default SketchPage
 
   export const query = graphql`
