@@ -9,16 +9,21 @@ import Layout from '../components/layout'
 import '../styles/global.css'
 
 const StyledDiv = styled.div`
-section {
-  column-count: 3;
-  column-gap: .1rem;
-   
+section > div{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:center;
 }
 img{
+  width: 20rem;
+  height: 20rem;
   margin: 1rem;
   &:hover{
     transform: scale(1.05);
     transition: all .2s ease-in-out;
+    cursor:pointer;
+    box-shadow: 1px 1px 7px var(--brand-color);
   }
 }
 `
@@ -66,7 +71,6 @@ const SketchPage = ({ data }) => (
       <BrittneyNav/>
       <section>
         <SRLWrapper options={options}>
-
           {data.allDatoCmsSketchImg.edges.map(({node})=> (
             <GatsbyImage 
             image={node.sketchImg.gatsbyImageData} 

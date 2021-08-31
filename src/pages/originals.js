@@ -19,7 +19,9 @@ section {
 div{
   justify-self: center;
   &:hover{
-    border: solid 2px var(--brand-color);
+    transform: scale(1.05);
+    transition: all .2s ease-in-out;
+    box-shadow: 1px 1px 7px var(--brand-color);
   }
 }
 h1{

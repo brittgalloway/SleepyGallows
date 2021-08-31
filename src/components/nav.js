@@ -30,7 +30,7 @@ export default function MainNavigation() {
             
             
                 <li>
-                    <Link to="/design">Design</Link>
+                    <Link to="/webdev">Websites</Link>
                 </li>
             </ul>
         </nav>

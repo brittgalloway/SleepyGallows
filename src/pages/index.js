@@ -68,14 +68,13 @@ img {
       left:20vw;
     }
   }
-  a[href*="design"]{
+  a[href*="webdev"]{
     img{
-
       object-position: top;
     }
     p{
       bottom: 23vh;
-      right:19vw;
+      right:14vw;
     }
   }
 `
@@ -95,9 +94,9 @@ const IndexPage = () => {
         <p>Art</p>
         <img  src="https://www.datocms-assets.com/53347/1628108278-rectangle2art.png" alt="Drawing of man floating in space with a ouroboros dragon behind him. Clicking here directs you to the art page."/>
       </Link>
-      <Link to="/design">
-        <p>Design</p>
-        <img  src="https://www.datocms-assets.com/53347/1628108742-rectangle4web.png" alt="Screenshot of the web page 'Space Chasers' with light cyan blues and purlpes as the primary colors and shpes. Clicking here directs you to the Graphic design page."/>
+      <Link to="/webdev">
+        <p>Websites</p>
+        <img  src="https://www.datocms-assets.com/53347/1628108742-rectangle4web.png" alt="Screenshot of the web page 'Space Chasers' with light cyan blues and purlpes as the primary colors and shpes. Clicking here directs you to the Web Development page."/>
       </Link>
   </StyledDiv>
   )
