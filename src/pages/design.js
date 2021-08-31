@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { GatsbyImage } from "gatsby-plugin-image"
 import {SGFooter} from '../components/footer'
 import styled from "styled-components"
 import Layout from "../components/layout"
@@ -8,30 +7,35 @@ import '../styles/global.css'
 
 const StyledDiv = styled.div`
 
-div.card:first-child{
-  display: none;
-  visibility:hidden;
-  opacity: 0;
-}
-
 section {
   display:flex;
   flex-direction: row-reverse;
   flex-wrap: wrap-reverse;
   width: 70%;
 }
-div.card{
+#tools{
+  display: flex;
+  justify-content: center;
+  span{
+    padding: 1rem;
+  }
+}
+div{
+  border: .5px solid var(--brand-color);
+  border-radius: 15px;
+  box-shadow: var(--text-shadow);
+  width: 70%;
+  padding: 2rem;
   margin: 1rem;
-  width: 20rem; 
-  height: 520px;
+}
+summary{
+  font-weight: bold;
 }
 summary::marker{
   color: var(--brand-color);
   transition: .25s transform ease;
 }
-details[open] > summary::marker {
-  transform: rotate(90deg);
-}
+
 `
 
 const DesignPage = ({data}) => {
@@ -42,25 +46,85 @@ const DesignPage = ({data}) => {
       <StyledDiv>
           <Layout />
           <main>
-            <h1>Graphic & Web Design</h1>
+            <h1>Web Development</h1>
+            <p>Brittney Galloway is also a Frontend Web Developer. Below are a few of her best projects.</p>
             <section>
-              {data.allDatoCmsGDesign.edges.map(({node})=> (
-                <div className="card">
-                  <GatsbyImage image={node.logo.gatsbyImageData} alt={node.logo.alt}/>
+              {data.allDatoCmsWebProject.edges.map(({node})=> (
+                <div>
                   <details>
                     <summary>
-                      {node.name}
+                    {node.projectName}
                     </summary>
-                    <p>{node.details}</p>
-                    <p><a href={node.projectLink}>Find it here.</a></p>
+                    <p>{node.tools}</p> 
+                    <p><a href={node.liveApp}>See it here.</a></p> 
+                    <p><a href={node.github}>Github</a></p> 
+                    <p>{node.description}</p> 
                   </details>
                 </div>
               ))}
-
+              </section>
+              <section>
+              <div id='tools'>
+                <span>
+                  <h2>
+                    Favorite Tools
+                  </h2>
+                  <ul>
+                    <li>
+                      Gatsby
+                    </li>
+                    <li>
+                      Dato CMS
+                    </li>
+                    <li>
+                      Sass
+                    </li>
+                    <li>
+                      HTML5
+                    </li>
+                    <li>
+                      CSS3
+                    </li>
+                    <li>
+                      Flexbox
+                    </li>
+                    <li>
+                      Figma
+                    </li>
+                  </ul>
+                  </span>
+                  <span>
+                  <h2>
+                    Familar Tools
+                  </h2>
+                  <ul>
+                    <li>
+                      Javascript
+                    </li>
+                    <li>
+                      JQuery
+                    </li>
+                    <li>
+                      Bootstrap
+                    </li>
+                    <li>
+                      CSS Grid
+                    </li>
+                    <li>
+                      Handlebars
+                    </li>
+                    <li>
+                      React
+                    </li>
+                    <li>
+                      Firebase
+                    </li>
+                  </ul>
+                </span>
+              </div>
             </section>
-        
-            <SGFooter/>
           </main>
+            <SGFooter/>
       </StyledDiv>
     )
   }
@@ -68,40 +132,18 @@ const DesignPage = ({data}) => {
   export default DesignPage
 
   export const query = graphql`
-  query DesignQuery {
-    allDatoCmsGDesign {
+  query WebQuery {
+    allDatoCmsWebProject(sort: {fields: projectName}) {
       edges {
         node {
-          name
-          projectLink
-          details
-          logo {
-            gatsbyImageData
-            title
-            alt
-          }
-          image2 {
-            gatsbyImageData
-            alt
-            title
-          }
-          image3 {
-            gatsbyImageData
-            alt
-            title
-          }
-          image4 {
-            gatsbyImageData
-            alt
-            title
-          }
-          image5 {
-            gatsbyImageData
-            alt
-            title
-          }
+          projectName
+          liveApp
+          github
+          tools
+          description
         }
       }
     }
   }
+  
 `
