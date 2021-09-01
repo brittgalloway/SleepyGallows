@@ -30,6 +30,10 @@ a{
     z-index: 1;  
     margin: auto ;
   }
+  @media(max-width: 830px){
+    width: 100vw;
+    height: 25vh;
+   }
 }
 
 img {
@@ -41,6 +45,10 @@ img {
     &:hover{
       animation: blurry 2s;
      }
+     @media(max-width: 830px){
+      width: 100vw;
+      height: 25vh;
+     }
   }
   @keyframes blurry{
     0% { -webkit-filter: blur(0px);}
@@ -48,8 +56,15 @@ img {
   }
  
   a[href*="animation"] p{
-      top: 20vh;
-      left:12vw;
+      top: 20%;
+      left:25%;
+      margin-left: -204px;
+      @media(max-width: 830px){
+        left:50%;
+        top:10%;
+        margin-left: -125px;
+        font-size: 2em;
+      }
     }
   }
   a[href*="comics"] {
@@ -58,14 +73,28 @@ img {
       object-position: top;
     }
     p{
-      top: 20vh;
-      right:18vw;
+      top: 20%;
+      right:25%;
+      margin-right:-142px;
+      @media(max-width: 830px){
+        top:35%;
+        right:50%;
+        margin-right:-88px;
+        font-size: 2em;
+      }
     }
   }
   a[href*="art"]{
     p{
-      bottom: 23vh;
-      left:20vw;
+      bottom: 20%;
+      left:25%;
+      margin-left: -68px;
+      @media(max-width: 830px){
+        bottom:35%;
+        left:50%;
+        font-size: 2em;
+        margin-left: -40px;
+      }
     }
   }
   a[href*="webdev"]{
@@ -73,9 +102,15 @@ img {
       object-position: top;
     }
     p{
-      bottom: 23vh;
-      right:14vw;
+      bottom: 20%;
+      right:25%;
+      margin-right: -166px;
+      @media(max-width: 830px){
+        margin-right:-101.5px;
+        font-size: 2em;
+      }
     }
+
   }
 `
 

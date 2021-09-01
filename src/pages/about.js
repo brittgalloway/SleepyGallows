@@ -36,7 +36,11 @@ const StyledDiv = styled.div`
     margin:0 auto;
     display:flex;
     flex-direction: column;
+    @media(max-width: 830px){
+      width:100%;
+    }
   }
+
 `
 
 const AboutPage = () => {

@@ -21,6 +21,11 @@
   --text-shadow: 3px 3px 0px var(--brand-color);
 }
 
+.hidden {
+  position: static;
+  background: none;
+}
+
 body {
   width: 100%;
   padding: 0;
@@ -34,6 +39,12 @@ body {
 main {
   margin-left: 20rem;
   padding: 2rem;
+}
+
+@media (max-width: 830px) {
+  main {
+    margin-left: 0;
+  }
 }
 
 ul {
@@ -54,37 +65,6 @@ a:hover {
   text-decoration: underline;
 }
 
-nav.siteMenu {
-  position: fixed;
-  height: 100vh;
-  width: 20rem;
-  text-align: justify;
-  background: -webkit-gradient(linear, left top, left bottom, from(var(--blue-highlight)), to(rgba(196, 196, 196, 0)));
-  background: linear-gradient(180deg, var(--blue-highlight), rgba(196, 196, 196, 0));
-}
-
-nav.siteMenu li {
-  padding: 1.25rem;
-}
-
-nav.siteMenu li:hover {
-  background-color: var(--purple-highlight);
-}
-
-nav.siteMenu li:hover a {
-  text-decoration: none;
-  color: white;
-  padding: 0.6em 10em 0.6em 0;
-}
-
-nav.siteMenu li a {
-  color: var(--brand-color);
-  font-family: var(--brandFont);
-  text-decoration: none;
-  font-size: 1.75rem;
-  font-weight: normal;
-}
-
 main nav ul {
   text-align: center;
   display: block;
@@ -99,5 +79,11 @@ main nav ul li {
 footer {
   margin-left: 20rem;
   text-align: center;
+}
+
+@media (max-width: 830px) {
+  footer {
+    margin-left: 0;
+  }
 }
 /*# sourceMappingURL=global.css.map */

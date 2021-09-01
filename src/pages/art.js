@@ -48,6 +48,17 @@ main > a{
   0% { -webkit-filter: blur(0px);}
   50% { -webkit-filter: blur(5px);}
 }
+@media(max-width: 830px) {
+  main{
+    flex-direction:column;
+    a{ 
+      width: 100%;
+      height: 50%;
+    }
+  }
+
+  
+}
 `
 
 const ArtPage = () => {

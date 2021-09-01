@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {useMediaQuery} from 'react-responsive';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
@@ -15,8 +15,10 @@ background: linear-gradient(
   var(--blue-highlight),
   hsla(0, 0%, 76.9%, 0)
 );
+
 li {
   padding: 1.25rem;
+  list-style:none;
   &:hover {
     background-color: var(--purple-highlight);
     a {
@@ -38,13 +40,15 @@ li {
     width: 100%;
     top: 0; 
     position: fixed;
-    background: white;
-    z-index: 1; 
+    background: none;
+     z-index: 2; //find a way for this to only come after being clicked
+    
   }
+ 
 `;
 
 const Hamburger = styled("button")`
-  z-index: 2; 
+  z-index: 3; 
   display: none;
   cursor: pointer;
   top: 1rem; 
@@ -54,7 +58,7 @@ const Hamburger = styled("button")`
     display: inline;
     border: none;
     padding: 16px;
-    background: none;
+    background: white; //change back to none after proper styling
     text-align: center; 
   }
 `;
@@ -69,7 +73,7 @@ export default function MainNavigation() {
 
   
   return(
-    <Nav aria-label='Main'>
+    <Nav aria-label='Main' className={`${isOpen ? "" : "hidden"}`}>
       <div className="mobile-menu">
         <Hamburger onClick={toggling}>
           SG
@@ -77,7 +81,7 @@ export default function MainNavigation() {
         </Hamburger>
       </div>
       {(isOpen || !isMobile) && (
-        <nav aria-label="Site Menu" className={isMobile && 'mobile siteMenu'}>
+        <nav aria-label="Site Menu" className={isMobile && 'mobile siteMenu' }>
           <li>
             <Link to="/about">
                 SG
@@ -113,6 +117,22 @@ export function BrittneyNav() {
       
              <li>
                  <Link to="/papercut">Paper Cutouts</Link>
+             </li>
+         </ul>
+     
+     </nav>
+    );
+  }
+export function CrystalNav() {
+    return (
+     <nav aria-label="Crystal's Art Page Navigation">
+         <ul>
+             <li>
+                 <Link to="/crystalsart">Drawings</Link>
+             </li>
+      
+             <li>
+                 <Link to="/visdev">Paper Cutouts</Link>
              </li>
          </ul>
      

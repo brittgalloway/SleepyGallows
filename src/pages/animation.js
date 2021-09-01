@@ -32,7 +32,17 @@ main > a{
   }
   img[src*="original"]{
     object-position: 0 -100px;
+    @media(max-width: 400px){
+      object-position: center;
+    }
  }
+//   img[src*="fun"]{
+//     @media(max-width: 400px){
+//       height: 33.33vh;
+//       position: absoute;
+//       transform: scale(1.7)
+//     }
+//  }
   &:hover{
     text-decoration:none;
     img{

@@ -24,6 +24,10 @@ img{
     transition: all .2s ease-in-out;
     cursor:pointer;
     box-shadow: 1px 1px 7px var(--brand-color);
+    @media(max-width: 400px){
+      margin-bottom: 1rem;
+      margin-left: 0;
+    }
   }
 `
 const options = {
