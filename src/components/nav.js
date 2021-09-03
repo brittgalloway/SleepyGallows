@@ -6,22 +6,16 @@ import styled from 'styled-components';
 // import hamburgerIcon from './hamburger.svg';
 
 const Nav = styled("nav")`
-// position: fixed;
-// height: 100vh;
-// width: 20rem;
-// text-align: justify;
-// z-index: 0;
-// background: linear-gradient(
-//   180deg,
-//   var(--blue-highlight),
-//   hsla(0, 0%, 76.9%, 0)
-// );
-.hidden {
-  position: static;
-  height: 0;
-  width: 0;
-  background: none;
-}
+ position: fixed;
+ height: 100vh;
+ width: 20rem;
+ text-align: justify;
+ z-index: 0;
+ background: linear-gradient(
+   180deg,
+   var(--blue-highlight),
+   hsla(0, 0%, 76.9%, 0)
+ );
 li {
   padding: 1.25rem;
   list-style:none;
@@ -50,16 +44,14 @@ div.mobile-menu{
   margin:0;
   z-index:1;
 }
-  @media(max-width: 830px) {
-    .show{ 
-    width: 100%;
-    top: 0; 
-    position: fixed;
-    background: none;
-     z-index: 2; //find a way for this to only come after being clicked
-    }
-
-
+@media(max-width: 830px) {
+  width: 100%;
+  height:fit-content;
+  top: 0; 
+  position: fixed;
+  background: white;
+   z-index: 2; //find a way for this to only come after being clicked
+ 
   }
  
 `;
@@ -87,9 +79,9 @@ export default function MainNavigation() {
   const isMobile = useMediaQuery({query: `(max-width: 830px)`});
 
   const toggling = () => setIsOpen(!isOpen);
-  
+
   return(
-    <Nav aria-label='Main' className={`${isOpen ? "show" : "hidden"}`}>
+    <Nav aria-label='Main' >
       <div className="mobile-menu">
         <Hamburger onClick={toggling}>
           SG

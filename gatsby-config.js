@@ -3,6 +3,9 @@ require('dotenv').config({
 });
 
 module.exports = {
+    flags: {
+      DEV_SSR: true
+    },
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
     title: "Sleepy Gallows Studio",
@@ -43,12 +46,6 @@ module.exports = {
   
       },
     },
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     // name: "data",
-    //     path: "./src/data/",
-    //   },
-    // },
+   
   ],
 };

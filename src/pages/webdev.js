@@ -89,7 +89,7 @@ const WebDevPage = ({data}) => {
                     <p>{node.tools}</p> 
                     <p><a href={node.liveApp}>See it here.</a></p> 
                     <p><a href={node.github}>Github</a></p> 
-                    <p>{node.description}</p> 
+                    <p dangerouslySetInnerHTML={{ __html: node.description }}/>
                   </details>
                 </div>
               ))}
@@ -158,16 +158,15 @@ const WebDevPage = ({data}) => {
                 <span>
                   <ul>
                     <li>
-                      Github: <a href="https://github.com/brittgalloway">https://github.com/brittgalloway</a>
+                      <a href="https://github.com/brittgalloway">Github</a>
                     </li>
                     <li>
-                      LinkedIn: <a href="https://www.linkedin.com/in/brittneygalloway/">https://www.linkedin.com/in/brittneygalloway/</a>
+                      <a href="https://www.linkedin.com/in/brittneygalloway/">LinkedIn</a>
                     </li>
                   </ul>
                 </span>
               </div>
-            </section>
-              
+            </section>  
           </main>
             <SGFooter/>
       </StyledDiv>
@@ -186,6 +185,7 @@ const WebDevPage = ({data}) => {
           github
           tools
           description
+         
         }
       }
     }
