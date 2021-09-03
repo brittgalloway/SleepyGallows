@@ -22,10 +22,10 @@
   --blue-highlight: #9ac8f3;
   --text-shadow: 3px 3px 0px var(--brand-color);
 }
-.hidden{
+.hidden {
   position: static;
   background: none;
- }
+}
 body {
   width: 100%;
   padding: 0;
@@ -38,7 +38,7 @@ body {
 main {
   margin-left: 20rem;
   padding: 2rem;
-  @media(max-width: 830px){
+  @media (max-width: 830px) {
     margin-left: 0;
   }
 }
@@ -58,6 +58,7 @@ a {
     text-decoration: underline;
   }
 }
+
 //MOVED TO NAV COMPONENT
 // nav.siteMenu {
 //   position: fixed;
@@ -96,13 +97,17 @@ main nav ul {
   li {
     display: inline;
     padding: 2rem;
+    @media (max-width: 830px) {
+      font-size: 1rem;
+      padding: 1rem;
+    }
   }
 }
 
 footer {
   margin-left: 20rem;
   text-align: center;
-  @media(max-width: 830px){
+  @media (max-width: 830px) {
     margin-left: 0;
   }
 }

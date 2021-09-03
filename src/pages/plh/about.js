@@ -18,7 +18,9 @@ img{
   margin: 1rem 2rem;
   max-width: 450px;
   height:auto;
-
+  @media (max-width: 830px){
+    margin: 1rem 0;
+  }
 }
 div{
   width:300px;

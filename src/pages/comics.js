@@ -16,10 +16,18 @@ h1{
   border: solid 2px var(--seagreen-highlight);
   margin: 1rem;
 }
+p{
+  @media (max-width: 830px){
+    text-align: justify;
+  }
+}
 section{
   display: flex;
-  flex:direction: row;
+  flex-direction: row;
   justify-content: center;
+  @media (max-width: 830px){
+    flex-direction: column-reverse;
+  }
   h2{
     text-decoration: solid underline var(--seagreen-highlight);
     text-underline-offset: 1.5em;
@@ -33,7 +41,6 @@ section{
     width:20rem;
     height: fit-content;
     ul{
-      
       padding:3em;
       font-size: 1.5rem;
     }
@@ -50,6 +57,10 @@ section{
     [data-gatsby-image-wrapper]{
       margin:1rem 1rem;
     }
+  @media (max-width: 830px){
+    margin: 0;
+    padding:0;
+    
   }
 }
 `

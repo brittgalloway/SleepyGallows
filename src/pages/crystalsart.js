@@ -29,6 +29,7 @@ img{
       margin-left: 0;
     }
   }
+  }
 `
 const options = {
  

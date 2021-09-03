@@ -6,16 +6,22 @@ import styled from 'styled-components';
 // import hamburgerIcon from './hamburger.svg';
 
 const Nav = styled("nav")`
-position: fixed;
-height: 100vh;
-width: 20rem;
-text-align: justify;
-background: linear-gradient(
-  180deg,
-  var(--blue-highlight),
-  hsla(0, 0%, 76.9%, 0)
-);
-
+// position: fixed;
+// height: 100vh;
+// width: 20rem;
+// text-align: justify;
+// z-index: 0;
+// background: linear-gradient(
+//   180deg,
+//   var(--blue-highlight),
+//   hsla(0, 0%, 76.9%, 0)
+// );
+.hidden {
+  position: static;
+  height: 0;
+  width: 0;
+  background: none;
+}
 li {
   padding: 1.25rem;
   list-style:none;
@@ -35,14 +41,25 @@ li {
     font-weight: normal;
   }
 }
-
+div.mobile-menu{
+  border: none;
+  box-shadow:none;
+  height:0;
+  width:0;
+  padding:0;
+  margin:0;
+  z-index:1;
+}
   @media(max-width: 830px) {
+    .show{ 
     width: 100%;
     top: 0; 
     position: fixed;
     background: none;
      z-index: 2; //find a way for this to only come after being clicked
-    
+    }
+
+
   }
  
 `;
@@ -70,10 +87,9 @@ export default function MainNavigation() {
   const isMobile = useMediaQuery({query: `(max-width: 830px)`});
 
   const toggling = () => setIsOpen(!isOpen);
-
   
   return(
-    <Nav aria-label='Main' className={`${isOpen ? "" : "hidden"}`}>
+    <Nav aria-label='Main' className={`${isOpen ? "show" : "hidden"}`}>
       <div className="mobile-menu">
         <Hamburger onClick={toggling}>
           SG
@@ -81,7 +97,7 @@ export default function MainNavigation() {
         </Hamburger>
       </div>
       {(isOpen || !isMobile) && (
-        <nav aria-label="Site Menu" className={isMobile && 'mobile siteMenu' }>
+        <nav aria-label="Site Menu" className={isMobile && 'mobile' }>
           <li>
             <Link to="/about">
                 SG
@@ -128,11 +144,11 @@ export function CrystalNav() {
      <nav aria-label="Crystal's Art Page Navigation">
          <ul>
              <li>
-                 <Link to="/crystalsart">Drawings</Link>
+                 <Link to="/crystalsart">Illustration</Link>
              </li>
       
              <li>
-                 <Link to="/visdev">Paper Cutouts</Link>
+                 <Link to="/visdev">Visual Development</Link>
              </li>
          </ul>
      

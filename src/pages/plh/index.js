@@ -11,12 +11,14 @@ section {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content:center;
+  
 }
 div{
   max-width:600px;
   height:auto;
   margin:1rem;
 }
+
 h1{
   font-family: var(--brandFont);
     font-size: 2rem;
@@ -37,7 +39,7 @@ const PlhPage = ({ data }) => (
     <section>
       {data.datoCmsOriginal.watch.map((video)=> (
         <div>
-          <iframe width={376} height={212} src={video.link} title={"Watch "+ video.title} frameBorder="0" allowFullScreen></iframe>
+          <iframe maxWidth={376} maxHeight={212} src={video.link} title={"Watch "+ video.title} frameBorder="0" allowFullScreen></iframe>
             <h2>
               {video.title}
               </h2> 

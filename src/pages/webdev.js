@@ -12,9 +12,21 @@ main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+  @media(max-width: 830px){
+    flex-direction: column;
+    margin:0;
+    p{
+      text-align: justify;
+    }
+  }
+
 }
 section{
   width:50%;
+  @media(max-width: 830px){
+    width: 100%;
+  }
 }
 h1{
   font-family: var(--brandFont);
@@ -31,6 +43,9 @@ main > div:first-child{
 
   border: none;
   box-shadow: none;
+  @media(max-width: 830px){
+    padding:0;
+  }
 }
 div{
   border: .5px solid var(--brand-color);

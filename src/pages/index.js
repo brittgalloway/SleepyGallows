@@ -103,9 +103,11 @@ img {
     }
     p{
       bottom: 20%;
-      right:25%;
+      right: 25%;
       margin-right: -166px;
       @media(max-width: 830px){
+        bottom: 10%;
+        right:50%;
         margin-right:-101.5px;
         font-size: 2em;
       }

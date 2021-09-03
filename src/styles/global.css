@@ -76,6 +76,13 @@ main nav ul li {
   padding: 2rem;
 }
 
+@media (max-width: 830px) {
+  main nav ul li {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+
 footer {
   margin-left: 20rem;
   text-align: center;
