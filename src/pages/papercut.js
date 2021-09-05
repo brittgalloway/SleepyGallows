@@ -15,7 +15,7 @@ section > div{
   flex-wrap: wrap;
   justify-content:center;
 }
-img{
+main img{
   width: 20rem;
   height: 20rem;
   margin: 1rem;

@@ -14,7 +14,7 @@ section {
   flex-wrap: wrap;
   justify-content:center;
 }
-div{
+main div{
   width:375px;
   height:auto;
   margin:1rem;

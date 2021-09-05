@@ -14,7 +14,7 @@ section {
   justify-content:center;
   padding: 2rem;
 }
-img{
+main img{
   margin: 1rem 2rem;
   max-width: 450px;
   height:auto;
@@ -22,7 +22,7 @@ img{
     margin: 1rem 0;
   }
 }
-div{
+main div{
   width:300px;
 }
 h1{

@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {useMediaQuery} from 'react-responsive';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-// import { StaticImage } from "gatsby-plugin-image"
-// import hamburgerIcon from './hamburger.svg';
+import { StaticImage } from "gatsby-plugin-image"
+import hamburgerIcon from './hamburger.svg';
 
 const Nav = styled("nav")`
  position: fixed;
@@ -19,6 +19,12 @@ const Nav = styled("nav")`
 li {
   padding: 1.25rem;
   list-style:none;
+  div{
+    border:none;
+    box-shadow:none;
+    padding:0;
+    margin:10px;
+  }
   &:hover {
     background-color: var(--purple-highlight);
     a {
@@ -27,6 +33,7 @@ li {
       padding: 0.6em 10em 0.6em 0;
     }
   }
+
   a {
     color: var(--brand-color);
     font-family: var(--brandFont);
@@ -63,11 +70,11 @@ const Hamburger = styled("button")`
   top: 1rem; 
   right: 1rem;
   position: fixed;
+  width: 80px;
   @media(max-width: 830px) {
     display: inline;
     border: none;
-    padding: 16px;
-    background: white; //change back to none after proper styling
+    background: none;
     text-align: center; 
   }
 `;
@@ -84,18 +91,25 @@ export default function MainNavigation() {
     <Nav aria-label='Main' >
       <div className="mobile-menu">
         <Hamburger onClick={toggling}>
-          SG
-          {/* <img src={hamburgerIcon} alt="hamburger menu"/> */}
+          <img src={hamburgerIcon} maxWidth={40} alt="hamburger menu"/>
         </Hamburger>
       </div>
+      
       {(isOpen || !isMobile) && (
         <nav aria-label="Site Menu" className={isMobile && 'mobile' }>
+          
+          {isMobile && 
+              <li>
+                <Link to='/about'>About</Link>
+              </li>
+          }
+          {(!isOpen || !isMobile) &&
           <li>
             <Link to="/about">
-                SG
-                {/* <StaticImage src="" alt="logo, click here to learn about the Sleepy Gallows."/> */}
+                <StaticImage maxWidth={250} src="./sg_logo.svg" alt="logo, click here to learn about the Sleepy Gallows."/>
             </Link>
           </li>
+          }
           <li>
             <Link to="/animation">Animation</Link>
           </li>
@@ -108,6 +122,7 @@ export default function MainNavigation() {
           <li>
           <Link to="/webdev">Websites</Link>
           </li>
+          
         </nav>
       )}
       

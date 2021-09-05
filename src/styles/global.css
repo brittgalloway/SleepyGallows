@@ -83,6 +83,12 @@ main nav ul li {
   }
 }
 
+article,
+section {
+  max-width: 1200px;
+  margin: auto;
+}
+
 footer {
   margin-left: 20rem;
   text-align: center;

@@ -27,7 +27,6 @@ main > a{
   }
   img{
    object-fit: cover;
-   object-position: top;
    width:100%;
   }
   img[src*="original"]{
@@ -36,13 +35,7 @@ main > a{
       object-position: center;
     }
  }
-//   img[src*="fun"]{
-//     @media(max-width: 400px){
-//       height: 33.33vh;
-//       position: absoute;
-//       transform: scale(1.7)
-//     }
-//  }
+
   &:hover{
     text-decoration:none;
     img{
@@ -75,11 +68,11 @@ const AnimationPage = () => {
           </Link>
           <Link to="/client">
             <p>Client Work</p>
-            <img src="https://www.datocms-assets.com/53347/1629471975-cleintwork.jpg" alt="Link to Client animation page. Still from Double Mind music video" />
+            <img src="https://www.datocms-assets.com/53347/1630809861-doublemindsm.png" alt="Link to Client animation page. Still from Double Mind music video" />
           </Link>
           <Link to="/fun">
             <p>For Fun</p>
-            <img src="https://www.datocms-assets.com/53347/1629484062-forfun.jpg" alt="Link to page of short fun animations. This is a drawing of Yuna inspired by her Chapters album visuals" />
+            <img src="https://www.datocms-assets.com/53347/1630810673-crushsm.png" alt="Link to page of short fun animations. This is a drawing of Yuna inspired by her Chapters album visuals" />
           </Link>
        </main>
        </StyledDiv>
