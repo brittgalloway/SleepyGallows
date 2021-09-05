@@ -7,7 +7,7 @@ module.exports = {
       DEV_SSR: true
     },
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://github.com/brittgalloway/SleepyGallows",
     title: "Sleepy Gallows Studio",
     description: `Blazing fast modern site generator for React`,
   },
@@ -16,10 +16,11 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
+    
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/sg_logo.svg",
+        icon: "src/images/sgFav.svg",
       },
     },
     "gatsby-plugin-sharp",
@@ -32,6 +33,11 @@ module.exports = {
         path: "./src/images/", 
       },
       __key: "images",
+    },
+    {
+      "scripts": {
+        "deploy": "gatsby build && gh-pages -d public -b main"
+      }
     },
     {
       resolve: `gatsby-source-datocms`,
