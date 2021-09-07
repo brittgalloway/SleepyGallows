@@ -76,7 +76,7 @@ const IllustrationPage = ({ data }) => (
         <SRLWrapper options={options}>
           {data.allDatoCmsIllustraion.edges.map(({node})=> (
             <div>
-            <GatsbyImage image={node.art.gatsbyImageData} alt={node.art.alt}/>
+            <GatsbyImage key={node.art.title} image={node.art.gatsbyImageData} alt={node.art.alt}/>
             </div>
           ))}
         </SRLWrapper>

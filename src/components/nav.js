@@ -91,7 +91,7 @@ export default function MainNavigation() {
     <Nav aria-label='Main' >
       <div className="mobile-menu">
         <Hamburger onClick={toggling}>
-          <img src={hamburgerIcon} maxWidth={40} alt="hamburger menu"/>
+          <img src={hamburgerIcon} width={40} alt="hamburger menu"/>
         </Hamburger>
       </div>
       

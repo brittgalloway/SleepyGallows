@@ -76,7 +76,7 @@ const PaperPage = ({ data }) => (
         <SRLWrapper options={options}>
             {data.allDatoCmsPaperCutout.edges.map(({node})=> (
               <div>
-              <GatsbyImage image={node.paperArt.gatsbyImageData} alt={node.paperArt.alt}/>
+              <GatsbyImage key={node.paperArt.title} image={node.paperArt.gatsbyImageData} alt={node.paperArt.alt}/>
               </div>
             ))}
         </SRLWrapper>

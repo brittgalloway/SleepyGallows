@@ -40,7 +40,7 @@ const FunPage = ({ data }) => (
     <h1>Passion Projects</h1>
     <section>
       {data.allDatoCmsForFun.edges.map(({node})=> (
-        <div>
+        <div key={node.title}>
           <iframe maxWidth={376} maxHeight={212} src={node.link} title={"Watch "+ node.title}  frameborder="0" allowfullscreen></iframe>
           <details>
             <summary>

@@ -47,7 +47,7 @@ const OriginalsPage = ({ data }) => (
         {data.allDatoCmsOriginal.edges.map(({node})=> (
           <div>
             <Link to={node.link}> 
-              <GatsbyImage image={node.thumb.gatsbyImageData} alt={node.thumb.alt}/>
+              <GatsbyImage key={node.thumb.alt} image={node.thumb.gatsbyImageData} alt={node.thumb.alt}/>
             </Link>
           </div>
         ))}

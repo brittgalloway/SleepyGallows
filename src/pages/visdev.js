@@ -89,7 +89,7 @@ const VisDevPage = ({ data }) => (
             <SRLWrapper options={options}>
               {data.allDatoCmsMermaidVisdev.edges.map(({node})=> (
                 <div>
-                  <GatsbyImage image={node.visArt.gatsbyImageData} alt={node.visArt.alt}/>
+                  <GatsbyImage key={node.visArt.title} image={node.visArt.gatsbyImageData} alt={node.visArt.alt}/>
                 </div>
               ))}
             </SRLWrapper>
@@ -103,7 +103,7 @@ const VisDevPage = ({ data }) => (
               <SRLWrapper options={options}>
               {data.allDatoCmsVisdev.edges.map(({node})=> (
                 <div>
-                  <GatsbyImage image={node.plhVisdev.gatsbyImageData} alt={node.plhVisdev.alt}/>
+                  <GatsbyImage key={node.plhVisdev.title} image={node.plhVisdev.gatsbyImageData} alt={node.plhVisdev.alt}/>
                 </div>
               ))}
             </SRLWrapper>

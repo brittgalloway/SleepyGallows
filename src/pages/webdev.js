@@ -83,7 +83,7 @@ const WebDevPage = ({data}) => {
               {data.allDatoCmsWebProject.edges.map(({node})=> (
                 <div>
                   <details>
-                    <summary>
+                    <summary key = {node.projectName}>
                     {node.projectName}
                     </summary>
                     <p>{node.tools}</p> 
@@ -185,7 +185,6 @@ const WebDevPage = ({data}) => {
           github
           tools
           description
-         
         }
       }
     }

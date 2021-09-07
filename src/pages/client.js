@@ -48,7 +48,7 @@ const ClientPage = ({ data }) => (
     <h1>Client Work</h1>
     <section>
       {data.allDatoCmsClientWork.edges.map(({node})=> (
-        <div>
+        <div key={node.title}>
           <iframe src={node.link} maxWidth={376} maxHeight={212} title={"Watch "+ node.title} frameBorder="0" allowFullScreen></iframe>
           <details>
             <summary>
