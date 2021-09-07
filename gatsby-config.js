@@ -9,7 +9,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://github.com/brittgalloway/SleepyGallows",
     title: "Sleepy Gallows Studio",
-    description: `Blazing fast modern site generator for React`,
+    description: `Showcase of Animation and Web development by Brittney Galloway and Illustration and Comics by Crystal Galloway.`,
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -33,11 +33,6 @@ module.exports = {
         path: "./src/images/", 
       },
       __key: "images",
-    },
-    {
-      "scripts": {
-        "deploy": "gatsby build && gh-pages -d public -b main"
-      }
     },
     {
       resolve: `gatsby-source-datocms`,
