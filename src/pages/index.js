@@ -29,10 +29,15 @@ a{
     line-height: 1em;
     z-index: 1;  
     margin: auto ;
+    @media(max-width:830px){
+      align-self: center;
+      justify-self:center;
+    }
   }
   @media(max-width: 830px){
     width: 100vw;
     height: 25vh;
+
    }
 }
 
