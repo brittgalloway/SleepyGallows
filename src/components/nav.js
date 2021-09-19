@@ -17,7 +17,6 @@ const Nav = styled("nav")`
    hsla(0, 0%, 76.9%, 0)
  );
 li {
-  padding: 1.25rem;
   list-style:none;
   div{
     border:none;
@@ -30,11 +29,12 @@ li {
     a {
       text-decoration: none;
       color: white;
-      padding: 0.6em 10em 0.6em 0;
     }
   }
-
+  
   a {
+    display: block;
+    padding: 1.25rem;
     color: var(--brand-color);
     font-family: var(--brandFont);
     text-decoration: none;
@@ -97,32 +97,32 @@ export default function MainNavigation() {
       
       {(isOpen || !isMobile) && (
         <nav aria-label="Site Menu" className={isMobile && 'mobile' }>
-          
-          {isMobile && 
-              <li>
-                <Link to='/about'>About</Link>
-              </li>
-          }
-          {(!isOpen || !isMobile) &&
-          <li>
-            <Link to="/about">
-                <StaticImage maxWidth={250} src="./sg_logo.svg" alt="logo, click here to learn about the Sleepy Gallows."/>
-            </Link>
-          </li>
-          }
-          <li>
-            <Link to="/animation">Animation</Link>
-          </li>
-          <li>
-          <Link to="/comics">Comics</Link>
-          </li>
-          <li>
-          <Link to="/art">Art</Link>
-          </li>
-          <li>
-          <Link to="/webdev">Websites</Link>
-          </li>
-          
+          <ul>
+            {isMobile && 
+                <li>
+                  <Link to='/about'>About</Link>
+                </li>
+            }
+            {(!isOpen || !isMobile) &&
+            <li>
+              <Link to="/about">
+                  <StaticImage maxWidth={250} src="./sg_logo.svg" alt="logo, click here to learn about the Sleepy Gallows."/>
+              </Link>
+            </li>
+            }
+            <li>
+              <Link to="/animation">Animation</Link>
+            </li>
+            <li>
+            <Link to="/comics">Comics</Link>
+            </li>
+            <li>
+            <Link to="/art">Art</Link>
+            </li>
+            <li>
+            <Link to="/webdev">Websites</Link>
+            </li>
+          </ul>
         </nav>
       )}
       
