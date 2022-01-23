@@ -71,7 +71,7 @@ const ClientPage = ({ data }) => (
 
 export const query = graphql`
 query ClientQuery {
-  allDatoCmsClientWork {
+  allDatoCmsClientWork(sort: {fields: year, order: DESC}) {
     edges {
       node {
         year

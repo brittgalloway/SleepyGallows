@@ -92,6 +92,7 @@ section {
 footer {
   margin-left: 20rem;
   text-align: center;
+  padding-top: 10rem;
 }
 
 @media (max-width: 830px) {

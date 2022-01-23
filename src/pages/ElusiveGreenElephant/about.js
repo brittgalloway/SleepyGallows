@@ -15,9 +15,9 @@ section {
   padding: 2rem;
 }
 main img{
-  margin: 1rem 2rem;
-  max-width: 450px;
-  height:auto;
+  // margin: 1rem 2rem;
+  // max-width: 450px;
+  min-height:300px;
   @media (max-width: 830px){
     margin: 1rem 0;
   }
@@ -25,18 +25,18 @@ main img{
 main div{
   width:300px;
 }
-h1{
+h1, h2{
   font-family: var(--brandFont);
     font-size: 2rem;
     text-align: center;
 }
-h2, p{
+p{
   font-size: 1rem;
   padding:none;
 }
 `
 
-const PlhAboutPage = ({ data }) => (
+const EleAboutPage = ({ data }) => (
   
   <StyledDiv>
     <Layout />
@@ -46,9 +46,10 @@ const PlhAboutPage = ({ data }) => (
       link={data.datoCmsOriginal.link}
     />
     <h1>What is {data.datoCmsOriginal.name}?</h1>
-      <p>
-        {data.datoCmsOriginal.summary}
-      </p>
+      <p dangerouslySetInnerHTML={{ __html: data.datoCmsOriginal.summary }}/>
+      <h2>
+        Characters
+      </h2>
     <section>
     {data.datoCmsOriginal.about.map(({character})=> (
           <div>
@@ -64,11 +65,11 @@ const PlhAboutPage = ({ data }) => (
   </StyledDiv>
 )
 
-  export default PlhAboutPage
+  export default EleAboutPage
 
 export const query = graphql`
-query PlhAboutQuery {
-  datoCmsOriginal(name: {eq: "For Peace, Love, & Harmony"})  {
+query EleAboutQuery {
+  datoCmsOriginal(name: {eq: "The Elusive Green Elephant"}) {
     name
     summary
     link

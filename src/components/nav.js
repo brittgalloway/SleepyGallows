@@ -88,7 +88,7 @@ export default function MainNavigation() {
   const toggling = () => setIsOpen(!isOpen);
 
   return(
-    <Nav aria-label='Main' >
+    <Nav aria-label='Main'>
       <div className="mobile-menu">
         <Hamburger onClick={toggling}>
           <img src={hamburgerIcon} width={40} alt="hamburger menu"/>
@@ -96,17 +96,17 @@ export default function MainNavigation() {
       </div>
       
       {(isOpen || !isMobile) && (
-        <nav aria-label="Site Menu" className={isMobile && 'mobile' }>
+        <nav aria-label="Site Menu" className={isMobile && "mobile" }>
           <ul>
             {isMobile && 
                 <li>
-                  <Link to='/about'>About</Link>
+                  <Link to="/about">About</Link>
                 </li>
             }
             {(!isOpen || !isMobile) &&
             <li>
               <Link to="/about">
-                  <StaticImage maxWidth={250} src="./sg_logo.svg" alt="logo, click here to learn about the Sleepy Gallows."/>
+                  <StaticImage className="logo" maxWidth={250} src="./sg_logo.svg" alt="logo, click here to learn about the Sleepy Gallows."/>
               </Link>
             </li>
             }
@@ -182,20 +182,20 @@ export function CrystalNav() {
      </nav>
     );
   }
-  export function OriginalsNav() {
+  export function OriginalsNav(props) {
     return (
      <nav aria-label="For Peace, Love, and Harmony page Navigation">
          <ul>
              <li>
-                 <Link to="/plh">Watch</Link>
+                <Link to={`../../${props.link}`}>Watch</Link>
              </li>
          
              <li>
-                 <Link to="/plh/about">About</Link>
+                 <Link to={`../../${props.link}/about`}>About</Link>
              </li>
         
              <li>
-                 <Link to="/plh/art">Art</Link>
+                 <Link to={`../../${props.link}/art`}>Art</Link>
              </li>
          </ul>
      

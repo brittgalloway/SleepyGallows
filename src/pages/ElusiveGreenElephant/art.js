@@ -74,7 +74,7 @@ const options = {
     showThumbnails: false,
   }
   };
-const PlhArtPage = ({ data }) => (
+const EleArtPage = ({ data }) => (
   <StyledDiv>
     <Layout />
     <main>
@@ -97,11 +97,11 @@ const PlhArtPage = ({ data }) => (
   </StyledDiv>
 )
 
-  export default PlhArtPage
+  export default EleArtPage
 
 export const query = graphql`
-query PlhArtQuery {
-  datoCmsOriginal(name: {eq: "For Peace, Love, & Harmony"})  {
+query EleArtQuery {
+  datoCmsOriginal(name: {eq: "The Elusive Green Elephant"}){
     name
     link
     art {

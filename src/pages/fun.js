@@ -61,7 +61,7 @@ const FunPage = ({ data }) => (
 
 export const query = graphql`
 query FunQuery {
-  allDatoCmsForFun {
+  allDatoCmsForFun(sort: {fields: year, order: DESC}) {
     edges {
       node {
         link

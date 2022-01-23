@@ -25,6 +25,14 @@ div{
     transition: all .2s ease-in-out;
     box-shadow: 1px 1px 7px var(--brand-color);
   }
+  &.logo{
+    &:hover{
+      transform: scale(1);
+      transition: none;
+      box-shadow: 0px 0px 0px var(--brand-color);
+    }
+
+  }
 }
 h1{
   font-family: var(--brandFont);
@@ -46,7 +54,7 @@ const OriginalsPage = ({ data }) => (
       <section>
         {data.allDatoCmsOriginal.edges.map(({node})=> (
           <div>
-            <Link to={node.link}> 
+            <Link to={`/${node.link}`}> 
               <GatsbyImage key={node.thumb.alt} image={node.thumb.gatsbyImageData} alt={node.thumb.alt}/>
             </Link>
           </div>
@@ -61,7 +69,7 @@ const OriginalsPage = ({ data }) => (
   
   export const query = graphql`
   query OgQuery {
-    allDatoCmsOriginal {
+    allDatoCmsOriginal(sort: {order: ASC, fields: id})  {
         edges {
           node {
             thumb {
@@ -69,6 +77,7 @@ const OriginalsPage = ({ data }) => (
               gatsbyImageData
             }
             link
+            id
           }
         }
       }
