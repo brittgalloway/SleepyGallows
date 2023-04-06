@@ -184,7 +184,7 @@ export function CrystalNav() {
   }
   export function OriginalsNav(props) {
     return (
-     <nav aria-label="For Peace, Love, and Harmony page Navigation">
+     <nav aria-label={`${props.name} page Navigation`}>
          <ul>
              <li>
                 <Link to={`../../${props.link}`}>Watch</Link>

@@ -43,6 +43,7 @@ const PlhAboutPage = ({ data }) => (
     <main>
     <AnimationNav/>
     <OriginalsNav
+      name={data.datoCmsOriginal.name}
       link={data.datoCmsOriginal.link}
     />
     <h1>What is {data.datoCmsOriginal.name}?</h1>

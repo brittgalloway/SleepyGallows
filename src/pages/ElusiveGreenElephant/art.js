@@ -80,6 +80,7 @@ const EleArtPage = ({ data }) => (
     <main>
     <AnimationNav/>
     <OriginalsNav
+      name={data.datoCmsOriginal.name}
       link={data.datoCmsOriginal.link}
     />
     <h1>Art of {data.datoCmsOriginal.name}</h1>

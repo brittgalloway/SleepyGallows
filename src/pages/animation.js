@@ -62,7 +62,7 @@ const AnimationPage = () => {
       <StyledDiv>
           <Layout />
           <main>
-          <Link to="/plh">
+          <Link to="/originals">
            <p>Originals</p>
             <img src="https://www.datocms-assets.com/53347/1629471501-originals.jpg" alt="Link to Original animations page. Nirvana sitting on the branch" />
           </Link>

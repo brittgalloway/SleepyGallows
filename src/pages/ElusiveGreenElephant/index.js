@@ -39,6 +39,7 @@ const ElePage = ({ data }) => (
     <main>
     <AnimationNav/>
     <OriginalsNav
+      name={data.datoCmsOriginal.name}
       link={data.datoCmsOriginal.link}
     />
     <h1>{data.datoCmsOriginal.name}</h1>
