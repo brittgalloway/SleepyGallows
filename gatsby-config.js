@@ -10,6 +10,7 @@ module.exports = {
     siteUrl: "https://github.com/brittgalloway/SleepyGallows",
     title: "Sleepy Gallows Studio",
     description: `Showcase of Animation and Web development by Brittney Galloway and Illustration and Comics by Crystal Galloway.`,
+    keywords: `animation, sleepy gallows, brittney, crystal, galloway, art, necahual`
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -42,7 +43,7 @@ module.exports = {
   
         environment: `main`,
   
-           previewMode: false,
+        previewMode: false,
   
         disableLiveReload: false,
   
