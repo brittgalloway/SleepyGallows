@@ -1,9 +1,10 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import { Head } from "../components/head"
 import styled from "styled-components"
 import '../styles/global.css'
 
-const StyledDiv = styled.div`
+const StyledDiv = styled("div")`
   background: linear-gradient(180deg,#b5dbff,#d0c1f4);
   width: 100vw;
   height:100vh;
@@ -36,7 +37,7 @@ const StyledDiv = styled.div`
 const NotFoundPage = () => {
   return (
     <StyledDiv >
-      <title>Not found</title>
+      <Head title={"404 - Not Found"} />
       <h1 >Page not found</h1>
       <p>
         Sorry
