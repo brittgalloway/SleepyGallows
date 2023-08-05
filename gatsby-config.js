@@ -9,25 +9,24 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://github.com/brittgalloway/SleepyGallows",
     title: "Sleepy Gallows Studio",
-    description: `Showcase of Animation and Web development by Brittney Galloway and Illustration and Comics by Crystal Galloway.`,
-    keywords: `animation, sleepy gallows, brittney, crystal, galloway, art, necahual`,
-    author:`Brittney Galloway`,
+    description: "Showcase of Animation and Web development by Brittney Galloway and Illustration and Comics by Crystal Galloway.",
+    keywords: "animation, sleepy gallows, brittney, crystal, galloway, art, necahual",
+    author:"Brittney Galloway",
   },
   plugins: [
-    "gatsby-plugin-sass",
     "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     "gatsby-plugin-sitemap",
-    `gatsby-plugin-styled-components`,
-    
+    "gatsby-plugin-sass",
+    "gatsby-plugin-styled-components",
+    "gatsby-transformer-json",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
         icon: "src/images/sgFav.svg",
       },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    "gatsby-transformer-json",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -37,11 +36,11 @@ module.exports = {
       __key: "images",
     },
     {
-      resolve: `gatsby-source-datocms`,
+      resolve: "gatsby-source-datocms",
       options: {
         apiToken: process.env.API_TOKEN,
   
-        environment: `main`,
+        environment: "main",
   
         previewMode: false,
   
