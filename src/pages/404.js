@@ -1,9 +1,10 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import { Head } from "../components/head"
 import styled from "styled-components"
 import '../styles/global.css'
 
-const StyledDiv = styled.div`
+const StyledDiv = styled("div")`
   background: linear-gradient(180deg,#b5dbff,#d0c1f4);
   width: 100vw;
   height:100vh;
@@ -13,15 +14,16 @@ const StyledDiv = styled.div`
   text-align:center;
 
   a{
-
-      font-weight:bold;
-      text-decoration: none;
-      color: var(--brand-color);
-      &:hover{
-          color: var(--pink-highlight);
-      }
+    font-weight:bold;
+    text-decoration: none;
+    color: var(--brand-color);
+    &:hover{
+        color: var(--pink-highlight);
+    }
   }
-  h1{
+`
+const StyledH1 = styled("h1")`
+
       font-family: var(--brandFont);
       font-size: 3rem;
       color: var(--brand-color);
@@ -29,15 +31,15 @@ const StyledDiv = styled.div`
       padding: 2rem;
       @media (max-width: 480px){
           font-size: 2rem;
-      }
+
   }
 `
 
 const NotFoundPage = () => {
   return (
     <StyledDiv >
-      <title>Not found</title>
-      <h1 >Page not found</h1>
+      <Head title={"404 - Not Found"} />
+      <StyledH1>Page not found</StyledH1>
       <p>
         Sorry
         <br/>

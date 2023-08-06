@@ -3,10 +3,10 @@ import { graphql } from 'gatsby'
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from 'styled-components'
 import {OriginalsNav ,AnimationNav} from '../../components/nav'
-import {SGFooter} from '../../components/footer'
+import {Footer} from '../../components/footer'
 import Layout from '../../components/layout'
 
-const StyledDiv = styled.div`
+const StyledDiv = styled("div")`
 section {
   display: flex;
   flex-direction: row;
@@ -22,9 +22,7 @@ main img{
     margin: 1rem 0;
   }
 }
-main div{
-  width:300px;
-}
+
 h1{
   font-family: var(--brandFont);
     font-size: 2rem;
@@ -39,7 +37,7 @@ h2, p{
 const PlhAboutPage = ({ data }) => (
   
   <StyledDiv>
-    <Layout />
+    <Layout title={data.datoCmsOriginal.name}/>
     <main>
     <AnimationNav/>
     <OriginalsNav
@@ -52,16 +50,13 @@ const PlhAboutPage = ({ data }) => (
       </p>
     <section>
     {data.datoCmsOriginal.about.map(({character})=> (
-          <div>
-            <GatsbyImage image={character.gatsbyImageData} alt={character.alt}/>
-          </div>
-        ))}
+      <div>
+        <GatsbyImage image={character.gatsbyImageData} alt={character.alt}/>
+      </div>
+    ))}
     </section>
     </main>
-  <SGFooter/>
- 
-
- 
+    <Footer/>
   </StyledDiv>
 )
 
@@ -69,7 +64,7 @@ const PlhAboutPage = ({ data }) => (
 
 export const query = graphql`
 query PlhAboutQuery {
-  datoCmsOriginal(name: {eq: "For Peace, Love, & Harmony"})  {
+  datoCmsOriginal(name: {eq: "For Peace, Love, & Harmony"}) {
     name
     summary
     link
@@ -77,6 +72,7 @@ query PlhAboutQuery {
       character {
         title
         alt
+        originalId
         gatsbyImageData
       }
     }

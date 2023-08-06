@@ -1,14 +1,18 @@
-import * as React from 'react'
-import { graphql } from 'gatsby'
-import { GatsbyImage } from "gatsby-plugin-image"
-import { SRLWrapper } from "simple-react-lightbox";
-import {CrystalNav} from '../components/nav'
-import {CrystalFooter} from '../components/footer'
-import styled from "styled-components"
-import Layout from "../components/layout"
-import '../styles/global.css'
+import * as React from 'react';
+import { graphql } from 'gatsby';
+import PhotoAlbum from "react-photo-album";
+import Lightbox from "yet-another-react-lightbox";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Captions from "yet-another-react-lightbox/plugins/captions";
+import {CrystalNav} from '../components/nav';
+import {Footer} from '../components/footer';
+import styled from "styled-components";
+import Layout from "../components/layout";
+import '../styles/global.css';
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/captions.css";
 
-const StyledDiv = styled.div`
+const StyledDiv = styled("div")`
 section > div{
   display:flex;
   flex-direction: row;
@@ -31,62 +35,45 @@ main img{
   }
   }
 `
-const options = {
- 
-  settings: {
-    boxShadow: 'none',
-    disableKeyboardControls: false,
-    disablePanzoom: false,
-    disableWheelControls: false,
-    hideControlsAfter: false,
-    lightboxTransitionSpeed: 0.3,
-    lightboxTransitionTimingFunction: 'linear',
-    overlayColor: 'rgba(30, 30, 30, 0.9)',
-    slideAnimationType: 'fade',
-    slideSpringValues: [300, 50],
-    slideTransitionSpeed: 0.6,
-    slideTransitionTimingFunction: 'linear',
-    usingPreact: false
-  },
-  buttons: {
-    backgroundColor: 'rgba(30,30,36,0.8)',
-    iconColor: 'rgba(255, 255, 255, 0.8)',
-    iconPadding: '10px',
-    showAutoplayButton: false,
-    showCloseButton: true,
-    showDownloadButton: false,
-    showFullscreenButton: true,
-    showNextButton: true,
-    showPrevButton: true,
-    showThumbnailsButton: false,
-    size: '40px'
-  },
-  
-  thumbnails: {
-    showThumbnails: false,
-  }
-  };
 
-const IllustrationPage = ({ data }) => (
-  <StyledDiv>
-    <Layout />
-    <main>
-      <CrystalNav/>
-      <section>
-        <SRLWrapper options={options}>
-          {data.allDatoCmsIllustraion.edges.map(({node})=> (
-            <div>
-            <GatsbyImage key={node.art.title} image={node.art.gatsbyImageData} alt={node.art.alt}/>
-            </div>
-          ))}
-        </SRLWrapper>
-      </section>
-      
-    </main>
-    <CrystalFooter/>
-  </StyledDiv>
-)
+const IllustrationPage = ({ data }) => {
+  const [index, setIndex] = React.useState(-1);
+  const slides = data.allDatoCmsIllustraion.edges.map(({node})=> (
+    {
+      key: node.art.originalId,
+      src: node.art.fluid.src,
+      width: node.art.fluid.width,
+      height: node.art.fluid.height,
+      title: node.art.title,
+      alt: node.art.alt
+    }
+  ));
+  return (
+    <StyledDiv>
+      <Layout title={"Crystal's Art"}/>
+      <main>
+        <CrystalNav/>
+        <section>
+          <PhotoAlbum
+              layout="masonry"
+              photos={slides}
+              onClick={({ index: current }) => setIndex(current)}
+            />
 
+            <Lightbox
+              plugins={[Captions, Fullscreen]}
+              index={index}
+              slides={slides}
+              open={index >= 0}
+              close={() => setIndex(-1)}
+            />
+        </section>
+        
+      </main>
+      <Footer footer={"Crystal Galloway"}/>
+    </StyledDiv>
+  )
+}
   export default IllustrationPage
 
 export const query = graphql`
@@ -95,13 +82,14 @@ query ArtQuery {
     edges {
       node {
         art {
-          gatsbyImageData(placeholder: BLURRED)
+          fluid {
+            height
+            width
+            src
+          }
           alt
           title
-          focalPoint {
-            x
-            y
-          }
+          originalId
         }
       }
     }

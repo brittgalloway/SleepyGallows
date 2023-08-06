@@ -2,18 +2,18 @@ import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 import { GatsbyImage } from "gatsby-plugin-image"
 import {AnimationNav} from '../components/nav'
-import {SGFooter} from '../components/footer'
+import {Footer} from '../components/footer'
 import styled from "styled-components"
 import Layout from "../components/layout"
 import '../styles/global.css'
 
-const StyledDiv = styled.div`
+const StyledDiv = styled("div")`
 text-align: center;
 section {
   padding-top: 2rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap:1rem;
+  grid-gap:1.5rem;
   @media (max-width: 830px){
     grid-template-columns: repeat(1, 1fr);
   }
@@ -46,7 +46,7 @@ h2, p{
 
 const OriginalsPage = ({ data }) => (
   <StyledDiv>
-    <Layout />
+    <Layout title={"Originals"}/>
     <main>
       <AnimationNav/>
       <h1>Originals</h1>
@@ -55,13 +55,13 @@ const OriginalsPage = ({ data }) => (
         {data.allDatoCmsOriginal.edges.map(({node})=> (
           <div>
             <Link to={`/${node.link}`}> 
-              <GatsbyImage key={node.thumb.alt} image={node.thumb.gatsbyImageData} alt={node.thumb.alt}/>
+              <GatsbyImage key={node.id} image={node.thumb.gatsbyImageData} alt={node.thumb.alt}/>
             </Link>
           </div>
         ))}
       </section>
-      </main>
-      <SGFooter/>
+    </main>
+    <Footer/>
     </StyledDiv>
   )
   
@@ -69,7 +69,7 @@ const OriginalsPage = ({ data }) => (
   
   export const query = graphql`
   query OgQuery {
-    allDatoCmsOriginal(sort: {order: ASC, fields: id})  {
+    allDatoCmsOriginal(sort: {id: ASC})  {
         edges {
           node {
             thumb {

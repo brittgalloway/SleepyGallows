@@ -1,20 +1,18 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { GatsbyImage } from "gatsby-plugin-image"
-import { SRLWrapper } from "simple-react-lightbox";
+import PhotoAlbum from "react-photo-album";
+import Lightbox from "yet-another-react-lightbox";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Captions from "yet-another-react-lightbox/plugins/captions";
 import {BrittneyNav} from '../components/nav'
-import {BrittFooter} from '../components/footer'
-import styled from "styled-components"
+import {Footer} from '../components/footer'
 import Layout from "../components/layout"
+import styled from "styled-components"
 import '../styles/global.css'
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/captions.css";
 
-const StyledDiv = styled.div`
-section > div{
-  display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content:center;
-}
+const StyledDiv = styled("div")`
 main img{
   width: 20rem;
   height: 20rem;
@@ -31,72 +29,61 @@ main img{
   }
   
 `
-const options = {
- 
-  settings: {
-    boxShadow: 'none',
-    disableKeyboardControls: false,
-    disablePanzoom: false,
-    disableWheelControls: false,
-    hideControlsAfter: false,
-    lightboxTransitionSpeed: 0.3,
-    lightboxTransitionTimingFunction: 'linear',
-    overlayColor: 'rgba(30, 30, 30, 0.9)',
-    slideAnimationType: 'fade',
-    slideSpringValues: [300, 50],
-    slideTransitionSpeed: 0.6,
-    slideTransitionTimingFunction: 'linear',
-    usingPreact: false
-  },
-  buttons: {
-    backgroundColor: 'rgba(30,30,36,0.8)',
-    iconColor: 'rgba(255, 255, 255, 0.8)',
-    iconPadding: '10px',
-    showAutoplayButton: false,
-    showCloseButton: true,
-    showDownloadButton: false,
-    showFullscreenButton: true,
-    showNextButton: true,
-    showPrevButton: true,
-    showThumbnailsButton: false,
-    size: '40px'
-  },
-  
-  thumbnails: {
-    showThumbnails: false,
-  }
-  };
 
-const PaperPage = ({ data }) => (
-  <StyledDiv>
-    <Layout />
-    <main>
-      <BrittneyNav/>
-      <section>
-        <SRLWrapper options={options}>
-            {data.allDatoCmsPaperCutout.edges.map(({node})=> (
-              <div>
-              <GatsbyImage key={node.paperArt.title} image={node.paperArt.gatsbyImageData} alt={node.paperArt.alt}/>
-              </div>
-            ))}
-        </SRLWrapper>
-      </section>
-    </main>
-    <BrittFooter/>
-  </StyledDiv>
-)
-  
-  export default PaperPage
 
-  export const query = graphql`
+const PaperPage = ({ data }) => {
+  const [index, setIndex] = React.useState(-1);
+  const slides = data.allDatoCmsPaperCutout.edges.map(({node})=> (
+    {
+      key: node.paperArt.originalId,
+      src: node.paperArt.fluid.src,
+      width: node.paperArt.fluid.width,
+      height: node.paperArt.fluid.height,
+      title: node.paperArt.title,
+      alt: node.paperArt.alt
+    }
+  ));
+  return (
+    <StyledDiv>
+      <Layout title={"Brittney's Art"}/>
+      <main>
+        <BrittneyNav/>
+        <section>
+          <PhotoAlbum
+              layout="masonry"
+              photos={slides}
+              onClick={({ index: current }) => setIndex(current)}
+            />
+
+            <Lightbox
+              plugins={[Captions, Fullscreen]}
+              index={index}
+              slides={slides}
+              open={index >= 0}
+              close={() => setIndex(-1)}
+          />
+        </section>
+      </main>
+      <Footer footer={"Brittney Galloway"}/>
+    </StyledDiv>
+  )
+}
+export default PaperPage
+
+export const query = graphql`
 query PaperQuery {
     allDatoCmsPaperCutout {
         edges {
           node {
             paperArt {
               alt
-              gatsbyImageData
+              fluid {
+                height
+                width
+                src
+              }
               title
+              originalId
             }
           }
         }

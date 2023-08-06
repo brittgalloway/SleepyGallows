@@ -4,7 +4,7 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import '../styles/global.css'
 
-const StyledDiv = styled.div`
+const StyledDiv = styled("div")`
 width: 100vw;
 height: 100vh;
 overflow-y: hidden;
@@ -60,7 +60,7 @@ a[href*="fun"]{
 const AnimationPage = () => {
     return (
       <StyledDiv>
-          <Layout />
+          <Layout title={"Animation"} />
           <main>
           <Link to="/originals">
            <p>Originals</p>

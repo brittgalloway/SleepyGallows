@@ -1,13 +1,17 @@
-import * as React from 'react'
-import { graphql } from 'gatsby'
-import { GatsbyImage } from "gatsby-plugin-image"
-import { SRLWrapper } from "simple-react-lightbox";
-import styled from 'styled-components'
-import {OriginalsNav ,AnimationNav} from '../../components/nav'
-import {SGFooter} from '../../components/footer'
-import Layout from '../../components/layout'
+import * as React from 'react';
+import { graphql } from 'gatsby';
+import PhotoAlbum from "react-photo-album";
+import Lightbox from "yet-another-react-lightbox";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Captions from "yet-another-react-lightbox/plugins/captions";
+import styled from 'styled-components';
+import {OriginalsNav ,AnimationNav} from '../../components/nav';
+import {Footer} from '../../components/footer';
+import Layout from '../../components/layout';
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/captions.css";
 
-const StyledDiv = styled.div`
+const StyledDiv = styled("div")`
 section > div{
   display:flex;
   flex-direction: row;
@@ -39,66 +43,49 @@ h2, p{
   padding:none;
 }
 `
-const options = {
- 
-  settings: {
-    boxShadow: 'none',
-    disableKeyboardControls: false,
-    disablePanzoom: false,
-    disableWheelControls: false,
-    hideControlsAfter: false,
-    lightboxTransitionSpeed: 0.3,
-    lightboxTransitionTimingFunction: 'linear',
-    overlayColor: 'rgba(30, 30, 30, 0.9)',
-    slideAnimationType: 'fade',
-    slideSpringValues: [300, 50],
-    slideTransitionSpeed: 0.6,
-    slideTransitionTimingFunction: 'linear',
-    usingPreact: false
-  },
-  buttons: {
-    backgroundColor: 'rgba(30,30,36,0.8)',
-    iconColor: 'rgba(255, 255, 255, 0.8)',
-    iconPadding: '10px',
-    showAutoplayButton: false,
-    showCloseButton: true,
-    showDownloadButton: false,
-    showFullscreenButton: true,
-    showNextButton: true,
-    showPrevButton: true,
-    showThumbnailsButton: false,
-    size: '40px'
-  },
-  
-  thumbnails: {
-    showThumbnails: false,
-  }
-  };
-const PlhArtPage = ({ data }) => (
-  <StyledDiv>
-    <Layout />
-    <main>
-    <AnimationNav/>
-    <OriginalsNav
-      name={data.datoCmsOriginal.name}
-      link={data.datoCmsOriginal.link}
-    />
-    <h1>Art of {data.datoCmsOriginal.name}</h1>
-    <section>
-      <SRLWrapper options={options}>
-        {data.datoCmsOriginal.art.map(({image2})=> (
-          <div>
-            <GatsbyImage image={image2.gatsbyImageData} alt={image2.alt}/>
-          </div>
-        ))}
-      </SRLWrapper>
-    </section>
-    </main>
-  <SGFooter/>
-  </StyledDiv>
-)
 
-  export default PlhArtPage
+const PlhArtPage = ({ data }) => {
+  const [index, setIndex] = React.useState(-1);
+  const slides = data.datoCmsOriginal.art.map(({image2})=> (
+    {
+      src: image2.fluid.src,
+      width: image2.fluid.width,
+      height: image2.fluid.height,
+      title: image2.title,
+      alt: image2.alt
+    }
+  ));
+  return (
+    <StyledDiv>
+      <Layout title={data.datoCmsOriginal.name}/>
+      <main>
+      <AnimationNav/>
+      <OriginalsNav
+        name={data.datoCmsOriginal.name}
+        link={data.datoCmsOriginal.link}
+      />
+      <h1>Art of {data.datoCmsOriginal.name}</h1>
+      <section>
+        <PhotoAlbum
+          layout="masonry"
+          photos={slides}
+          onClick={({ index: current }) => setIndex(current)}
+        />
+
+        <Lightbox
+          plugins={[Captions, Fullscreen]}
+          index={index}
+          slides={slides}
+          open={index >= 0}
+          close={() => setIndex(-1)}
+        />
+      </section>
+      </main>
+    <Footer/>
+    </StyledDiv>
+  )
+}
+export default PlhArtPage;
 
 export const query = graphql`
 query PlhArtQuery {
@@ -109,7 +96,11 @@ query PlhArtQuery {
       image2 {
         title
         alt
-        gatsbyImageData
+        fluid {
+          height
+          width
+          src
+        }
       }
     }
   }

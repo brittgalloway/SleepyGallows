@@ -2,10 +2,10 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import {OriginalsNav ,AnimationNav} from '../../components/nav'
-import {SGFooter} from '../../components/footer'
+import {Footer} from '../../components/footer'
 import Layout from '../../components/layout'
 
-const StyledDiv = styled.div`
+const StyledDiv = styled("div")`
 section {
   // display: flex;
   // flex-direction: row;
@@ -35,7 +35,7 @@ h2, p{
 `
 const ElePage = ({ data }) => (
   <StyledDiv>
-    <Layout />
+    <Layout title={data.datoCmsOriginal.name} />
     <main>
     <AnimationNav/>
     <OriginalsNav
@@ -62,7 +62,7 @@ const ElePage = ({ data }) => (
       ))} */}
     </section>
     </main>
-  <SGFooter/>
+  <Footer/>
   </StyledDiv>
 )
 
