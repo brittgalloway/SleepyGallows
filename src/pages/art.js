@@ -2,9 +2,9 @@ import * as React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
-import '../styles/global.css'
+import "../styles/global.css"
 
-const StyledDiv = styled.div`
+const StyledDiv = styled("div")`
 height: 100vh;
 overflow-y: hidden;
 overflow-x: hidden;
@@ -56,15 +56,13 @@ main > a{
       height: 50%;
     }
   }
-
-  
 }
 `
 
 const ArtPage = () => {
     return (
       <StyledDiv>
-          <Layout />
+          <Layout title={"Art"} />
           <main>
           <Link to="/crystalsart">
             <p>Crystal</p>

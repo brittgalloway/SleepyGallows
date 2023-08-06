@@ -1,14 +1,18 @@
-import * as React from 'react'
-import { graphql } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
-import {BrittneyNav} from '../components/nav'
-import {BrittFooter} from '../components/footer'
-import { SRLWrapper } from "simple-react-lightbox";
-import styled from 'styled-components'
-import Layout from '../components/layout'
-import '../styles/global.css'
+import * as React from 'react';
+import { graphql } from 'gatsby';
+import PhotoAlbum from "react-photo-album";
+import Lightbox from "yet-another-react-lightbox";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Captions from "yet-another-react-lightbox/plugins/captions";
+import {BrittneyNav} from '../components/nav';
+import {Footer} from '../components/footer';
+import Layout from '../components/layout';
+import styled from 'styled-components';
+import '../styles/global.css';
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/captions.css";
 
-const StyledDiv = styled.div`
+const StyledDiv = styled("div")`
 section > div{
   display:flex;
   flex-direction: row;
@@ -32,78 +36,64 @@ main img{
 }
 `
 
-const options = {
- 
-settings: {
-  boxShadow: 'none',
-  disableKeyboardControls: false,
-  disablePanzoom: false,
-  disableWheelControls: false,
-  hideControlsAfter: false,
-  lightboxTransitionSpeed: 0.3,
-  lightboxTransitionTimingFunction: 'linear',
-  overlayColor: 'rgba(30, 30, 30, 0.9)',
-  slideAnimationType: 'fade',
-  slideSpringValues: [300, 50],
-  slideTransitionSpeed: 0.6,
-  slideTransitionTimingFunction: 'linear',
-  usingPreact: false
-},
-buttons: {
-  backgroundColor: 'rgba(30,30,36,0.8)',
-  iconColor: 'rgba(255, 255, 255, 0.8)',
-  iconPadding: '10px',
-  showAutoplayButton: false,
-  showCloseButton: true,
-  showDownloadButton: false,
-  showFullscreenButton: true,
-  showNextButton: true,
-  showPrevButton: true,
-  showThumbnailsButton: false,
-  size: '40px'
-},
+const SketchPage = ({ data }) => {
+  const [index, setIndex] = React.useState(-1);
+  const slides = data.allDatoCmsSketchImg.edges.map(({node})=> (
+    {
+      key: node.sketchImg.originalId,
+      src: node.sketchImg.fluid.src,
+      width: node.sketchImg.fluid.width,
+      height: node.sketchImg.fluid.height,
+      title: node.sketchImg.title,
+      alt: node.sketchImg.alt
+    }
+  ));
 
-thumbnails: {
-  showThumbnails: false,
+  return (
+    <StyledDiv>
+      <Layout title={"Brittney's Art"} />
+      <main>
+        <BrittneyNav/>
+        <section>
+          <PhotoAlbum
+            layout="masonry"
+            photos={slides}
+            onClick={({ index: current }) => setIndex(current)}
+          />
+
+          <Lightbox
+            plugins={[Captions, Fullscreen]}
+            index={index}
+            slides={slides}
+            open={index >= 0}
+            close={() => setIndex(-1)}
+          />
+      
+        </section>
+      </main>
+      <Footer footer={"Brittney Galloway"}/>
+    </StyledDiv>
+  )
 }
-};
-const SketchPage = ({ data }) => (
+export default SketchPage
 
-  <StyledDiv>
-    <Layout />
-    <main>
-      <BrittneyNav/>
-      <section>
-        <SRLWrapper options={options}>
-          {data.allDatoCmsSketchImg.edges.map(({node})=> (
-            <GatsbyImage 
-            image={node.sketchImg.gatsbyImageData} 
-            alt={node.sketchImg.alt}
-            key= {node.sketchImg.originalId}
-            />
-            ))}
-        </SRLWrapper>
-		
-      </section>
-    </main>
-    <BrittFooter/>
-  </StyledDiv>
-)
-  export default SketchPage
-
-  export const query = graphql`
-  query SketchQuery {
-    allDatoCmsSketchImg {
-      edges {
-        node {
-          sketchImg {
-            gatsbyImageData(placeholder: BLURRED)
-            title
-            alt
-            originalId
+export const query = graphql`
+query SketchQuery {
+  allDatoCmsSketchImg {
+    edges {
+      node {
+        sketchImg {
+          fluid {
+            height
+            width
+            src
           }
+          title
+          alt
+          originalId
         }
       }
     }
   }
-  `
+}
+`

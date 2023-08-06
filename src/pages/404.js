@@ -14,15 +14,16 @@ const StyledDiv = styled("div")`
   text-align:center;
 
   a{
-
-      font-weight:bold;
-      text-decoration: none;
-      color: var(--brand-color);
-      &:hover{
-          color: var(--pink-highlight);
-      }
+    font-weight:bold;
+    text-decoration: none;
+    color: var(--brand-color);
+    &:hover{
+        color: var(--pink-highlight);
+    }
   }
-  h1{
+`
+const StyledH1 = styled("h1")`
+
       font-family: var(--brandFont);
       font-size: 3rem;
       color: var(--brand-color);
@@ -30,7 +31,7 @@ const StyledDiv = styled("div")`
       padding: 2rem;
       @media (max-width: 480px){
           font-size: 2rem;
-      }
+
   }
 `
 
@@ -38,7 +39,7 @@ const NotFoundPage = () => {
   return (
     <StyledDiv >
       <Head title={"404 - Not Found"} />
-      <h1 >Page not found</h1>
+      <StyledH1>Page not found</StyledH1>
       <p>
         Sorry
         <br/>

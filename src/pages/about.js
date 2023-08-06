@@ -1,15 +1,12 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-import {SGFooter} from '../components/footer'
+import {Footer} from '../components/footer'
 import Layout from "../components/layout"
 import '../styles/global.css'
 
-const StyledDiv = styled.div`
-  img{
-   justify:center;
-  }
+const StyledDiv = styled("div")`
+
   p{
     text-indent: 2rem;
   }
@@ -42,11 +39,16 @@ const StyledDiv = styled.div`
   }
 
 `
+const StyledImg = styled("img")`
+
+   justify:center;
+
+`
 
 const AboutPage = () => {
     return (
       <StyledDiv>
-          <Layout />
+          <Layout title={"About"}/>
           <main>
             <article>
               <h1>About the Sleepy Gallows</h1>
@@ -64,13 +66,13 @@ const AboutPage = () => {
             <article className="narrow">
               <h2>About the Creators</h2>
               <h3 className="center">We are Sisters by blood in sister fields: Animation and Illustration!​​​​​​​</h3>
-              <StaticImage maxWidth={530} src='https://www.datocms-assets.com/53347/1628171501-brit-mio.png' alt='The Galloway Sisters: Crystal (left) and Brittney (right) as drawn in the "For Peace, Love, and Harmony" style. Art by Crystal'/>
+              <StyledImg maxWidth={530} src='https://www.datocms-assets.com/53347/1628171501-brit-mio.png' alt='The Galloway Sisters: Crystal (left) and Brittney (right) as drawn in the "For Peace, Love, and Harmony" style. Art by Crystal'/>
               <p>
               We were born and raised in the Chicagoland area and went to California College of the Arts (CCA) in the Bay Area. Brittney (right) got her BFA in Animation (2014) while Crystal (left) got her BFA in Illustration(2015). Now both sisters are back in Chicago making art.
               </p>
             </article>
           </main>
-          <SGFooter/>
+          <Footer/>
         </StyledDiv>
     
     )

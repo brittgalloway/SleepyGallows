@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import {AnimationNav} from '../components/nav'
-import {SGFooter} from '../components/footer'
+import {Footer} from '../components/footer'
 import styled from "styled-components"
 import Layout from "../components/layout"
 import '../styles/global.css'
 
-const StyledDiv = styled.div`
+const StyledDiv = styled("div")`
 
 section {
   display: flex;
@@ -42,7 +42,7 @@ footer{
 
 const ClientPage = ({ data }) => (
   <StyledDiv>
-    <Layout />
+    <Layout title={"Client Projects"}/>
     <main>
     <AnimationNav/>
     <h1>Client Work</h1>
@@ -63,7 +63,7 @@ const ClientPage = ({ data }) => (
       ))}
     </section>
     </main>
-    <SGFooter/>
+    <Footer/>
   </StyledDiv>
 )
 
@@ -71,7 +71,7 @@ const ClientPage = ({ data }) => (
 
 export const query = graphql`
 query ClientQuery {
-  allDatoCmsClientWork(sort: {fields: year, order: DESC}) {
+  allDatoCmsClientWork(sort: {year: DESC}) {
     edges {
       node {
         year

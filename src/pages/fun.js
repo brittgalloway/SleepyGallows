@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import {AnimationNav} from '../components/nav'
-import {SGFooter} from '../components/footer'
+import {Footer} from '../components/footer'
 import styled from "styled-components"
 import Layout from "../components/layout"
 import '../styles/global.css'
 
-const StyledDiv = styled.div`
+const StyledDiv = styled("div")`
 section {
   display: flex;
   flex-direction: row;
@@ -34,7 +34,7 @@ summary, p{
 
 const FunPage = ({ data }) => (
   <StyledDiv>
-    <Layout />
+    <Layout title={"Fun Projects"}/>
     <main>
     <AnimationNav/>
     <h1>Passion Projects</h1>
@@ -53,15 +53,15 @@ const FunPage = ({ data }) => (
       ))}
     </section>
     </main>
-  <SGFooter/>
+  <Footer/>
   </StyledDiv>
 )
 
-  export default FunPage
+export default FunPage
 
 export const query = graphql`
 query FunQuery {
-  allDatoCmsForFun(sort: {fields: year, order: DESC}) {
+  allDatoCmsForFun(sort: {year: DESC}) {
     edges {
       node {
         link

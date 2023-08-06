@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import {SGFooter} from '../components/footer'
+import {Footer} from '../components/footer'
 import styled from "styled-components"
 import Layout from "../components/layout"
 import '../styles/global.css'
 
-const StyledDiv = styled.div`
+const StyledDiv = styled("div")`
 text-align: center;
 
 main {
@@ -69,11 +69,9 @@ summary::marker{
 
 const WebDevPage = ({data}) => {
 
-  
-  
     return (
       <StyledDiv>
-          <Layout />
+          <Layout title={"Brittney's Web Development"}/>
           <main>
             <div>
               <h1>Web Development</h1>
@@ -168,7 +166,7 @@ const WebDevPage = ({data}) => {
               </div>
             </section>  
           </main>
-            <SGFooter/>
+            <Footer footer={"Brittney Galloway"} />
       </StyledDiv>
     )
   }
@@ -177,7 +175,7 @@ const WebDevPage = ({data}) => {
 
   export const query = graphql`
   query WebQuery {
-    allDatoCmsWebProject(sort: {fields: projectName}) {
+    allDatoCmsWebProject(sort: {projectName: ASC}) {
       edges {
         node {
           projectName

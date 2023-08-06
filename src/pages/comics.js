@@ -1,11 +1,10 @@
-import * as React from "react"
-import {ComicFooter} from '../components/footer'
-import styled from "styled-components"
-import Layout from "../components/layout"
-import '../styles/global.css'
-import { StaticImage } from "gatsby-plugin-image"
+import * as React from "react";
+import {Footer} from "../components/footer";
+import styled from "styled-components";
+import Layout from "../components/layout";
+import "../styles/global.css";
 
-const StyledDiv = styled.div`
+const StyledDiv = styled("div")`
 text-align: center;
 h1{
   font-family: var(--brandFont);
@@ -34,7 +33,10 @@ section{
   }
   .image{
     max-width: 550px;
-    
+    img {
+      max-width: 545px;
+      padding: 5px;
+    }
   }
   .links{
     align-self: center;
@@ -49,12 +51,12 @@ section{
 .products{
   margin: 2rem;
   width: 100%;
-  [data-gatsby-image-wrapper]{
+  img{
     margin:1rem 3rem;
   }
   @media (max-width: 1300px){
     margin: 1rem;
-    [data-gatsby-image-wrapper]{
+    img{
       margin:1rem 1rem;
     }
   @media (max-width: 830px){
@@ -68,7 +70,7 @@ section{
 const ComicsPage = () => {
     return (
       <StyledDiv>
-          <Layout />
+          <Layout title={"2Heros"} />
           <main>
               <article>
                 <h1>2Heroes</h1>
@@ -91,7 +93,7 @@ const ComicsPage = () => {
                     </ul>
                   </div>
                   <div className="image">
-                  <StaticImage aspectRatio={1} src='https://www.datocms-assets.com/53347/1628172359-necahualimg.webp' alt='Necahual, Quetzalli, and Anacaona become warriors for the 1st time'/>
+                    <img src='https://www.datocms-assets.com/53347/1628172359-necahualimg.webp' alt='Necahual, Quetzalli, and Anacaona become warriors for the 1st time'/>
                   </div>
                 </section>
               </article>
@@ -104,21 +106,21 @@ const ComicsPage = () => {
                   Patreon supporters get 15% off everything in the store
                 </small>
                 <div className="products">
-                <StaticImage  src='https://www.datocms-assets.com/53347/1628171910-necacharms.jpg' alt='Small product photo of Necahual  Charms found at candyfluffs.com/2heroes'/>
-                <StaticImage  src='https://www.datocms-assets.com/53347/1628171809-necaminicomics.jpg' alt='Small product photo of the handmade Necahual  Art book  found at candyfluffs.com/2heroes'/>
-                <StaticImage  src='https://www.datocms-assets.com/53347/1628171977-necastickers.jpg' alt='Small product photo of the handmade Necahual  Stickers found at candyfluffs.com/2heroes'/>
+                <img src='https://www.datocms-assets.com/53347/1628171910-necacharms.jpg' alt='Small product photo of Necahual  Charms found at candyfluffs.com/2heroes'/>
+                <img src='https://www.datocms-assets.com/53347/1628171809-necaminicomics.jpg' alt='Small product photo of the handmade Necahual  Art book  found at candyfluffs.com/2heroes'/>
+                <img src='https://www.datocms-assets.com/53347/1628171977-necastickers.jpg' alt='Small product photo of the handmade Necahual  Stickers found at candyfluffs.com/2heroes'/>
                 </div>
               </article>
               <article>
                 <h2>The Creators</h2>
                 <p>
-                Serigio (the writer) and Crystal (the artist) met at a networking session at C2E2 in Chicago 2017. They became fast friends and have been working together ever since.
+                  Serigio (the writer) and Crystal (the artist) met at a networking session at C2E2 in Chicago 2017. They became fast friends and have been working together ever since.
                 </p>
               </article>
           </main>
-          <ComicFooter/>
+          <Footer footer={"2Heroes"}/>
       </StyledDiv>
     )
   }
   
-  export default ComicsPage
+  export default ComicsPage;
