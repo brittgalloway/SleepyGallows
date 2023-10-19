@@ -1,56 +1,125 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# Sleepy Gallows Portfolio
 
-## 🚀 Quick start
+Sleepy Gallows is a portfolio website showcasing the creative work of Brittney and Crystal Galloway. This website is built using GatsbyJS, powered by GraphQL, and managed with DatoCMS. The beautiful design is crafted in Figma. The project is deployed with Vercel, ensuring a smooth and responsive online presence.
 
-1.  **Create a Gatsby site.**
+## Meet the Artists
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+- **Brittney Galloway**: Animator and Web Developer
+- **Crystal Galloway**: Illustrator and Comic Creator
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+---
 
-2.  **Start developing.**
+## Table of Contents
 
-    Navigate into your new site’s directory and start it up.
+- [Introduction](#sleepy-gallows-portfolio)
+- [Meet the Artists](#meet-the-artists)
+- [Table of Contents](#table-of-contents)
+- [Features](#features)
+- [Setup](#setup)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Development](#development)
+- [Contributing](#contributing)
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+---
 
-3.  **Open the code and start customizing!**
+## Features
 
-    Your site is now running at http://localhost:8000!
+The Sleepy Gallows is designed to present the creative work of Brittney and Crystal across four main disciplines:
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+- **Animation**: Includes client work, small quick projects, and original films and web series.
+- **Art**: Features Crystal's illustrations and visual development, as well as Brittney's sketches and collage art.
+- **Comics**: Showcases Crystal's original web comic "Necahual" and where to find it.
+- **Web Development**: Highlights different web projects created by Brittney.
 
-4.  **Learn more**
+---
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## Setup
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+### Technologies Used
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+Sleepy Gallows is built using the following technologies and services:
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- GatsbyJS
+- npm
+- GraphQL
+- DatoCMS
+- Figma (for design)
+- Vercel (for deployment)
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+### Getting Started
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+To run Sleepy Gallows locally or deploy it, follow these steps:
 
-## 🚀 Quick start (Gatsby Cloud)
+1. **Clone the repository:**
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+   ```bash
+   git clone https://github.com/yourusername/sleepy-gallows.git
+   cd sleepy-gallows
+   ```
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+2. **Install dependencies:**
 
-sleepy-gallows.admin.datocms.com
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables:**
+
+   - Create a `.env` file and configure it with your environment-specific settings, including API keys and other required configurations.
+
+4. **Start the development server:**
+
+   ```bash
+   npm run develop
+   ```
+
+5. **Open your browser:**
+
+   Your Sleepy Gallows site should now be running locally at [http://localhost:8000](http://localhost:8000).
+
+
+---
+
+## Usage
+
+Sleepy Gallows provides an engaging platform to explore the artistic work of Brittney and Crystal. Visitors can navigate through animations, illustrations, comics, and web development projects.
+
+
+---
+
+## Development
+
+For developers:
+
+1. **Fork this repository.**
+2. **Create a new branch:**
+
+   ```bash
+   git checkout -b feature/my-feature
+   ```
+
+3. **Make your changes and commit:**
+
+   ```bash
+   git commit -m "Add new feature"
+   ```
+
+4. **Push to your fork:**
+
+   ```bash
+   git push origin feature/my-feature
+   ```
+
+5. **Open a pull request:**
+
+   Contribute to the project by opening a pull request. Your contributions are welcome and appreciated!
+
+---
+
+## Contributing
+
+If you have suggestions, bug reports, or feature requests, please submit an issue or contact Brittney at crlnfllr(at)gmail.com.
+---
+
