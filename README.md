@@ -26,12 +26,12 @@ Sleepy Gallows is a portfolio website showcasing the creative work of Brittney a
 
 ## Features
 
-The Sleepy Gallows is designed to present the creative work of Brittney and Crystal across four main disciplines:
+The Sleepy Gallows is designed to present the creative work of Brittney and Crystal in four categories:
 
 - **Animation**: Includes client work, small quick projects, and original films and web series.
 - **Art**: Features Crystal's illustrations and visual development, as well as Brittney's sketches and collage art.
 - **Comics**: Showcases Crystal's original web comic "Necahual" and where to find it.
-- **Web Development**: Highlights different web projects created by Brittney.
+- **Shop** (Coming soon): Highlights different web projects created by Brittney.
 
 ---
 
@@ -50,42 +50,9 @@ Sleepy Gallows is built using the following technologies and services:
 
 ### Getting Started
 
-To run Sleepy Gallows locally or deploy it, follow these steps:
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/yourusername/sleepy-gallows.git
-   cd sleepy-gallows
-   ```
-
-2. **Install dependencies:**
-
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables:**
-
-   - Create a `.env` file and configure it with your environment-specific settings, including API keys and other required configurations.
-
-4. **Start the development server:**
-
-   ```bash
-   npm run develop
-   ```
-
-5. **Open your browser:**
-
-   Your Sleepy Gallows site should now be running locally at [http://localhost:8000](http://localhost:8000).
-
-
----
-
 ## Usage
 
 Sleepy Gallows provides an engaging platform to explore the artistic work of Brittney and Crystal. Visitors can navigate through animations, illustrations, comics, and web development projects.
-
 
 ---
 
@@ -100,26 +67,46 @@ For developers:
    git checkout -b feature/my-feature
    ```
 
-3. **Make your changes and commit:**
+3. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+4. **Set up environment variables:**
+
+   - Create a `.env` file and configure it with your environment-specific settings, including API keys and other required configurations.
+
+5. **Start the development server:**
+
+   ```bash
+   npm run develop
+   ```
+
+6. **Open your browser:**
+
+   Your Sleepy Gallows site should now be running locally at [http://localhost:8000](http://localhost:8000).
+
+7. **Make your changes and commit:**
 
    ```bash
    git commit -m "Add new feature"
    ```
 
-4. **Push to your fork:**
+8. **Push to your fork:**
 
    ```bash
    git push origin feature/my-feature
    ```
 
-5. **Open a pull request:**
+9. **Open a pull request:**
 
-   Contribute to the project by opening a pull request. Your contributions are welcome and appreciated!
+   Contribute to the project by opening a pull request.
 
 ---
 
 ## Contributing
 
 If you have suggestions, bug reports, or feature requests, please submit an issue or contact Brittney at crlnfllr(at)gmail.com.
----
 
+---
