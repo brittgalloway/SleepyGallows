@@ -33,7 +33,7 @@ section{
   }
   .image{
     max-width: 550px;
-    
+    overflow: hidden;
     img {
       max-width: 545px;
       padding: 5px;

@@ -10,7 +10,6 @@ h1{
     text-align: center;
 }
 main{
-    margin-left: 20rem;
     padding: 2rem;
     display: flex;
     justify-content: center;
