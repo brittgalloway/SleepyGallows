@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import {OriginalsNav ,AnimationNav} from '../../components/nav'
-import {Footer} from '../../components/footer'
+import { OriginalsNav, AnimationNav } from '../../components/nav'
+import { Footer } from '../../components/footer'
 import Layout from '../../components/layout'
 
 const StyledDiv = styled("div")`

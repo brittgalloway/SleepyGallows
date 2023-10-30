@@ -1,16 +1,16 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import PhotoAlbum from "react-photo-album";
-import Lightbox from "yet-another-react-lightbox";
-import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
-import Captions from "yet-another-react-lightbox/plugins/captions";
-import {CrystalNav} from '../components/nav'
-import {Footer} from '../components/footer'
-import styled from "styled-components"
-import Layout from "../components/layout"
+import PhotoAlbum from 'react-photo-album'
+import Lightbox from 'yet-another-react-lightbox'
+import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen'
+import Captions from 'yet-another-react-lightbox/plugins/captions'
+import { CrystalNav } from '../components/nav'
+import { Footer } from '../components/footer'
+import styled from 'styled-components'
+import Layout from '../components/layout'
 import '../styles/global.css'
-import "yet-another-react-lightbox/styles.css";
-import "yet-another-react-lightbox/plugins/captions.css";
+import 'yet-another-react-lightbox/styles.css'
+import 'yet-another-react-lightbox/plugins/captions.css'
 
 const StyledDiv = styled("div")`
 .grid > div{
