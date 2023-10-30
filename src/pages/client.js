@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import {AnimationNav} from '../components/nav'
-import {Footer} from '../components/footer'
-import styled from "styled-components"
-import Layout from "../components/layout"
+import { AnimationNav } from '../components/nav'
+import { Footer } from '../components/footer'
+import styled from 'styled-components'
+import Layout from '../components/layout'
 import '../styles/global.css'
 
 const StyledDiv = styled("div")`
@@ -49,7 +49,7 @@ const ClientPage = ({ data }) => (
     <section>
       {data.allDatoCmsClientWork.edges.map(({node})=> (
         <div key={node.title}>
-          <iframe src={node.link} maxWidth={376} maxHeight={212} title={"Watch "+ node.title} frameBorder="0" allowFullScreen></iframe>
+          <iframe src={node.link} maxwidth={376} maxHeight={212} title={"Watch "+ node.title} frameBorder="0" allowFullScreen></iframe>
           <details>
             <summary>
              {node.title}

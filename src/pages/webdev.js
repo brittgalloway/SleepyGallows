@@ -1,18 +1,22 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import {Footer} from '../components/footer'
-import styled from "styled-components"
-import Layout from "../components/layout"
+import { Footer } from '../components/footer'
+import styled from 'styled-components'
+import { Head } from '../components/head'
 import '../styles/global.css'
 
 const StyledDiv = styled("div")`
 text-align: center;
+h1{
+  font-family: var(--brandFont);
+    font-size: 2rem;
+}
 
 main {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
+  margin: 0;
   @media(max-width: 830px){
     flex-direction: column;
     margin:0;
@@ -22,18 +26,7 @@ main {
   }
 
 }
-section{
-  width:50%;
-  @media(max-width: 830px){
-    width: 100%;
-  }
-}
-h1{
-  font-family: var(--brandFont);
-    font-size: 2rem;
-}
 #tools{
-  display: flex;
   justify-content: center;
   span{
     padding: 1rem;
@@ -47,124 +40,125 @@ main > div:first-child{
     padding:0;
   }
 }
-div{
+footer{
+  margin:0;
+}
+`
+const Projects = styled("div")`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width:75%;
+  @media(max-width: 830px){
+    width: 100%;
+  }
+  `
+  const Project = styled("div")`
   border: .5px solid var(--brand-color);
   border-radius: 15px;
   box-shadow: var(--text-shadow);
-  width: 90%;
+  width: 45%;
   padding: 2rem;
   margin: 1rem;
-}
-summary{
-  font-weight: bold;
-  &:hover{
-    cursor: pointer;
+  @media(max-width: 830px){
+    width: 100%;
   }
-}
-summary::marker{
-  font-size:0;
-}
-
+`
+const Info = styled("section")`
+  margin: 0;
 `
 
 const WebDevPage = ({data}) => {
 
     return (
       <StyledDiv>
-          <Layout title={"Brittney's Web Development"}/>
+          <Head title={ "Brittney's Web Development" } />
+          <header>
+            <h1>Brittney Galloway</h1>
+            <p>Frontend Web Developer</p>
+          </header>
           <main>
-            <div>
-              <h1>Web Development</h1>
-              <p>Brittney Galloway is also a Frontend Web Developer. Below are a few of her best projects.</p>
-            </div>
-            <section>
+            <Projects>
               {data.allDatoCmsWebProject.edges.map(({node})=> (
-                <div>
-                  <details>
-                    <summary key = {node.projectName}>
-                    {node.projectName}
-                    </summary>
+                <Project key={node.id}>
+                    <h2>{node.projectName}</h2>
                     <p>{node.tools}</p> 
-                    <p><a href={node.liveApp}>See it here.</a></p> 
+                    <p><a href={node.liveApp}>See it here</a></p> 
                     <p><a href={node.github}>Github</a></p> 
-                    <p dangerouslySetInnerHTML={{ __html: node.description }}/>
-                  </details>
-                </div>
+                    <div dangerouslySetInnerHTML={{ __html: node.description }}/>
+                </Project>
               ))}
-              </section>
-              <section>
-              <div id='tools'>
-                <span>
-                  <h2>
-                    Favorite Tools
-                  </h2>
-                  <ul>
-                    <li>
-                      Gatsby
-                    </li>
-                    <li>
-                      Dato CMS
-                    </li>
-                    <li>
-                      Sass
-                    </li>
-                    <li>
-                      HTML5
-                    </li>
-                    <li>
-                      CSS3
-                    </li>
-                    <li>
-                      Flexbox
-                    </li>
-                    <li>
-                      Figma
-                    </li>
-                  </ul>
-                  </span>
+              </Projects>
+              <Info>
+                <div id='tools'>
                   <span>
-                  <h2>
-                    Familar Tools
-                  </h2>
-                  <ul>
-                    <li>
-                      Javascript
-                    </li>
-                    <li>
-                      JQuery
-                    </li>
-                    <li>
-                      Bootstrap
-                    </li>
-                    <li>
-                      CSS Grid
-                    </li>
-                    <li>
-                      Handlebars
-                    </li>
-                    <li>
-                      React
-                    </li>
-                    <li>
-                      Firebase
-                    </li>
-                  </ul>
-                </span>
-              </div>
-              <div id='social'>
-                <h2>Find Me</h2>
-                <span>
-                  <ul>
-                    <li>
-                      <a href="https://github.com/brittgalloway">Github</a>
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/in/brittneygalloway/">LinkedIn</a>
-                    </li>
-                  </ul>
-                </span>
-              </div>
-            </section>  
+                    <h2>
+                      Favorite Tools
+                    </h2>
+                    <ul>
+                      <li>
+                        HTML5
+                      </li>
+                      <li>
+                        Sass
+                      </li>
+                      <li>
+                        Javascript
+                      </li>
+                      <li>
+                        CSS3
+                      </li>
+                      <li>
+                        Flexbox
+                      </li>
+                      <li>
+                        Gatsby
+                      </li>
+                      <li>
+                        Dato CMS
+                      </li>
+                      <li>
+                        Figma
+                      </li>
+                    </ul>
+                    </span>
+                    <span>
+                    <h2>
+                      Familar Tools
+                    </h2>
+                    <ul>
+                      <li>
+                        JQuery
+                      </li>
+                      <li>
+                        Bootstrap
+                      </li>
+                      <li>
+                        CSS Grid
+                      </li>
+                      <li>
+                        Handlebars
+                      </li>
+                      <li>
+                        React
+                      </li>
+                    </ul>
+                  </span>
+                </div>
+                <div id='social'>
+                  <h2>Find Me</h2>
+                  <span>
+                    <ul>
+                      <li>
+                        <a href="https://github.com/brittgalloway">Github</a>
+                      </li>
+                      <li>
+                        <a href="https://www.linkedin.com/in/brittneygalloway/">LinkedIn</a>
+                      </li>
+                    </ul>
+                  </span>
+                </div>
+            </Info>  
           </main>
             <Footer footer={"Brittney Galloway"} />
       </StyledDiv>
@@ -183,6 +177,7 @@ const WebDevPage = ({data}) => {
           github
           tools
           description
+          id
         }
       }
     }

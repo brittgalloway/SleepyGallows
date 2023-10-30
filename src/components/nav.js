@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
-import {useMediaQuery} from 'react-responsive';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
-import { StaticImage } from "gatsby-plugin-image"
-import hamburgerIcon from './hamburger.svg';
+import React, { useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
+import { StaticImage } from 'gatsby-plugin-image'
+import hamburgerIcon from './hamburger.svg'
 
 const Nav = styled("nav")`
  position: fixed;
@@ -96,34 +96,32 @@ export default function MainNavigation() {
       </div>
       
       {(isOpen || !isMobile) && (
-        <nav aria-label="Site Menu" className={isMobile && "mobile" }>
-          <ul>
-            {isMobile && 
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-            }
-            {(!isOpen || !isMobile) &&
-            <li>
-              <Link to="/about">
-                  <StaticImage className="logo" maxWidth={250} src="./sg_logo.svg" alt="logo, click here to learn about the Sleepy Gallows."/>
-              </Link>
-            </li>
-            }
-            <li>
-              <Link to="/animation">Animation</Link>
-            </li>
-            <li>
-            <Link to="/comics">Comics</Link>
-            </li>
-            <li>
-            <Link to="/art">Art</Link>
-            </li>
-            <li>
-            <Link to="/webdev">Websites</Link>
-            </li>
-          </ul>
-        </nav>
+        <ul aria-label="Site Menu" className={isMobile ? "mobile" : null}>
+          {isMobile && 
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+          }
+          {(!isOpen || !isMobile) &&
+          <li>
+            <Link to="/about">
+                <StaticImage className="logo" maxwidth={250} src="./sg_logo.svg" alt="logo, click here to learn about the Sleepy Gallows."/>
+            </Link>
+          </li>
+          }
+          <li>
+            <Link to="/animation">Animation</Link>
+          </li>
+          <li>
+          <Link to="/comics">Comics</Link>
+          </li>
+          <li>
+          <Link to="/art">Art</Link>
+          </li>
+          <li>
+          <Link to="/shop">Shop</Link>
+          </li>
+        </ul>
       )}
       
     </Nav>
@@ -139,7 +137,7 @@ export function BrittneyNav() {
              </li>
       
              <li>
-                 <Link to="/papercut">Paper Cutouts</Link>
+                 <Link to="/papercut">Collage</Link>
              </li>
          </ul>
      

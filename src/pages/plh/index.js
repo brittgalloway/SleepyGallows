@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import {OriginalsNav ,AnimationNav} from '../../components/nav'
-import {Footer} from '../../components/footer'
+import { OriginalsNav, AnimationNav } from '../../components/nav'
+import { Footer } from '../../components/footer'
 import Layout from '../../components/layout'
 
 const StyledDiv = styled("div")`
@@ -42,7 +42,7 @@ const PlhPage = ({ data }) => (
     <section>
       {data.datoCmsOriginal.watch.map((video)=> (
         <div>
-          <iframe maxWidth={376} maxHeight={212} src={video.link} title={"Watch "+ video.title} frameBorder="0" allowFullScreen></iframe>
+          <iframe maxwidth={376} maxHeight={212} src={video.link} title={"Watch "+ video.title} frameBorder="0" allowFullScreen></iframe>
             <h2>
               {video.title}
               </h2> 

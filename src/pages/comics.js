@@ -1,8 +1,8 @@
-import * as React from "react";
-import {Footer} from "../components/footer";
-import styled from "styled-components";
-import Layout from "../components/layout";
-import "../styles/global.css";
+import * as React from 'react'
+import { Footer } from '../components/footer'
+import styled from 'styled-components'
+import Layout from '../components/layout'
+import '../styles/global.css'
 
 const StyledDiv = styled("div")`
 text-align: center;
@@ -33,9 +33,13 @@ section{
   }
   .image{
     max-width: 550px;
+    
     img {
       max-width: 545px;
       padding: 5px;
+      @media (max-width: 830px){
+        max-width: 275px;
+      }
     }
   }
   .links{

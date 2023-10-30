@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import {AnimationNav} from '../components/nav'
-import {Footer} from '../components/footer'
-import styled from "styled-components"
-import Layout from "../components/layout"
+import { AnimationNav } from '../components/nav'
+import { Footer } from '../components/footer'
+import styled from 'styled-components'
+import Layout from '../components/layout'
 import '../styles/global.css'
 
 const StyledDiv = styled("div")`
@@ -41,7 +41,7 @@ const FunPage = ({ data }) => (
     <section>
       {data.allDatoCmsForFun.edges.map(({node})=> (
         <div key={node.title}>
-          <iframe maxWidth={376} maxHeight={212} src={node.link} title={"Watch "+ node.title}  frameborder="0" allowfullscreen></iframe>
+          <iframe maxwidth={376} maxHeight={212} src={node.link} title={"Watch "+ node.title}  frameborder="0" allowfullscreen></iframe>
           <details>
             <summary>
              {node.title}

@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 
 export function Footer(props) {
   const label = {footer: props.footer || "Sleepy Gallows Studio"}
