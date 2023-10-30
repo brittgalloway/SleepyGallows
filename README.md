@@ -2,11 +2,6 @@
 
 Sleepy Gallows is a portfolio website showcasing the creative work of Brittney and Crystal Galloway. This website is built using GatsbyJS, powered by GraphQL, and managed with DatoCMS. The beautiful design is crafted in Figma. The project is deployed with Vercel, ensuring a smooth and responsive online presence.
 
-## Meet the Artists
-
-- **Brittney Galloway**: Animator and Web Developer
-- **Crystal Galloway**: Illustrator and Comic Creator
-
 ---
 
 ## Table of Contents
@@ -23,6 +18,11 @@ Sleepy Gallows is a portfolio website showcasing the creative work of Brittney a
 - [Contributing](#contributing)
 
 ---
+
+## Meet the Artists
+
+- **Brittney Galloway**: Animator and Web Developer
+- **Crystal Galloway**: Illustrator and Comic Creator
 
 ## Features
 
