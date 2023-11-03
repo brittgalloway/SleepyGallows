@@ -50,7 +50,7 @@ const ElePage = ({ data }) => (
       <h2>
         Coming Soon
       </h2>
-      <img src = "https://www.datocms-assets.com/53347/1642888134-turnaroundjoey.gif" alt="360 view of the character Joey."/>
+      <img src = "https://www.datocms-assets.com/53347/1698974110-turnaroundjoey.gif" alt="360 view of the character Joey."/>
       {/* {data.datoCmsOriginal.watch.map((video)=> (
         <div>
           <iframe maxwidth={376} maxHeight={212} src={video.link} title={"Watch "+ video.title} frameBorder="0" allowFullScreen></iframe>
