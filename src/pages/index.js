@@ -77,7 +77,7 @@ const ShopP = styled(StyledP)`
   right: 25%;
   margin-right: -120px;
   @media(max-width: 830px){
-    bottom: 10%;
+    bottom: 5%;
     right:50%;
     margin-right:-60px;
     font-size: 2em;
