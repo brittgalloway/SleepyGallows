@@ -10,3 +10,8 @@ export default function Layout({ title }) {
     </>
   )
 }
+export function WebLayout({ title }) {
+  return(
+      <Head title={ title } />
+  )
+}

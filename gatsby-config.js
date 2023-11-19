@@ -24,14 +24,14 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/sgFav.svg",
+        icon: "src/assets/sgFav.svg",
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: "./src/images/", 
+        path: "./src/assets/", 
       },
       __key: "images",
     },

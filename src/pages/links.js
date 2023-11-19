@@ -57,6 +57,9 @@ const Links = () => {
                     <li>
                         <Link to="/">Offical Website</Link>
                     </li>
+                    {/* <li>
+                        <a className="linkList" href="#">Join the Newsletter</a>
+                    </li> */}
                     <li>
                         <a className="linkList" href="https://ko-fi.com/sleepygallows">Ko-fi</a>
                     </li>
@@ -67,11 +70,11 @@ const Links = () => {
                         <a className="linkList" href="https://brittgalloway.github.io/memory_game/">PLH Memory Game</a>
                     </li>
                     <li>
-                        <a className="linkList" href="https://www.patreon.com/2heroes">2Heroes Patreon</a>
-                    </li>
-                    <li>
                         <a className="linkList" href="https://www.candyfluffs.com/2heroes">2Heroes Necahual</a>
                     </li>
+                    {/* <li>
+                        <a className="linkList" href="https://www.patreon.com/2heroes">2Heroes Patreon</a>
+                    </li> */}
                 </ul>
             </nav>
         </section>

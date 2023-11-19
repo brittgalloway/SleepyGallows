@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Grandstander&family=Happy+Monkey&family=Heebo&display=swap');
+
+:root {
+    --webHeader: 'Grandstander', cursive;
+    --webTitle: 'Happy Monkey', sans-serif;
+    --webText: 'Heebo', sans-serif;
+    --purple: #6B599E;
+    --light-purple: #E4DCF3;
+    --green: #589E86;
+    --textColor: #414946;
+    --light-green: #DCF1EA;
+    --pink: #F2C3D3;
+    --dark-pink: #A05770;
+  }
+  h1, 
+  h2,
+  h3 {
+    font-family: var(--webHeader);
+    color: var(--purple);
+  }
