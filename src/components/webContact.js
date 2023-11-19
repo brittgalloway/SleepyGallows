@@ -34,7 +34,7 @@ const WebContact = () => {
     return (
 
         <Section>
-            <H2>Connect w/Me!</H2>
+            <H2 id='connect'>Connect w/Me!</H2>
             <Ul>
                 <li>
                     <a href="https://github.com/brittgalloway">

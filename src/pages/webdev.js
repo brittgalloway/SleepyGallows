@@ -33,7 +33,7 @@ const Div = styled("div")`
     border-bottom: 3px solid var(--light-purple);
   }
 `
-const Graphic = styled("div")`
+const Graphic = styled("a")`
   width: 80%;
   margin: 20px auto;
   @media (width <= 450px) {
@@ -93,7 +93,7 @@ const WebDevPage = ({data}) => {
             <Div>
               <h1>Brittney Galloway</h1>
               <h2>Frontend Web Developer</h2>
-              <Graphic>
+              <Graphic href='#connect'>
                 <BrittneyAvitar/>
               </Graphic>
             </Div>
