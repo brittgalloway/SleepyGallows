@@ -23,7 +23,7 @@ const Ul = styled("ul")`
   justify-content: center;
   gap: 30px 60px;
   @media (width <= 450px) {
-    gap: 30px 45px;
+    gap: 30px;
   }
 `
 

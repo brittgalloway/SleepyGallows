@@ -125,8 +125,8 @@ const WebDevPage = ({data}) => {
           <OneMore>
             <h2>One more thing!</h2>
             <P>Art helps my coding and coding helps my art.</P>
-            <P>Learning JavaScript has helped me with my 2D animations via Adobe After Effects Expressions. Similarly Python scripts have been helpful in Blender, even using Grease Pencil.
-I can’t wait to make cool stuff as I learn to mix these 2 passions more and more. Here, I also created my own Lottie files with Adobe After Effects.</P>
+            <P>Learning JavaScript has helped me with my 2D animations via Adobe After Effects Expressions. Similarly Python scripts have been helpful in Blender, even using Grease Pencil. Here, I also created my own Lottie files with Adobe After Effects.
+I can’t wait to make cool stuff as I learn to mix these 2 passions more and more.</P>
           </OneMore>
           <Footer footer={"Brittney Galloway"} />
       </Wrapper>

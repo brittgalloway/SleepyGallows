@@ -25,21 +25,28 @@ const Project = styled("div")`
   background: #fff;
   box-shadow: 0 0 100px 70px var(--purple);
   @media (width <= 450px) {
+    padding: 1rem;
     width: 90%;
     top:5%;
     right: 0;
   }
-`
-const Wrapper = styled("div")`
+  `
+  const Wrapper = styled("div")`
   border: 5px solid var(--light-green);
   border-radius: 15px;
   padding: 2rem;
   text-align: left;
+  @media (width <= 450px) {
+    padding: 1rem;
+  }
 `
 const Img = styled("img")`
   object-fit: cover;
   width: 100%;
   border-radius: 15px;
+  @media (width <= 450px) {
+    display:none;
+  }
 `
 const Close = styled("button")`
   border-radius: 50%;
