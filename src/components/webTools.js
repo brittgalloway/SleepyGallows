@@ -13,6 +13,9 @@ const Section = styled("section")`
     color:var(--green);
     font-size:28px
   }
+  @media (width <= 450px) {
+    padding: 30px;
+  }
 `
 const H2 = styled("h2")`
   font-size:2.5em;
