@@ -11,7 +11,12 @@ import BrittneyAvitar from '../lottie/headerAnimation'
 
 const Wrapper = styled("div")`
 text-align: center;
-
+h1, 
+h2,
+h3 {
+  font-family: var(--webHeader);
+  color: var(--purple);
+}
 footer{
   margin:0;
   font-family: var(--webText);
@@ -105,7 +110,7 @@ const WebDevPage = ({data}) => {
               <P>Based in the Chicagoland area.</P>
             </section> 
             <h2>Projects</h2>
-            <Projects>
+            <Projects> {/* the height is wonky on Firefox*/}
               {data.allDatoCmsWebProject.edges.map(({node})=> (
                 <WebProjects
                 key={node.id}

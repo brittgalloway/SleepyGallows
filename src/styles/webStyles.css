@@ -8,11 +8,6 @@
   --green: #589E86;
   --textColor: #414946;
   --light-green: #DCF1EA;
-}
-
-h1,
-h2,
-h3 {
-  font-family: var(--webHeader);
-  color: var(--purple);
+  --pink: #F2C3D3;
+  --dark-pink: #A05770;
 }/*# sourceMappingURL=webStyles.css.map */
