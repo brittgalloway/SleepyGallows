@@ -24,7 +24,9 @@ const H1= styled("h1")`
 const Iframe= styled("iframe")`
 
   width: 60%;
-
+  @media (width <= 450px) {
+    width:100%;
+  }
 `
 const H2 = styled("h2")`
 
