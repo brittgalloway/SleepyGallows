@@ -110,9 +110,9 @@ const ComicsPage = () => {
                   Patreon supporters get 15% off everything in the store
                 </small>
                 <div className="products">
-                <img src='https://www.datocms-assets.com/53347/1628171910-necacharms.jpg' alt='Small product photo of Necahual  Charms found at candyfluffs.com/2heroes'/>
-                <img src='https://www.datocms-assets.com/53347/1628171809-necaminicomics.jpg' alt='Small product photo of the handmade Necahual  Art book  found at candyfluffs.com/2heroes'/>
-                <img src='https://www.datocms-assets.com/53347/1628171977-necastickers.jpg' alt='Small product photo of the handmade Necahual  Stickers found at candyfluffs.com/2heroes'/>
+                <img src='https://www.datocms-assets.com/53347/1628171910-necacharms.jpg' alt='Necahual Charms found at candyfluffs.com/2heroes'/>
+                <img src='https://www.datocms-assets.com/53347/1628171809-necaminicomics.jpg' alt='The handmade Necahual  Art book  found at candyfluffs.com/2heroes'/>
+                <img src='https://www.datocms-assets.com/53347/1628171977-necastickers.jpg' alt='The handmade Necahual  Stickers found at candyfluffs.com/2heroes'/>
                 </div>
               </article>
               <article>
