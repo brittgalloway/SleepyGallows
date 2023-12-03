@@ -89,17 +89,15 @@ const Img = styled("img")`
   object-fit:cover;
   mix-blend-mode: multiply;
   margin: 0;
+  transition: all .5s ease-in-out;
   &:hover{
-    animation: blurry 2s;
+    -webkit-filter: blur(5px);
    }
    @media(max-width: 830px){
     width: 100vw;
     height: 25vh;
    }
-@keyframes blurry{
-  0% { -webkit-filter: blur(0px);}
-  50% { -webkit-filter: blur(5px);}
-}`
+`
 const TopImg = styled(Img)`
   object-position: top;
 `

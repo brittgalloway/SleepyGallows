@@ -15,8 +15,9 @@ const Nav = styled("nav")`
    180deg,
    var(--blue-highlight),
    hsla(0, 0%, 76.9%, 0)
- );
+   );
 li {
+  transition: all .2s ease-in-out;
   list-style:none;
   div{
     border:none;
@@ -26,6 +27,7 @@ li {
   }
   &:hover {
     background-color: var(--purple-highlight);
+    transition: all .2s ease-in-out;
     a {
       text-decoration: none;
       color: white;
