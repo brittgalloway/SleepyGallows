@@ -24,7 +24,7 @@ const  AnimatedIcons = ({title}) =>{
           loop
           animationData={animation}
           play
-          height={'auto'}
+          style={{ width: 300, height: 'auto' }}
         />
     );
 }

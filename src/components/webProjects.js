@@ -75,7 +75,7 @@ const Button = styled("a")`
   padding: 5px;
   text-align: center;
   width: 40%;
-  margin: 40px 20px 0 20px;
+  margin: 40px 5% 0 5%;
   &:hover {
     color: white;
     text-decoration: none;
