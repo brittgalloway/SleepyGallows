@@ -1,5 +1,5 @@
 import React from 'react'
-import Lottie from 'react-lottie'
+import Lottie from 'react-lottie-player'
 import MemoryGame from '../assets/memory.json'
 import SleepyGallows from '../assets/SG.json'
 import CosmicTales from '../assets/sun.json'
@@ -19,20 +19,11 @@ const  AnimatedIcons = ({title}) =>{
     animation = CandyFluffs;
   }
 
-
-    const defaultOptions = {
-      loop: true,
-      autoplay: true,
-      animationData: animation,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      }
-    }
-
     return (
         <Lottie
-          options={defaultOptions}
-          width={200}
+          loop
+          animationData={animation}
+          play
           height={'auto'}
         />
     );

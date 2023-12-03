@@ -29,13 +29,12 @@ summary{
 }
 summary, p{
   font-size: 1rem;
-  padding:none;
+  padding:0;
 }
 footer{
   position:fixed;
   bottom:0;
   left: 25rem;
-  
 }
 
 `
@@ -49,7 +48,7 @@ const ClientPage = ({ data }) => (
     <section>
       {data.allDatoCmsClientWork.edges.map(({node})=> (
         <div key={node.title}>
-          <iframe src={node.link} maxwidth={376} maxHeight={212} title={"Watch "+ node.title} frameBorder="0" allowFullScreen></iframe>
+          <iframe src={node.link} maxwidth={376} maxheight={212} title={"Watch "+ node.title} frameBorder="0" allowFullScreen></iframe>
           <details>
             <summary>
              {node.title}

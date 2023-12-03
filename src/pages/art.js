@@ -33,6 +33,7 @@ main > a{
   img{
    object-fit: cover;
    width:100%;
+   transition: all .5s ease-in-out;
   }
   img[src*="brittney"]{
      object-position: top;
@@ -40,13 +41,10 @@ main > a{
 &:hover{
   text-decoration:none;
   img{
-    animation: blurry 2s;
+    -webkit-filter: blur(5px);
+    transition: all 1s ease-in-out;
     }
   }
-}
-@keyframes blurry{
-  0% { -webkit-filter: blur(0px);}
-  50% { -webkit-filter: blur(5px);}
 }
 @media(max-width: 830px) {
   main{

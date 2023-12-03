@@ -17,6 +17,7 @@ main img{
   width: 20rem;
   height: 20rem;
   margin: 1rem;
+  transition: all .2s ease-in-out;
   &:hover{
     transform: scale(1.05);
     transition: all .2s ease-in-out;

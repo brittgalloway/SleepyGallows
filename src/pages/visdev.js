@@ -82,7 +82,7 @@ const VisDevPage = ({ data }) => {
   ));
   return (
     <StyledDiv>
-      <Layout />
+      <Layout title={"Crystal's Art"}/>
       <main>
         <CrystalNav/>
         <section>
