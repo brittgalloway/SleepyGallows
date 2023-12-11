@@ -1,112 +1,38 @@
-# Sleepy Gallows Portfolio
+# create-svelte
 
-Sleepy Gallows is a portfolio website showcasing the creative work of Brittney and Crystal Galloway. This website is built using GatsbyJS, powered by GraphQL, and managed with DatoCMS. The beautiful design is crafted in Figma. The project is deployed with Vercel, ensuring a smooth and responsive online presence.
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
----
+## Creating a project
 
-## Table of Contents
+If you're seeing this, you've probably already done this step. Congrats!
 
-- [Introduction](#sleepy-gallows-portfolio)
-- [Meet the Artists](#meet-the-artists)
-- [Table of Contents](#table-of-contents)
-- [Features](#features)
-- [Setup](#setup)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Development](#development)
-- [Contributing](#contributing)
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
----
+# create a new project in my-app
+npm create svelte@latest my-app
+```
 
-## Meet the Artists
+## Developing
 
-- **Brittney Galloway**: Animator and Web Developer
-- **Crystal Galloway**: Illustrator and Comic Creator
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-## Features
+```bash
+npm run dev
 
-The Sleepy Gallows is designed to present the creative work of Brittney and Crystal in four categories:
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-- **Animation**: Includes client work, small quick projects, and original films and web series.
-- **Art**: Features Crystal's illustrations and visual development, as well as Brittney's sketches and collage art.
-- **Comics**: Showcases Crystal's original web comic "Necahual" and where to find it.
-- **Shop** (Coming soon): Highlights different web projects created by Brittney.
+## Building
 
----
+To create a production version of your app:
 
-## Setup
+```bash
+npm run build
+```
 
-### Technologies Used
+You can preview the production build with `npm run preview`.
 
-Sleepy Gallows is built using the following technologies and services:
-
-- GatsbyJS
-- npm
-- GraphQL
-- DatoCMS
-- Figma (for design)
-- Vercel (for deployment)
-
-### Getting Started
-
-## Usage
-
-Sleepy Gallows provides an engaging platform to explore the artistic work of Brittney and Crystal. Visitors can navigate through animations, illustrations, comics, and web development projects.
-
----
-
-## Development
-
-For developers:
-
-1. **Fork this repository.**
-2. **Create a new branch:**
-
-   ```bash
-   git checkout -b feature/my-feature
-   ```
-
-3. **Install dependencies:**
-
-   ```bash
-   npm install
-   ```
-
-4. **Set up environment variables:**
-
-   - Create a `.env` file and configure it with your environment-specific settings, including API keys and other required configurations.
-
-5. **Start the development server:**
-
-   ```bash
-   npm run develop
-   ```
-
-6. **Open your browser:**
-
-   Your Sleepy Gallows site should now be running locally at [http://localhost:8000](http://localhost:8000).
-
-7. **Make your changes and commit:**
-
-   ```bash
-   git commit -m "Add new feature"
-   ```
-
-8. **Push to your fork:**
-
-   ```bash
-   git push origin feature/my-feature
-   ```
-
-9. **Open a pull request:**
-
-   Contribute to the project by opening a pull request.
-
----
-
-## Contributing
-
-If you have suggestions, bug reports, or feature requests, please submit an issue or contact Brittney at crlnfllr(at)gmail.com.
-
----
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

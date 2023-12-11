@@ -1,43 +1,24 @@
 {
-  "name": "sleepy-gallows-studio",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Sleepy Gallows Studio",
-  "author": "Brittney G",
-  "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "deploy": "gatsby build && gh-pages -d public -b main"
-  },
-  "dependencies": {
-    "@lottiefiles/react-lottie-player": "^3.5.3",
-    "dotenv": "^10.0.0",
-    "gatsby": "^5.11.0",
-    "gatsby-plugin-image": "^3.11.0",
-    "gatsby-plugin-manifest": "^5.11.0",
-    "gatsby-plugin-sass": "^6.11.0",
-    "gatsby-plugin-sharp": "^5.11.0",
-    "gatsby-plugin-sitemap": "^6.11.0",
-    "gatsby-plugin-styled-components": "^6.11.0",
-    "gatsby-source-datocms": "^5.1.2",
-    "gatsby-source-filesystem": "^5.11.0",
-    "gatsby-transformer-json": "^5.11.0",
-    "gatsby-transformer-sharp": "^5.11.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-images": "^0.6.7",
-    "react-lottie": "^1.2.3",
-    "react-photo-album": "^2.2.2",
-    "react-responsive": "^9.0.0-beta.3",
-    "sass": "^1.35.2",
-    "styled-components": "^6.0.5",
-    "stylis": "^4.3.0",
-    "yet-another-react-lightbox": "^3.12.0"
-  },
-  "devDependencies": {
-    "babel-plugin-styled-components": "^2.1.4"
-  }
+	"name": "sleepygallows",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/kit": "^1.27.4",
+		"eslint": "^8.28.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-svelte": "^2.30.0",
+		"prettier": "^3.0.0",
+		"prettier-plugin-svelte": "^3.0.0",
+		"svelte": "^4.2.7",
+		"vite": "^4.4.2"
+	},
+	"type": "module"
 }
