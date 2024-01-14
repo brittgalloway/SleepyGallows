@@ -1,0 +1,105 @@
+.main {
+  background: linear-gradient(155.85deg, #f7cade 11.48%, #cde7ff 67.04%);
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+  position: fixed;
+}
+.a {
+  width: 50vw;
+  height: 50vh;                                                     
+  @media(max-width: 830px){
+    width: 100vw;
+    height: 25vh;
+    }
+}
+@mixin p {
+  position: absolute;
+  font-size: 3.25em;
+  color: white;
+  text-shadow: 3px 3px 0px var(--brand-color);
+  font-weight: bold;
+  background-color: var(--pink-highlight);
+  line-height: 1em;
+  z-index: 1;  
+  margin: 0;
+}
+.animationP {
+  @include p;
+  top: 25%;
+  left:25%;
+  transform: translate(-50%, -50%);
+  @media(max-width: 830px){
+    left:50%;
+    top:0%;
+    font-size: 2em;
+    transform: translate(-50%, 5.5rem);
+  } 
+}
+.comicsP {
+  @include p;
+  top: 25%;
+  right:25%;
+  transform: translate(50%, -50%);
+  @media(max-width: 830px){
+    top:25%;
+    right:50%;
+    font-size: 2em;
+    transform: translate(50%, 5.5rem);
+  }
+}
+.artP {  
+  @include p;
+  bottom: 25%;
+  left:25%;
+  transform: translate(-50%, 50%);
+  @media(max-width: 830px){
+    bottom:25%;
+    left:50%;
+    font-size: 2em;
+    transform: translate(-50%, -5.5rem);
+  }
+}
+.shopP {
+  @include p;
+  bottom: 25%;
+  right: 25%;
+  transform: translate(50%, 50%);
+  @media(max-width: 830px){
+    bottom: 0;
+    right:50%;
+    font-size: 2em;
+    transform: translate(50%, -5.5rem);
+  }
+}
+
+@mixin img {
+  width: 50vw;
+  height: 50vh;
+  object-fit:cover;
+  mix-blend-mode: multiply;
+  margin: 0;
+  transition: all .5s ease-in-out;
+  &:hover{
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+   }
+   @media(max-width: 830px){
+    width: 100vw;
+    height: 25vh;
+   }
+}
+.img{
+ @include img;
+}
+.topImg {
+  @include img;
+  object-position: top;
+}
