@@ -8,7 +8,6 @@ export const metadata = {
   title: 'Sleepy Gallows Studio',
   description: "Showcase of Animation by Brittney Galloway and Crystal Galloway.",
   keywords: "animation, sleepy gallows, brittney, crystal, galloway, art, elusive green elephant, plh",
-  author:"Brittney Galloway",
 }
 
 export default function RootLayout({children}) {

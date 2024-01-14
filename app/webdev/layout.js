@@ -5,7 +5,6 @@ export const metadata = {
   title: 'Brittney Galloway | Web Developer',
   description: "Frontend Web Development by Brittney Galloway.",
   keywords: "brittney galloway, frontend, web development",
-  author:"Brittney Galloway",
 }
 const year = new Date().getFullYear();
 

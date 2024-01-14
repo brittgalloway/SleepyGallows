@@ -4,6 +4,12 @@ import ArtNav from '../../nav'
 import { Footer } from '@/app/components/footer'
 import styles from '@/app/style/artGrid.module.scss'
 
+export const metadata = {
+  title: 'Sleepy Gallows Studio | Crystal\'s Art',
+  description: "Showcase the art of Crystal Galloway.",
+  keywords: "crystal galloway, art, necahual, plh, the little mermaid, illustration",
+}
+
 const PAGE_CONTENT_QUERY = `
 query Illustration {
   allIllustraions {
