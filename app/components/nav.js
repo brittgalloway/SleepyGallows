@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function AnimationNav() {
     return (
      <nav aria-label="Animation page Navigation">
-         <ul>
+         <ul className='animation'>
              <li>
                  <Link href="/animation/originals">originals</Link>
              </li>
