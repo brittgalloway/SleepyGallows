@@ -14,7 +14,7 @@ export default function MainNavigation() {
   const toggling = () => setIsOpen(!isOpen);
 
   return(
-    <nav aria-label='Main' className={isOpen ? `${styles.mobile} ${styles.nav}` : styles.nav} onClick={toggling}>
+    <nav aria-label='Main' className={isMobile && isOpen ? `${styles.mobile} ${styles.nav}` : styles.nav} onClick={toggling}>
       {isMobile ? 
         <div className={styles.mobileMenu} >
           <button className={styles.hamburger} onClick={toggling}>
