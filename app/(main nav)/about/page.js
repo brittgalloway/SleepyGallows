@@ -7,7 +7,6 @@ export const metadata = {
   title: 'Sleepy Gallows Studio | About',
   description: "About the Sleepy Gallows.",
   keywords: "animation, sleepy gallows, brittney, crystal, galloway, art, for peace love harmony",
-  author:"Brittney Galloway",
 }
 
 export default function About() {

@@ -10,7 +10,6 @@ export const metadata = {
   title: 'Sleepy Gallows Studio | Client Animation',
   description: "Client Animation created by the Sleepy Gallows.",
   keywords: "animation, sleepy gallows, brittney",
-  author:"Brittney Galloway",
 }
 
 const PAGE_CONTENT_QUERY = `

@@ -11,7 +11,6 @@ export const metadata = {
   title: 'Sleepy Gallows Studio | Originals',
   description: "Original Animation created by the Sleepy Gallows. Browse our short films and webseries.",
   keywords: "animation, sleepy gallows, for peace love and harmony, elusive green elephant",
-  author:"Brittney Galloway",
 }
 
 const PAGE_CONTENT_QUERY = `

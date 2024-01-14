@@ -10,7 +10,6 @@ export const metadata = {
   title: 'Sleepy Gallows Studio | Fun Animations',
   description: "Fun Animation created by Brittney Galloway.",
   keywords: "animation, sleepy gallows, brittney",
-  author:"Brittney Galloway",
 }
 
 const PAGE_CONTENT_QUERY = `

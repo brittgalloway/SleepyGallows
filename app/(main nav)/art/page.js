@@ -4,6 +4,12 @@ import Link from 'next/link'
 import styles from './page.module.scss'
 import MainNavigation from '@/app/components/MainNavigation'
 
+export const metadata = {
+  title: 'Sleepy Gallows Studio | Art',
+  description: "Showcase the art of Brittney and Crystal Galloway.",
+  keywords: "brittney galloway, crystal galloway, art, necahual, elusive green elephant, plh",
+}
+
 export default function Art() {
   return (
     <>
