@@ -1,4 +1,4 @@
-import '@/app/globals.scss'
+import '@/app/style/globals.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio',

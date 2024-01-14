@@ -5,6 +5,13 @@ import { performRequest } from '@/app/lib/datocms'
 import styles from '@/app/style/artGrid.module.scss'
 import textStyles from '@/app/style/titles.module.scss'
 
+export const metadata = {
+  title: 'Sleepy Gallows Studio | Art of PLH',
+  description: "For Peace, Love, & Harmony is a short Animated film created by the Sleepy Gallows. Learn about the concept and the see related art.",
+  keywords: "animation, sleepy gallows, for peace love and harmony",
+  author:"Brittney Galloway",
+}
+
 const PAGE_CONTENT_QUERY = `
 query Watch{
   original(filter: {name: {eq: "For Peace, Love, & Harmony"}}) {

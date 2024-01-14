@@ -1,6 +1,13 @@
 import { cinzel_decorative } from '@/app/fonts'
 import styles from './page.module.scss'
 
+export const metadata = {
+  title: 'Sleepy Gallows Studio | Shop',
+  description: "The Sleepy Gallows e-commerce store. Soon to launch, for now sign up for the newsletter",
+  keywords: "shop, art, art prints, sleepy gallows",
+  author:"Brittney Galloway",
+}
+
 export default function Shop() {
   return (
     <main className={styles.main}>

@@ -6,6 +6,13 @@ import { Footer } from '@/app/components/footer'
 import styles from '../page.module.scss'
 import textStyles from '@/app/style/titles.module.scss'
 
+export const metadata = {
+  title: 'Sleepy Gallows Studio | Client Animation',
+  description: "Client Animation created by the Sleepy Gallows.",
+  keywords: "animation, sleepy gallows, brittney",
+  author:"Brittney Galloway",
+}
+
 const PAGE_CONTENT_QUERY = `
 query Client{
   allClientWorks(orderBy: year_DESC) {

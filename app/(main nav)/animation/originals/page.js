@@ -2,11 +2,17 @@ import { cinzel_decorative } from '@/app/fonts'
 import { performRequest } from '@/app/lib/datocms'
 import Link from 'next/link'
 import Image from 'next/image'
-import AnimationNav from '../../../components/nav'
+import AnimationNav from '@/app/components/nav'
 import { Footer } from '@/app/components/footer'
 import styles from '../page.module.scss'
 import textStyles from '@/app/style/titles.module.scss'
 
+export const metadata = {
+  title: 'Sleepy Gallows Studio | Originals',
+  description: "Original Animation created by the Sleepy Gallows. Browse our short films and webseries.",
+  keywords: "animation, sleepy gallows, for peace love and harmony, elusive green elephant",
+  author:"Brittney Galloway",
+}
 
 const PAGE_CONTENT_QUERY = `
 query Originals{

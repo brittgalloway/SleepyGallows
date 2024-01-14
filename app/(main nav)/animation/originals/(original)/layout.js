@@ -2,7 +2,7 @@ import { lato } from '@/app/fonts'
 import MainNavigation from '@/app/components/MainNavigation'
 import AnimationNav from '@/app/components/nav'
 import { Footer } from '@/app/components/footer'
-import '@/app/globals.scss'
+import '@/app/style/globals.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio',

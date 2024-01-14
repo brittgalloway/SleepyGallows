@@ -1,5 +1,3 @@
-@import url("https://use.typekit.net/fgw1lke.css");
-
 *,
 *:after,
 *:before {
@@ -9,7 +7,6 @@
 }
 
 :root {
-  --linkFont: "futura-pt", sans-serif;
   --brand-color: #4a287c;
   --pink-highlight: #fc79b4;
   --text-color: #363636;
@@ -50,7 +47,6 @@ ul {
 }
 a {
   color: var(--brand-color);
-  font-family: var(--linkFont);
   text-decoration: none;
   font-weight: bold;
   &:hover {
@@ -72,10 +68,14 @@ main nav ul {
     }
   }
 }
-article,
-section {
+article{
   max-width: 1200px;
   margin: auto;
+}
+
+section {
+  padding: 0;
+  margin: 0;
 }
  footer { 
   margin-left: 20rem;

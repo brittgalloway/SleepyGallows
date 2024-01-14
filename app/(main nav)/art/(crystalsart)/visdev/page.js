@@ -39,21 +39,21 @@ export default async function Visdev() {
         page1={'illustration'}
         page2={'visdev'}
         />
-        <article>
+        <article className={styles.article}>
           <header>
-            <h1 className={cinzel_decorative.className}>The Little Mermaid</h1>
+            <h1 className={`${cinzel_decorative.className} ${styles.h1}`}>The Little Mermaid</h1>
             <p>
             I read the Little Mermaid by Hans Cristian Anderson for the first time a couple of years ago and I was very surprised when I read it because in every version of the tale that I saw on film it took place somewhere in Europe, or at least a fantasy place inspired by Europe. However when I read the tale it did not seem like a European setting. It felt eastern. Perhaps it was just the translation from the version that I read, but the fact that they would say palace instead of castle and temple instead of church really had my thinking. I did a lot of research on where it could have taken place and I saw the illustrations that Edmund Dulac did for the tale which have very heavy Eastern influence. I decided that I wanted to redesign the story set in India. It is still a far off idea, but I hope to be able to turn this into a full movie on day.
             </p>
           </header>
-          <h2 className={cinzel_decorative.className}>Characters</h2>
+          <h2 className={`${cinzel_decorative.className} ${styles.h1}`}>Characters</h2>
           <Grid
           photos={allMermaidVisdevs}
           name={'visArt'}
           />
         </article>
-        <article>
-          <h2 className={cinzel_decorative.className}>Visual Development</h2>
+        <article className={styles.article}>
+          <h2 className={`${cinzel_decorative.className} ${styles.h1}`}>Visual Development</h2>
           <Grid
           photos={allVisdevs}
           name={'plhVisdev'}

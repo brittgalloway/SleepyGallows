@@ -3,6 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from './page.module.scss'
 
+export const metadata = {
+  title: 'Sleepy Gallows Studio | Animation',
+  description: "Animation of the Sleepy Gallows.",
+  keywords: "animation, sleepy gallows, brittney",
+  author:"Brittney Galloway",
+}
+
 export default function Animation() {
   return (
     <main className={styles.main}> 

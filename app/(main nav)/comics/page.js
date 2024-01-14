@@ -3,6 +3,13 @@ import Image from 'next/image'
 import { Footer } from '@/app/components/footer'
 import styles from './page.module.scss'
 
+export const metadata = {
+  title: 'Sleepy Gallows Studio | 2Heroes',
+  description: "The comics of 2Heros - Crystal Galloway and Serigo Silva. Currently producing the comic Necahual.",
+  keywords: "comics, manga, Necahual, meso-american, magical girls",
+  author:"Crystal Galloway",
+}
+
 export default function Comics() {
   return (
     <>

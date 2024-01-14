@@ -9,13 +9,11 @@ export const metadata = {
 }
 const year = new Date().getFullYear();
 
-export default function RootLayout({ children }) {
+export default function WebLayout({ children }) {
   return (
-    <html lang="en">
-      <body style={heebo.style}>
+      <section style={heebo.style}>
         {children}
         <footer className={styles.footer}>Brittney Galloway | {year} | Made with Next.js</footer>
-      </body>
-    </html>
+      </section>
   )
 }
