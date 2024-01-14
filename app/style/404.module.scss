@@ -1,0 +1,27 @@
+.section {
+    background: linear-gradient(180deg,#b5dbff,#d0c1f4);
+    width: 100vw;
+    height:100vh;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    text-align:center;
+}
+
+.a {
+    font-weight:bold;
+    text-decoration: none;
+    color: var(--brand-color);
+    &:hover{
+        color: var(--pink-highlight);
+    }
+}
+
+.h1 {
+    font-size: 3rem;
+    color: var(--brand-color);
+    margin: 0;
+    padding: 2rem;
+    @media (max-width: 480px){
+        font-size: 2rem;
+  }
+}

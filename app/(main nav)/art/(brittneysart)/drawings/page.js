@@ -1,0 +1,43 @@
+import { performRequest } from '@/app/lib/datocms'
+import ArtNav from '../../nav'
+import Grid from '@/app/components/grid'
+import { Footer } from '@/app/components/footer'
+import styles from '@/app/style/artGrid.module.scss'
+
+const PAGE_CONTENT_QUERY = `
+query Sketches{
+  allSketchImgs {
+    id
+    sketchImg {
+      url
+      title
+      alt
+      height
+      width
+    }
+  }
+}
+`;
+export default async function Brittney() {
+  const { data: { allSketchImgs } } = await performRequest({ query: PAGE_CONTENT_QUERY });
+  return (
+    <>
+      <main className={styles.gridImg}> 
+        <ArtNav
+        navLabel={'Brittney\'s Art Page Navigation'}
+        page1={'drawings'}
+        page2={'collage'}
+        />
+        <section>
+          <Grid
+          photos={allSketchImgs}
+          name={'sketchImg'}
+          />
+        </section>
+      </main>
+      <Footer
+      name={'Brittney Galloway'}
+      />
+    </>
+  )
+}

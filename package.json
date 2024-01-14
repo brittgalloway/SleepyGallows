@@ -1,46 +1,25 @@
 {
-  "name": "sleepy-gallows-studio",
-  "version": "1.0.0",
+  "name": "sleepygallows",
+  "version": "0.1.0",
   "private": true,
-  "description": "Sleepy Gallows Studio",
-  "author": "Brittney Galloway",
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@lottiefiles/react-lottie-player": "^3.5.3",
-    "dotenv": "^10.0.0",
-    "gatsby": "^5.11.0",
-    "gatsby-plugin-image": "^3.11.0",
-    "gatsby-plugin-manifest": "^5.11.0",
-    "gatsby-plugin-sass": "^6.11.0",
-    "gatsby-plugin-sharp": "^5.11.0",
-    "gatsby-plugin-sitemap": "^6.11.0",
-    "gatsby-plugin-styled-components": "^6.11.0",
-    "gatsby-source-datocms": "^5.1.2",
-    "gatsby-source-filesystem": "^5.11.0",
-    "gatsby-transformer-json": "^5.11.0",
-    "gatsby-transformer-sharp": "^5.11.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-images": "^0.6.7",
+    "next": "14.0.4",
+    "react": "^18",
+    "react-dom": "^18",
     "react-lottie-player": "^1.5.5",
-    "react-photo-album": "^2.2.2",
-    "react-responsive": "^9.0.0-beta.3",
-    "sass": "^1.35.2",
-    "styled-components": "^6.0.5",
-    "stylis": "^4.3.0",
-    "yet-another-react-lightbox": "^3.12.0"
+    "react-photo-album": "^2.3.0",
+    "react-responsive": "^9.0.2",
+    "yet-another-react-lightbox": "^3.15.6"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^2.1.4",
-    "cypress": "^10.11.0",
-    "gatsby-cypress": "^3.12.0",
-    "start-server-and-test": "^2.0.3",
-    "typescript": "^5.3.2"
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "sass": "^1.69.5"
   }
 }

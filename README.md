@@ -1,112 +1,105 @@
 # Sleepy Gallows Portfolio
 
-Sleepy Gallows is a portfolio website showcasing the creative work of Brittney and Crystal Galloway. This website is built using GatsbyJS, powered by GraphQL, and managed with DatoCMS. The beautiful design is crafted in Figma. The project is deployed with Vercel, ensuring a smooth and responsive online presence.
+Sleepy Gallows is a portfolio website showcasing the creative work of Brittney and Crystal Galloway. This website is built using Next.js, managed with DatoCMS, and designed in Figma. The project is deployed with Vercel, for a smooth and responsive online presence.
 
 ---
 
 ## Table of Contents
 
 - [Introduction](#sleepy-gallows-portfolio)
-- [Meet the Artists](#meet-the-artists)
 - [Table of Contents](#table-of-contents)
-- [Features](#features)
-- [Setup](#setup)
+- [Meet the Artists](#meet-the-artists)
+- [Usage and Features](#usage-and-features)
+  - [Animations](#animations)
+  - [Comic](#comics)
+  - [Art](#art)
+  - [Shop](#shop)
 - [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
 - [Development](#development)
-- [Contributing](#contributing)
+- [Deploy on Vercel](#deploy-on-vercel)
 
 ---
 
 ## Meet the Artists
 
 - **Brittney Galloway**: Animator and Web Developer
+  - Creates shorts, music videos, and web series
 - **Crystal Galloway**: Illustrator and Comic Creator
+  - Creates illustrations, character development, and comics
 
-## Features
+## Usage and Features
 
-The Sleepy Gallows is designed to present the creative work of Brittney and Crystal in four categories:
+Sleepy Gallows provides an engaging platform to explore the artistic work of Brittney and Crystal. Visitors can navigate through animations, illustrations, comics, and will soon have a shop.
 
-- **Animation**: Includes client work, small quick projects, and original films and web series.
-- **Art**: Features Crystal's illustrations and visual development, as well as Brittney's sketches and collage art.
-- **Comics**: Showcases Crystal's original web comic "Necahual" and where to find it.
-- **Shop** (Coming soon): Highlights different web projects created by Brittney.
+### Animations
 
----
+This section is broken up into 3 parts.
 
-## Setup
+1. Originals
+   - These are original shorts and web series by us. You can watch the content, learn a bit about the project, and see art from the project.
+   - Currently the short the _Elusive Green Elephant_ and _For Peace, Love, and Harmony_ is in progress
+2. Client Work
+   - These are paid commissioned works.
+3. For Fun
+   - This is similar to "Originals", but generally shorter clips that are unrelated to larger projects are showcased here. A few are music videos made for fun of our favorite songs.
 
-### Technologies Used
+### Comics
+
+This section focuses on comics by 2Heroes, which is created by Crystal and Sergio Silva.
+
+Currently the only content is for Necahual, their ongoing webcomic.
+
+### Art
+
+This section is broken into 2 main parts.
+
+1. Crystal's Art
+
+   - A gallery of illustrations created by Crystal.
+   - A gallery of visual development by Crystal.
+
+1. Brittney's Art
+   - A gallery of sketches and drawings by Brittney.
+   - A gallery of collage art by Brittney.
+
+### Shop
+
+Currently this page is just a sign up page to join a newsletter.
+
+In the future, this will allow users to buy art related the Sleepy Gallows originals. There will be high end collage art, prints, and digital downloads.
+
+More info to come as this section is developed.
+
+## Technologies Used
 
 Sleepy Gallows is built using the following technologies and services:
 
-- GatsbyJS
-- npm
+- [Next.js](https://nextjs.org/) (recently migrated from Gatsby)
+- [npm](https://www.npmjs.com/)
+- [Lottie Files](https://lottiefiles.com/)
+- [DatoCMS](https://www.datocms.com/)
 - GraphQL
-- DatoCMS
-- Figma (for design)
-- Vercel (for deployment)
-
-### Getting Started
-
-## Usage
-
-Sleepy Gallows provides an engaging platform to explore the artistic work of Brittney and Crystal. Visitors can navigate through animations, illustrations, comics, and web development projects.
+- [Jest](https://jestjs.io/)
+- [Figma](https://www.figma.com/) (for design)
+- [Vercel](https://vercel.com/) (for deployment)
 
 ---
 
 ## Development
 
-For developers:
+This project was migrated from Gatsby to Next. The primary reaseon is the increasing amount of legacy and depreciated packages. Code maintance was becoming a hassle and I plan to add unit testing via [Jest](https://nextjs.org/docs/pages/building-your-application/optimizing/testing#jest-and-react-testing-library) and potentially e2e testing via Cypress. Gatsby is too far behind the current versions of both Jest and Cypress.
 
-1. **Fork this repository.**
-2. **Create a new branch:**
+Another reason is the routing and layouts. This website has a lot of pages for a lot of different types of art. Between animation and the future shop, I wasn't sure the best way to organize it.
 
-   ```bash
-   git checkout -b feature/my-feature
-   ```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 
-3. **Install dependencies:**
+Styles are primarily done with [css modules](https://nextjs.org/docs/app/building-your-application/styling/css-modules) utilizing sass, so I was able to remove styled components.
 
-   ```bash
-   npm install
-   ```
+In the next iteration I will add dynamic routes.
+https://medium.com/@seun.thedeveloper/the-easiest-way-to-handle-animations-in-react-nextjs-5934a689a010
 
-4. **Set up environment variables:**
+## Deploy on Vercel
 
-   - Create a `.env` file and configure it with your environment-specific settings, including API keys and other required configurations.
+This project is deployed with [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
 
-5. **Start the development server:**
-
-   ```bash
-   npm run develop
-   ```
-
-6. **Open your browser:**
-
-   Your Sleepy Gallows site should now be running locally at [http://localhost:8000](http://localhost:8000).
-
-7. **Make your changes and commit:**
-
-   ```bash
-   git commit -m "Add new feature"
-   ```
-
-8. **Push to your fork:**
-
-   ```bash
-   git push origin feature/my-feature
-   ```
-
-9. **Open a pull request:**
-
-   Contribute to the project by opening a pull request.
-
----
-
-## Contributing
-
-If you have suggestions, bug reports, or feature requests, please submit an issue or contact Brittney at crlnfllr(at)gmail.com.
-
----
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
