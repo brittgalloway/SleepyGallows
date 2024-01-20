@@ -87,7 +87,7 @@ Sleepy Gallows is built using the following technologies and services:
 
 ## Development
 
-This project was migrated from Gatsby to Next. The primary reaseon is the increasing amount of legacy and depreciated packages. Code maintance was becoming a hassle and I plan to add unit testing via [Jest](https://nextjs.org/docs/pages/building-your-application/optimizing/testing#jest-and-react-testing-library) and potentially e2e testing via Cypress. Gatsby is too far behind the current versions of both Jest and Cypress.
+This project was migrated from Gatsby to Next. The primary reaseon is the increasing amount of legacy and depreciated packages. Code maintance was becoming a hassle and I plan to add unit testing via [Jest](https://nextjs.org/docs/app/building-your-application/testing/jest) and potentially e2e testing via Cypress. Gatsby is too far behind the current versions of both Jest and Cypress.
 
 Another reason is the routing and layouts. This website has a lot of pages for a lot of different types of art. Between animation and the future shop, I wasn't sure the best way to organize it.
 
