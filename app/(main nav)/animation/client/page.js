@@ -3,6 +3,7 @@ import { performRequest } from '@/app/lib/datocms'
 import AnimationNav from '@/app/components/nav'
 import Project from '../projects'
 import { Footer } from '@/app/components/footer'
+import { NoClients } from '@/app/components/noClients'
 import styles from '../page.module.scss'
 import textStyles from '@/app/style/titles.module.scss'
 
@@ -45,6 +46,7 @@ export default async function Client() {
           ))}
         </div>
       </main>
+      <NoClients/>
       <Footer
       name={'Sleepy Gallows'}
       />

@@ -1,0 +1,12 @@
+.aside {
+    margin-left: 20rem;
+    text-align: center;
+    font-size: 1rem;
+    @media(max-width: 830px){
+        margin-left: 0;
+    }
+}
+.span {
+    color: var(--brand-color);
+    font-weight: bold;
+}

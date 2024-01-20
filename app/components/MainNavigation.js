@@ -10,14 +10,15 @@ export default function MainNavigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   const isMobile = useMediaQuery({query: `(max-width: 830px)`});
-
-  const toggling = () => setIsOpen(!isOpen);
+  function handleClick() {
+    isOpen === true ? setIsOpen(false) : setIsOpen(true);
+  }
 
   return(
-    <nav aria-label='Main' className={isMobile && isOpen ? `${styles.mobile} ${styles.nav}` : styles.nav} onClick={toggling}>
+    <nav aria-label='Main' className={isMobile && isOpen ? `${styles.mobile} ${styles.nav}` : styles.nav} onClick={handleClick}>
       {isMobile ? 
         <div className={styles.mobileMenu} >
-          <button className={styles.hamburger} onClick={toggling}>
+          <button className={styles.hamburger} onClick={handleClick}>
             <Image src='/hamburger.svg' 
             width={40} 
             height={30} 
