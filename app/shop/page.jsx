@@ -3,43 +3,9 @@ import styles from './page.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Shop',
-  description: "The Sleepy Gallows e-commerce store. Soon to launch, for now sign up for the newsletter",
+  description: "The Sleepy Gallows e-commerce store. Browse Collages, Prints, Stickers, and Books",
   keywords: "shop, art, art prints, sleepy gallows",
 }
-const PAGE_CONTENT_QUERY_ex = `
-query Shop {
-  allShops(orderBy: _createdAt_ASC) {
-    originalsTitle
-    productDescription(markdown: true)
-    productName
-    productSlug
-    productType
-    variations {
-      id
-      productImages {
-        alt
-        height
-        id
-        title
-        url
-        width
-      }
-      title
-      unitPrice
-      discountPrice
-    }
-    originalsSummary {
-      id
-      storyName
-      storySummary {
-        links
-        value
-      }
-    }
-    id
-  }
-}
-`;
 
 export default async function Shop() {
   return (
