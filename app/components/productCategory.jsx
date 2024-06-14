@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { performRequest } from '@/app/lib/datocms'
+import { ProductDisplay } from './productDisplay';
 
 const PAGE_CONTENT_QUERY = `
 query Shop {
@@ -36,20 +36,15 @@ export async function ProductCategory() {
               <ul aria-label={`List of ${category} products, horizonal scroll to view more. Click on a prouct to go to that product's page.`}>
                 {allShops.filter((product) => product.productType === category).map((product) =>(
                   <li key={product.id}>
-                    <Link href={`/shop/${category}/${product.productSlug}`}>
-                      <Image
-                        src={product?.productDisplay[0]?.responsiveImage?.src}
-                        width={250}
-                        height={200}
-                        alt={product?.productDisplay[0]?.alt}
-                        title={product?.productDisplay[0]?.title}
-                      />
-                      {product?.productName}
-                      <br/>
-                      {product?.discount !== 0 ? product?.discount : null}
-                      <br/>
-                      {product?.price}
-                    </Link>
+                    <ProductDisplay
+                      category={category}
+                      productSlug={product?.productSlug}
+                      productDisplay={product?.productDisplay}
+                      productName={product?.productName}
+                      discount={product?.discount}
+                      stock={product?.stock}
+                      price={product?.price}
+                    />
                 </li>
                 ))}
               </ul>
