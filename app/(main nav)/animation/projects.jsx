@@ -1,12 +1,12 @@
-
+import { YouTubeEmbed } from '@next/third-parties/google'
 import { lato } from '@/app/fonts'
 import styles from './page.module.scss'
 import textStyles from '@/app/style/titles.module.scss'
 
-export default function Project({title, link, year, summary, website}) {
+export default function Project({title, link, year, summary, website, isYoutube, youtubeId}) {
   return (
     <div className={`${styles.video} ${lato.className}`}>
-        <iframe maxwidth={376} maxHeight={212} src={link} title={`Watch ${title}`}  frameborder="0" allowfullscreen></iframe>
+      {isYoutube ? <YouTubeEmbed videoid={youtubeId} width={376} height={212}/> : <iframe maxwidth={376} maxheight={212} src={link} title={`Watch ${title}`}  frameBorder="0" allowFullScreen></iframe>}
         <details>
             <summary className={textStyles.title}>
             {title}

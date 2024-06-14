@@ -1,5 +1,5 @@
-import { cinzel_decorative } from '@/app/fonts'
 import { performRequest } from '@/app/lib/datocms'
+import { cinzel_decorative } from '@/app/fonts'
 import Grid from '@/app/components/grid'
 import ArtNav from '../../nav'
 import { Footer } from '@/app/components/footer'

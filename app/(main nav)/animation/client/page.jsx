@@ -1,5 +1,5 @@
-import { cinzel_decorative } from '@/app/fonts'
 import { performRequest } from '@/app/lib/datocms'
+import { cinzel_decorative } from '@/app/fonts'
 import AnimationNav from '@/app/components/nav'
 import Project from '../projects'
 import { Footer } from '@/app/components/footer'
@@ -21,6 +21,8 @@ query Client{
     title
     summary
     link
+    isyoutube
+    youtubeId
   }
 }
 `;
@@ -36,12 +38,14 @@ export default async function Client() {
         <div className={styles.videoWrapper}>
           {allClientWorks.map((project)=> (
             <Project
-              key={project.title}
-              title={project.title}
-              year={project.year}
-              summary={project.summary}
-              link={project.link}
-              website={project.website}
+              key={project?.title}
+              title={project?.title}
+              year={project?.year}
+              summary={project?.summary}
+              link={project?.link}
+              youtubeId={project?.youtubeId}
+              website={project?.website}
+              isYoutube={project?.isyoutube}
             />
           ))}
         </div>

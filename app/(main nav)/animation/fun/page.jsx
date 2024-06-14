@@ -1,6 +1,6 @@
-import { cinzel_decorative } from '@/app/fonts'
 import { performRequest } from '@/app/lib/datocms'
-import AnimationNav from '../../../components/nav'
+import { cinzel_decorative } from '@/app/fonts'
+import AnimationNav from '@/app/components/nav'
 import Project from '../projects'
 import { Footer } from '@/app/components/footer'
 import styles from '../page.module.scss'
@@ -19,6 +19,8 @@ query Fun{
     title
     summary
     year
+    isyoutube
+    youtubeId
   }
 }
 `;
@@ -34,11 +36,13 @@ export default async function Fun() {
         <div className={styles.videoWrapper}>
           {allForFuns.map((project)=> (
             <Project
-              key={project.title}
-              title={project.title}
-              year={project.year}
-              summary={project.summary}
-              link={project.link}
+              key={project?.title}
+              title={project?.title}
+              year={project?.year}
+              summary={project?.summary}
+              link={project?.link}
+              youtubeId={project?.youtubeId}
+              isYoutube={project?.isyoutube}
             />
           ))}
         </div>

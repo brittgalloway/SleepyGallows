@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import Image from 'next/image'
 import Link from 'next/link'
+import styles from '@/app/style/shopHeader.module.scss'
 
 export default function ShopNavigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,7 @@ export default function ShopNavigation() {
 
   return(
     // <nav aria-label='Main' className={isMobile && isOpen ? `${styles.mobile} ${styles.nav}` : styles.nav} onClick={handleClick}>
-    <nav>
+    <nav className={styles.nav}>
       {isMobile ? 
         <div className={styles.mobileMenu} >
           <button className={styles.hamburger} onClick={handleClick}>
@@ -27,12 +28,12 @@ export default function ShopNavigation() {
       }
       
       {(isOpen || !isMobile) && (
-        <ul aria-label="Shop Menu">
-          <li><Link href="/collage">collage</Link></li>
-          <li><Link href="/prints">prints</Link></li>
-          <li><Link href="/books">books</Link></li>
-          <li><Link href="/downloadables">Downloadables</Link></li>
-          <li><Link href="/patron">patron</Link></li>
+        <ul aria-label="Shop Menu" className={styles.navList}>
+          <li><Link href="/shop/collage">collage</Link></li>
+          <li><Link href="/shop/prints">prints</Link></li>
+          <li><Link href="/shop/books">books</Link></li>
+          <li><Link href="/shop/stickers">stickers</Link></li>
+          <li><Link href="/shop/patron">patron</Link></li>
           {isMobile && 
               <li>
                   <Link href="#">Account</Link>

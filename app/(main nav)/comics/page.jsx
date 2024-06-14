@@ -14,33 +14,33 @@ export default function Comics() {
   return (
     <>
       <main className={styles.main}>
-          <article>
+        <article>
           <h1 className={`${styles.h1} ${cinzel_decorative.className}`}>2Heroes</h1>
           <div className={styles.links}>
-              <ul className={styles.ul}>
-                <li >
-                  <a href="https://www.instagram.com/2.heroes/">instagram</a>
-                </li>
-                <li>
-                  <a href="https://twitter.com/2Heroes1">twitter</a>
-                </li>
-                <li>
-                  <a href="https://www.patreon.com/2heroes">patreon</a>
-                </li>
-              </ul>
-            </div>
+            <ul className={styles.ul}>
+              <li >
+                <a href="https://www.instagram.com/2.heroes/">instagram</a>
+              </li>
+              <li>
+                <a href="https://twitter.com/2Heroes1">twitter</a>
+              </li>
+              <li>
+                <a href="https://www.patreon.com/2heroes">patreon</a>
+              </li>
+            </ul>
+          </div>
           <section className={styles.section}>
-            <p>
-              Come join us on our first journey with Necahual, Quetzalli, and Anacoana as they discover their destiny and help save their people. <a href="https://www.webtoons.com/en/challenge/necahual/a-peaceful-day/viewer?title_no=216820&episode_no=1">NECAHUAL</a> is a new and refreshing take on the magical trope that also honors Meso-American cultures. Subscribe to the <a href="https://www.webtoons.com/en/challenge/necahual/a-peaceful-day/viewer?title_no=216820&episode_no=1">WEBTOON</a> and never miss an update!
-            </p>
-            <div className={styles.image}>
-              <Image 
-                src='https://www.datocms-assets.com/53347/1705187376-necamasterpiece-small.gif' 
-                alt='Necahual, Quetzalli, and Anacaona lounging together'
-                width={349}
-                height={349}
-              />
-            </div>
+          <p>
+            Come join us on our first journey with Necahual, Quetzalli, and Anacoana as they discover their destiny and help save their people. <a href="https://www.webtoons.com/en/challenge/necahual/a-peaceful-day/viewer?title_no=216820&episode_no=1">NECAHUAL</a> is a new and refreshing take on the magical trope that also honors Meso-American cultures. Subscribe to the <a href="https://www.webtoons.com/en/challenge/necahual/a-peaceful-day/viewer?title_no=216820&episode_no=1">WEBTOON</a> and never miss an update!
+          </p>
+          <div className={styles.image}>
+            <Image 
+              src='https://www.datocms-assets.com/53347/1705187376-necamasterpiece-small.gif' 
+              alt='Necahual, Quetzalli, and Anacaona lounging together'
+              width={349}
+              height={349}
+            />
+          </div>
           </section>
         </article>
         <article>

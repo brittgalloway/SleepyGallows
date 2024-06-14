@@ -2,6 +2,7 @@
 import Link from 'next/link'
 
 export default function AnimationNav() {
+    {/* fix style issue */}
     return (
      <nav aria-label="Animation page Navigation">
          <ul className='animation'>

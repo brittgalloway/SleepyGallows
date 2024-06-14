@@ -1,6 +1,6 @@
-import { cinzel_decorative } from '@/app/fonts'
 import Image from 'next/image'
 import { performRequest } from '@/app/lib/datocms'
+import { cinzel_decorative } from '@/app/fonts'
 import OriginalsNav from '@/app/components/originalsNav'
 import styles from '../../../page.module.scss'
 import textStyles from '@/app/style/titles.module.scss'
@@ -29,11 +29,11 @@ query Watch{
 export default async function EgeWatch() {
   const { data: { original } } = await performRequest({ query: PAGE_CONTENT_QUERY });
   return (
-    <section style={{display: 'flex', flexDirection: 'column'}}>
+    <main style={{display: 'flex', flexDirection: 'column'}}>
       <header>
         <OriginalsNav 
-          navLabel={original.link}/>
-        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>{original.name}</h1>
+          navLabel={original?.link}/>
+        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>{original?.name}</h1>
       </header>
       <h2 className={`${textStyles.textCenter }`}>
         In Production!
@@ -60,7 +60,7 @@ export default async function EgeWatch() {
             <p>{video.year}</p> 
         </div>
       ))} */}
-    </section>
+    </main>
   )
 }
 

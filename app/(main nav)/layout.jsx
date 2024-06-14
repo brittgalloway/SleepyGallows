@@ -1,7 +1,6 @@
 import { lato } from '@/app/fonts'
 import MainNavigation from '@/app/components/MainNavigation'
-import '@/app/style/globals.scss'
-
+import '../style/globals.scss'
 export default function MainNavLayout({ children }) {
   return (
     <>

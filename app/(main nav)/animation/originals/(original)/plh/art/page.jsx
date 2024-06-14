@@ -1,7 +1,7 @@
+import { performRequest } from '@/app/lib/datocms'
 import { cinzel_decorative } from '@/app/fonts'
 import Grid from '@/app/components/grid'
 import OriginalsNav from '@/app/components/originalsNav'
-import { performRequest } from '@/app/lib/datocms'
 import styles from '@/app/style/artGrid.module.scss'
 import textStyles from '@/app/style/titles.module.scss'
 
@@ -33,19 +33,19 @@ query Watch{
 export default async function PlhWatch() {
   const { data: { original } } = await performRequest({ query: PAGE_CONTENT_QUERY });
   return (
-    <section className={styles.gridImg}>
+    <main className={styles.gridImg}>
       <header>
         <OriginalsNav 
-          navLabel={original.link}/>
-        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>Art of {original.name}</h1>
+          navLabel={original?.link}/>
+        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>Art of {original?.name}</h1>
       </header>
       <div>
         <Grid
-          photos={original.art}
+          photos={original?.art}
           name={'image2'}
           />
       </div>
-    </section>
+    </main>
   )
 }
 

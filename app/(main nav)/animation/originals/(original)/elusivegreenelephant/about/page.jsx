@@ -1,7 +1,7 @@
-import { cinzel_decorative } from '@/app/fonts'
 import Image from 'next/image'
-import OriginalsNav from '@/app/components/originalsNav';
 import { performRequest } from '@/app/lib/datocms'
+import { cinzel_decorative } from '@/app/fonts'
+import OriginalsNav from '@/app/components/originalsNav';
 import styles from '../../../../page.module.scss'
 import textStyles from '@/app/style/titles.module.scss'
 
@@ -31,27 +31,27 @@ query Watch{
 export default async function EgeAbout() {
   const { data: { original } } = await performRequest({ query: PAGE_CONTENT_QUERY });
   return (
-    <section>
+    <main>
       <header>
         <OriginalsNav 
-          navLabel={original.link}/>
-        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>What is {original.name}?</h1>
+          navLabel={original?.link}/>
+        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>What is {original?.name}?</h1>
       </header>
-        <p dangerouslySetInnerHTML={{ __html: original.summary }}/>
+        <p dangerouslySetInnerHTML={{ __html: original?.summary }}/>
         <h2 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>
           Characters
         </h2>
         <div className={styles.videoWrapper}>
-          {original.about.map(({character})=> (
-              <div key={character.id}>
+          {original?.about.map(({character})=> (
+              <div key={character?.id}>
                 <Image 
                   width={300}
                   height={300}
-                  src={character.url} alt={character.alt}/>
+                  src={character?.url} alt={character?.alt}/>
               </div>
           ))}
         </div>
-    </section>
+    </main>
   )
 }
 

@@ -12,7 +12,7 @@ export default function ShopLayout({ children }) {
   return (
       <section style={cinzel_decorative.style}>
         <ShopHeader/>
-        {children}
+          {children}
         <ShopFooter/>
       </section>
   )

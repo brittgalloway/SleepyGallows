@@ -12,18 +12,16 @@ export const metadata = {
 
 export default function RootLayout({children}) {
   return (
-    <html lang="en">
-      <body className={lato.className}>
+      <section className={lato.className}>
         <MainNavigation/>
-        <main>
+        <section>
             <AnimationNav/>
             {children}
-        </main>
+        </section>
         <Footer
           name={'Sleepy Gallows'}
         />
-      </body>
-    </html>
+      </section>
   )
 }
 

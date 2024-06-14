@@ -1,7 +1,7 @@
-import { cinzel_decorative } from '@/app/fonts'
-import { performRequest } from '@/app/lib/datocms'
 import Link from 'next/link'
 import Image from 'next/image'
+import { performRequest } from '@/app/lib/datocms'
+import { cinzel_decorative } from '@/app/fonts'
 import AnimationNav from '@/app/components/nav'
 import { Footer } from '@/app/components/footer'
 import styles from '../page.module.scss'
@@ -42,8 +42,8 @@ export default async function Originals() {
                 <Image
                 width={250}
                 height={250}
-                src={project.thumb.url} 
-                alt={project.thumb.alt}/>
+                src={project?.thumb?.url} 
+                alt={project?.thumb?.alt}/>
               </Link>
             </div>
           ))}

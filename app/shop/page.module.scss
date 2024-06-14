@@ -12,6 +12,18 @@
   font-size: 2rem;
   text-align: center;
 }
+.patron_h1 {
+  font-size: 1rem;
+  color: var(--brand-color)
+}
+.donate {
+  margin: 2rem auto;
+  text-align: center;
+  img {
+    width: 173px;
+    height: auto;
+  }
+}
 .iframe {
   width: 60%;
   @media (width <= 450px) {
