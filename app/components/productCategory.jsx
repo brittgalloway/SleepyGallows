@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { performRequest } from '@/app/lib/datocms'
-import { ProductDisplay } from './productDisplay';
+import { ProductDisplay } from './productDisplay'
+import styles from '@/app/style/productCategory.module.scss'
 
 const PAGE_CONTENT_QUERY = `
 query Shop {
@@ -29,11 +30,11 @@ const categories = ['collage', 'prints', 'books', 'stickers'];
 export async function ProductCategory() {
   const { data: { allShops } } = await performRequest({ query: PAGE_CONTENT_QUERY });
   return (
-      <section>
+      <section className={`${styles.section}`}>
         {categories.map((category) =>(
           <div key={category}>
-            <h2><Link href={`/shop/${category}`}>{category}</Link></h2>
-              <ul aria-label={`List of ${category} products, horizonal scroll to view more. Click on a prouct to go to that product's page.`}>
+            <h2 className={`${styles.h2}`}><Link href={`/shop/${category}`}>{category}</Link></h2>
+              <ul className={`${styles.categoryWrapper}`} aria-label={`List of ${category} products, horizonal scroll to view more. Click on a prouct to go to that product's page.`}>
                 {allShops.filter((product) => product.productType === category).map((product) =>(
                   <li key={product.id}>
                     <ProductDisplay

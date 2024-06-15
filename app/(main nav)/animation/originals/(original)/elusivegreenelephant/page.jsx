@@ -51,15 +51,17 @@ export default async function EgeWatch() {
         }}
         src="https://www.datocms-assets.com/53347/1698974110-turnaroundjoey.gif" 
         alt="360 view of the character Joey."/>
-      {/* {original.watch.map((video)=> (
-        <div>
-          <iframe maxwidth={376} maxHeight={212} src={video.link} title={"Watch "+ video.title} frameBorder="0" allowFullScreen></iframe>
-            <h2>
-              {video.title}
-            </h2> 
-            <p>{video.year}</p> 
-        </div>
-      ))} */}
+      {/* <div className={styles.videoWrapper}>
+        {original?.watch.map((video)=> (
+          <div key={video?.id} className={styles.video}>
+            <YouTubeEmbed videoid={video?.youtubeId} width={376} height={212} />
+              <h2 className={textStyles.title}>
+                {video?.title}
+              </h2> 
+              <p className={textStyles.title}>{video?.year}</p>        
+          </div>
+        ))}
+      </div> */}
     </main>
   )
 }

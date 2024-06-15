@@ -2,8 +2,8 @@
 import { useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import Image from 'next/image'
-import ShopNavigation from './shopNav'
 import Link from 'next/link'
+import ShopNavigation from './shopNav'
 import styles from '@/app/style/shopHeader.module.scss'
 
 export default function ShopHeader() {
@@ -19,7 +19,7 @@ export default function ShopHeader() {
   return(
     <header className={styles.header}>
       <div className={styles.wrapper}>
-      {!isMobile&& (
+      {!isMobile && (
         <div>
           <a href='https://www.youtube.com/@sleepygallows'>YT</a>
           <a href='https://www.instagram.com/sleepy_gallows/'>IG</a>

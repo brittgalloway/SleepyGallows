@@ -1,58 +1,68 @@
+import { ProductImages } from '@/app/components/productImages'
 import Link from 'next/link'
-import Image from 'next/image'
 import { performRequest } from '@/app/lib/datocms'
-import { ProductDisplay } from '@/app/components/productDisplay';
 
 export default async function Product( {params} ) {
   const PAGE_CONTENT_QUERY = `
-  query Shop {
-  allShops(filter: {productSlug: {eq: "${params.product}"}}) {
- originalsTitle
-    productDescription(markdown: true)
-    productName
-    productSlug
-    productType
-    discount
-    stock
-    price
-    productDisplay {
-      alt
-      title
-      id
-      responsiveImage {
-        src
+    query MyQuery {
+      shop(filter: {productSlug: {eq: "${params.product}"}}) {
+        id
+        productName
+        productSlug
+        productType
+        stock
+        discount
+        price
+        productDescription       
+        originalsSummary {
+          id
+          storyName
+          showLink
+          storySummary {
+            links
+            value
+          }
+        }
+        productDisplay {
+          alt
+          id
+          title
+          responsiveImage {
+            src
+            height
+            width
+          }
+        }
       }
     }
-    originalsSummary {
-      id
-      storyName
-      storySummary {
-        links
-        value
-      }
-    }
-    id
-  }
-  }
-  `;
+    `;
   
-    const { data: { allShops } } = await performRequest({ query: PAGE_CONTENT_QUERY });
+  const { data: { shop } } = await performRequest({ query: PAGE_CONTENT_QUERY });
 
   return (
     <main>
-        <p>{params.product}</p>
-        {allShops.map((product)=>(
-           <ProductDisplay
-           key={product?.id}
-           category={product?.productType}
-           productSlug={product?.productSlug}
-           productDisplay={product?.productDisplay}
-           productName={product?.productName}
-           discount={product?.discount}
-           stock={product?.stock}
-           price={product?.price}
+      <div>
+        <h1>{shop?.productName}</h1>
+        <div className='img-wrapper'>
+         <ProductImages
+          photos={shop?.productDisplay}
          />
-        ))}
+        </div>
+        <div className='product-info'>
+          {shop?.discount > 0 ?<p>{shop?.discount}</p> : null}
+          <p>{shop?.price}</p>
+          <div dangerouslySetInnerHTML={{__html: shop?.productDescription}} />
+          {shop?.stock > 0 ?<p>In Stock</p> : <p>Sold Out</p>}
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <aside>
+        <h2>{shop?.originalsSummary?.storyName}</h2>
+        <p>
+          {shop?.originalsSummary?.storySummary?.value?.document?.children[0]?.children[0]?.value}
+        </p>
+          {shop?.originalsSummary?.showLink !== undefined ? <Link href={`/animation/originals/${shop?.originalsSummary?.showLink}`}>Learn More</Link> : null}
+      </aside>
     </main>
   )
 }

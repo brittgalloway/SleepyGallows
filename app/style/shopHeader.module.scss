@@ -34,7 +34,7 @@
     overflow: hidden;
     position: absolute;
     z-index: 3;
-    top: 50px;
+    top: 6em;
     left: 5%;
     padding: 2rem;
     li {
@@ -72,8 +72,8 @@
     z-index: 3; 
     display: none;
     cursor: pointer;
-    top: 1.5rem; 
-    right: 1rem;
+    top: 4.5rem; 
+    left: 1rem;
     position: fixed;
     width: 80px;
     @media(max-width: 830px) {
@@ -88,9 +88,9 @@
     z-index: 3; 
     display: none;
     cursor: pointer;
-    top: 1.5rem; 
-    left: 1rem;
-    position: fixed;
+    top: 4.5rem; 
+    right: 1rem;
+    position: absolute;
     width: 80px;
     @media(max-width: 830px) {
       display: inline;

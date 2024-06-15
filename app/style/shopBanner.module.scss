@@ -1,0 +1,17 @@
+.aside {
+    text-align: center;
+    font-size: 1rem;
+    background-color: var(--purple-highlight);
+    color: white;
+    padding: 1em;
+    overflow: hidden;    
+    // @media(max-width: 830px){
+    //     margin-left: 0;
+    // }
+    p {
+        margin: 0 1em;
+        display: inline;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+}

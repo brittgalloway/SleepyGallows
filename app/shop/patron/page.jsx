@@ -25,7 +25,7 @@ export default async function Patron() {
   return (
     <main className={styles.main}>
       <h1 className={styles.patron_h1}>{patron?.header}</h1>
-      <div className={`${lato.className}`}>{patron?.patronText}</div>
+      <div className={`${lato.className}`} dangerouslySetInnerHTML={{__html: patron?.patronText}} />
       <PatronBtn />
       <p>Or, if you'd prefer, you can buy me a <a href="https://ko-fi.com/sleepygallows">Kofi</a></p>
     </main>

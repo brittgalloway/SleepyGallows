@@ -1,11 +1,10 @@
 import { performRequest } from '@/app/lib/datocms'
-import { ProductDisplay } from '@/app/components/productDisplay';
+import { ProductDisplay } from '@/app/components/productDisplay'
 
 export default async function Category({params}) {
   const PAGE_CONTENT_QUERY = `
   query Shop {
     allShops(filter: {productType: {eq: "${params.category}"}}){
-    originalsTitle
     productName
     productSlug
     productType

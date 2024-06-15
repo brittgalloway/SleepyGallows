@@ -1,4 +1,5 @@
 import { heebo } from "@/app/fonts"
+import { year } from "../utilities/formating"
 import styles from './page.module.scss'
 
 export const metadata = {
@@ -6,7 +7,6 @@ export const metadata = {
   description: "Frontend Web Development by Brittney Galloway.",
   keywords: "brittney galloway, frontend, web development",
 }
-const year = new Date().getFullYear();
 
 export default function WebLayout({ children }) {
   return (

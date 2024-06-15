@@ -16,6 +16,14 @@
   font-size: 1rem;
   color: var(--brand-color)
 }
+.welcome {
+  border: 2px solid var(--brand-color);
+  padding: 2em 4em;
+
+  @media(max-width: 830px) {
+    display: none;
+  }
+}
 .donate {
   margin: 2rem auto;
   text-align: center;
