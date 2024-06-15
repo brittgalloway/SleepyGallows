@@ -1,8 +1,11 @@
 'use client'
 import { useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useMediaQuery } from 'react-responsive'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faYoutube, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faCartShopping, faBagShopping, faUser } from '@fortawesome/free-solid-svg-icons'
 import ShopNavigation from './shopNav'
 import styles from '@/app/style/shopHeader.module.scss'
 
@@ -21,8 +24,8 @@ export default function ShopHeader() {
       <div className={styles.wrapper}>
       {!isMobile && (
         <div>
-          <a href='https://www.youtube.com/@sleepygallows'>YT</a>
-          <a href='https://www.instagram.com/sleepy_gallows/'>IG</a>
+          <a href='https://www.youtube.com/@sleepygallows'><FontAwesomeIcon icon={faYoutube} /></a>
+          <a href='https://www.instagram.com/sleepy_gallows/'><FontAwesomeIcon icon={faInstagram} /></a>
         </div>
         )}
         <div className={styles.logo_wrapper}>
@@ -42,8 +45,8 @@ export default function ShopHeader() {
         )}
           <p>Take some of the Magic with you</p>
         </div>
-        {!isMobile&& (<span>account</span>)}
-          <span className={styles.checkout}>CO</span>
+        {!isMobile&& (<span><FontAwesomeIcon icon={faUser} /></span>)}
+          <span className={styles.checkout}><FontAwesomeIcon icon={faBagShopping} /></span>
         </div>
       <ShopNavigation/>
     </header>

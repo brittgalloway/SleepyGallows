@@ -79,23 +79,22 @@
     @media(max-width: 830px) {
       display: inline;
       border: none;
-      background: none;
+      background: white;
       text-align: center; 
+      padding: 2% 1%;
     }
   }
   
 .checkout {
     z-index: 3; 
-    display: none;
     cursor: pointer;
-    top: 4.5rem; 
-    right: 1rem;
-    position: absolute;
-    width: 80px;
     @media(max-width: 830px) {
-      display: inline;
-      border: none;
-      background: none;
-      text-align: center; 
+        top: 4.5rem; 
+        right: 1rem;
+        position: absolute;
+        width: 80px;
+        display: inline;
+        text-align: center; 
+
     }
 }

@@ -1,6 +1,8 @@
 'use client'
 import { useMediaQuery } from 'react-responsive'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faYoutube, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { year } from '../utilities/formating'
 import styles from '@/app/style/shopFooter.module.scss'
 
@@ -10,8 +12,8 @@ export function ShopFooter() {
      <footer className={styles.footer}>
         {isMobile ? 
             (<div className={styles.socials}>
-                <a href='https://www.youtube.com/@sleepygallows'>YT</a>
-                <a href='https://www.instagram.com/sleepy_gallows/'>IG</a>
+                <a href='https://www.youtube.com/@sleepygallows'><FontAwesomeIcon icon={faYoutube} /></a>
+                <a href='https://www.instagram.com/sleepy_gallows/'><FontAwesomeIcon icon={faInstagram} /></a>
               </div>) :
             null
         }
