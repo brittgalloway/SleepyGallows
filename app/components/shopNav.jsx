@@ -31,8 +31,8 @@ export default function ShopNavigation() {
         <ul aria-label="Shop Menu" className={styles.navList}>
           <li><Link href="/shop/collage">collage</Link></li>
           <li><Link href="/shop/prints">prints</Link></li>
-          <li><Link href="/shop/books">books</Link></li>
           <li><Link href="/shop/stickers">stickers</Link></li>
+          <li><Link href="/shop/books">books</Link></li>
           <li><Link href="/shop/patron">patron</Link></li>
           {isMobile && 
               <li>

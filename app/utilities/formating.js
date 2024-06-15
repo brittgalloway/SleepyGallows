@@ -4,5 +4,3 @@ export const USD = new Intl.NumberFormat('en-US', {
 });
 
 export const year = new Date().getFullYear();
-
-// add isMobile?? would it still work?
