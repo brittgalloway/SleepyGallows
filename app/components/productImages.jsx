@@ -2,12 +2,12 @@
 import Image from 'next/image'
 import * as React from 'react'
 import PhotoAlbum from 'react-photo-album'
+import style from '@/app/style/product.module.scss'
 
 export function ProductImages({photos}) {
   const [index, setIndex] = React.useState(0);
   const handleClick = ({ index: current }) => {
     setIndex(current);
-    console.log(index);
   }
   const slides = photos.map((photo) => (
     {
@@ -20,7 +20,7 @@ export function ProductImages({photos}) {
     }))
   return (
     <>
-        <Image
+        <Image className={`${style.img}`}
             key= {photos[index]?.id}
             src= {photos[index]?.responsiveImage?.src}
             width={photos[index]?.responsiveImage?.width}
@@ -31,10 +31,10 @@ export function ProductImages({photos}) {
         <PhotoAlbum
             layout="rows"
             photos={slides}
-            onClick={handleClick}
             maxPhotos={4}
-            singleRowMaxHeight={100}
+            height={100}
             spacing={10}
+            onClick={handleClick}
         />
     </>
   )

@@ -10,15 +10,20 @@ export function ProductDisplay( {category, productSlug, productName, discount, p
     <Link className={productDisplay} href={`/shop/${category}/${productSlug}`}>
         <Image className={`${styles.img}`}
           src={productDisplay[0]?.responsiveImage?.src}
-          width={250}
-          height={200}
+          width={350}
+          height={280}
           alt={productDisplay[0]?.alt}
           title={productDisplay[0]?.title}
         />
         <p className={`${styles.productName}`}>"{productName}"</p>
-        {discount !== 0 ? <p className={`${styles.productInfo}`}>{USD.format(discount)}</p> : null}
-        <p className={`${styles.productInfo}`}>{USD.format(price)}</p>
-        {stock > 0 ? null : <p className={`${styles.productSoldOut}`}>Sold Out</p>}
+        <div className={`${styles.priceWrap}`}>
+          {discount !== 0 ? 
+            <p className={`${styles.productInfo}`}>${discount}</p> : 
+            null} 
+          {stock > 0 ? 
+            <p className={`${styles.productInfo}`}>${price}</p> : 
+            <p className={`${styles.productSoldOut}`}>Sold Out</p>}
+        </div>
     </Link>
   )
 }

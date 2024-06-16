@@ -1,5 +1,6 @@
 import { performRequest } from '@/app/lib/datocms'
 import { ProductDisplay } from '@/app/components/productDisplay'
+import styles from '@/app/style/productCategory.module.scss'
 
 export default async function Category({params}) {
   const PAGE_CONTENT_QUERY = `
@@ -27,20 +28,22 @@ export default async function Category({params}) {
     const { data: { allShops } } = await performRequest({ query: PAGE_CONTENT_QUERY });
     return (
       <main >
-        <h1>{params.category}</h1>
-        {allShops.map((product)=>(
-           <ProductDisplay
-            key={product?.id}
-            id={product?.id}
-            category={params.category}
-            productSlug={product?.productSlug}
-            productDisplay={product?.productDisplay}
-            productName={product?.productName}
-            discount={product?.discount}
-            stock={product?.stock}
-            price={product?.price}
-         />
-        ))}
+        <h1 className={`${styles.h1}`}>{params.category}</h1>
+        <div className={`${styles.grid}`}>
+          {allShops.map((product)=>(
+            <ProductDisplay
+              key={product?.id}
+              id={product?.id}
+              category={params.category}
+              productSlug={product?.productSlug}
+              productDisplay={product?.productDisplay}
+              productName={product?.productName}
+              discount={product?.discount}
+              stock={product?.stock}
+              price={product?.price}
+          />
+          ))}
+        </div>
         
     </main>
   )
