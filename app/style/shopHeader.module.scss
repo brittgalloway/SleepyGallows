@@ -78,7 +78,8 @@
     @media(max-width: 830px) {
       display: inline;
       border: none;
-      background: white;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
       text-align: center; 
       padding: 2% 1%;
       width: fit-content;

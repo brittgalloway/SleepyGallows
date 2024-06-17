@@ -6,6 +6,7 @@
 .h2 {
     font-size: 1.5em;
     color: var(--brand-color);
+    text-align: center;
 }
 .img {
     width: 100%;
@@ -31,4 +32,15 @@
 .noStock {
     color: #ff0000;
     font-weight: bold;
+}
+.aside {
+    margin-block: 2.5em;
+}
+.learnMore {
+    font-weight: 400;
+    font-size: 1.25em;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-top: 1em;
 }

@@ -1,5 +1,6 @@
-import { ProductImages } from '@/app/components/productImages'
 import Link from 'next/link'
+import { lato } from '@/app/fonts'
+import { ProductImages } from '@/app/components/productImages'
 import { performRequest } from '@/app/lib/datocms'
 import { USD } from '@/app/utilities/formating'
 import style from '@/app/style/product.module.scss'
@@ -53,17 +54,17 @@ export default async function Product( {params} ) {
         <div className='product-info'>
           {shop?.discount > 0 ?<p className={`${style.price} discount`}>{USD.format(shop?.discount)}</p> : null}
           <p className={`${style.price}`}>{USD.format(shop?.price)}</p>
-          <div dangerouslySetInnerHTML={{__html: shop?.productDescription}} />
+          <div className={`${lato.className}`} dangerouslySetInnerHTML={{__html: shop?.productDescription}} />
           {shop?.stock > 0 ?<p className={`${style.stock}`}>In Stock</p> : <p className={`${style.noStock}`}>Sold Out</p>}
           <button>Add to Cart</button>
         </div>
       </div>
-      <aside>
+      <aside className={`${style.aside}`}>
         <h2 className={`${style.h2}`}>{shop?.originalsSummary?.storyName}</h2>
-        <p>
+        <p className={`${lato.className}`}>
           {shop?.originalsSummary?.storySummary?.value?.document?.children[0]?.children[0]?.value}
         </p>
-          {shop?.originalsSummary?.showLink !== undefined ? <Link href={`/animation/originals/${shop?.originalsSummary?.showLink}`}>Learn More</Link> : null}
+          {shop?.originalsSummary?.showLink !== undefined ? <Link  className={`${style.learnMore}`} href={`/animation/originals/${shop?.originalsSummary?.showLink}`}>Learn More</Link> : null}
       </aside>
     </main>
   )
