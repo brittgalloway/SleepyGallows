@@ -15,7 +15,7 @@ export function ProductDisplay( {category, productSlug, productName, discount, p
           alt={productDisplay[0]?.alt}
           title={productDisplay[0]?.title}
         />
-        <p className={`${styles.productName}`}>"{productName}"</p>
+        <p className={`${styles.productName}`}>&quot;{productName}&quot;</p>
         <div className={`${styles.priceWrap}`}>
           {discount !== 0 ? 
             <p className={`${styles.productInfo}`}>${discount}</p> : 
