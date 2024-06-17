@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/app/style/productCategory.module.scss'
-import { USD } from '../utilities/formating'
 
 
 export function ProductDisplay( {category, productSlug, productName, discount, price, stock, productDisplay} ) {
@@ -15,7 +14,7 @@ export function ProductDisplay( {category, productSlug, productName, discount, p
           alt={productDisplay[0]?.alt}
           title={productDisplay[0]?.title}
         />
-        <p className={`${styles.productName}`}>&quot;{productName}&quot;</p>
+        <p className={`${styles.productName}`}>&ldquo;{productName}&rdquo;</p>
         <div className={`${styles.priceWrap}`}>
           {discount !== 0 ? 
             <p className={`${styles.productInfo}`}>${discount}</p> : 

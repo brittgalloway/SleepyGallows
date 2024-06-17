@@ -2,7 +2,6 @@ import { cinzel_decorative } from "@/app/fonts"
 import ShopHeader from "@/app/components/shopHeader"
 import { ShopFooter } from "@/app/components/shopFooter"
 import { ShopBanner } from "../components/shopBanner"
-import styles from './page.module.scss'
 
 export const metadata = {
   title: 'Shop | Sleepy Gallows',

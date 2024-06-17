@@ -14,8 +14,7 @@ export default function ShopNavigation() {
   }
 
   return(
-    // <nav aria-label='Main' className={isMobile && isOpen ? `${styles.mobile} ${styles.nav}` : styles.nav} onClick={handleClick}>
-    <nav className={styles.nav}>
+    <nav aria-label='Main shop navigation' className={isMobile && isOpen ? `${styles.mobile} ${styles.nav}` : styles.nav} onClick={handleClick}>
       {isMobile ? 
         <div className={styles.mobileMenu} >
           <button className={styles.hamburger} onClick={handleClick}>

@@ -51,10 +51,10 @@ export default async function Product( {params} ) {
          />
         </div>
         <div className='product-info'>
-          {shop?.discount > 0 ?<p className={`${style.price}`}>{USD.format(shop?.discount)}</p> : null}
+          {shop?.discount > 0 ?<p className={`${style.price} discount`}>{USD.format(shop?.discount)}</p> : null}
           <p className={`${style.price}`}>{USD.format(shop?.price)}</p>
           <div dangerouslySetInnerHTML={{__html: shop?.productDescription}} />
-          {shop?.stock > 0 ?<p>In Stock</p> : <p>Sold Out</p>}
+          {shop?.stock > 0 ?<p className={`${style.stock}`}>In Stock</p> : <p className={`${style.noStock}`}>Sold Out</p>}
           <button>Add to Cart</button>
         </div>
       </div>
