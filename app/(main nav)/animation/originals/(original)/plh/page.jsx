@@ -30,7 +30,7 @@ query Watch{
 export default async function PlhWatch() {
   const { data: { original } } = await performRequest({ query: PAGE_CONTENT_QUERY });
   return (
-    <main>
+    <main className={`${styles.originalsMain}`}>
       <header>
         <OriginalsNav 
           navLabel={original?.link}/>
@@ -39,7 +39,7 @@ export default async function PlhWatch() {
       <div className={styles.videoWrapper}>
         {original?.watch.map((video)=> (
           <div key={video?.id} className={styles.video}>
-            <YouTubeEmbed videoid={video?.youtubeId} width={376} height={212} />
+            <YouTubeEmbed videoid={video?.youtubeId} width={300} height={169} />
               <h2 className={textStyles.title}>
                 {video?.title}
               </h2> 

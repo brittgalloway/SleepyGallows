@@ -14,10 +14,10 @@ export default function RootLayout({children}) {
   return (
       <section className={lato.className}>
         <MainNavigation/>
-        <section>
-            <AnimationNav/>
-            {children}
-        </section>
+        <main>
+          <AnimationNav/>
+          {children}
+        </main>
         <Footer
           name={'Sleepy Gallows'}
         />

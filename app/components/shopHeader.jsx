@@ -30,7 +30,7 @@ export default function ShopHeader() {
         )}
         <div className={styles.logo_wrapper}>
         {isMobile && 
-          <Link href={'/shop/'}>
+          <Link href={'/shop/'} aria-label='This link takes you back to the Shop&apos;s home page. It holds the Sleepy Gallows "SG"'>
             <Image 
             className="logo" 
             width={82} 

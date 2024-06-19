@@ -3,6 +3,7 @@ import {
     Happy_Monkey, 
     Heebo,
     Cinzel_Decorative,
+    Cinzel,
     Lato
 } from 'next/font/google'
  
@@ -34,6 +35,12 @@ export const lato = Lato({
 })
 
 export const cinzel_decorative = Cinzel_Decorative({
+    weight: ['400', '700'],
+    style: ['normal'],
+    subsets: ['latin'],
+    display: 'swap',
+})
+export const cinzel = Cinzel({
     weight: ['400', '700'],
     style: ['normal'],
     subsets: ['latin'],

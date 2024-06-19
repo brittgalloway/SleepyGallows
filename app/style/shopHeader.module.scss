@@ -6,8 +6,18 @@
 }
 .h1 {
     font-size: 3rem;
-    font-weight: 400;
     color: var(--brand-color);
+    transition: all .2s ease-in-out 0s;
+    &:hover {
+        transform: scale(1.05);
+        transition: all .2s ease-in-out 0s;
+    }
+    a {
+        font-weight: 400 !important;
+        &:hover {
+            text-decoration: none;
+        }
+    }
 }
 .wrapper {
     display: flex;

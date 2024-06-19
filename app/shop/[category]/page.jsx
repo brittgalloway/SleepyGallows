@@ -1,3 +1,4 @@
+import { cinzel_decorative } from '@/app/fonts'
 import { performRequest } from '@/app/lib/datocms'
 import { ProductDisplay } from '@/app/components/productDisplay'
 import styles from '@/app/style/productCategory.module.scss'
@@ -29,7 +30,7 @@ export default async function Category({params}) {
     const { data: { allShops } } = await performRequest({ query: PAGE_CONTENT_QUERY });
     return (
       <main className={`${layoutStyle.main}`}>
-        <h1 className={`${styles.h1}`}>{params.category}</h1>
+        <h1 style={cinzel_decorative.style} className={`${styles.h1}`}>{params.category}</h1>
         <div className={`${styles.grid}`}>
           {allShops.map((product)=>(
             <ProductDisplay

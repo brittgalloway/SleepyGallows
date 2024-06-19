@@ -61,14 +61,13 @@
 }
 
 .videoWrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content:flex-start;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 1024px;
+  margin: auto;
 }
 .video {
-  margin:1rem;
-  max-width: 300px;
   summary {
     width: 100%;
     font-weight: 700;
@@ -96,4 +95,7 @@
     height: 100%;
     width: 100%;
   }
+}
+.originalsMain {
+  margin: 0;
 }

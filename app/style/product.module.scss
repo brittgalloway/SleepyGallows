@@ -45,7 +45,7 @@
 .price {
     font-size: 1.5em;
     color: var(--brand-color); 
-    margin-right: .5em;
+    margin: 0 .5em .5em 0;
     font-weight: bold;
     display: inline-block;
     &~p {
@@ -58,6 +58,8 @@
     display: flex;
     flex-direction: column;
     grid-area: info;
+    margin-left: 150px;
+    font-size: 1.5em;
 }
 .no_stock {
     color: #ff0000;
