@@ -16,7 +16,7 @@ export default function ShopNavigation() {
   return(
     <nav aria-label='Main shop navigation' className={isMobile && isOpen ? `${styles.mobile} ${styles.nav}` : styles.nav} onClick={handleClick}>
       {isMobile ? 
-        <div className={styles.mobileMenu} >
+        <div className={styles.mobile_menu} >
           <button className={styles.hamburger} onClick={handleClick}>
             <Image src='/hamburger.svg' 
             width={40} 
@@ -27,7 +27,7 @@ export default function ShopNavigation() {
       }
       
       {(isOpen || !isMobile) && (
-        <ul aria-label="Shop Menu" className={styles.navList}>
+        <ul aria-label="Shop Menu" className={styles.nav_list}>
           <li><Link href="/shop/collage">collage</Link></li>
           <li><Link href="/shop/prints">prints</Link></li>
           <li><Link href="/shop/stickers">stickers</Link></li>

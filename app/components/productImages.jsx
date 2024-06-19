@@ -1,6 +1,6 @@
 'use client'
-import Image from 'next/image'
 import * as React from 'react'
+import Image from 'next/image'
 import PhotoAlbum from 'react-photo-album'
 import style from '@/app/style/product.module.scss'
 
@@ -28,11 +28,13 @@ export function ProductImages({photos}) {
             title= {photos[index]?.title}
             alt= {photos[index]?.alt}
         />
-        <PhotoAlbum
-            layout="rows"
+        <PhotoAlbum 
+            layout="columns"
             photos={slides}
             maxPhotos={4}
+            columns={4}
             height={100}
+            width={100}
             spacing={10}
             onClick={handleClick}
         />

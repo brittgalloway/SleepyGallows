@@ -33,11 +33,11 @@ query Watch{
 export default async function PlhWatch() {
   const { data: { original } } = await performRequest({ query: PAGE_CONTENT_QUERY });
   return (
-    <main className={styles.gridImg}>
+    <main className={styles.grid_img}>
       <header>
         <OriginalsNav 
           navLabel={original?.link}/>
-        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>Art of {original?.name}</h1>
+        <h1 className={`${textStyles.text_center } ${cinzel_decorative.className}`}>Art of {original?.name}</h1>
       </header>
       <div>
         <Grid

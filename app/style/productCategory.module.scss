@@ -1,10 +1,25 @@
 .h2 {
     font-size: 1em;
+    @media(min-width: 831px) {
+        font-size: 1.2em;
+    }
 }
 .section {
     width:100%;
 }
-.categoryWrapper {
+.wrapper {
+    margin-block: 3em;
+    &:first-of-type{
+        margin-block: 0 3em;
+    }
+    @media(min-width: 831px) {
+        margin-block: 4em;
+        &:first-of-type{
+            margin-block: 5em;
+        }
+    }
+}
+.category_wrapper {
     display: flex;
     border: 1px solid var(--brand-color);
     height: 175px;
@@ -13,10 +28,15 @@
     overflow-y: hidden;
     padding: 2.5%;
     gap: 20px;
+    @media(min-width: 831px) {
+        height: 400px;
+    }
     li {
-        @media(max-width: 830px) {
-            height: 100px;
-            width: 150px;
+        height: 100px;
+        width: 150px;
+        @media(min-width: 831px) {
+            height: 360px;
+            width: 350px;
         }
     }
 }
@@ -24,39 +44,57 @@
     height: auto;
     width: auto;
     object-fit: cover;
-    @media(max-width: 830px) {
-        height: 100px;
-        width: 150px;
-      }
+    height: 100px;
+    width: 150px;
+    @media(min-width: 831px) {
+        height: 275px;
+        width: 350px;
+    }
 }
 @mixin productInfo {
     color: var(--text-color);
     font-weight: normal;
     font-size: .8em;
     margin: 1px 0;
+    @media(min-width: 831px) {
+        font-size: 1.2em;
+    }
 }
-.productName {
+.product_name {
     @include productInfo();
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
 
-.productInfo {
+.product_info {
     @include productInfo();
     &~p {
         text-decoration: line-through;
         font-size: .6em;
+        @media(min-width: 831px) {
+            font-size: 1em;
+        }
     }
 }
-.productSoldOut {
+.product_display {
+    transition: all .2s ease-in-out 0s;
+    &:hover {
+        display: block;
+        border: 2px solid var(--brand-color);
+        overflow: hidden;
+        transform: translateY(-10px);
+        transition: all .2s ease-in-out 0s;
+    }
+}
+.product_soldout {
     @include productInfo();
     font-weight: bold;
     color: #FF0000;
     text-decoration: none !important;
     font-size: .8em !important;
 }
-.priceWrap {
+.price_wrap {
     display: flex;
     gap: 10px;
     align-items: baseline;
@@ -66,6 +104,10 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 55px;
     grid-auto-rows: minmax(100px, auto);
+
+    @media(min-width: 831px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 .h1 {
     font-size: 1em;

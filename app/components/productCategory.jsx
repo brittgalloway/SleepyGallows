@@ -32,9 +32,9 @@ export async function ProductCategory() {
   return (
       <section className={`${styles.section}`}>
         {categories.map((category) =>(
-          <div key={category}>
+          <div className={`${styles.wrapper}`} key={category}>
             <h2 className={`${styles.h2}`}><Link href={`/shop/${category}`}>{category}</Link></h2>
-              <ul className={`${styles.categoryWrapper}`} aria-label={`List of ${category} products, horizonal scroll to view more. Click on a prouct to go to that product's page.`}>
+              <ul className={`${styles.category_wrapper}`} aria-label={`List of ${category} products, horizonal scroll to view more. Click on a prouct to go to that product's page.`}>
                 {allShops.filter((product) => product.productType === category).map((product) =>(
                   <li key={product.id}>
                     <ProductDisplay

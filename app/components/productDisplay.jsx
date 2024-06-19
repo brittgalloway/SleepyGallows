@@ -6,7 +6,7 @@ import styles from '@/app/style/productCategory.module.scss'
 export function ProductDisplay( {category, productSlug, productName, discount, price, stock, productDisplay} ) {
 
   return (
-    <Link className={productDisplay} href={`/shop/${category}/${productSlug}`}>
+    <Link className={`${styles.product_display}`} href={`/shop/${category}/${productSlug}`}>
         <Image className={`${styles.img}`}
           src={productDisplay[0]?.responsiveImage?.src}
           width={350}
@@ -14,14 +14,14 @@ export function ProductDisplay( {category, productSlug, productName, discount, p
           alt={productDisplay[0]?.alt}
           title={productDisplay[0]?.title}
         />
-        <p className={`${styles.productName}`}>&ldquo;{productName}&rdquo;</p>
-        <div className={`${styles.priceWrap}`}>
+        <p className={`${styles.product_name}`}>&ldquo;{productName}&rdquo;</p>
+        <div className={`${styles.price_wrap}`}>
           {discount !== 0 ? 
-            <p className={`${styles.productInfo}`}>${discount}</p> : 
+            <p className={`${styles.product_info}`}>${discount}</p> : 
             null} 
           {stock > 0 ? 
-            <p className={`${styles.productInfo}`}>${price}</p> : 
-            <p className={`${styles.productSoldOut}`}>Sold Out</p>}
+            <p className={`${styles.product_info}`}>${price}</p> : 
+            <p className={`${styles.product_soldout}`}>Sold Out</p>}
         </div>
     </Link>
   )

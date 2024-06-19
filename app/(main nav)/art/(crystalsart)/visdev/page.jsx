@@ -39,7 +39,7 @@ export default async function Visdev() {
   const { data: { allMermaidVisdevs, allVisdevs } } = await performRequest({ query: PAGE_CONTENT_QUERY });
   return (
     <>
-      <main className={styles.gridImg}> 
+      <main className={styles.grid_img}> 
         <ArtNav
         navLabel={'Crystal\'s Art Page Navigation'}
         page1={'illustration'}

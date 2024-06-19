@@ -33,12 +33,12 @@ export default async function EgeWatch() {
       <header>
         <OriginalsNav 
           navLabel={original?.link}/>
-        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>{original?.name}</h1>
+        <h1 className={`${textStyles.text_center } ${cinzel_decorative.className}`}>{original?.name}</h1>
       </header>
-      <h2 className={`${textStyles.textCenter }`}>
+      <h2 className={`${textStyles.text_center }`}>
         In Production!
       </h2>
-      <h3 className={`${textStyles.textCenter }`}>
+      <h3 className={`${textStyles.text_center }`}>
         Coming Soon
       </h3>
       <Image 

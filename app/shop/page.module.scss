@@ -19,10 +19,20 @@
 .welcome {
   border: 2px solid var(--brand-color);
   padding: 2em 4em;
-
+  position: relative;
+  width: calc(100% - 20px);
+  margin-left: 20px;
   @media(max-width: 830px) {
     display: none;
   }
+}
+.decor {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--brand-color);
 }
 .donate {
   margin: 2rem auto;

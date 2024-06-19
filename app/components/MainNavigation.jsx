@@ -17,7 +17,7 @@ export default function MainNavigation() {
   return(
     <nav aria-label='Main' className={isMobile && isOpen ? `${styles.mobile} ${styles.nav}` : styles.nav} onClick={handleClick}>
       {isMobile ? 
-        <div className={styles.mobileMenu} >
+        <div className={styles.mobile_menu} >
           <button className={styles.hamburger} onClick={handleClick}>
             <Image src='/hamburger.svg' 
             width={40} 

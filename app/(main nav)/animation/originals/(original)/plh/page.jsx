@@ -34,7 +34,7 @@ export default async function PlhWatch() {
       <header>
         <OriginalsNav 
           navLabel={original?.link}/>
-       <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>{original?.name}</h1>
+       <h1 className={`${textStyles.text_center } ${cinzel_decorative.className}`}>{original?.name}</h1>
       </header>
       <div className={styles.videoWrapper}>
         {original?.watch.map((video)=> (

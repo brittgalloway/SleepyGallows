@@ -12,6 +12,7 @@ export default function Shop() {
   return (
     <main className={styles.main}>
       <div className={`${styles.welcome}`}>
+      <div className={`${styles.decor}`} aria-hidden="true"></div>
         <p>Welcome to our whimsical world of art and wonder. Explore charming fine art, adorable prints, captivating children&apos;s books, and cute downloadable assets, all crafted to ignite your imagination and fill your world with magic.</p>
       </div>
       <ProductCategory/>
