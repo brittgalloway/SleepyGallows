@@ -26,10 +26,12 @@
     width: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
-    padding: 20px;
-    gap: 20px;
+    padding: 10px;
+    gap: 10px;
     scrollbar-width: thin;
     @media(min-width: 831px) {
+        padding: 20px;
+        gap: 20px;
         height: 400px;
     }
     li {
@@ -47,7 +49,7 @@
     width: 150px;
     @media(min-width: 831px) {
         height: 275px;
-        width: 350px;
+        width: 100%;
     }
 }
 @mixin productInfo {
@@ -91,6 +93,9 @@
         p, div {
             padding: 0 5px;
             transition: all .2s ease-in-out 0s;
+            @media(max-width: 830px) {
+                padding: 0 2.5px;
+            }
         }
     }
 }
@@ -109,11 +114,12 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 55px;
+    gap: 5%;
+    width: 100%;
     grid-auto-rows: minmax(100px, auto);
-
+    
     @media(min-width: 831px) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(min(215px), 1fr));
     }
 }
 .h1 {

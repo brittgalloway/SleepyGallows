@@ -23,9 +23,9 @@ export default function ShopHeader() {
     <header className={styles.header}>
       <div className={styles.wrapper}>
       {!isMobile && (
-        <div>
-          <a href='https://www.youtube.com/@sleepygallows'><FontAwesomeIcon icon={faYoutube} /></a>
-          <a href='https://www.instagram.com/sleepy_gallows/'><FontAwesomeIcon icon={faInstagram} /></a>
+        <div style={{marginBlock: '1rem'}}>
+          <a className={styles.icons} href='https://www.youtube.com/@sleepygallows'><FontAwesomeIcon icon={faYoutube} /></a>
+          <a className={styles.icons} href='https://www.instagram.com/sleepy_gallows/'><FontAwesomeIcon icon={faInstagram} /></a>
         </div>
         )}
         <div className={styles.logo_wrapper}>

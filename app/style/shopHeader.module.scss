@@ -95,7 +95,11 @@
       width: fit-content;
     }
   }
-  
+.icons {
+    @media(min-width: 831px) {
+       margin: 1rem;
+      }
+}
 .checkout {
     z-index: 3; 
     cursor: pointer;

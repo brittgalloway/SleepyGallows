@@ -2,6 +2,9 @@
     font-size: 1em;
     color: var(--brand-color);
     grid-area: name;
+    @media(min-width: 831px) {
+        font-size: 2em;
+    }
 }
 
 .h2 {
@@ -38,16 +41,19 @@
     grid-template-areas: "name" "image" "info";
     @media(min-width: 831px) {
         grid-template-areas: "name name" "image info";
-        max-width: 80%;
         gap: 3rem;
     }
 }
 .price {
-    font-size: 1.5em;
+    font-size: 1em;
     color: var(--brand-color); 
-    margin: 0 .5em .5em 0;
+    margin: .5em .5em .5em 0;
     font-weight: bold;
     display: inline-block;
+    @media(min-width: 831px) {
+        font-size: 1.5em;
+        margin: 0 .5em .5em 0;
+    }
     &~p {
         text-decoration: line-through;
         font-size: 1em;
@@ -58,7 +64,6 @@
     display: flex;
     flex-direction: column;
     grid-area: info;
-    margin-left: 150px;
     font-size: 1.5em;
 }
 .no_stock {

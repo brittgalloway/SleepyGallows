@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { lato } from '@/app/fonts'
+import { lato, cinzel_decorative } from '@/app/fonts'
 import { ProductImages } from '@/app/components/productImages'
 import { performRequest } from '@/app/lib/datocms'
 import { USD } from '@/app/utilities/formating'
@@ -43,7 +43,6 @@ export default async function Product( {params} ) {
   
   const { data: { shop } } = await performRequest({ query: PAGE_CONTENT_QUERY });
 
-  const description = {__html: shop?.productDescription};
   return (
     <main className={`${layoutStyle.main} ${style.max_width}`}>
       <div className={`${style.product}`}>
@@ -55,7 +54,7 @@ export default async function Product( {params} ) {
         </div>
         <div className={`${style.product_info}`}>
           <div>
-            {shop?.discount > 0 ?<p className={`${style.price} discount`}>{USD.format(shop?.discount)}</p> : null}
+            {shop?.discount > 0 ? <p className={`${style.price} discount`}>{USD.format(shop?.discount)}</p> : null}
             <p className={`${style.price}`}>{USD.format(shop?.price)}</p>
           </div>
           <div className={`${lato.className}`} dangerouslySetInnerHTML={{__html: `${shop?.productDescriptions}`}} />
@@ -64,7 +63,7 @@ export default async function Product( {params} ) {
         </div>
       </div>
       <aside className={`${style.aside}`}>
-        <h2 className={`${style.h2}`}>{shop?.originalsSummary?.storyName}</h2>
+        <h2 className={`${style.h2} ${cinzel_decorative.className}`}>{shop?.originalsSummary?.storyName}</h2>
         <p className={`${lato.className}`}>
           {shop?.originalsSummary?.storySummary?.value?.document?.children[0]?.children[0]?.value}
         </p>
