@@ -67,6 +67,7 @@ This section is broken into 2 main parts.
 Currently this page is just a sign up page to join a newsletter.
 
 In the future, this will allow users to buy art related the Sleepy Gallows originals. There will be high end collage art, prints, and digital downloads.
+Payments by Paypal.
 
 More info to come as this section is developed.
 
@@ -79,8 +80,12 @@ Sleepy Gallows is built using the following technologies and services:
 - [Lottie Files](https://lottiefiles.com/)
 - [DatoCMS](https://www.datocms.com/)
 - GraphQL
+- [Paypal](https://developer.paypal.com/integration-builder)
+https://github.com/paypaldev/PayPal-JavaScript-FullStack-Standard-Checkout-Sample/tree/main/server
+https://dev.to/husnain/how-to-integrate-paypal-with-nextjs-2oil#:~:text=How%20to%20integrate%20Paypal%20with%20NextJs%201%20Installing,3%20Back-end%20Integration%20...%204%20Front-end%20Integration%20
+https://ofarukcaki.medium.com/paypal-express-checkout-with-react-next-js-fcc4be9d0d2
 - [Jest](https://jestjs.io/)
-- [Figma](https://www.figma.com/) (for design)
+- [Figma](https://www.figma.com/design/WLVF5Zg1I4pTRBbGusis0G/SleepyGallows?node-id=1037-2&t=HVdtKwgrkUjReRH0-0) (for design)
 - [Vercel](https://vercel.com/) (for deployment)
 
 ---

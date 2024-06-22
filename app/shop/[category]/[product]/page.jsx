@@ -5,6 +5,7 @@ import { performRequest } from '@/app/lib/datocms'
 import { USD } from '@/app/utilities/formating'
 import style from '@/app/style/product.module.scss'
 import layoutStyle from '../../page.module.scss'
+import Checkout from '@/app/components/checkout'
 
 export default async function Product( {params} ) {
   const PAGE_CONTENT_QUERY = `
@@ -60,6 +61,7 @@ export default async function Product( {params} ) {
           <div className={`${lato.className}`} dangerouslySetInnerHTML={{__html: `${shop?.productDescriptions}`}} />
           {shop?.stock > 0 ?<p className={`${style.stock}`}>In Stock</p> : <p className={`${style.no_stock}`}>Sold Out</p>}
           <button>Add to Cart</button>
+          <Checkout/>
         </div>
       </div>
       <aside className={`${style.aside}`}>
