@@ -43,7 +43,7 @@ export default function Home() {
           <p className={`${styles.shopP} ${cinzel_decorative.className}`}>Shop</p>
           <Image 
             className={styles.img}
-            src="https://www.datocms-assets.com/53347/1698643042-4shop_home.png" 
+            src="https://www.datocms-assets.com/53347/1719083004-4shop.png" 
             alt="Screenshot of the web page 'Space Chasers' with light cyan blues and purlpes as the primary colors and shpes. Clicking here directs you to the Shop page."
             width={500}
             height={250}
