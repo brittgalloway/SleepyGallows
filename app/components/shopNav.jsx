@@ -35,7 +35,8 @@ export default function ShopNavigation() {
           <li><Link href="/shop/patron">patron</Link></li>
           {isMobile && 
               <li>
-                  <Link href="#">Account</Link>
+                  {/* <a href='https://billing.stripe.com/p/login/aEU16L6Aq6EP7yE000'>Account</a> */}
+                  <a href='https://billing.stripe.com/p/login/test_dR615302V1Hz1K8fYY'>Account</a>
               </li>
           }
         </ul>

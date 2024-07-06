@@ -15,7 +15,9 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@next/third-parties": "^14.2.4",
-    "@paypal/react-paypal-js": "^8.2.0",
+    "@stripe/react-stripe-js": "^2.7.1",
+    "@stripe/stripe-js": "^3.5.0",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "next": "^14.2.4",
     "react": "^18",
@@ -23,6 +25,7 @@
     "react-lottie-player": "^1.5.5",
     "react-photo-album": "^2.3.0",
     "react-responsive": "^9.0.2",
+    "stripe": "^16.0.0",
     "yet-another-react-lightbox": "^3.15.6"
   },
   "devDependencies": {

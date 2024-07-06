@@ -1,36 +1,43 @@
 'use client'
-import Script from 'next/script'
-import { useEffect, useState } from "react"
-import styles from '../page.module.scss';
+import { useState } from 'react';
+import { STRIPE_PUBLIC } from '@/app/utilities/formating'
+import styles from '../page.module.scss'
+require('dotenv').config();
 
-export default function PatronBtn() {
-	const [accessPayPal, setaccessPayPal] = useState(false);
-	useEffect(() => {
-	  setaccessPayPal(true);
-	}, [accessPayPal]);
+function OneDonation() {
 	return (
-	  <>
-	  {/* consider making the hosted button id a variable */}
-		{
-		  accessPayPal === true ?  
-		  <div id="donate-button-container">
-			  <div id="donate-button" className={styles.donate}></div>
-				<Script id="donate-button-script">
-					{`
-					PayPal.Donation.Button({
-						env:'sandbox',
-						hosted_button_id:'DTXXZKX7XT3EA', 
-						image: {
-						src:'https://pics-v2.sandbox.paypal.com/00/s/YzI3MTc5ZWItOGE5MS00ZDUyLWEyODgtZTZjNmQ0MGI0NjU5/file.PNG',
-						alt:'Donate with PayPal button',
-						title:'PayPal - The safer, easier way to pay online!',
-						}
-					}).render('#donate-button');
-					`}
-				</Script>
-			  </div>
-			   : false
-			}
+		<stripe-buy-button
+			buy-button-id="buy_btn_1PVi7MJiAoJrRPIxXmderocZ"
+  			publishable-key={ process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
+		/>
+	);
+}
+function RecurringDonation() {
+	return (
+		<stripe-buy-button
+			buy-button-id="buy_btn_1PVmxgJiAoJrRPIx4UwBcn6j"
+			publishable-key={ process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
+		/>
+	);
+}
+  
+export function PatronOptions() {
+	return (
+		<div>
+			<OneDonation/>
+			<RecurringDonation/>
+		</div>
+	);
+}
+export function PatronButton() {
+	const [isOpen, setIsOpen] = useState(false);
+	function handleClick() {
+		isOpen ? setIsOpen(false) : setIsOpen(true);
+	}
+	return (
+		<>
+			{isOpen ? ( <PatronOptions/> ) : null}
+			<button onClick={handleClick}>Be a Patron</button>
 		</>
 	);
 }

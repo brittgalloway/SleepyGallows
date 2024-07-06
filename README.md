@@ -80,10 +80,8 @@ Sleepy Gallows is built using the following technologies and services:
 - [Lottie Files](https://lottiefiles.com/)
 - [DatoCMS](https://www.datocms.com/)
 - GraphQL
-- [Paypal](https://developer.paypal.com/integration-builder)
-https://github.com/paypaldev/PayPal-JavaScript-FullStack-Standard-Checkout-Sample/tree/main/server
-https://dev.to/husnain/how-to-integrate-paypal-with-nextjs-2oil#:~:text=How%20to%20integrate%20Paypal%20with%20NextJs%201%20Installing,3%20Back-end%20Integration%20...%204%20Front-end%20Integration%20
-https://ofarukcaki.medium.com/paypal-express-checkout-with-react-next-js-fcc4be9d0d2
+- [stripe](https://docs.stripe.com/products-prices/overview#get-started)
+https://docs.stripe.com/customer-management/activate-no-code-customer-portal
 - [Jest](https://jestjs.io/)
 - [Figma](https://www.figma.com/design/WLVF5Zg1I4pTRBbGusis0G/SleepyGallows?node-id=1037-2&t=HVdtKwgrkUjReRH0-0) (for design)
 - [Vercel](https://vercel.com/) (for deployment)

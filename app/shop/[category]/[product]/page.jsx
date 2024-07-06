@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { lato, cinzel_decorative } from '@/app/fonts'
 import { ProductImages } from '@/app/components/productImages'
+import AddToCart from '@/app/components/addToCart'
 import { performRequest } from '@/app/lib/datocms'
 import { USD } from '@/app/utilities/formating'
 import style from '@/app/style/product.module.scss'
 import layoutStyle from '../../page.module.scss'
-import Checkout from '@/app/components/checkout'
 
 export default async function Product( {params} ) {
   const PAGE_CONTENT_QUERY = `
@@ -40,9 +40,12 @@ export default async function Product( {params} ) {
         }
       }
     }
-    `;
-  
+  `;
   const { data: { shop } } = await performRequest({ query: PAGE_CONTENT_QUERY });
+
+  const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY_TEST);
+
+  const product = await stripe.products.retrieve(shop?.id);
 
   return (
     <main className={`${layoutStyle.main} ${style.max_width}`}>
@@ -60,8 +63,9 @@ export default async function Product( {params} ) {
           </div>
           <div className={`${lato.className}`} dangerouslySetInnerHTML={{__html: `${shop?.productDescriptions}`}} />
           {shop?.stock > 0 ?<p className={`${style.stock}`}>In Stock</p> : <p className={`${style.no_stock}`}>Sold Out</p>}
-          <button>Add to Cart</button>
-          <Checkout/>
+          <AddToCart
+            product={product}
+          />
         </div>
       </div>
       <aside className={`${style.aside}`}>
@@ -69,7 +73,10 @@ export default async function Product( {params} ) {
         <p className={`${lato.className}`}>
           {shop?.originalsSummary?.storySummary?.value?.document?.children[0]?.children[0]?.value}
         </p>
-          {shop?.originalsSummary?.showLink !== undefined ? <Link  className={`${style.learn_more}`} href={`/animation/originals/${shop?.originalsSummary?.showLink}`}>Learn More</Link> : null}
+          {shop?.originalsSummary?.showLink !== undefined ? 
+            <Link  className={`${style.learn_more}`} href={`/animation/originals/${shop?.originalsSummary?.showLink}`}>
+            Learn More
+            </Link> : null}
       </aside>
     </main>
   )
