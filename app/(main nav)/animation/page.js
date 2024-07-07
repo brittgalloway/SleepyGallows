@@ -10,38 +10,26 @@ export const metadata = {
 }
 
 export default function Animation() {
+  const links = [
+    ['Originals', styles.original, styles.imgOriginal, 'originals', 'https://www.datocms-assets.com/53347/1629471501-originals.jpg', 'Link to Original animations page. Nirvana sitting on the branch'],
+    ['Client Work', styles.client, styles.img, 'client', 'https://www.datocms-assets.com/53347/1705189962-inhuman-figures.jpg', 'Futuristic city scape with high rises and flying cars with the text "Robots Clones Aliens"'],
+    ['For Fun', styles.fun, styles.img, 'fun', 'https://www.datocms-assets.com/53347/1630810673-crushsm.png', 'Link to page of short fun animations. This is a drawing of Yuna inspired by her Chapters album visuals'],
+  ];
   return (
     <main className={styles.main}> 
-      <Link className={styles.original} href="/animation/originals">
-        <p className={`${styles.p} ${cinzel_decorative.className}`}>Originals</p>
+    {links.map((link, index)=> (
+      <Link key={index} className={link[1]} href={`/animation/${link[3]}`}>
+        <p className={`${styles.p} ${cinzel_decorative.className}`}>{link[0]}</p>
         <Image 
-        className={styles.imgOriginal}
-        src="https://www.datocms-assets.com/53347/1629471501-originals.jpg" 
-        alt="Link to Original animations page. Nirvana sitting on the branch" 
+        className={link[2]}
+        src={link[4]} 
+        alt={link[5]}
         width={900}
         height={300}
         />
       </Link>
-      <Link className={styles.client} href="/animation/client">
-        <p className={`${styles.p} ${cinzel_decorative.className}`}>Client Work</p>
-        <Image 
-        className={styles.img}
-        src="https://www.datocms-assets.com/53347/1705189962-inhuman-figures.jpg" 
-        alt='Futuristic city scape with high rises and flying cars with the text "Robots Clones Aliens"'
-        width={900}
-        height={300}
-        />
-      </Link>
-      <Link className={styles.fun} href="/animation/fun">
-        <p className={`${styles.p} ${cinzel_decorative.className}`}>For Fun</p>
-        <Image 
-        className={styles.img}
-        src="https://www.datocms-assets.com/53347/1630810673-crushsm.png" 
-        alt="Link to page of short fun animations. This is a drawing of Yuna inspired by her Chapters album visuals" 
-        width={900}
-        height={300}
-        />
-      </Link>
+    ))}
+
     </main>
   )
 }

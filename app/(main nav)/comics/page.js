@@ -11,6 +11,11 @@ export const metadata = {
 }
 
 export default function Comics() {
+  const links = [
+    ['instagram', 'https://www.instagram.com/2.heroes/'],
+    ['twitter', 'https://twitter.com/2Heroes1'],
+    ['patreon', 'https://www.patreon.com/2heroes'],
+  ];
   return (
     <>
       <main className={styles.main}>
@@ -18,15 +23,11 @@ export default function Comics() {
           <h1 className={`${styles.h1} ${cinzel_decorative.className}`}>2Heroes</h1>
           <div className={styles.links}>
               <ul className={styles.ul}>
-                <li >
-                  <a href="https://www.instagram.com/2.heroes/">instagram</a>
-                </li>
-                <li>
-                  <a href="https://twitter.com/2Heroes1">twitter</a>
-                </li>
-                <li>
-                  <a href="https://www.patreon.com/2heroes">patreon</a>
-                </li>
+                {links.map((link, index)=> (
+                  <li key={index}>
+                    <a href={link[1]}>{link[0]}</a>
+                  </li>
+                ))}
               </ul>
             </div>
           <section className={styles.section}>
