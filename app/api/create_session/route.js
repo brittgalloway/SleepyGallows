@@ -13,7 +13,7 @@ export async function POST(req) {
       payment_method_types: ['card'],
       line_items: [
         {
-          price: 'price_1PVnaRJiAoJrRPIxhY38ySNt',
+          price: '{{PRICE_ID}}',
           quantity: 1,
         },
       ],

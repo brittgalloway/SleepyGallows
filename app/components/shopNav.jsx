@@ -12,7 +12,7 @@ export default function ShopNavigation() {
   function handleClick() {
     isOpen === true ? setIsOpen(false) : setIsOpen(true);
   }
-
+  const links = ['collage', 'prints', 'stickers', 'books', 'patron'];
   return(
     <nav aria-label='Main shop navigation' className={isMobile && isOpen ? `${styles.mobile} ${styles.nav}` : styles.nav} onClick={handleClick}>
       {isMobile ? 
@@ -28,11 +28,10 @@ export default function ShopNavigation() {
       
       {(isOpen || !isMobile) && (
         <ul aria-label="Shop Menu" className={styles.nav_list}>
-          <li><Link href="/shop/collage">collage</Link></li>
-          <li><Link href="/shop/prints">prints</Link></li>
-          <li><Link href="/shop/stickers">stickers</Link></li>
-          <li><Link href="/shop/books">books</Link></li>
-          <li><Link href="/shop/patron">patron</Link></li>
+          {links.map((link, index) => (
+            <li key={index}>
+              <Link href={`/shop/${link}`}>{link}</Link></li>
+          ))}
           {isMobile && 
               <li>
                   {/* <a href='https://billing.stripe.com/p/login/aEU16L6Aq6EP7yE000'>Account</a> */}

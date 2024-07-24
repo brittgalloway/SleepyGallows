@@ -8,6 +8,7 @@ import styles from '@/app/style/shopFooter.module.scss'
 
 export function ShopFooter() {
     const isMobile = useMediaQuery({query: `(max-width: 830px)`});
+    const links = ['animation', 'comics', 'art', 'about'];
     return (
      <footer className={styles.footer}>
         {isMobile ? 
@@ -19,10 +20,10 @@ export function ShopFooter() {
         }
         <p className={styles.title}>Sleepy Gallows Studio</p>
         <ul className={styles.ul}>
-            <li><Link href={'/animation'}>Animation</Link></li>
-            <li><Link href={'/comics'}>Comics</Link></li>
-            <li><Link href={'/art'}>Art</Link></li>
-            <li><Link href={'/about'}>About</Link></li>
+            { links.map((link, index) =>(
+              <li key={index}><Link href={`/${link}`}>{link}</Link></li>
+            ))
+            }
         </ul>
         <iframe title='Sign up for the Sleepy Gallows Newsletter' src='https://embeds.beehiiv.com/3178b493-940a-49e7-a1e0-c7095d94b9db?slim=true' loading="lazy" frameBorder={0} data-test-id='beehiiv-embed' ></iframe>
         <p>Copyright © {year} Sleepy Gallows Studio - All Rights Reserved.</p>
