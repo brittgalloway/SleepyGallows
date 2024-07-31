@@ -95,13 +95,12 @@ Another reason is the routing and layouts. This website has a lot of pages for a
 
 Styles are primarily done with [css modules](https://nextjs.org/docs/app/building-your-application/styling/css-modules) utilizing sass, so I was able to remove styled-components.
 
-In the next iteration, I will add dynamic routes.
-https://medium.com/@seun.thedeveloper/the-easiest-way-to-handle-animations-in-react-nextjs-5934a689a010
 ## How to contribute
 
 We welcome contributions to the Sleepy Gallows website! Here's how you can get started:
 1. Fork the Repository - Fork the repository to your GitHub account by clicking the "Fork" button on the repository page.
-2. Clone the Repository - Clone the forked repository to your local machine. Copy the code git clone and 
+2. Clone the Repository - I recommend that you use the Codespace to avoid issues with environment variables. If you do use Codespaces, skip to step 7.
+   Alternatively, clone the forked repository to your local machine. Copy the code git clone and 
   ```bash
 git clone https://github.com/your-username/SleepyGallows.git
 ```
@@ -118,7 +117,7 @@ npm install
   - NEXT_DATOCMS_API_TOKEN
   - STRIPE_SECRET_KEY_TEST
   - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_TEST
-> You will also need DatoCMS and stripe API keys. For DatoCMS, I can add you as a collaborator ( I only have one open spot, however). Collaborators will sign in here at sleepy-gallows.admin.datocms.com when set up. Alternatively, I can duplicate the DatoCMS project and transfer it to you. You will not have write access if I add you as a collaborator. You can create your own account for Stripe if you do not have one. There will be webhooks and API calls to create Stripe products based on the DatoCMS data, so you won't have to replicate mine directly. I will create a workspace in the near future to help with this issue.
+> You will also need DatoCMS and stripe API keys. For DatoCMS, I can add you as a collaborator ( I only have one open spot, however). Collaborators will sign in here at sleepy-gallows.admin.datocms.com when set up. Alternatively, I can duplicate the DatoCMS project and transfer it to you. You will not have write access if I add you as a collaborator. You can create your own account for Stripe if you do not have one. There will be webhooks and API calls to create Stripe products based on the DatoCMS data, so you won't have to replicate mine directly.
 7. Make Your Changes - Make your changes to the codebase. Ensure that your changes are well-documented and follow the project's coding standards.
 8. Run Tests - Run the existing tests and add new ones to verify your changes:
 ``` bash
