@@ -15,6 +15,7 @@ Sleepy Gallows is a portfolio website showcasing the creative work of Brittney a
   - [Art](#art)
   - [Shop](#shop)
 - [Technologies Used](#technologies-used)
+- [How to contribute](#how-to-contribute)
 - [Development](#development)
 - [Deploy on Vercel](#deploy-on-vercel)
 
@@ -85,7 +86,7 @@ Sleepy Gallows is built using the following technologies and services:
 ---
 
 ## Development
-This project was migrated from Gatsby to Next. The primary reason is the increasing number of legacy and depreciated packages. Code maintenance was becoming a hassle. I plan to add unit testing via [Jest](https://nextjs.org/docs/pages/building-your-application/optimizing/testing#jest-and-react-testing-library) , Puppeteer, and potentially e2e testing via Cypress. Gatsby is too far behind the current versions of both Jest and Cypress.
+This project was migrated from Gatsby to Next. The primary reason is the increasing number of legacy and depreciated packages. Code maintenance was becoming a hassle. I plan to add unit testing via [Jest](https://nextjs.org/docs/pages/building-your-application/optimizing/testing#jest-and-react-testing-library), Puppeteer, and potentially e2e testing via Cypress. Gatsby is too far behind the current versions of both Jest and Cypress.
 Another reason is the routing and layouts. This website has many pages for many different types of art. Between animation and the future shop, I needed to learn how to organize it best, and Next.js provides some benefits in this aspect.
 
 Another reason is the routing and layouts. This website has a lot of pages for a lot of different types of art. Between animation and the future shop, I wasn't sure the best way to organize it.
@@ -94,7 +95,7 @@ Another reason is the routing and layouts. This website has a lot of pages for a
 
 Styles are primarily done with [css modules](https://nextjs.org/docs/app/building-your-application/styling/css-modules) utilizing sass, so I was able to remove styled-components.
 
-In the next iteration I will add dynamic routes.
+In the next iteration, I will add dynamic routes.
 https://medium.com/@seun.thedeveloper/the-easiest-way-to-handle-animations-in-react-nextjs-5934a689a010
 ## How to contribute
 
@@ -123,7 +124,7 @@ npm install
 ``` bash
 npm test
 ```
-> Note: Depending on how early you are on this project,  there may not be any tests yet. Feel free to add Jest tests for your code.
+> Note: Depending on how early you are on this project, there may not be any tests yet. Feel free to add Jest tests for your code.
 9. Commit and Push - Commit your changes and push the branch to your forked repository:
  ``` bash
 git add .
