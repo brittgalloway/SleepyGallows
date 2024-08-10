@@ -61,16 +61,16 @@ export default async function Webdev() {
     <h2 className={`${styles.h2} ${grandstander.className}`}>Projects</h2>
     <section className={styles.projectSection}>
      {allWebProjects.map((project)=> (
-      <WebProjects
-      key={project.id}
-      id={project.id}
-      icon={project.icon}
-      projectName={project.projectName}
-      screenshot={project.screenshot}
-      description={project.description}
-      liveApp={project.liveApp}
-      github={project.github}
-      />
+          <WebProjects
+               key={project.id}
+               id={project.id}
+               icon={project.icon}
+               projectName={project.projectName}
+               screenshot={project.screenshot}
+               description={project.description}
+               liveApp={project.liveApp}
+               github={project.github}
+          />
  ))}
     </section>
     <h2 className={`${styles.h2} ${grandstander.className}`}>Education</h2>
@@ -102,7 +102,7 @@ export default async function Webdev() {
     <h2 className={grandstander.className}>One more thing!</h2>
     <p>Art helps my coding and coding helps my art.</p>
     <p>Learning JavaScript has helped me with my 2D animations via Adobe After Effects Expressions. Similarly Python scripts have been helpful in Blender, even using Grease Pencil. Here, I also created my own Lottie files with Adobe After Effects.
- I can’t wait to make cool stuff as I learn to mix these 2 passions more and more.</p>
+ I can&apos;t wait to make cool stuff as I learn to mix these 2 passions more and more.</p>
    </aside>
   </>
  )

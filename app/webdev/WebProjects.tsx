@@ -5,7 +5,9 @@ import Image from 'next/image'
 import AnimatedIcons from '@/app/components/projectIcons'
 import styles from './page.module.scss'
 
-export default function  WebProjects({id, projectName, icon, description, liveApp, github}) {
+export default function  WebProjects({id, projectName, icon, description, liveApp, github}:
+  {id:string, projectName:string, icon:{title:string}, description:string, liveApp:string, github:string}
+) {
     const [display, setDisplay] = useState(false);
     
     function handleClick() {
@@ -23,7 +25,7 @@ export default function  WebProjects({id, projectName, icon, description, liveAp
         { display ? (
           <>
             <div className={styles.project} role="dialog" aria-modal="true" key={projectName}>
-              <button className={styles.close} onClick={handleClick}>
+              <button className={styles.close} aria-label="Close" onClick={handleClick}>
                 <Image
                   width={30}
                   height={30}
