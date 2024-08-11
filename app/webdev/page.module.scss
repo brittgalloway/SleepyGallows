@@ -283,3 +283,8 @@
     animation: .5s linear infinite alternate wiggle;
   }
 }
+.experience {
+  @media (width <= 450px) {
+    font-size: 1.35rem;
+  }
+}

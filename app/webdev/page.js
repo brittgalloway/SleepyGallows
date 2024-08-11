@@ -42,7 +42,7 @@ export default async function Webdev() {
      <p>Then, in 2021, I built an ecommerce platform for my sister&apos;s art, <a href="https://candyfluffs.com">Candy Fluffs</a>.</p>
      <p>Now, I work at an ecommerce company cleaning up codebases, user experience, and performance projects.</p>
      <h2 className={`${styles.h2} ${grandstander.className}`}>Experience</h2>
-     <p><strong>Cleverbridge</strong> 2021-present</p>
+     <p className={`${styles.experience}`}><strong>Cleverbridge</strong> 2021-present</p>
      <ul className={styles.achievements}>
           <li className={styles.askAboutThis}>
                Collaborated with two teammates to standardize our codebase by creating a Node.js script that converts Gulp builds to Webpack.
@@ -76,7 +76,7 @@ export default async function Webdev() {
     <h2 className={`${styles.h2} ${grandstander.className}`}>Education</h2>
     <ul>
      <li>
-      <p>
+      <p className={`${styles.experience}`}>
        <strong>Fullstack Web Development Bootcamp</strong> | 2020
       </p>
       <small>
@@ -87,7 +87,7 @@ export default async function Webdev() {
       </p>
      </li>
      <li>
-      <p>
+     <p className={`${styles.experience}`}>
        <strong>BFA in Animation</strong> | 2014
       </p>
       <small>
