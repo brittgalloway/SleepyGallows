@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { KeyboardEvent, useState } from 'react'
 import { happy_monkey } from '@/app/fonts'
 import Image from 'next/image'
 import AnimatedIcons from '@/app/components/projectIcons'
@@ -10,12 +10,18 @@ export default function  WebProjects({id, projectName, icon, description, liveAp
 ) {
     const [display, setDisplay] = useState(false);
     
-    function handleClick() {
+    function handleDisplay() {
       display === true ? setDisplay(false) : setDisplay(true);
+    }
+    function handleKeyPress( e : KeyboardEvent ) {
+      if ( e.code === 'Enter' || e.code ==='Space' ) {
+        e.preventDefault();
+        handleDisplay();
+      }
     }
     return (
       <>
-        <div className={styles.projectWrapper} key={id} onClick={handleClick} >
+        <div data-testid={id} className={styles.projectWrapper} key={id} onClick={handleDisplay} onKeyDown={(e)=>handleKeyPress(e)} aria-label="Click or press Enter or Spacebar keys to open a dialog with information about this project." tabIndex={0}>
             <AnimatedIcons
               title={icon.title}
             />
@@ -25,7 +31,7 @@ export default function  WebProjects({id, projectName, icon, description, liveAp
         { display ? (
           <>
             <div className={styles.project} role="dialog" aria-modal="true" key={projectName}>
-              <button className={styles.close} aria-label="Close" onClick={handleClick}>
+              <button className={styles.close} aria-label="Close" onClick={handleDisplay} tabIndex={0}>
                 <Image
                   width={30}
                   height={30}
@@ -39,9 +45,9 @@ export default function  WebProjects({id, projectName, icon, description, liveAp
                 <a className={styles.btnPurple} href={github}>Github</a>
               </div>
             </div>
-            <div className={styles.backdrop} onClick={handleClick}></div>
+            <div data-testid="backdrop" className={styles.backdrop} aria-label="Click or press Enter to close" onClick={handleDisplay} onKeyDown={(e)=>handleKeyPress(e)} tabIndex={0}></div>
           </>
         ) : null }
       </>
     )
-  }
+}

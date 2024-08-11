@@ -30,11 +30,11 @@ export default async function Webdev() {
    <main className={styles.main}>
     <header>
      <div className={`${styles.headerWrapper} ${grandstander.className}`}>
-      <h1>Brittney Galloway</h1>
-      <h2>Frontend Web Developer</h2>
-      <Link href='#connect' className={styles.graphic}>
-       <BrittneyAvitar/>
-      </Link>
+          <h1>Brittney Galloway</h1>
+          <h2>Frontend Web Developer</h2>
+          <Link href='#connect' className={styles.graphic}>
+               <BrittneyAvitar/>
+          </Link>
      </div>
     </header>
     <section id='aboutMe'>
@@ -101,8 +101,8 @@ export default async function Webdev() {
    <aside className={styles.oneMoreThing}>
     <h2 className={grandstander.className}>One more thing!</h2>
     <p>Art helps my coding and coding helps my art.</p>
-    <p>Learning JavaScript has helped me with my 2D animations via Adobe After Effects Expressions. Similarly Python scripts have been helpful in Blender, even using Grease Pencil. Here, I also created my own Lottie files with Adobe After Effects.
- I can&apos;t wait to make cool stuff as I learn to mix these 2 passions more and more.</p>
+    <p>Learning JavaScript has helped me with 2D animations via Adobe After Effects Expressions. Similarly, Python scripts have been helpful in Blender, even when using Grease Pencil. Here, I also created my own Lottie files with Adobe After Effects.
+    I can&apos;t wait to make cool stuff as I learn to mix these two passions more and more.</p>
    </aside>
   </>
  )
