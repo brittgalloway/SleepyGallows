@@ -1,8 +1,7 @@
 import Lottie from 'react-lottie-player'
-import MemoryGame from './memory.json'
-import SleepyGallows from './SG.json'
-import CosmicTales from './sun.json'
-import CandyFluffs from './cf.json'
+import MemoryGame from '@/app/json/memory.json'
+import SleepyGallows from '@/app/json/SG.json'
+import CandyFluffs from '@/app/json/cf.json'
 
 
 const  AnimatedIcons = ({title}) =>{
@@ -12,9 +11,7 @@ const  AnimatedIcons = ({title}) =>{
     animation = MemoryGame;
   } else if (title === 'SleepyGallows') {
     animation = SleepyGallows;
-  } else if (title === 'CosmicTales') {
-    animation = CosmicTales;
-  } else if (title === 'CandyFluffs') {
+  }  else if (title === 'CandyFluffs') {
     animation = CandyFluffs;
   }
 
