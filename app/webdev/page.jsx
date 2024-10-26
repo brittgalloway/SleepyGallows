@@ -62,14 +62,14 @@ export default async function Webdev() {
     <section className={styles.projectSection}>
      {allWebProjects.map((project)=> (
           <WebProjects
-               key={project.id}
-               id={project.id}
-               icon={project.icon}
-               projectName={project.projectName}
-               screenshot={project.screenshot}
-               description={project.description}
-               liveApp={project.liveApp}
-               github={project.github}
+               key={project?.id}
+               id={project?.id}
+               icon={project?.icon}
+               projectName={project?.projectName}
+               screenshot={project?.screenshot}
+               description={project?.description}
+               liveApp={project?.liveApp}
+               github={project?.github}
           />
  ))}
     </section>
