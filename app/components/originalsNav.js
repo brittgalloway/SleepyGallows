@@ -13,4 +13,4 @@ export default function OriginalsNav({navLabel}) {
         </ul>
     </nav>
   )
-}
+} 

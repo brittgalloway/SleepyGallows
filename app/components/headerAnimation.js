@@ -4,7 +4,7 @@ import avitar from '@/json/webHeader'
 
 export default function BrittneyAvitar() {
   return (
-    <Lottie
+    <Lottie 
       loop
       animationData={avitar}
       play

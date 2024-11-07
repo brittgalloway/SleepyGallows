@@ -11,7 +11,7 @@ const  AnimatedIcons = ({title}) =>{
     animation = MemoryGame;
   } else if (title === 'SleepyGallows') {
     animation = SleepyGallows;
-  }  else if (title === 'CandyFluffs') {
+  }  else if (title === 'CandyFluffs') { 
     animation = CandyFluffs;
   }
 

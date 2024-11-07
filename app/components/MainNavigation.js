@@ -36,7 +36,7 @@ export default function MainNavigation() {
           
           <li className={`${styles.li} ${styles.logo}`}>
             <Link className={`${styles.a} ${cinzel_decorative.className}`} href="/about">
-              <Image 
+              <Image  
                 className="logo" 
                 width={250} 
                 height={250} 

@@ -7,4 +7,4 @@ export function NoClients() {
         We are not currently accepting contract work or gigs at this time.
    </aside>
   );
-}
+} 
