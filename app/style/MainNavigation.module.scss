@@ -78,9 +78,25 @@
   }
 }
 .mobileMenu{
+  display: none;
   border: none;
   box-shadow:none;
   height:100%;
   padding:0;
   margin:0;
+  @media(max-width: 830px) {
+    display:block;
+  }
+}
+.logo {
+  display: block;
+  @media(max-width: 830px) {
+    display:none;
+  }
+}
+.about {
+  display:none;
+  @media(max-width: 830px) {
+    display: block;
+  }
 }

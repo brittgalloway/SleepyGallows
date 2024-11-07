@@ -17,7 +17,7 @@ export default function MainNavigation() {
 
   return(
     <nav aria-label='Main' className={isMobile && isOpen ? `${styles.mobile} ${styles.nav}` : styles.nav} onClick={handleClick}>
-      {isMobile ? 
+
         <div className={styles.mobileMenu} >
           <button className={styles.hamburger} onClick={handleClick}>
             <Image src='/hamburger.svg' 
@@ -25,18 +25,15 @@ export default function MainNavigation() {
             height={30} 
             alt="hamburger menu"/>
           </button>
-        </div> : null
-      }
+        </div> 
       
       {(isOpen || !isMobile) && (
         <ul aria-label="Site Menu">
-          {isMobile && 
-              <li className={styles.li}>
+              <li className={`${styles.li} ${styles.about}`}>
                 <Link className={`${styles.a} ${cinzel_decorative.className}`} href="/about">About</Link>
               </li>
-          }
-          {(!isOpen || !isMobile) &&
-          <li className={styles.li}>
+          
+          <li className={`${styles.li} ${styles.logo}`}>
             <Link className={`${styles.a} ${cinzel_decorative.className}`} href="/about">
               <Image 
                 className="logo" 
@@ -47,7 +44,7 @@ export default function MainNavigation() {
               />
             </Link>
           </li>
-           } 
+           
           {links.map((link, index)=> (
             <li key={index} className={styles.li}>
               <Link className={`${styles.a} ${cinzel_decorative.className}`} href={`/${link}`}>{link}</Link>
