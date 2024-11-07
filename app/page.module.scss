@@ -18,6 +18,7 @@
 
 @mixin img {
   display: inherit;
+  grid-template-rows: subgrid;
   overflow: hidden;
   transition: text-decoration 300ms;
   &:hover{
