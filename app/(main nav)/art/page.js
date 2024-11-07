@@ -28,7 +28,7 @@ export default function Art() {
             <Link className={styles.a} href="/art/drawings">
               <p className={`${styles.p} ${cinzel_decorative.className}`}>Brittney</p>
               <Image 
-                className={styles.brittney}
+                className={styles.img}
                 src="https://www.datocms-assets.com/53347/1629472435-brittneysart.svg"
                 alt="Link to Brittney's art. Drawing of a woman in a blue patterned dress and a headwrap"
                 width={700}
