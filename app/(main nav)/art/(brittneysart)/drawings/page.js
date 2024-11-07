@@ -1,7 +1,7 @@
 import { performRequest } from '@/app/lib/datocms'
 import ArtNav from '../../nav'
-import Grid from '@/app/components/grid'
-import { Footer } from '@/app/components/footer'
+import Grid from '@/app/components/Grid'
+import { Footer } from '@/app/components/Footer'
 import styles from '@/app/style/artGrid.module.scss'
 
 export const metadata = {

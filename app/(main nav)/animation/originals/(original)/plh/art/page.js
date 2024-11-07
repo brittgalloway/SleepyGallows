@@ -1,6 +1,6 @@
 import { cinzel_decorative } from '@/app/fonts'
-import Grid from '@/app/components/grid'
-import OriginalsNav from '@/app/components/originalsNav'
+import Grid from '@/app/components/Grid'
+import OriginalsNav from '@/app/components/OriginalsNav'
 import { performRequest } from '@/app/lib/datocms'
 import styles from '@/app/style/artGrid.module.scss'
 import textStyles from '@/app/style/titles.module.scss'

@@ -1,7 +1,7 @@
 import { lato } from '@/app/fonts'
 import MainNavigation from '@/app/components/MainNavigation'
-import AnimationNav from '@/app/components/nav'
-import { Footer } from '@/app/components/footer'
+import AnimationNav from '@/app/components/Nav'
+import { Footer } from '@/app/components/Footer'
 import '@/app/style/globals.scss'
 
 export const metadata = {

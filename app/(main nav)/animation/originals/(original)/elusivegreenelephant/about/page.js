@@ -1,6 +1,6 @@
 import { cinzel_decorative } from '@/app/fonts'
 import Image from 'next/image'
-import OriginalsNav from '@/app/components/originalsNav';
+import OriginalsNav from '@/app/components/OriginalsNav';
 import { performRequest } from '@/app/lib/datocms'
 import styles from '../../../../page.module.scss'
 import textStyles from '@/app/style/titles.module.scss'

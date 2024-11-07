@@ -1,7 +1,7 @@
 import { grandstander } from '@/app/fonts'
 import Image from 'next/image'
 import Link from 'next/link'
-import style from './page.module.scss'
+import style from '@/app/webdev/page.module.scss'
 
 export default function  WebContact() {
 

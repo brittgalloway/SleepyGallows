@@ -1,10 +1,10 @@
 import { performRequest } from '@/app/lib/datocms'
 import { grandstander } from '@/app/fonts'
 import Link from 'next/link'
-import BrittneyAvitar from '@/app/components/headerAnimation'
-import WebProjects from './WebProjects'
-import WebContact from './WebContact'
-import WebTools from './WebTools'
+import BrittneyAvitar from '@/app/components/HeaderAnimation'
+import WebProjects from '@/app/components/WebProjects'
+import WebContact from '@/app/components/WebContact'
+import WebTools from '@/app/components/WebTools'
 import styles from './page.module.scss'
 
 const PAGE_CONTENT_QUERY = ` 
@@ -62,14 +62,14 @@ export default async function Webdev() {
     <section className={styles.projectSection}>
      {allWebProjects.map((project)=> (
           <WebProjects
-               key={project.id}
-               id={project.id}
-               icon={project.icon}
-               projectName={project.projectName}
-               screenshot={project.screenshot}
-               description={project.description}
-               liveApp={project.liveApp}
-               github={project.github}
+               key={project?.id}
+               id={project?.id}
+               icon={project?.icon}
+               projectName={project?.projectName}
+               screenshot={project?.screenshot}
+               description={project?.description}
+               liveApp={project?.liveApp}
+               github={project?.github}
           />
  ))}
     </section>

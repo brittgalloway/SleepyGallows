@@ -1,6 +1,6 @@
 import { cinzel_decorative } from '@/app/fonts'
 import Image from 'next/image'
-import { Footer } from '@/app/components/footer'
+import { Footer } from '@/app/components/Footer'
 import styles from './page.module.scss'
 
 export const metadata = {

@@ -1,8 +1,8 @@
 import { cinzel_decorative } from '@/app/fonts'
 import { performRequest } from '@/app/lib/datocms'
-import AnimationNav from '../../../components/nav'
+import AnimationNav from '../../../components/Nav'
 import Project from '../projects'
-import { Footer } from '@/app/components/footer'
+import { Footer } from '@/app/components/Footer'
 import styles from '../page.module.scss'
 import textStyles from '@/app/style/titles.module.scss'
 

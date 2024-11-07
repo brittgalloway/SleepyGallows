@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next dev",
+    "build": "next build ",
+    "start": "next start",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "next lint"
@@ -17,6 +17,7 @@
     "react-lottie-player": "^1.5.5",
     "react-photo-album": "^2.3.0",
     "react-responsive": "^9.0.2",
+    "sharp": "^0.33.5",
     "ts-node": "^10.9.2",
     "yet-another-react-lightbox": "^3.15.6"
   },
