@@ -1,6 +1,7 @@
-import { cinzel_decorative } from '@/app/fonts'
 import Image from 'next/image'
-import { Footer } from '@/app/components/Footer'
+import { cinzel_decorative } from '@/fonts'
+import { rgbDataURL } from '@/lib/utils'
+import { Footer } from '@/components/Footer'
 import styles from './page.module.scss'
 
 export const metadata = {
@@ -40,6 +41,9 @@ export default function Comics() {
                 alt='Necahual, Quetzalli, and Anacaona lounging together'
                 width={349}
                 height={349}
+                placeholder='blur'
+                blurDataURL={rgbDataURL(74, 40, 124)}
+                loading='lazy'
               />
             </div>
           </section>
@@ -58,18 +62,27 @@ export default function Comics() {
             alt='Necahual Charms found at candyfluffs.com/2heroes'
             width={200}
             height={200}
+            placeholder='blur'
+            blurDataURL={rgbDataURL(74, 40, 124)}
+            loading='lazy'
             />
             <Image 
             src='https://www.datocms-assets.com/53347/1628171809-necaminicomics.jpg' 
             alt='The handmade Necahual  Art book  found at candyfluffs.com/2heroes'
             width={200}
             height={200}
+            placeholder='blur'
+            blurDataURL={rgbDataURL(74, 40, 124)}
+            loading='lazy'
             />
             <Image 
             src='https://www.datocms-assets.com/53347/1628171977-necastickers.jpg' 
             alt='The handmade Necahual  Stickers found at candyfluffs.com/2heroes'
             width={200}
             height={200}
+            placeholder='blur'
+            blurDataURL={rgbDataURL(74, 40, 124)}
+            loading='lazy'
             />
           </div>
         </article>

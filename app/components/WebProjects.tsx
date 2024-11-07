@@ -1,9 +1,9 @@
 'use client'
 import React, { KeyboardEvent, useState } from 'react'
-import { happy_monkey } from '@/app/fonts'
 import Image from 'next/image'
-import AnimatedIcons from '@/app/components/ProjectIcons'
-import styles from '@/app/webdev/page.module.scss'
+import { happy_monkey } from '@/fonts'
+import AnimatedIcons from '@/components/ProjectIcons'
+import styles from '@/webdev/page.module.scss'
 
 export default function  WebProjects({id, projectName, icon, description, liveApp, github}:
   {id:string, projectName:string, icon:{title:string}, description:string, liveApp:string, github:string}

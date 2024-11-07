@@ -1,10 +1,11 @@
 'use client'
 import { useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
-import { cinzel_decorative } from '@/app/fonts'
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '@/app/style/MainNavigation.module.scss'
+import { cinzel_decorative } from '@/fonts'
+import { rgbDataURL } from '@/lib/utils'
+import styles from '@/style/MainNavigation.module.scss'
 
 export default function MainNavigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,8 +41,10 @@ export default function MainNavigation() {
                 width={250} 
                 height={250} 
                 src="/sg_logo.svg" 
-                alt="logo, click here to learn about the Sleepy Gallows."
-              />
+                alt="Logo, click here to learn about the Sleepy Gallows."
+                placeholder='blur'
+                blurDataURL={rgbDataURL(154, 200, 243)}
+                loading='lazy'/>
             </Link>
           </li>
            

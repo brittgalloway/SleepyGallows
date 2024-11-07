@@ -1,6 +1,7 @@
-import { cinzel_decorative } from '@/app/fonts'
 import Image from 'next/image'
 import Link from 'next/link'
+import { cinzel_decorative } from '@/fonts'
+import { rgbDataURL } from '@/lib/utils'
 import styles from './page.module.scss'
 
 export const metadata = {
@@ -26,6 +27,9 @@ export default function Animation() {
         alt={link[5]}
         width={900}
         height={300}
+        placeholder='blur'
+        blurDataURL={rgbDataURL(74, 40, 124)}
+        loading='lazy'
         />
       </Link>
     ))}

@@ -1,4 +1,3 @@
-'use client'
 import Link from 'next/link'
 
 export default function ArtNav({navLabel, page1, page2}) {

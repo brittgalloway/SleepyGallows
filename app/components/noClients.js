@@ -1,5 +1,4 @@
-'use client'
-import style from '@/app/style/noClient.module.scss'
+import style from '@/style/noClient.module.scss'
 
 export function NoClients() {
   return (

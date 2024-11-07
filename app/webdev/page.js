@@ -1,10 +1,10 @@
-import { performRequest } from '@/app/lib/datocms'
-import { grandstander } from '@/app/fonts'
 import Link from 'next/link'
-import BrittneyAvitar from '@/app/components/HeaderAnimation'
-import WebProjects from '@/app/components/WebProjects'
-import WebContact from '@/app/components/WebContact'
-import WebTools from '@/app/components/WebTools'
+import { performRequest } from '@/lib/datocms'
+import { grandstander } from '@/fonts'
+import BrittneyAvitar from '@/components/HeaderAnimation'
+import WebProjects from '@/components/WebProjects'
+import WebContact from '@/components/WebContact'
+import WebTools from '@/components/WebTools'
 import styles from './page.module.scss'
 
 const PAGE_CONTENT_QUERY = ` 

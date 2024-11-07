@@ -1,4 +1,4 @@
-import { heebo } from "@/app/fonts"
+import { heebo } from "@/fonts"
 import styles from './page.module.scss'
 
 export const metadata = {

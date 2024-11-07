@@ -1,8 +1,9 @@
-import { cinzel_decorative } from '@/app/fonts'
 import Image from 'next/image'
 import Link from 'next/link'
+import { cinzel_decorative } from '@/fonts'
+import { rgbDataURL } from '@/lib/utils'
 import styles from './page.module.scss'
-import MainNavigation from '@/app/components/MainNavigation'
+import MainNavigation from '@/components/MainNavigation'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Art',
@@ -23,6 +24,9 @@ export default function Art() {
                 alt="Link to Crystal's art. Drawing of Baby Harmony and His Parents" 
                 width={700}
                 height={1000}
+                placeholder='blur'
+                blurDataURL={rgbDataURL(74, 40, 124)}
+                loading='lazy'
                 />
             </Link>
             <Link className={styles.a} href="/art/drawings">
@@ -33,6 +37,9 @@ export default function Art() {
                 alt="Link to Brittney's art. Drawing of a woman in a blue patterned dress and a headwrap"
                 width={700}
                 height={1000}
+                placeholder='blur'
+                blurDataURL={rgbDataURL(74, 40, 124)}
+                loading='lazy'
                 />
             </Link>
       </main>

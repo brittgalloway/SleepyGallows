@@ -1,6 +1,7 @@
-import { cinzel_decorative } from '@/app/fonts'
 import Image from 'next/image'
 import Link from 'next/link'
+import { cinzel_decorative } from '@/fonts'
+import { rgbDataURL } from '@/lib/utils'
 import styles from './page.module.scss'
 
 export default function Home() {
@@ -20,7 +21,9 @@ export default function Home() {
             alt={link[3]}
             width={500}
             height={250}
-            priority
+            placeholder='blur'
+            blurDataURL={rgbDataURL(74, 40, 124)}
+            loading='lazy'
             />
         </Link>
       ))}

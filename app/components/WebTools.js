@@ -1,7 +1,7 @@
-import { grandstander, happy_monkey } from '@/app/fonts'
 import Image from 'next/image'
-import tools from '@/app/json/tools.json'
-import styles from '@/app/webdev/page.module.scss'
+import { grandstander, happy_monkey } from '@/fonts'
+import tools from '@/json/tools.json'
+import styles from '@/webdev/page.module.scss'
 
 
 export default function  WebTools() {
