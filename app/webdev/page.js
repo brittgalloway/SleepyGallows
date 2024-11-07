@@ -33,7 +33,7 @@ export default async function Webdev() {
           <h1>Brittney Galloway</h1>
           <h2>Frontend Web Developer</h2>
           <Link href='#connect' className={styles.graphic}>
-               <BrittneyAvitar/>
+               {/* <BrittneyAvitar/> */}
           </Link>
      </div>
     </header>

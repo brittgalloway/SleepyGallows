@@ -9,6 +9,7 @@ export default function  WebProjects({id, projectName, icon, description, liveAp
   {id:string, projectName:string, icon:{title:string}, description:string, liveApp:string, github:string}
 ) {
     const [display, setDisplay] = useState(false);
+
     
     function handleDisplay() {
       display === true ? setDisplay(false) : setDisplay(true);
@@ -22,9 +23,9 @@ export default function  WebProjects({id, projectName, icon, description, liveAp
     return (
       <>
         <div data-testid={id} className={styles.projectWrapper} key={id} onClick={handleDisplay} onKeyDown={(e)=>handleKeyPress(e)} aria-label="Click or press Enter or Spacebar keys to open a dialog with information about this project." tabIndex={0}>
-            <AnimatedIcons
+            {/* <AnimatedIcons
               title={icon?.title}
-            />
+            /> */}
             <h2 style={happy_monkey.style}>{projectName}</h2>
             <p>development & design</p>
         </div>
