@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { performRequest } from '@/lib/datocms'
 import { grandstander } from '@/fonts'
-import BrittneyAvitar from '@/components/HeaderAnimation'
+// import BrittneyAvitar from '@/components/HeaderAnimation'
 import WebProjects from '@/components/WebProjects'
 import WebContact from '@/components/WebContact'
 import WebTools from '@/components/WebTools'
