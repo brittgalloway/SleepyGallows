@@ -4,10 +4,10 @@ import '@/style/globals.scss'
 
 export default function MainNavLayout({ children }) {
   return (
-    <>
-      <MainNavigation/>
-      <section className={lato.className}>{children}</section>
-    </>
+      <section className={`${lato.className} wrapper`}>
+        <MainNavigation/>
+        {children}
+      </section>
   )
 }
 

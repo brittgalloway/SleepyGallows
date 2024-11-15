@@ -1,13 +1,12 @@
-import React from 'react'
-import Lottie from 'react-lottie-player'
-import avitar from '@/json/webHeader'
+'use client'
+import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 
 export default function BrittneyAvitar() {
   return (
-    <Lottie 
+    <DotLottieReact
+      src="https://lottie.host/587e9359-6db3-483b-aa28-2691b9e88526/F7p4nnIjAT.lottie"
       loop
-      animationData={avitar}
-      play
+      autoplay
     />
   )
 }

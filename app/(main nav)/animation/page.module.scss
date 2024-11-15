@@ -1,6 +1,5 @@
 .main {
   padding:0;
-  width: calc(100vw - 20rem);
   height: 100vh;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -37,6 +36,7 @@
 @mixin img {
   object-fit: cover;
   width:100%;
+  height: inherit;
   transition: all .5s ease-in-out;
   -webkit-filter: blur(2px);
   filter: blur(2px);
@@ -72,7 +72,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content:flex-start;
+  justify-content:center;
 }
 .video {
   margin:1rem;
