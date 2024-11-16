@@ -1,27 +1,23 @@
-import Lottie from 'react-lottie-player'
-import MemoryGame from '@/json/memory.json'
-import SleepyGallows from '@/json/SG.json'
-import CandyFluffs from '@/json/cf.json'
-
+'use client'
+import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 
 const  AnimatedIcons = ({title}) =>{
-  let animation = MemoryGame;
+  let animation = 'https://lottie.host/8d693f15-8708-46a2-a046-999364e935e4/VXD69Ru2XZ.json';
 
-  if (title === 'MemoryGame') {
-    animation = MemoryGame;
-  } else if (title === 'SleepyGallows') {
-    animation = SleepyGallows;
-  }  else if (title === 'CandyFluffs') { 
-    animation = CandyFluffs;
+  if (title === 'Memory Game') {
+    animation = 'https://lottie.host/8d693f15-8708-46a2-a046-999364e935e4/VXD69Ru2XZ.json';
+  } else if (title === 'Sleepy Gallows') {
+    animation = 'https://lottie.host/8190ecfa-8864-44f5-b7ec-1148b3e2314d/dtIt7hPNe6.lottie';
+  }  else if (title === 'Candy Fluffs') { 
+    animation = 'https://lottie.host/bb84bac3-6923-4287-83fd-364ef28aee97/p8V69ZCATH.lottie';
   }
 
     return (
-        <Lottie
-          loop
-          animationData={animation}
-          play
-          style={{ width: 'auto', height: 150 }}
-        />
+      <DotLottieReact
+        src={animation}
+        loop
+        autoplay
+    />
     );
 }
 

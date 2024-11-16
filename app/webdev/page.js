@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { performRequest } from '@/lib/datocms'
 import { grandstander } from '@/fonts'
-// import BrittneyAvitar from '@/components/HeaderAnimation'
+import BrittneyAvitar from '@/components/HeaderAnimation'
 import WebProjects from '@/components/WebProjects'
 import WebContact from '@/components/WebContact'
 import WebTools from '@/components/WebTools'
@@ -33,7 +33,7 @@ export default async function Webdev() {
           <h1>Brittney Galloway</h1>
           <h2>Frontend Web Developer</h2>
           <Link href='#connect' className={styles.graphic}>
-               {/* <BrittneyAvitar/> */}
+               <BrittneyAvitar />
           </Link>
      </div>
     </header>
