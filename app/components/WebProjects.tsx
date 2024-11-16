@@ -1,14 +1,15 @@
 'use client'
 import React, { KeyboardEvent, useState } from 'react'
-import { happy_monkey } from '@/app/fonts'
 import Image from 'next/image'
-import AnimatedIcons from '@/app/components/projectIcons'
-import styles from './page.module.scss'
+import { happy_monkey } from '@/fonts'
+import AnimatedIcons from '@/components/ProjectIcons'
+import styles from '@/webdev/page.module.scss'
 
 export default function  WebProjects({id, projectName, icon, description, liveApp, github}:
-  {id:string, projectName:string, icon:{title:string}, description:string, liveApp:string, github:string}
+  {id:string, projectName:string, icon:{title:string, url:string}, description:string, liveApp:string, github:string}
 ) {
     const [display, setDisplay] = useState(false);
+
     
     function handleDisplay() {
       display === true ? setDisplay(false) : setDisplay(true);
@@ -23,7 +24,7 @@ export default function  WebProjects({id, projectName, icon, description, liveAp
       <>
         <div data-testid={id} className={styles.projectWrapper} key={id} onClick={handleDisplay} onKeyDown={(e)=>handleKeyPress(e)} aria-label="Click or press Enter or Spacebar keys to open a dialog with information about this project." tabIndex={0}>
             <AnimatedIcons
-              title={icon.title}
+            title={projectName}
             />
             <h2 style={happy_monkey.style}>{projectName}</h2>
             <p>development & design</p>

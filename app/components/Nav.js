@@ -1,10 +1,9 @@
-'use client'
 import Link from 'next/link'
 
 export default function AnimationNav() {
     const links = [['originals', 'originials'], ['client', 'client work'], ['fun', 'for fun']];
     return (
-     <nav aria-label="Animation page Navigation">
+     <nav id="animation" aria-label="Animation page Navigation">
          <ul className='animation'>
             {links.map((link, index)=> (
              <li key={index}>
@@ -12,7 +11,6 @@ export default function AnimationNav() {
              </li>
             ))}
          </ul>
-     
      </nav>
-    );
+    ); 
   }

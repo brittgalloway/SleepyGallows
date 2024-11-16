@@ -1,5 +1,5 @@
-import { cinzel_decorative, lato } from '@/app/fonts'
 import Link from 'next/link'
+import { cinzel_decorative, lato } from '@/fonts'
 import styles from './page.module.scss'
 
 export const metadata = {

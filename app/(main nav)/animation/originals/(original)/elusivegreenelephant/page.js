@@ -1,9 +1,10 @@
-import { cinzel_decorative } from '@/app/fonts'
 import Image from 'next/image'
-import { performRequest } from '@/app/lib/datocms'
-import OriginalsNav from '@/app/components/originalsNav'
-import styles from '../../../page.module.scss'
-import textStyles from '@/app/style/titles.module.scss'
+import { cinzel_decorative } from '@/fonts'
+import { performRequest } from '@/lib/datocms'
+import { rgbDataURL } from '@/lib/utils'
+import OriginalsNav from '@/components/OriginalsNav'
+import styles from '@/animation/page.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | The Elusive Green Elephant',
@@ -50,7 +51,11 @@ export default async function EgeWatch() {
           height:'auto',
         }}
         src="https://www.datocms-assets.com/53347/1698974110-turnaroundjoey.gif" 
-        alt="360 view of the character Joey."/>
+        alt="360 view of the character Joey."
+        placeholder='blur'
+        blurDataURL={rgbDataURL(228, 220, 243)}
+        loading='lazy'/>
+        
       {/* {original.watch.map((video)=> (
         <div>
           <iframe maxwidth={376} maxHeight={212} src={video.link} title={"Watch "+ video.title} frameBorder="0" allowFullScreen></iframe>

@@ -1,7 +1,8 @@
-import { cinzel_decorative } from '@/app/fonts'
 import Image from 'next/image'
 import Link from 'next/link'
-import { NoClients } from '@/app/components/noClients'
+import { cinzel_decorative } from '@/fonts'
+import { rgbDataURL } from '@/lib/utils'
+import { NoClients } from '@/components/NoClients'
 import styles from './page.module.scss'
 
 export const metadata = {
@@ -33,10 +34,13 @@ export default function About() {
             We are Sisters by blood in sister fields: Animation and Illustration!
           ​​​​​​​</h3>
           <Image 
-          src='https://www.datocms-assets.com/53347/1628171501-brit-mio.png' 
+          src='https://www.datocms-assets.com/53347/1731640691-brit-mio.webp' 
           alt='The Galloway Sisters: Crystal (left) and Brittney (right) as drawn in the "For Peace, Love, and Harmony" style. Art by Crystal'
           width={530} 
           height={600}
+          placeholder='blur'
+          blurDataURL={rgbDataURL(228, 220, 243)}
+          loading='lazy'
           />
           <p>
             We were born and raised in the Chicagoland area and went to California College of the Arts (CCA) in the Bay Area. Brittney (right) got her BFA in Animation (2014) while Crystal (left) got her BFA in Illustration(2015). Now both sisters are back in Chicago making art.

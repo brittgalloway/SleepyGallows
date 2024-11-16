@@ -1,11 +1,12 @@
-import { cinzel_decorative } from '@/app/fonts'
-import { performRequest } from '@/app/lib/datocms'
 import Link from 'next/link'
 import Image from 'next/image'
-import AnimationNav from '@/app/components/nav'
-import { Footer } from '@/app/components/footer'
-import styles from '../page.module.scss'
-import textStyles from '@/app/style/titles.module.scss'
+import { cinzel_decorative } from '@/fonts'
+import { performRequest } from '@/lib/datocms'
+import { rgbDataURL } from '@/lib/utils'
+import AnimationNav from '@/components/Nav'
+import { Footer } from '@/components/Footer'
+import styles from '@/animation/page.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Originals',
@@ -43,7 +44,10 @@ export default async function Originals() {
                 width={250}
                 height={250}
                 src={project.thumb.url} 
-                alt={project.thumb.alt}/>
+                alt={project.thumb.alt}
+                placeholder='blur'
+                blurDataURL={rgbDataURL(228, 220, 243)}
+                loading='lazy'/>
               </Link>
             </div>
           ))}

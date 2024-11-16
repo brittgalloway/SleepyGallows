@@ -1,10 +1,10 @@
-import { performRequest } from '@/app/lib/datocms'
-import { grandstander } from '@/app/fonts'
 import Link from 'next/link'
-import BrittneyAvitar from '@/app/components/headerAnimation'
-import WebProjects from './WebProjects'
-import WebContact from './WebContact'
-import WebTools from './WebTools'
+import { performRequest } from '@/lib/datocms'
+import { grandstander } from '@/fonts'
+import BrittneyAvitar from '@/components/HeaderAnimation'
+import WebProjects from '@/components/WebProjects'
+import WebContact from '@/components/WebContact'
+import WebTools from '@/components/WebTools'
 import styles from './page.module.scss'
 
 const PAGE_CONTENT_QUERY = ` 
@@ -33,7 +33,7 @@ export default async function Webdev() {
           <h1>Brittney Galloway</h1>
           <h2>Frontend Web Developer</h2>
           <Link href='#connect' className={styles.graphic}>
-               <BrittneyAvitar/>
+               <BrittneyAvitar />
           </Link>
      </div>
     </header>
@@ -62,14 +62,14 @@ export default async function Webdev() {
     <section className={styles.projectSection}>
      {allWebProjects.map((project)=> (
           <WebProjects
-               key={project.id}
-               id={project.id}
-               icon={project.icon}
-               projectName={project.projectName}
-               screenshot={project.screenshot}
-               description={project.description}
-               liveApp={project.liveApp}
-               github={project.github}
+               key={project?.id}
+               id={project?.id}
+               icon={project?.icon}
+               projectName={project?.projectName}
+               screenshot={project?.screenshot}
+               description={project?.description}
+               liveApp={project?.liveApp}
+               github={project?.github}
           />
  ))}
     </section>

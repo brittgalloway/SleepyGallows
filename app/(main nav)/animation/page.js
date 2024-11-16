@@ -1,6 +1,7 @@
-import { cinzel_decorative } from '@/app/fonts'
 import Image from 'next/image'
 import Link from 'next/link'
+import { cinzel_decorative } from '@/fonts'
+import { rgbDataURL } from '@/lib/utils'
 import styles from './page.module.scss'
 
 export const metadata = {
@@ -11,9 +12,9 @@ export const metadata = {
 
 export default function Animation() {
   const links = [
-    ['Originals', styles.original, styles.imgOriginal, 'originals', 'https://www.datocms-assets.com/53347/1629471501-originals.jpg', 'Link to Original animations page. Nirvana sitting on the branch'],
-    ['Client Work', styles.client, styles.img, 'client', 'https://www.datocms-assets.com/53347/1705189962-inhuman-figures.jpg', 'Futuristic city scape with high rises and flying cars with the text "Robots Clones Aliens"'],
-    ['For Fun', styles.fun, styles.img, 'fun', 'https://www.datocms-assets.com/53347/1630810673-crushsm.png', 'Link to page of short fun animations. This is a drawing of Yuna inspired by her Chapters album visuals'],
+    ['Originals', styles.original, styles.imgOriginal, 'originals', 'https://www.datocms-assets.com/53347/1731641471-originals.webp', 'Link to Original animations page. Nirvana sitting on the branch'],
+    ['Client Work', styles.client, styles.img, 'client', 'https://www.datocms-assets.com/53347/1731641033-inhuman-figures.webp', 'Futuristic city scape with high rises and flying cars with the text "Robots Clones Aliens"'],
+    ['For Fun', styles.fun, styles.img, 'fun', 'https://www.datocms-assets.com/53347/1731641125-crushsm.webp', 'Link to page of short fun animations. This is a drawing of Yuna inspired by her Chapters album visuals'],
   ];
   return (
     <main className={styles.main}> 
@@ -26,10 +27,12 @@ export default function Animation() {
         alt={link[5]}
         width={900}
         height={300}
+        placeholder='blur'
+        blurDataURL={rgbDataURL(228, 220, 243)}
+        loading='lazy'
         />
       </Link>
     ))}
-
     </main>
   )
 }
