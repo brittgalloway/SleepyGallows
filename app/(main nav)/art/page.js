@@ -25,7 +25,7 @@ export default function Art() {
                 width={700}
                 height={1000}
                 placeholder='blur'
-                blurDataURL={rgbDataURL(74, 40, 124)}
+                blurDataURL={rgbDataURL(228, 220, 243)}
                 loading='lazy'
                 />
             </Link>
@@ -38,7 +38,7 @@ export default function Art() {
                 width={700}
                 height={1000}
                 placeholder='blur'
-                blurDataURL={rgbDataURL(74, 40, 124)}
+                blurDataURL={rgbDataURL(228, 220, 243)}
                 loading='lazy'
                 />
             </Link>

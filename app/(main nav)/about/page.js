@@ -39,7 +39,7 @@ export default function About() {
           width={530} 
           height={600}
           placeholder='blur'
-          blurDataURL={rgbDataURL(74, 40, 124)}
+          blurDataURL={rgbDataURL(228, 220, 243)}
           loading='lazy'
           />
           <p>

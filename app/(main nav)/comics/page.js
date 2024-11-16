@@ -42,7 +42,7 @@ export default function Comics() {
                 width={349}
                 height={349}
                 placeholder='blur'
-                blurDataURL={rgbDataURL(74, 40, 124)}
+                blurDataURL={rgbDataURL(228, 220, 243)}
                 loading='lazy'
               />
             </div>
@@ -63,7 +63,7 @@ export default function Comics() {
             width={200}
             height={200}
             placeholder='blur'
-            blurDataURL={rgbDataURL(74, 40, 124)}
+            blurDataURL={rgbDataURL(228, 220, 243)}
             loading='lazy'
             />
             <Image 
@@ -72,7 +72,7 @@ export default function Comics() {
             width={200}
             height={200}
             placeholder='blur'
-            blurDataURL={rgbDataURL(74, 40, 124)}
+            blurDataURL={rgbDataURL(228, 220, 243)}
             loading='lazy'
             />
             <Image 
@@ -81,7 +81,7 @@ export default function Comics() {
             width={200}
             height={200}
             placeholder='blur'
-            blurDataURL={rgbDataURL(74, 40, 124)}
+            blurDataURL={rgbDataURL(228, 220, 243)}
             loading='lazy'
             />
           </div>

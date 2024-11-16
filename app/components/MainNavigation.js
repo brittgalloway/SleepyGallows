@@ -30,9 +30,9 @@ export default function MainNavigation() {
       
       {(isOpen || !isMobile) && (
         <ul aria-label="Site Menu">
-              <li className={`${styles.li} ${styles.about}`}>
-                <Link className={`${styles.a} ${cinzel_decorative.className}`} href="/about">About</Link>
-              </li>
+          <li className={`${styles.li} ${styles.about}`}>
+            <Link className={`${styles.a} ${cinzel_decorative.className}`} href="/about">About</Link>
+          </li>
           
           <li className={`${styles.li} ${styles.logo}`}>
             <Link className={`${styles.a} ${cinzel_decorative.className}`} href="/about">

@@ -50,7 +50,7 @@ export default async function EgeAbout() {
                   height={300}
                   src={character.url} alt={character.alt}
                   placeholder='blur'
-                  blurDataURL={rgbDataURL(74, 40, 124)}
+                  blurDataURL={rgbDataURL(228, 220, 243)}
                   loading='lazy'/>
               </div>
           ))}

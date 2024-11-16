@@ -28,7 +28,7 @@ export default function Animation() {
         width={900}
         height={300}
         placeholder='blur'
-        blurDataURL={rgbDataURL(74, 40, 124, 0.5)}
+        blurDataURL={rgbDataURL(228, 220, 243)}
         loading='lazy'
         />
       </Link>

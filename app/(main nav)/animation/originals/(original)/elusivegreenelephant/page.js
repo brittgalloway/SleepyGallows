@@ -53,7 +53,7 @@ export default async function EgeWatch() {
         src="https://www.datocms-assets.com/53347/1698974110-turnaroundjoey.gif" 
         alt="360 view of the character Joey."
         placeholder='blur'
-        blurDataURL={rgbDataURL(74, 40, 124)}
+        blurDataURL={rgbDataURL(228, 220, 243)}
         loading='lazy'/>
         
       {/* {original.watch.map((video)=> (

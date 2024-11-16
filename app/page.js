@@ -22,7 +22,7 @@ export default function Home() {
             width={500}
             height={250}
             placeholder='blur'
-            blurDataURL={rgbDataURL(74, 40, 124)}
+            blurDataURL={rgbDataURL(147, 112, 219)}
             loading='lazy'
             />
         </Link>
