@@ -17,6 +17,7 @@ export const metadata = {
 const PAGE_CONTENT_QUERY = `
 query Originals{
   allOriginals {
+    name
     link
     id
     thumb {
@@ -38,13 +39,14 @@ export default async function Originals() {
         </header>
         <div className={styles.projectWrapper}>
           {allOriginals.map((project)=> (
-            <div key={project.id} className={styles.project}>
-              <Link href={`/animation/originals/${project.link.toString().toLowerCase()}`}> 
+            <div key={project?.id} className={styles.project}>
+              <Link href={`/animation/originals/${project?.link.toString().toLowerCase()}`}
+                aria-label={`Click here for more information on ${project?.name}`}> 
                 <Image
-                width={250}
-                height={250}
-                src={project.thumb.url} 
-                alt={project.thumb.alt}
+                width={400}
+                height={400}
+                src={project?.thumb?.url} 
+                alt={`Reads as: "${project?.name}"`}
                 placeholder='blur'
                 blurDataURL={rgbDataURL(228, 220, 243)}
                 loading='lazy'/>

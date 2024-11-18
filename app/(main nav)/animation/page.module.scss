@@ -28,9 +28,10 @@
   overflow-y: hidden;
   &:hover{
     text-decoration:none;
-    p {
-      border-radius: 5px;
-    }
+    p + img {
+      -webkit-filter: blur(5px);
+      filter: blur(5px);
+     }
   }
 }
 @mixin img {
