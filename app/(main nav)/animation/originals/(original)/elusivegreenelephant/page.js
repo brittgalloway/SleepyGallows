@@ -58,7 +58,10 @@ export default async function EgeWatch() {
         
       {/* {original.watch.map((video)=> (
         <div>
-          <iframe maxwidth={376} maxHeight={212} src={video.link} title={"Watch "+ video.title} frameBorder="0" allowFullScreen></iframe>
+          <Iframe 
+              link={video?.link} 
+              title={video?.title} 
+              />
             <h2>
               {video.title}
             </h2> 

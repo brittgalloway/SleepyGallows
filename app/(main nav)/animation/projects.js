@@ -1,12 +1,17 @@
 
+
 import { lato } from '@/fonts'
+import Iframe from '@/components/Iframe'
 import styles from './page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export default function Project({title, link, year, summary, website}) {
   return (
     <div className={`${styles.video} ${lato.className}`}>
-        <iframe maxwidth={376} maxHeight={212} src={link} title={`Watch ${title}`}  frameborder="0" allowfullscreen></iframe>
+        <Iframe 
+          link={link} 
+          title={title} 
+          />
         <details>
             <summary className={textStyles.title}>
             {title}
