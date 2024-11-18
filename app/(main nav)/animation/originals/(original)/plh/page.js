@@ -1,6 +1,7 @@
 import { cinzel_decorative } from '@/fonts'
 import { performRequest } from '@/lib/datocms'
 import OriginalsNav from '@/components/OriginalsNav'
+import Iframe from '@/components/Iframe'
 import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
@@ -31,17 +32,20 @@ export default async function PlhWatch() {
     <section>
       <header>
         <OriginalsNav 
-          navLabel={original.link}/>
+          navLabel={original?.link}/>
        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>{original.name}</h1>
       </header>
       <div className={styles.videoWrapper}>
         {original.watch.map((video)=> (
-          <div key={video.id} className={styles.video}>
-            <iframe maxwidth={376} maxheight={212} src={video.link} title={`Watch ${video.title}`} frameBorder="0" allowFullScreen></iframe>
-              <h2 className={textStyles.title}>
-                {video.title}
-              </h2> 
-              <p className={textStyles.title}>{video.year}</p>        
+          <div key={video?.id} className={styles.video}>
+            <Iframe 
+              link={video?.link} 
+              title={video?.title} 
+              />
+            <h2 className={textStyles.title}>
+              {video?.title}
+            </h2> 
+            <p className={textStyles.title}>{video?.year}</p>        
           </div>
         ))}
       </div>
