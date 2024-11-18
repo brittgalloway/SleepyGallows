@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export default function AnimationNav() {
-    const links = [['originals', 'originials'], ['client', 'client work'], ['fun', 'for fun']];
+    const links = [['originals', 'originals'], ['client', 'client work'], ['fun', 'for fun']];
     return (
      <nav id="animation" aria-label="Animation page Navigation">
          <ul className='animation'>
