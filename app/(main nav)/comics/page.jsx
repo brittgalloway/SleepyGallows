@@ -1,6 +1,6 @@
-import { cinzel_decorative } from '@/app/fonts'
+import { cinzel_decorative } from '@/fonts'
 import Image from 'next/image'
-import { Footer } from '@/app/components/footer'
+import { Footer } from '@/components/footer'
 import styles from './page.module.scss'
 
 export const metadata = {
@@ -30,18 +30,21 @@ export default function Comics() {
                 ))}
               </ul>
             </div>
-          <section className={styles.section}>
-          <p>
-            Come join us on our first journey with Necahual, Quetzalli, and Anacoana as they discover their destiny and help save their people. <a href="https://www.webtoons.com/en/challenge/necahual/a-peaceful-day/viewer?title_no=216820&episode_no=1">NECAHUAL</a> is a new and refreshing take on the magical trope that also honors Meso-American cultures. Subscribe to the <a href="https://www.webtoons.com/en/challenge/necahual/a-peaceful-day/viewer?title_no=216820&episode_no=1">WEBTOON</a> and never miss an update!
-          </p>
-          <div className={styles.image}>
-            <Image 
-              src='https://www.datocms-assets.com/53347/1705187376-necamasterpiece-small.gif' 
-              alt='Necahual, Quetzalli, and Anacaona lounging together'
-              width={349}
-              height={349}
-            />
-          </div>
+            <section className={styles.section}>
+            <p>
+              Come join us on our first journey with Necahual, Quetzalli, and Anacoana as they discover their destiny and help save their people. <a href="https://www.webtoons.com/en/challenge/necahual/a-peaceful-day/viewer?title_no=216820&episode_no=1">NECAHUAL</a> is a new and refreshing take on the magical trope that also honors Meso-American cultures. Subscribe to the <a href="https://www.webtoons.com/en/challenge/necahual/a-peaceful-day/viewer?title_no=216820&episode_no=1">WEBTOON</a> and never miss an update!
+            </p>
+            <div className={styles.image}>
+              <Image 
+                src='https://www.datocms-assets.com/53347/1705187376-necamasterpiece-small.gif' 
+                alt='Necahual, Quetzalli, and Anacaona lounging together'
+                width={349}
+                height={349}
+                placeholder='blur'
+                blurDataURL={rgbDataURL(228, 220, 243)}
+                loading='lazy'
+              />
+            </div>
           </section>
         </article>
         <article>
@@ -58,18 +61,27 @@ export default function Comics() {
             alt='Necahual Charms found at candyfluffs.com/2heroes'
             width={200}
             height={200}
+            placeholder='blur'
+            blurDataURL={rgbDataURL(228, 220, 243)}
+            loading='lazy'
             />
             <Image 
             src='https://www.datocms-assets.com/53347/1628171809-necaminicomics.jpg' 
             alt='The handmade Necahual  Art book  found at candyfluffs.com/2heroes'
             width={200}
             height={200}
+            placeholder='blur'
+            blurDataURL={rgbDataURL(228, 220, 243)}
+            loading='lazy'
             />
             <Image 
             src='https://www.datocms-assets.com/53347/1628171977-necastickers.jpg' 
             alt='The handmade Necahual  Stickers found at candyfluffs.com/2heroes'
             width={200}
             height={200}
+            placeholder='blur'
+            blurDataURL={rgbDataURL(228, 220, 243)}
+            loading='lazy'
             />
           </div>
         </article>

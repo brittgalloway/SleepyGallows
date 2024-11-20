@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { performRequest } from '@/app/lib/datocms'
-import { cinzel_decorative } from '@/app/fonts'
-import AnimationNav from '@/app/components/nav'
-import { Footer } from '@/app/components/footer'
-import styles from '../page.module.scss'
-import textStyles from '@/app/style/titles.module.scss'
+import { cinzel_decorative } from '@/fonts'
+import { performRequest } from '@/lib/datocms'
+import { rgbDataURL } from '@/lib/utils'
+import AnimationNav from '@/components/Nav'
+import { Footer } from '@/components/Footer'
+import styles from '@/animation/page.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Originals',
@@ -16,6 +17,7 @@ export const metadata = {
 const PAGE_CONTENT_QUERY = `
 query Originals{
   allOriginals {
+    name
     link
     id
     thumb {
@@ -32,18 +34,22 @@ export default async function Originals() {
       <main> 
         <header>
           <AnimationNav/>
-          <h1 className={`${textStyles.text_center } ${cinzel_decorative.className}`}>Originals</h1>
-          <h2 className={`${textStyles.text_center }`}>SG Shorts and Webseries</h2>
+          <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>Originals</h1>
+          <h2 className={`${textStyles.textCenter }`}>SG Shorts and Webseries</h2>
         </header>
         <div className={styles.projectWrapper}>
           {allOriginals.map((project)=> (
-            <div key={project.id} className={styles.project}>
-              <Link href={`/animation/originals/${project.link.toString().toLowerCase()}`}> 
+            <div key={project?.id} className={styles.project}>
+              <Link href={`/animation/originals/${project?.link.toString().toLowerCase()}`}
+                aria-label={`Click here for more information on ${project?.name}`}> 
                 <Image
-                width={250}
-                height={250}
+                width={400}
+                height={400}
                 src={project?.thumb?.url} 
-                alt={project?.thumb?.alt}/>
+                alt={`Reads as: "${project?.name}"`}
+                placeholder='blur'
+                blurDataURL={rgbDataURL(228, 220, 243)}
+                loading='lazy'/>
               </Link>
             </div>
           ))}

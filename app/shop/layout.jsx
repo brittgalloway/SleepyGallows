@@ -1,7 +1,7 @@
-import { cinzel } from "@/app/fonts"
-import ShopHeader from "@/app/components/shopHeader"
-import { ShopFooter } from "@/app/components/shopFooter"
-import { ShopBanner } from "../components/shopBanner"
+import { cinzel } from '@/fonts'
+import ShopHeader from "@/components/shopHeader"
+import { ShopFooter } from "@/components/shopFooter"
+import { ShopBanner } from "@/components/shopBanner"
 import { StateProvider } from "./cartContext"
 
 export const metadata = {

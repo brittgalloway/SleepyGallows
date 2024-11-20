@@ -8,7 +8,7 @@ import { faYoutube, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import Checkout from './checkout'
 import ShopNavigation from './shopNav'
-import styles from '@/app/style/shopHeader.module.scss'
+import styles from '@/style/shopHeader.module.scss'
 
 export default function ShopHeader() {
 

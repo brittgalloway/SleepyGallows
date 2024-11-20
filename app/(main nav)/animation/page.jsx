@@ -1,4 +1,4 @@
-import { cinzel_decorative } from '@/app/fonts'
+import { cinzel_decorative } from '@/fonts'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './page.module.scss'

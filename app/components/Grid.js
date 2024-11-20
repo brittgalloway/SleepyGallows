@@ -8,8 +8,8 @@ import 'yet-another-react-lightbox/styles.css'
 import 'yet-another-react-lightbox/plugins/captions.css'
 
 export default function Grid({photos, name}) {
-  const [index, setIndex] = React.useState(-1);
-  const slides = photos.map((photo) => (
+  const [index, setIndex] = useState(-1);
+  const slides = photos.map((photo) => ( 
     {
         key: photo.id,
         src: photo[`${name}`].url,

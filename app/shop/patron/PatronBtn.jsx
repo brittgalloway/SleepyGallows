@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import { STRIPE_PUBLIC } from '@/app/utilities/formating'
+import { STRIPE_PUBLIC } from '@/lib/stripe'
 import styles from '../page.module.scss'
 require('dotenv').config();
 

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import {cleanup, render, screen, fireEvent} from '@testing-library/react'
-import WebContact from '../app/webdev/WebContact'
-import WebProject from '../app/webdev/WebProjects'
+import WebContact from '@/webdev/WebContact'
+import WebProject from '@/webdev/WebProjects'
 import { afterEach } from 'node:test'
 
 describe('WebContact Component', () => {

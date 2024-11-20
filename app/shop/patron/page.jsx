@@ -1,5 +1,5 @@
-import { performRequest } from '@/app/lib/datocms'
-import { lato } from '@/app/fonts'
+import { performRequest } from '@/lib/datocms'
+import { lato } from '@/fonts'
 import styles from '../page.module.scss'
 import {PatronButton} from './PatronBtn'
 

@@ -3,8 +3,8 @@ import { useMediaQuery } from 'react-responsive'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faYoutube, faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { year } from '../utilities/formating'
-import styles from '@/app/style/shopFooter.module.scss'
+import { year } from '@/lib/utils'
+import styles from '@/style/shopFooter.module.scss'
 
 export function ShopFooter() {
     const isMobile = useMediaQuery({query: `(max-width: 830px)`});

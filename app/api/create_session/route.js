@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
-import { lineItems } from '@/app/components/lineItems';
+import { lineItems } from '@/components/lineItems';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST);
 

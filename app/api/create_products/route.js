@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { performRequest } from '@/app/lib/datocms'
+import { performRequest } from '@/lib/datocms'
 import Stripe from 'stripe'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST);

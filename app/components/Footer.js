@@ -1,5 +1,4 @@
-import { year } from "../utilities/formating"
-
+import { year } from '@/lib/utils'
 export function Footer({name}) {
     const label = {footer: name || "Sleepy Gallows Studio"}
     return (

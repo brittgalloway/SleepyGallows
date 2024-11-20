@@ -1,10 +1,11 @@
 'use client'
 import { useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
-import { cinzel_decorative } from '@/app/fonts'
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '@/app/style/MainNavigation.module.scss'
+import { cinzel_decorative } from '@/fonts'
+import { rgbDataURL } from '@/lib/utils'
+import styles from '@/style/MainNavigation.module.scss'
 
 export default function MainNavigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,37 +18,36 @@ export default function MainNavigation() {
 
   return(
     <nav aria-label='Main' className={isMobile && isOpen ? `${styles.mobile} ${styles.nav}` : styles.nav} onClick={handleClick}>
-      {isMobile ? 
-        <div className={styles.mobile_menu} >
+
+        <div className={styles.mobileMenu} >
           <button className={styles.hamburger} onClick={handleClick}>
             <Image src='/hamburger.svg' 
             width={40} 
             height={30} 
             alt="hamburger menu"/>
           </button>
-        </div> : null
-      }
+        </div> 
       
       {(isOpen || !isMobile) && (
         <ul aria-label="Site Menu">
-          {isMobile && 
-              <li className={styles.li}>
-                <Link className={`${styles.a} ${cinzel_decorative.className}`} href="/about">About</Link>
-              </li>
-          }
-          {(!isOpen || !isMobile) &&
-          <li className={styles.li}>
+          <li className={`${styles.li} ${styles.about}`}>
+            <Link className={`${styles.a} ${cinzel_decorative.className}`} href="/about">About</Link>
+          </li>
+          
+          <li className={`${styles.li} ${styles.logo}`}>
             <Link className={`${styles.a} ${cinzel_decorative.className}`} href="/about">
-              <Image 
+              <Image  
                 className="logo" 
                 width={250} 
                 height={250} 
                 src="/sg_logo.svg" 
-                alt="logo, click here to learn about the Sleepy Gallows."
-              />
+                alt="Logo, click here to learn about the Sleepy Gallows."
+                placeholder='blur'
+                blurDataURL={rgbDataURL(154, 200, 243)}
+                loading='lazy'/>
             </Link>
           </li>
-           } 
+           
           {links.map((link, index)=> (
             <li key={index} className={styles.li}>
               <Link className={`${styles.a} ${cinzel_decorative.className}`} href={`/${link}`}>{link}</Link>

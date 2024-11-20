@@ -1,5 +1,5 @@
-import { performRequest } from '@/app/lib/datocms'
-import styles from '@/app/style/shopBanner.module.scss'
+import { performRequest } from '@/lib/datocms'
+import styles from '@/style/shopBanner.module.scss'
 const PAGE_CONTENT_QUERY = `
     query Banner {
         allAnnouncements(orderBy: _createdAt_ASC) {

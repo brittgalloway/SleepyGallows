@@ -2,10 +2,10 @@
 import * as React from 'react'
 import Image from 'next/image'
 import PhotoAlbum from 'react-photo-album'
-import style from '@/app/style/product.module.scss'
+import style from '@/style/product.module.scss'
 
 export function ProductImages({photos}) {
-  const [index, setIndex] = React.useState(0);
+  const [index, setIndex] = useState(0);
   const handleClick = ({ index: current }) => {
     setIndex(current);
   }

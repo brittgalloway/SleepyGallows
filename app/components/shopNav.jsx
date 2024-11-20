@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '@/app/style/shopHeader.module.scss'
+import styles from '@/style/shopHeader.module.scss'
 
 export default function ShopNavigation() {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,7 +1,7 @@
-import { cinzel_decorative } from '@/app/fonts'
-import { performRequest } from '@/app/lib/datocms'
-import { ProductDisplay } from '@/app/components/productDisplay'
-import styles from '@/app/style/productCategory.module.scss'
+import { cinzel_decorative } from '@/fonts'
+import { performRequest } from '@/lib/datocms'
+import { ProductDisplay } from '@/components/productDisplay'
+import styles from '@/style/productCategory.module.scss'
 import layoutStyle from '../page.module.scss'
 
 export default async function Category({params}) {

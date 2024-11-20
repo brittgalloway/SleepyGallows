@@ -1,8 +1,7 @@
-import { grandstander, happy_monkey } from '@/app/fonts'
 import Image from 'next/image'
-import tools from '@/app/json/tools.json'
-import styles from './page.module.scss'
-
+import { grandstander, happy_monkey } from '@/fonts'
+import tools from '@/json/tools.json'
+import styles from '@/webdev/page.module.scss'
 
 export default function  WebTools() {
 
@@ -11,14 +10,14 @@ export default function  WebTools() {
         <h2 className={grandstander.className}>My Tools</h2>
         <ul className={styles.ul}>
           {tools.map((tool) => (
-            <li key={tool.title} className={happy_monkey.className}>
+            <li key={tool?.title} className={happy_monkey.className}>
               <Image 
                 width={77}
                 height={77}
-                alt={`${tool.title} logo`}
-                src={tool.src} 
+                alt={`${tool?.title} logo`}
+                src={tool?.src} 
               />
-              {tool.title}
+              {tool?.title}
             </li>
           ))}
         </ul>

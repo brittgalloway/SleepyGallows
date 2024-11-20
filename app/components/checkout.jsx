@@ -1,11 +1,11 @@
 // pages/checkout.js
 'use client'
 import { useState } from 'react'
-import { useCartContext } from '../shop/cartContext'
+import { useCartContext } from '@/shop/cartContext'
 import { loadStripe } from '@stripe/stripe-js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faBagShopping} from '@fortawesome/free-solid-svg-icons'
-import styles from '@/app/style/shopHeader.module.scss'
+import styles from '@/style/shopHeader.module.scss'
 
 require('dotenv').config();
 

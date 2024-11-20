@@ -1,10 +1,10 @@
 import Link from 'next/link'
-import { lato, cinzel_decorative } from '@/app/fonts'
-import { ProductImages } from '@/app/components/productImages'
-import AddToCart from '@/app/components/addToCart'
-import { performRequest } from '@/app/lib/datocms'
-import { USD } from '@/app/utilities/formating'
-import style from '@/app/style/product.module.scss'
+import { lato, cinzel_decorative } from '@/fonts'
+import { ProductImages } from '@/components/productImages'
+import AddToCart from '@/components/addToCart'
+import { performRequest } from '@/lib/datocms'
+import { USD } from '@/lib/utils'
+import style from '@/style/product.module.scss'
 import layoutStyle from '../../page.module.scss'
 
 export default async function Product( {params} ) {

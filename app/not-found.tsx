@@ -1,6 +1,6 @@
-import { cinzel_decorative, lato } from './fonts'
 import Link from 'next/link'
-import styles from './style/404.module.scss'
+import { cinzel_decorative, lato } from '@/fonts'
+import styles from '@/style/404.module.scss'
 
 export default async function NotFound() {
   return (

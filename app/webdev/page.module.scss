@@ -58,11 +58,16 @@
   }
 }
 .projectSection {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 2rem;
   justify-content: center;
+  @media (width <= 900px){
+    grid-template-columns: repeat(2, 1fr);
+  }
   @media (width <= 450px){
+    grid-template-columns: 1fr;
     width: 100%;
   }
 }
@@ -155,7 +160,14 @@
 .projectWrapper {
   cursor: pointer;
   text-align: center;
-  height: 285px;
+  display: inherit;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+  gap: 1rem;
+  h2,
+  p {
+    margin: 0;
+  }
   &:focus-visible{
     @include focusVisible();
     padding: 1% 1% 0px 1%;
@@ -193,6 +205,7 @@
   z-index: 19;
   position: fixed;
   top: 0;
+  right: 0;
 }
 
 @mixin button {

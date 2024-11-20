@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import styles from '@/app/style/productCategory.module.scss'
+import styles from '@/style/productCategory.module.scss'
 
 
 export function ProductDisplay( {category, productSlug, productName, discount, price, stock, productDisplay} ) {

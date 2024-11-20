@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import { cinzel_decorative } from '@/app/fonts'
-import { performRequest } from '@/app/lib/datocms'
+import { cinzel_decorative } from '@/fonts'
+import { performRequest } from '@/lib/datocms'
 import { ProductDisplay } from './productDisplay'
-import styles from '@/app/style/productCategory.module.scss'
+import styles from '@/style/productCategory.module.scss'
 
 const PAGE_CONTENT_QUERY = `
 query Shop {
