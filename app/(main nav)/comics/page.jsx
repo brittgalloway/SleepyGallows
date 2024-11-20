@@ -1,5 +1,6 @@
 import { cinzel_decorative } from '@/fonts'
 import Image from 'next/image'
+import { rgbDataURL } from '@/lib/utils'
 import { Footer } from '@/components/footer'
 import styles from './page.module.scss'
 

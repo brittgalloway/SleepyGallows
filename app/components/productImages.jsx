@@ -1,5 +1,5 @@
 'use client'
-import * as React from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import PhotoAlbum from 'react-photo-album'
 import style from '@/style/product.module.scss'

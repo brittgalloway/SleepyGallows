@@ -1,10 +1,10 @@
 import { cinzel_decorative } from '@/fonts'
 import { performRequest } from '@/lib/datocms'
 import AnimationNav from '@/components/Nav'
-import Project from '../projects'
+import Project from '@/animation/projects'
 import { Footer } from '@/components/Footer'
 import { NoClients } from '@/components/NoClients'
-import styles from '../page.module.scss'
+import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {

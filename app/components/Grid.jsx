@@ -1,5 +1,5 @@
 'use client'
-import * as React from 'react'
+import { useState } from 'react'
 import PhotoAlbum from 'react-photo-album'
 import Lightbox from 'yet-another-react-lightbox'
 import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen'

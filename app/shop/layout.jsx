@@ -1,8 +1,8 @@
 import { cinzel } from '@/fonts'
-import ShopHeader from "@/components/shopHeader"
-import { ShopFooter } from "@/components/shopFooter"
-import { ShopBanner } from "@/components/shopBanner"
-import { StateProvider } from "./cartContext"
+import ShopHeader from '@/components/shopHeader'
+import { ShopFooter } from '@/components/shopFooter'
+import { ShopBanner } from '@/components/shopBanner'
+import { StateProvider } from './cartContext'
 
 export const metadata = {
   title: 'Shop | Sleepy Gallows',

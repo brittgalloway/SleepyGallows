@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 import { STRIPE_PUBLIC } from '@/lib/stripe'
-import styles from '../page.module.scss'
+import styles from '@/shop/page.module.scss'
 require('dotenv').config();
 
 function OneDonation() {

@@ -2,7 +2,7 @@ import { cinzel_decorative } from '@/fonts'
 import { performRequest } from '@/lib/datocms'
 import { ProductDisplay } from '@/components/productDisplay'
 import styles from '@/style/productCategory.module.scss'
-import layoutStyle from '../page.module.scss'
+import layoutStyle from '@/shop/page.module.scss'
 
 export default async function Category({params}) {
   const PAGE_CONTENT_QUERY = `

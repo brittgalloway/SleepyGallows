@@ -1,5 +1,5 @@
 import { cinzel_decorative } from '@/fonts'
-import { ProductCategory } from '../components/productCategory'
+import { ProductCategory } from '@/components/productCategory'
 import styles from './page.module.scss'
 
 export const metadata = {
