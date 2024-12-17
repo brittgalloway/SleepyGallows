@@ -1,11 +1,11 @@
-import { cinzel_decorative } from '@/app/fonts'
-import { performRequest } from '@/app/lib/datocms'
-import AnimationNav from '@/app/components/nav'
+import { cinzel_decorative } from '@/fonts'
+import { performRequest } from '@/lib/datocms'
+import AnimationNav from '@/components/Nav'
 import Project from '../projects'
-import { Footer } from '@/app/components/footer'
-import { NoClients } from '@/app/components/noClients'
+import { Footer } from '@/components/Footer'
+import { NoClients } from '@/components/NoClients'
 import styles from '../page.module.scss'
-import textStyles from '@/app/style/titles.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Client Animation',

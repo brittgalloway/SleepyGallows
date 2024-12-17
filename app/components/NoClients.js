@@ -1,5 +1,4 @@
-'use client'
-import style from '@/app/style/noClient.module.scss'
+import style from '@/style/noClient.module.scss'
 
 export function NoClients() {
   return (
@@ -8,4 +7,4 @@ export function NoClients() {
         We are not currently accepting contract work or gigs at this time.
    </aside>
   );
-}
+} 

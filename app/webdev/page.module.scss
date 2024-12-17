@@ -7,6 +7,12 @@
   @media (width <= 450px){
     width: 100%;
   }
+  button,
+  a {
+    &:focus-visible {
+      outline-color: var(--purple);
+    }
+  }
   h1, 
   h2,
   h3{
@@ -22,6 +28,10 @@
   @media (width <= 450px) {
     font-size: 2em;
   }
+}
+@mixin focusVisible {
+  outline-color: var(--purple);
+  border-radius: 34px;
 }
 .headerWrapper {
   border: 3px solid var(--light-purple);
@@ -40,16 +50,24 @@
 .graphic {
   width: 80%;
   margin: 20px auto;
+  &:focus-visible{
+    @include focusVisible();
+  }
   @media (width <= 450px) {
     width: 90%;
   }
 }
 .projectSection {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 2rem;
   justify-content: center;
+  @media (width <= 900px){
+    grid-template-columns: repeat(2, 1fr);
+  }
   @media (width <= 450px){
+    grid-template-columns: 1fr;
     width: 100%;
   }
 }
@@ -89,17 +107,20 @@
   border: 3px solid var(--light-green);
   border-radius: 34px;
   padding: 30px 70px;
-  margin: 20px auto;
-  img:hover:after {
-    content: attr(title);
-    color:var(--green);
-    font-size:28px
-  }
+  margin: 5rem auto 0 auto;
   h2 {
     font-size:2.5em;
+    margin-top: 1rem;
   }
   @media (width <= 450px) {
     padding: 30px;
+  }
+  li {
+    display: flex;
+    flex-direction: column;
+    font-size: .9rem;
+    align-items: center;
+    color: var(--green);
   }
 }
 .ul {
@@ -123,9 +144,14 @@
 }
 .li {
   transition: transform 0.2s ease 0s;
-  &:hover {
+  &:hover,
+  &:focus-visible {
       transform: translateY(-15px);
       transition: transform 0.2s ease 0s;
+  }
+  a:focus-visible {
+    padding: 7px 7px 0px 7px;
+    display: block;
   }
   @media (width <= 450px) {
       gap: 30px;
@@ -134,7 +160,19 @@
 .projectWrapper {
   cursor: pointer;
   text-align: center;
-  height: 285px;
+  display: inherit;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+  gap: 1rem;
+  justify-items: center;
+  h2,
+  p {
+    margin: 0;
+  }
+  &:focus-visible{
+    @include focusVisible();
+    padding: 1% 1% 0px 1%;
+  }
 }
 .project {
   border-radius: 15px;
@@ -168,6 +206,7 @@
   z-index: 19;
   position: fixed;
   top: 0;
+  right: 0;
 }
 
 @mixin button {
@@ -231,5 +270,35 @@
   border-radius: 15px;
   @media (width <= 450px) {
     display:none;
+  }
+}
+
+.achievements {
+  padding: revert;
+  li {
+    margin-bottom: 10px;
+    list-style: disc;
+    &::marker{
+      color: var(--green);
+    }
+  }
+}
+@keyframes wiggle {
+  from {
+    transform: rotate(15deg)
+  }
+  to {
+    transform: rotate(-15deg);
+  }
+}
+.askAboutThis {
+  list-style-image: url("data:image/svg+xml,%3Csvg width='17' height='17' viewBox='0 0 42 42' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.5 36.4995C14.5 29.4995 21.5 4 19 2.5C17 1.3 34.8333 30.6662 40 40.4995C28.2337 30.1528 19.6685 26.6527 0.5 24.9996C14.6186 21.8677 41.185 8.542 34.5 14.4996C27.7101 20.5506 17.6667 32.2752 12.5 36.4995Z' stroke='%23FBBC05' stroke-width='3'/%3E%3C/svg%3E") !important;
+  &::marker{
+    animation: .5s linear infinite alternate wiggle;
+  }
+}
+.experience {
+  @media (width <= 450px) {
+    font-size: 1.35rem;
   }
 }

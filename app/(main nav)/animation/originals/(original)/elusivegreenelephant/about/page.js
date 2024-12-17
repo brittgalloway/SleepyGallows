@@ -1,9 +1,10 @@
-import { cinzel_decorative } from '@/app/fonts'
 import Image from 'next/image'
-import OriginalsNav from '@/app/components/originalsNav';
-import { performRequest } from '@/app/lib/datocms'
-import styles from '../../../../page.module.scss'
-import textStyles from '@/app/style/titles.module.scss'
+import { cinzel_decorative } from '@/fonts'
+import OriginalsNav from '@/components/OriginalsNav'
+import { performRequest } from '@/lib/datocms'
+import { rgbDataURL } from '@/lib/utils'
+import styles from '@/animation/page.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | About EGE',
@@ -47,7 +48,10 @@ export default async function EgeAbout() {
                 <Image 
                   width={300}
                   height={300}
-                  src={character.url} alt={character.alt}/>
+                  src={character.url} alt={character.alt}
+                  placeholder='blur'
+                  blurDataURL={rgbDataURL(228, 220, 243)}
+                  loading='lazy'/>
               </div>
           ))}
         </div>

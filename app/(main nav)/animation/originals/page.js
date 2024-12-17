@@ -1,11 +1,12 @@
-import { cinzel_decorative } from '@/app/fonts'
-import { performRequest } from '@/app/lib/datocms'
 import Link from 'next/link'
 import Image from 'next/image'
-import AnimationNav from '@/app/components/nav'
-import { Footer } from '@/app/components/footer'
-import styles from '../page.module.scss'
-import textStyles from '@/app/style/titles.module.scss'
+import { cinzel_decorative } from '@/fonts'
+import { performRequest } from '@/lib/datocms'
+import { rgbDataURL } from '@/lib/utils'
+import AnimationNav from '@/components/Nav'
+import { Footer } from '@/components/Footer'
+import styles from '@/animation/page.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Originals',
@@ -16,6 +17,7 @@ export const metadata = {
 const PAGE_CONTENT_QUERY = `
 query Originals{
   allOriginals {
+    name
     link
     id
     thumb {
@@ -37,13 +39,17 @@ export default async function Originals() {
         </header>
         <div className={styles.projectWrapper}>
           {allOriginals.map((project)=> (
-            <div key={project.id} className={styles.project}>
-              <Link href={`/animation/originals/${project.link.toString().toLowerCase()}`}> 
+            <div key={project?.id} className={styles.project}>
+              <Link href={`/animation/originals/${project?.link.toString().toLowerCase()}`}
+                aria-label={`Click here for more information on ${project?.name}`}> 
                 <Image
-                width={250}
-                height={250}
-                src={project.thumb.url} 
-                alt={project.thumb.alt}/>
+                width={400}
+                height={400}
+                src={project?.thumb?.url} 
+                alt={`Reads as: "${project?.name}"`}
+                placeholder='blur'
+                blurDataURL={rgbDataURL(228, 220, 243)}
+                loading='lazy'/>
               </Link>
             </div>
           ))}

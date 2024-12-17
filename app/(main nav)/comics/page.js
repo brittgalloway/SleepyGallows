@@ -1,6 +1,7 @@
-import { cinzel_decorative } from '@/app/fonts'
 import Image from 'next/image'
-import { Footer } from '@/app/components/footer'
+import { cinzel_decorative } from '@/fonts'
+import { rgbDataURL } from '@/lib/utils'
+import { Footer } from '@/components/Footer'
 import styles from './page.module.scss'
 
 export const metadata = {
@@ -11,6 +12,11 @@ export const metadata = {
 }
 
 export default function Comics() {
+  const links = [
+    ['instagram', 'https://www.instagram.com/2.heroes/'],
+    ['twitter', 'https://twitter.com/2Heroes1'],
+    ['patreon', 'https://www.patreon.com/2heroes'],
+  ];
   return (
     <>
       <main className={styles.main}>
@@ -18,15 +24,11 @@ export default function Comics() {
           <h1 className={`${styles.h1} ${cinzel_decorative.className}`}>2Heroes</h1>
           <div className={styles.links}>
               <ul className={styles.ul}>
-                <li >
-                  <a href="https://www.instagram.com/2.heroes/">instagram</a>
-                </li>
-                <li>
-                  <a href="https://twitter.com/2Heroes1">twitter</a>
-                </li>
-                <li>
-                  <a href="https://www.patreon.com/2heroes">patreon</a>
-                </li>
+                {links.map((link, index)=> (
+                  <li key={index}>
+                    <a href={link[1]}>{link[0]}</a>
+                  </li>
+                ))}
               </ul>
             </div>
           <section className={styles.section}>
@@ -39,6 +41,9 @@ export default function Comics() {
                 alt='Necahual, Quetzalli, and Anacaona lounging together'
                 width={349}
                 height={349}
+                placeholder='blur'
+                blurDataURL={rgbDataURL(228, 220, 243)}
+                loading='lazy'
               />
             </div>
           </section>
@@ -57,18 +62,27 @@ export default function Comics() {
             alt='Necahual Charms found at candyfluffs.com/2heroes'
             width={200}
             height={200}
+            placeholder='blur'
+            blurDataURL={rgbDataURL(228, 220, 243)}
+            loading='lazy'
             />
             <Image 
             src='https://www.datocms-assets.com/53347/1628171809-necaminicomics.jpg' 
             alt='The handmade Necahual  Art book  found at candyfluffs.com/2heroes'
             width={200}
             height={200}
+            placeholder='blur'
+            blurDataURL={rgbDataURL(228, 220, 243)}
+            loading='lazy'
             />
             <Image 
             src='https://www.datocms-assets.com/53347/1628171977-necastickers.jpg' 
             alt='The handmade Necahual  Stickers found at candyfluffs.com/2heroes'
             width={200}
             height={200}
+            placeholder='blur'
+            blurDataURL={rgbDataURL(228, 220, 243)}
+            loading='lazy'
             />
           </div>
         </article>

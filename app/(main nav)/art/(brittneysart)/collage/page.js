@@ -1,8 +1,8 @@
-import { performRequest } from '@/app/lib/datocms'
-import Grid from '@/app/components/grid'
-import ArtNav from '../../nav'
-import { Footer } from '@/app/components/footer'
-import styles from '@/app/style/artGrid.module.scss'
+import { performRequest } from '@/lib/datocms'
+import Grid from '@/components/Grid'
+import ArtNav from '@/art/nav'
+import { Footer } from '@/components/Footer'
+import styles from '@/style/artGrid.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Brittney\'s Art',

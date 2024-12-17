@@ -1,9 +1,9 @@
-import { cinzel_decorative } from '@/app/fonts'
-import Grid from '@/app/components/grid'
-import OriginalsNav from '@/app/components/originalsNav'
-import { performRequest } from '@/app/lib/datocms'
-import styles from '@/app/style/artGrid.module.scss'
-import textStyles from '@/app/style/titles.module.scss'
+import { cinzel_decorative } from '@/fonts'
+import Grid from '@/components/Grid'
+import OriginalsNav from '@/components/OriginalsNav'
+import { performRequest } from '@/lib/datocms'
+import styles from '@/style/artGrid.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Art of EGE',
