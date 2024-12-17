@@ -25,6 +25,7 @@ export default function  WebProjects({id, projectName, icon, description, liveAp
         <div data-testid={id} className={styles.projectWrapper} key={id} onClick={handleDisplay} onKeyDown={(e)=>handleKeyPress(e)} aria-label="Click or press Enter or Spacebar keys to open a dialog with information about this project." tabIndex={0}>
             <AnimatedIcons
             title={projectName}
+            src={icon.url}
             />
             <h2 style={happy_monkey.style}>{projectName}</h2>
             <p>development & design</p>

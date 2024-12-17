@@ -7,20 +7,21 @@ import WebContact from '@/components/WebContact'
 import WebTools from '@/components/WebTools'
 import styles from './page.module.scss'
 
-const PAGE_CONTENT_QUERY = ` 
-  query web {
-     allWebProjects {
-          tools
-          projectName
-          liveApp
-          id
-          github
-          description
-          icon {
-               title
-          }
-     }
+const PAGE_CONTENT_QUERY = `
+query web {
+  allWebProjects {
+    tools
+    projectName
+    liveApp
+    id
+    github
+    description
+    icon {
+      title
+      url
+    }
   }
+}
   `;
 
 export default async function Webdev() {
@@ -61,17 +62,16 @@ export default async function Webdev() {
     <h2 className={`${styles.h2} ${grandstander.className}`}>Projects</h2>
     <section className={styles.projectSection}>
      {allWebProjects.map((project)=> (
-          <WebProjects
-               key={project?.id}
-               id={project?.id}
-               icon={project?.icon}
-               projectName={project?.projectName}
-               screenshot={project?.screenshot}
-               description={project?.description}
-               liveApp={project?.liveApp}
-               github={project?.github}
-          />
- ))}
+        <WebProjects
+          key={project?.id}
+          id={project?.id}
+          icon={project?.icon}
+          projectName={project?.projectName}
+          description={project?.description}
+          liveApp={project?.liveApp}
+          github={project?.github}
+        />
+      ))}
     </section>
     <h2 className={`${styles.h2} ${grandstander.className}`}>Education</h2>
     <ul>
