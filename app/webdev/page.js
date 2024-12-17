@@ -18,8 +18,6 @@ query web {
     description
     icon {
       title
-    }
-    screenshot {
       url
     }
   }
@@ -52,7 +50,6 @@ export default async function Webdev() {
             id={project.id}
             icon={project.icon}
             projectName={project.projectName}
-            screenshot={project.screenshot}
             description={project.description}
             liveApp={project.liveApp}
             github={project.github}
