@@ -137,3 +137,8 @@ git push origin feature/your-feature-name
 This project is deployed with [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+- [Paypal](https://developer.paypal.com/integration-builder)
+https://github.com/paypaldev/PayPal-JavaScript-FullStack-Standard-Checkout-Sample/tree/main/server
+https://dev.to/husnain/how-to-integrate-paypal-with-nextjs-2oil#:~:text=How%20to%20integrate%20Paypal%20with%20NextJs%201%20Installing,3%20Back-end%20Integration%20...%204%20Front-end%20Integration%20
+https://ofarukcaki.medium.com/paypal-express-checkout-with-react-next-js-fcc4be9d0d2

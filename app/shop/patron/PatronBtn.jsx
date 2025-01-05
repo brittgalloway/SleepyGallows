@@ -1,43 +1,36 @@
 'use client'
-import { useState } from 'react';
-import { STRIPE_PUBLIC } from '@/lib/stripe'
-import styles from '@/shop/page.module.scss'
-require('dotenv').config();
+import Script from 'next/script'
+import { useEffect, useState } from "react"
+import styles from '../page.module.scss';
 
-function OneDonation() {
+export default function PatronButton() {
+	const [accessPayPal, setaccessPayPal] = useState(false);
+	useEffect(() => {
+	  setaccessPayPal(true);
+	}, [accessPayPal]);
 	return (
-		<stripe-buy-button
-			buy-button-id="buy_btn_1PVi7MJiAoJrRPIxXmderocZ"
-  			publishable-key={ process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
-		/>
-	);
-}
-function RecurringDonation() {
-	return (
-		<stripe-buy-button
-			buy-button-id="buy_btn_1PVmxgJiAoJrRPIx4UwBcn6j"
-			publishable-key={ process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
-		/>
-	);
-}
-  
-export function PatronOptions() {
-	return (
-		<div>
-			<OneDonation/>
-			<RecurringDonation/>
-		</div>
-	);
-}
-export function PatronButton() {
-	const [isOpen, setIsOpen] = useState(false);
-	function handleClick() {
-		isOpen ? setIsOpen(false) : setIsOpen(true);
-	}
-	return (
-		<>
-			{isOpen ? ( <PatronOptions/> ) : null}
-			<button onClick={handleClick}>Be a Patron</button>
+	  <>
+	  {/* consider making the hosted button id a variable */}
+		{
+		  accessPayPal === true ?  
+		  <div id="donate-button-container">
+			  <div id="donate-button" className={styles.donate}></div>
+				<Script id="donate-button-script">
+					{`
+					PayPal.Donation.Button({
+						env:'production',
+						hosted_button_id:'2HJN6ZN822T6S', 
+						image: {
+						src:'https://pics.paypal.com/00/s/MDBiMGNkZDctZTNhMi00M2FiLWE5NjUtODM2NWIzZTM2NGE0/file.PNG',
+						alt:'Donate with PayPal button',
+						title:'PayPal - The safer, easier way to pay online!',
+						}
+					}).render('#donate-button');
+					`}
+				</Script>
+			  </div>
+			   : false
+			}
 		</>
 	);
 }

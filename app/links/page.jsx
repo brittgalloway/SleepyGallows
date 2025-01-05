@@ -10,11 +10,14 @@ export const metadata = {
 export default function Links() {
     const links = [
         ['/', 'Offical Website'],
-        ['/shop', 'Join the Newsletter'],
-        ['https://www.candyfluffs.com/2heroes', '2Heroes Necahual'],
-        ['https://www.patreon.com/2heroes', '2Heroes Patreon'],
         ['https://ko-fi.com/sleepygallows', 'Ko-fi'],
-        ['https://brittgalloway.github.io/memory_game/', 'PLH Memory Game'],
+        ['https://sleepygallows.beehiiv.com/', 'The Newsletter'],
+        ['https://www.youtube.com/@sleepygallows', 'YouTube'],
+        ['https://www.instagram.com/sleepy_gallows/', 'Instagram'],
+        ['https://bsky.app/blgalloway.bsky.social', 'Bluesky'],
+        ['https://sleepygallows.tumblr.com/', 'Tumblr'],
+        ['https://www.candyfluffs.com/2heroes', '2Heroes Necahual'],
+        ['/webdev', 'Web Development'],
     ];
     return (
         <main className={`${styles.main} ${lato.className}`}>

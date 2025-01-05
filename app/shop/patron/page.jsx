@@ -1,7 +1,7 @@
 import { performRequest } from '@/lib/datocms'
 import { lato } from '@/fonts'
 import styles from '@/shop/page.module.scss'
-import {PatronButton} from './PatronBtn'
+import PatronButton from './PatronBtn'
 
 
 export const metadata = {
@@ -27,7 +27,7 @@ export default async function Patron() {
       <h1 className={styles.patron_h1}>{patron?.header}</h1>
       <div className={`${lato.className}`} dangerouslySetInnerHTML={{__html: patron?.patronText}} />
       <PatronButton/>
-      <p>Or, if you&apos;d prefer, you can buy me a <a href="https://ko-fi.com/sleepygallows">Kofi</a></p>
+      <p className={`${lato.className}`}>Or, if you&apos;d prefer, you can buy me a <a href="https://ko-fi.com/sleepygallows">Kofi</a></p>
     </main>
   )
 }
