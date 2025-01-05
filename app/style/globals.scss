@@ -113,3 +113,9 @@ img {
     margin-left: 0;
   }
 }
+@keyframes rotate-center-alternate {0% { transform: rotate(-15deg); } 100% { transform: rotate(15deg);} }
+
+.project-icon {
+  filter: hue-rotate(97deg);
+  animation: rotate-center-alternate 1s linear 0s infinite alternate none; 
+}

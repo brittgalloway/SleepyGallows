@@ -18,13 +18,12 @@ query web {
     description
     icon {
       title
-    }
-    screenshot {
       url
     }
   }
 }
-`;
+  `;
+
 export default async function Webdev() {
  const { data: { allWebProjects } } = await performRequest({ query: PAGE_CONTENT_QUERY });
  return (
@@ -63,17 +62,16 @@ export default async function Webdev() {
     <h2 className={`${styles.h2} ${grandstander.className}`}>Projects</h2>
     <section className={styles.projectSection}>
      {allWebProjects.map((project)=> (
-          <WebProjects
-               key={project?.id}
-               id={project?.id}
-               icon={project?.icon}
-               projectName={project?.projectName}
-               screenshot={project?.screenshot}
-               description={project?.description}
-               liveApp={project?.liveApp}
-               github={project?.github}
-          />
- ))}
+        <WebProjects
+          key={project?.id}
+          id={project?.id}
+          icon={project?.icon}
+          projectName={project?.projectName}
+          description={project?.description}
+          liveApp={project?.liveApp}
+          github={project?.github}
+        />
+      ))}
     </section>
     <h2 className={`${styles.h2} ${grandstander.className}`}>Education</h2>
     <ul>

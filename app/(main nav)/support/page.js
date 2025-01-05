@@ -15,7 +15,7 @@ export default function Shop() {
         <h1 className={`${styles.h1} ${cinzel_decorative.className}`}>Ways to support us!</h1>
         <ul>
           <li>
-            <Link href='https://ko-fi.com/sleepygallow'>Visit the Ko-fi!</Link>        
+            <Link href='https://ko-fi.com/sleepygallows'>Visit the Ko-fi!</Link>        
           </li>
           <li>
             <Link href='https://sleepygallows.beehiiv.com/'>Join Our Newsletter!</Link>

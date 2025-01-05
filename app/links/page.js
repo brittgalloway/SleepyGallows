@@ -8,29 +8,27 @@ export const metadata = {
   }
 
 export default function Links() {
+    const links = [
+        ['/', 'Offical Website'],
+        ['https://ko-fi.com/sleepygallows', 'Ko-fi'],
+        ['https://sleepygallows.beehiiv.com/', 'The Newsletter'],
+        ['https://www.youtube.com/@sleepygallows', 'YouTube'],
+        ['https://www.instagram.com/sleepy_gallows/', 'Instagram'],
+        ['https://bsky.app/blgalloway.bsky.social', 'Bluesky'],
+        ['https://sleepygallows.tumblr.com/', 'Tumblr'],
+        ['https://www.candyfluffs.com/2heroes', '2Heroes Necahual'],
+        ['/webdev', 'Web Development'],
+    ];
     return (
         <main className={`${styles.main} ${lato.className}`}>
             <h1 className={`${styles.h1} ${cinzel_decorative.className}`}>Sleepy Gallows Links</h1>
             <nav className={styles.nav}>
                 <ul className={styles.ul}>
-                    <li className={styles.li}>
-                        <Link className={styles.a} href="/">Offical Website</Link>
-                    </li>
-                    <li className={styles.li}>
-                        <Link className={styles.a} href="/shop">Join the Newsletter</Link>
-                    </li>
-                    <li className={styles.li}>
-                        <Link className={styles.a} href="https://www.candyfluffs.com/2heroes">2Heroes Necahual</Link>
-                    </li>
-                    <li className={styles.li}>
-                        <Link className={styles.a} href="https://www.patreon.com/2heroes">2Heroes Patreon</Link>
-                    </li>
-                    <li className={styles.li}>
-                        <Link className={styles.a} href="https://ko-fi.com/sleepygallows">Ko-fi</Link>
-                    </li>
-                    <li className={styles.li}>
-                        <Link className={styles.a} href="https://brittgalloway.github.io/memory_game/">PLH Memory Game</Link>
-                    </li>
+                {links.map((link, index)=> (
+                        <li key={index} className={styles.li}>
+                            <Link className={styles.a} href={link[0]}>{link[1]}</Link>
+                        </li>
+                    ))}
                 </ul>
             </nav>
         </main>

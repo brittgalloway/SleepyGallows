@@ -9,7 +9,7 @@ import styles from '@/style/MainNavigation.module.scss'
 
 export default function MainNavigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const links = ['animation', 'art', 'comics', 'shop'];
+  const links = ['animation', 'art', 'comics', 'support'];
 
   const isMobile = useMediaQuery({query: `(max-width: 830px)`});
   function handleClick() {
