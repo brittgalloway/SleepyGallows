@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { lato, cinzel_decorative } from '@/fonts'
 import { ProductImages } from '@/components/productImages'
-import AddToCart from '@/components/AddToCart'
+import AddToCart from '@/components/addToCart'
 import { performRequest } from '@/lib/datocms'
 import { USD } from '@/lib/utils'
 import style from '@/style/product.module.scss'

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { cinzel_decorative } from '@/fonts'
 import { performRequest } from '@/lib/datocms'
-import { ProductDisplay } from './ProductDisplay'
+import { ProductDisplay } from './productDisplay'
 import styles from '@/style/productCategory.module.scss'
 
 const PAGE_CONTENT_QUERY = `
