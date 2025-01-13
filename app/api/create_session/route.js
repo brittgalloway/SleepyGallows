@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
-import { useLineItems } from '@/lib/lineItems';
+// import { useLineItems } from '@/lib/lineItems';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST);
 
 export async function POST(req) {
   try {
-    console.log("line",useLineItems());
+    // console.log("line",useLineItems());
     const { origin } = new URL(req.url);
     const session = await stripe.checkout.sessions.create({
       // ui_mode: 'embedded',
