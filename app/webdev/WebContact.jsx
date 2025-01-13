@@ -1,4 +1,4 @@
-import { grandstander } from '@/app/fonts'
+import { grandstander } from '@/fonts'
 import Image from 'next/image'
 import Link from 'next/link'
 import style from './page.module.scss'

@@ -1,7 +1,7 @@
-import { cinzel_decorative } from '@/app/fonts'
+import { cinzel_decorative } from '@/fonts'
 import Image from 'next/image'
 import Link from 'next/link'
-import { NoClients } from '@/app/components/noClients'
+import { NoClients } from '@/components/NoClients'
 import styles from './page.module.scss'
 
 export const metadata = {

@@ -1,4 +1,4 @@
-import { grandstander, happy_monkey } from '@/app/fonts'
+import { grandstander, happy_monkey } from '@/fonts'
 import Image from 'next/image'
 import tools from '@/app/json/tools.json'
 import styles from './page.module.scss'
