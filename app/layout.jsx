@@ -20,8 +20,6 @@ export default function RootLayout({ children }) {
       <body>
         <Script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js"
         strategy="beforeInteractive" />
-        <Script src="https://js.stripe.com/v3/buy-button.js"
-        strategy="beforeInteractive" />
         {children}
       </body>
     </html>

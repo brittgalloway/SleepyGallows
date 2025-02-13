@@ -2,6 +2,7 @@
 'use client'
 import { useState } from 'react'
 import { useCartContext } from '@/shop/cartContext'
+import { STRIPE_PUBLIC} from '@/lib/stripe'
 import { loadStripe } from '@stripe/stripe-js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faBagShopping} from '@fortawesome/free-solid-svg-icons'
@@ -9,7 +10,7 @@ import styles from '@/style/shopHeader.module.scss'
 
 require('dotenv').config();
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_TEST);
+const stripePromise = loadStripe(STRIPE_PUBLIC);
 
 export default function Checkout() {
   const [loading, setLoading] = useState(false);

@@ -10,12 +10,12 @@
 .wrapper {
     margin-block: 3em;
     &:first-of-type{
-        margin-block: 0 3em;
+        margin-block: 0 2em;
     }
     @media(min-width: 831px) {
-        margin-block: 4em;
+        margin-block: 3em;
         &:first-of-type{
-            margin-block: 5em;
+            margin-block: 3.5em;
         }
     }
 }
