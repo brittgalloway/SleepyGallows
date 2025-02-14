@@ -52,7 +52,7 @@ export default function  WebProjects({id, projectName, role, icon, description, 
               </button>
               <div className={styles.projectInfo}> 
                 <h2 className={happy_monkey.className}>{projectName}</h2>
-                <div dangerouslySetInnerHTML={{ __html: description }}/>
+                <div className={styles.projectDescription} dangerouslySetInnerHTML={{ __html: description }}/>
                 <a className={styles.btnPink} href={liveApp}>See it here</a> 
                 <a className={styles.btnPurple} href={github}>Github</a>
               </div>
