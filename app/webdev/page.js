@@ -12,6 +12,7 @@ query web {
   allWebProjects {
     tools
     projectName
+    role
     liveApp
     id
     github
@@ -66,6 +67,7 @@ export default async function Webdev() {
           id={project?.id}
           icon={project?.icon}
           projectName={project?.projectName}
+          role={project?.role}
           description={project?.description}
           liveApp={project?.liveApp}
           github={project?.github}

@@ -5,8 +5,18 @@ import { happy_monkey } from '@/fonts'
 import AnimatedIcons from '@/components/ProjectIcons'
 import styles from '@/webdev/page.module.scss'
 
-export default function  WebProjects({id, projectName, icon, description, liveApp, github}:
-  {id:string, projectName:string, icon:{title:string, url:string}, description:string, liveApp:string, github:string}
+type WebProject = {
+  id:string, 
+  projectName:string, 
+  role:string,
+  icon:{
+    title:string, 
+    url:string
+  }, 
+  description:string, liveApp:string, 
+  github:string
+}
+export default function  WebProjects({id, projectName, role, icon, description, liveApp, github}: WebProject
 ) {
     const [display, setDisplay] = useState(false);
 
@@ -28,7 +38,7 @@ export default function  WebProjects({id, projectName, icon, description, liveAp
             src={icon.url}
             />
             <h2 style={happy_monkey.style}>{projectName}</h2>
-            <p>development & design</p>
+            <p>{role}</p>
         </div>
         { display ? (
           <>
