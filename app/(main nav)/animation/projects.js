@@ -7,7 +7,7 @@ import textStyles from '@/style/titles.module.scss'
 
 export default function Project({title, link, year, summary, website}) {
   return (
-    <div className={`${styles.video} ${lato.className}`}>
+    <figure className={`${styles.video} ${lato.className}`}>
         <Iframe 
           link={link} 
           title={title} 
@@ -20,7 +20,7 @@ export default function Project({title, link, year, summary, website}) {
             {website ? (<p><a href={website}>{website}</a></p>) : null}
             <p>{summary}</p> 
         </details>
-    </div>
+    </figure>
   )
 }
 
