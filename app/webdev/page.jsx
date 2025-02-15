@@ -12,6 +12,7 @@ query web {
   allWebProjects {
     tools
     projectName
+    role
     liveApp
     id
     github
@@ -39,23 +40,22 @@ export default async function Webdev() {
      </div>
     </header>
     <section id='aboutMe'>
-     <p>I&apos;m a frontend developer with a background in animation based in the Chicagoland area. I learned web development to build an art portfolio and a home for my animated projects.</p>
-     <p>Then, in 2021, I built an ecommerce platform for my sister&apos;s art, <a href="https://candyfluffs.com">Candy Fluffs</a>.</p>
-     <p>Now, I work at an ecommerce company cleaning up codebases, user experience, and performance projects.</p>
+     <p>I&apos;m a frontend developer based in Chicagoland with a background in animation. My journey into web development started when I built a <Link href="/">portfolio site</Link> for my animated projects. That one project turned into a passion for crafting intuitive, accessible, and well-structured web experiences.</p>
+     <p>In 2021, I built an ecommerce platform, <a href="https://candyfluffs.com">Candy Fluffs</a>, for my sister&apos;s artwork, focusing on performance, scalability, and maintainable code. Now, I work at an ecommerce company improving code quality, user experience, and site performance—from refining accessibility to optimizing page load times.</p>
      <h2 className={`${styles.h2} ${grandstander.className}`}>Experience</h2>
      <p className={`${styles.experience}`}><strong>Cleverbridge</strong> 2021-present</p>
      <ul className={styles.achievements}>
           <li className={styles.askAboutThis}>
-               Collaborated with two teammates to standardize our codebase by creating a Node.js script that converts Gulp builds to Webpack.
+               Developed responsive, accessible interfaces for major enterprise clients, focusing on performance and usability.
           </li>
           <li className={styles.askAboutThis}>
-               Performed major code refactor for a standard Wait Don&apos;t Leave popup. Removed XSS vulnerabilities through URL parameters, improved legal compliance, user experience, and stability with the Cleverbridge platform.
+               Built a Node.js script to migrate Gulp builds to Webpack, standardizing our codebase and improving developer efficiency.
           </li>
           <li>
-               Designed and implemented flexible layouts and interactive elements for major management companies using modern CSS techniques. 
+               Led a major code refactor for a Wait Don&apos;t Leave popup—removing XSS vulnerabilities, enhancing legal compliance, and improving platform stability.
           </li>
           <li>
-               Performed code reviews for code quality assurance, reducing technical debt.
+               Reviewed and refactored code to reduce technical debt and ensure long-term maintainability.
           </li>
      </ul>
     </section> 
@@ -67,6 +67,7 @@ export default async function Webdev() {
           id={project?.id}
           icon={project?.icon}
           projectName={project?.projectName}
+          role={project?.role}
           description={project?.description}
           liveApp={project?.liveApp}
           github={project?.github}
@@ -83,7 +84,7 @@ export default async function Webdev() {
           Northwestern University | Evanston, IL
       </small>
       <p>
-          A 24-week intensive program focused on gaining technical programming skills in HTML5, CSS3, JavaScript, jQuery, Bootstrap, Firebase, Node.js, MySQL, MongoDB, Express, Handlebars.js, and React.js.
+          A 24-week intensive program covering HTML, CSS, JavaScript, React, Node.js, and database management.
       </p>
      </li>
      <li>
@@ -99,10 +100,9 @@ export default async function Webdev() {
     <WebContact/>
    </main>
    <aside className={styles.oneMoreThing}>
-    <h2 className={grandstander.className}>One more thing!</h2>
-    <p>Art helps my coding and coding helps my art.</p>
-    <p>Learning JavaScript has helped me with 2D animations via Adobe After Effects Expressions. Similarly, Python scripts have been helpful in Blender, even when using Grease Pencil. Here, I also created my own Lottie files with Adobe After Effects.
-    I can&apos;t wait to make cool stuff as I learn to mix these two passions more and more.</p>
+    <h2 className={grandstander.className}>Art & Code—The Best of Both Worlds</h2>
+    <p>Art helps my coding, and coding helps my art.</p>
+    <p>Learning JavaScript has enhanced my 2D animations in Adobe After Effects through Expressions, while Python scripting in Blender has expanded what I can create. I&apos;ve also developed custom Lottie animations using After Effects to bring web interfaces to life. Every day, I find new ways to blend these two passions, and I can&apos;t wait to explore more.</p>
    </aside>
   </>
  )

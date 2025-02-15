@@ -177,6 +177,7 @@
 .project {
   border-radius: 15px;
   width: 55%;
+  max-height: 90%;
   padding: 2rem;
   z-index: 20;
   position: fixed;
@@ -198,6 +199,15 @@
     padding: 1rem;
   }
 }
+.projectDescription {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  scrollbar-width: auto;
+  scrollbar-color: var(--light-green) #fff;
+  scrollbar-gutter: stable both-edges;
+}
+
 .backdrop {
   width: 100vw;
   height: 100vh;
