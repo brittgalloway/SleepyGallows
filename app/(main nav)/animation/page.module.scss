@@ -82,6 +82,39 @@
     width: 100%;
     font-weight: 700;
   }
+  summary::marker {
+    color: var(--brand-color);
+  }
+  details {
+    inline-size: 50ch;
+    p {
+      margin-top: 0;
+      a {
+        word-break: break-all;
+      }
+    }
+    &::details-content {
+      word-break: auto-phrase;
+      opacity: 0;
+      block-size: 0;
+      height: auto;
+      overflow: clip; 
+      transition: content-visibility 1s allow-discrete,
+                  opacity 1s,
+                  block-size 1s;
+      background: white;
+      border: 1px solid purple;
+      border-radius: 4px;
+      padding: 1rem;
+      margin-top: 1rem;
+      position: absolute;
+      width: 266px;
+    }
+    &[open]::details-content {
+      opacity: 1;
+      block-size: auto;
+    }
+  }
 }
 .projectWrapper {
   padding-top: 2rem;
