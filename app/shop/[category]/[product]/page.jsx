@@ -4,7 +4,7 @@ import { ProductImages } from '@/components/productImages'
 import AddToCart from '@/components/addToCart'
 import { performRequest } from '@/lib/datocms'
 import { USD } from '@/lib/utils'
-import { STRIPE_SECRET } from '@/lib/stripe'
+import { stripe } from '@/lib/stripe'
 import style from '@/style/product.module.scss'
 import layoutStyle from '@/shop/page.module.scss'
 
@@ -43,8 +43,6 @@ export default async function Product( {params} ) {
     }
   `;
   const { data: { shop } } = await performRequest({ query: PAGE_CONTENT_QUERY });
-
-  const stripe = require('stripe')(STRIPE_SECRET);
 
   const product = await stripe.products.retrieve(shop?.id);
 

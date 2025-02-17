@@ -2,14 +2,10 @@
 'use client'
 import { useState } from 'react'
 import { useCartContext } from '@/shop/cartContext'
-import { STRIPE_PUBLIC} from '@/lib/stripe'
-import { loadStripe } from '@stripe/stripe-js'
+import { stripePromise} from '@/lib/stripe'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faBagShopping} from '@fortawesome/free-solid-svg-icons'
 import styles from '@/style/shopHeader.module.scss'
-
-
-const stripePromise = loadStripe(STRIPE_PUBLIC);
 
 export default function Checkout() {
   const [loading, setLoading] = useState(false);

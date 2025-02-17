@@ -1,9 +1,6 @@
 import { NextResponse } from 'next/server'
-import Stripe from 'stripe'
 import { lineItems } from '@/lib/lineItems'
-import { STRIPE_SECRET } from '@/lib/stripe'
-
-const stripe = new Stripe(STRIPE_SECRET);
+import { stripe } from '@/lib/stripe'
 
 export async function POST(req) {
   try {
