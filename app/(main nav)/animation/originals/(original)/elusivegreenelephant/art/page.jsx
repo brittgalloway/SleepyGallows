@@ -37,7 +37,7 @@ export default async function EgeWatch() {
       <header>
         <OriginalsNav 
           navLabel={original.link}/>
-        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>Art of {original.name}</h1>
+        <h1 className={`${textStyles.text_center } ${cinzel_decorative.className}`}>Art of {original.name}</h1>
       </header>
       <div>
         <Grid

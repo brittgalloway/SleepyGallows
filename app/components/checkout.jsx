@@ -19,7 +19,7 @@ export default function Checkout() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ items: cart.items }), // Send only plain objects
+      body: JSON.stringify({ items: cart.items }),
     });
   
     const session = await response.json();

@@ -2,6 +2,7 @@ import { lato } from '@/fonts'
 import MainNavigation from '@/components/MainNavigation'
 import AnimationNav from '@/components/Nav'
 import { Footer } from '@/components/Footer'
+import styles from '@/animation/page.module.scss'
 import '@/style/globals.scss'
 
 export const metadata = {
@@ -15,9 +16,9 @@ export default function RootLayout({children}) {
     <html lang="en">
       <body className={lato.className}>
         <MainNavigation/>
-        <main>
-            <AnimationNav/>
-            {children}
+        <main className={styles.main}>
+          <AnimationNav/>
+          {children}
         </main>
         <Footer
           name={'Sleepy Gallows'}

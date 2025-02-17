@@ -36,10 +36,10 @@ export default async function PlhAbout() {
       <header>
         <OriginalsNav 
           navLabel={original.link}/>
-        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>What is {original.name}?</h1>
+        <h1 className={`${textStyles.text_center } ${cinzel_decorative.className}`}>What is {original.name}?</h1>
       </header>
       <p dangerouslySetInnerHTML={{ __html: original.summary }}/>
-      <h2 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>
+      <h2 className={`${textStyles.text_center } ${cinzel_decorative.className}`}>
         Characters
       </h2>
       <div className={styles.videoWrapper}>

@@ -16,20 +16,19 @@ export default function Animation() {
     ['For Fun', styles.fun, styles.img, 'fun', 'https://www.datocms-assets.com/53347/1630810673-crushsm.png', 'Link to page of short fun animations. This is a drawing of Yuna inspired by her Chapters album visuals'],
   ];
   return (
-    <main className={styles.main}> 
-    {links.map((link, index)=> (
-      <Link key={index} className={link[1]} href={`/animation/${link[3]}`}>
-        <p className={`${styles.p} ${cinzel_decorative.className}`}>{link[0]}</p>
-        <Image 
-        className={link[2]}
-        src={link[4]} 
-        alt={link[5]}
-        width={900}
-        height={300}
-        />
-      </Link>
-    ))}
-
+    <main> 
+      {links.map((link, index)=> (
+        <Link key={index} className={link[1]} href={`/animation/${link[3]}`}>
+          <p className={`${styles.p} ${cinzel_decorative.className}`}>{link[0]}</p>
+          <Image 
+          className={link[2]}
+          src={link[4]} 
+          alt={link[5]}
+          width={900}
+          height={300}
+          />
+        </Link>
+      ))}
     </main>
   )
 }

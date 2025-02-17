@@ -1,8 +1,10 @@
 .main {
   padding:0;
-  height: 100vh;
-  overflow-y: hidden;
+  height: 95vh;
+  width: 80%;
+  overflow-y: auto;
   overflow-x: hidden;
+  margin-left: auto;
   @media(max-width: 830px){
     width: 100%;
   }
@@ -71,11 +73,14 @@
 }
 .videoWrapper {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content:center;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
 }
 .video {
+  margin: 0;
   summary {
     width: 100%;
     font-weight: 700;
@@ -84,7 +89,6 @@
     color: var(--brand-color);
   }
   details {
-    inline-size: 50ch;
     p {
       margin-top: 0;
       a {

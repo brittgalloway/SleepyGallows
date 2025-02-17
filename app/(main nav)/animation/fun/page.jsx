@@ -29,7 +29,7 @@ export default async function Fun() {
       <main> 
         <header>
           <AnimationNav/>
-          <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>Passion Projects</h1>
+          <h1 className={`${textStyles.text_center } ${cinzel_decorative.className}`}>Passion Projects</h1>
         </header>
         <div className={styles.videoWrapper}>
           {allForFuns.map((project)=> (
