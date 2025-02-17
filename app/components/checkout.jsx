@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faBagShopping} from '@fortawesome/free-solid-svg-icons'
 import styles from '@/style/shopHeader.module.scss'
 
-require('dotenv').config();
 
 const stripePromise = loadStripe(STRIPE_PUBLIC);
 

@@ -39,8 +39,10 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "next.config.js"  ],
+    "**/*.tsx", 
+    "next.config.js", 
+    "app/shop/[category]/[product]/error.jsx"  
+  ],
   "exclude": [
     "node_modules"
   ]

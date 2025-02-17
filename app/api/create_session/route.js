@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
-import { lineItems } from '@/lib/lineItems';
+import { lineItems } from '@/lib/lineItems'
+import { STRIPE_SECRET } from '@/lib/stripe'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST);
+const stripe = new Stripe(STRIPE_SECRET);
 
 export async function POST(req) {
   try {
