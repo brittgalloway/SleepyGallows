@@ -1,20 +1,23 @@
 import { NextResponse } from 'next/server'
-import { lineItems } from '@/lib/lineItems'
 import { stripe } from '@/lib/stripe'
 
 export async function POST(req) {
   try {
-    console.log("line",lineItems());
     const { origin } = new URL(req.url);
+    const { items } = await req.json(); // Extract cart items
+
+    if (!items || items.length === 0) {
+      return NextResponse.json({ error: "Cart is empty" }, { status: 400 });
+    }
+
+    const lineItems = items.map(item => ({
+      price: item?.price,
+      quantity: item?.quantity,
+    }));
+
     const session = await stripe.checkout.sessions.create({
-      // ui_mode: 'embedded',
       payment_method_types: ['card'],
-      line_items: [
-        {
-          price: '{{PRICE_ID}}',
-          quantity: 1,
-        },
-      ],
+      line_items: lineItems, 
       mode: 'payment',
       success_url: `${origin}/return?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/shop`,
@@ -22,9 +25,11 @@ export async function POST(req) {
 
     return NextResponse.json({ id: session.id }, { status: 200 });
   } catch (err) {
+    console.log(lineItems)
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }
+
 
 export async function OPTIONS() {
   return NextResponse.json({ message: 'POST method is allowed' }, { status: 200, headers: { Allow: 'POST' } });
