@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server'
 import { performRequest } from '@/lib/datocms'
-import { STRIPE_SERECT } from '@/lib/stripe'
+import { STRIPE_SECRET } from '@/lib/stripe'
 import Stripe from 'stripe'
 
-const stripe = new Stripe(STRIPE_SERECT);
+const stripe = new Stripe(STRIPE_SECRET);
 
 const PAGE_CONTENT_QUERY = `
 query Shop {
