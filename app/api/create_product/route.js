@@ -4,44 +4,44 @@ import { stripe } from '@/lib/stripe'
 
 const PAGE_CONTENT_QUERY = `
 query Shop {
-  allShops {
+  shop(orderBy: createdAt_DESC) {
+    createdAt
     productName
     id
     price
-    shippable
-    shortDescription
+    productDescriptions
     productDisplay {
       responsiveImage {
         src
       }
     }
+    shippable
+    shortDescription
+    stock
   }
 }
 `;
 
 export async function GET() {
   try {
-    const { data: { allShops } } = await performRequest({ query: PAGE_CONTENT_QUERY });
+    const { data: { shop } } = await performRequest({ query: PAGE_CONTENT_QUERY });
 
-    const productPromises = allShops.map(async (datoProduct) => {
       const product = await stripe.products.create({
-        name: datoProduct.productName,
-        id: datoProduct.id,
+        name: shop.productName,
+        id: shop.id,
         active: true,
-        shippable: datoProduct.shippable,
+        shippable: shop.shippable,
         unit_label: 'Qty',
-        images: [datoProduct.productDisplay[0].responsiveImage.src],
+        images: [shop.productDisplay[0].responsiveImage.src],
         default_price_data: {
           currency: 'usd',
-          unit_amount_decimal: parseInt(datoProduct.price, 10) * 100,
+          unit_amount_decimal: parseInt(shop.price, 10) * 100,
         },
         tax_code: 'txcd_99999999',
-        description: datoProduct.shortDescription,
+        description: shop.shortDescription,
       });
-      return { id: product.id };
-    });
 
-    const createdProducts = await Promise.all(productPromises);
+    const createdProducts = await Promise(product);
     return NextResponse.json({ createdProducts }, { status: 200 });
   } catch (err) {
     console.error('Error creating products:', err);
