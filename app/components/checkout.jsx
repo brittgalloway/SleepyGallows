@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useCartContext } from '@/shop/cartContext'
 import { stripePromise} from '@/lib/stripe'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping, faBagShopping} from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping} from '@fortawesome/free-solid-svg-icons'
 import styles from '@/style/shopHeader.module.scss'
 
 export default function Checkout() {
@@ -34,7 +34,7 @@ export default function Checkout() {
   
   return (
       <span onClick={handleCheckout} className={styles.checkout}>
-        {loading ? <FontAwesomeIcon icon={faBagShopping} className={styles.loading} /> : <FontAwesomeIcon icon={faBagShopping}/>}
+        {loading ? <FontAwesomeIcon icon={faCartShopping} className={styles.loading} /> : <FontAwesomeIcon icon={faCartShopping}/>}
         {cart.count}
       </span>
   );

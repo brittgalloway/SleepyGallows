@@ -20,7 +20,7 @@ export async function POST(req) {
       line_items: lineItems,
       mode: 'payment',
       success_url: `${origin}/return?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/shop`,
+      cancel_url: `${origin}/shop`, //update this, back to the last product: https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#using-the-native-history-api
     });
 
     return NextResponse.json({ id: session.id }, { status: 200 });
