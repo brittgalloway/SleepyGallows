@@ -1,36 +1,31 @@
 'use client'
-import Script from 'next/script'
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import { PATRON_LINK, PATRON_LINK_MONTHLY, PATRON_LINK_YEARLY } from '@/lib/stripe';
 import styles from '../page.module.scss';
 
-export default function PatronButton() {
-	const [accessPayPal, setaccessPayPal] = useState(false);
-	useEffect(() => {
-	  setaccessPayPal(true);
-	}, [accessPayPal]);
+export function StripeButton() {
+	const [ patronLevel, setPatronLevel ] = useState(PATRON_LINK_MONTHLY);
+
+	const onLevelChange = level => {
+		setPatronLevel(level.target.value)
+	  }
+
 	return (
-	  <>
-	  {/* consider making the hosted button id a variable */}
-		{
-		  accessPayPal === true ?  
-		  <div id="donate-button-container">
-			  <div id="donate-button" className={styles.donate}></div>
-				<Script id="donate-button-script">
-					{`
-					PayPal.Donation.Button({
-						env:'production',
-						hosted_button_id:'2HJN6ZN822T6S', 
-						image: {
-						src:'https://pics.paypal.com/00/s/MDBiMGNkZDctZTNhMi00M2FiLWE5NjUtODM2NWIzZTM2NGE0/file.PNG',
-						alt:'Donate with PayPal button',
-						title:'PayPal - The safer, easier way to pay online!',
-						}
-					}).render('#donate-button');
-					`}
-				</Script>
-			  </div>
-			   : false
-			}
-		</>
-	);
+		<fieldset>
+			<legend>Become a Patron</legend>
+			<label>
+				One-Time
+				<input type="radio" name={'patron'} value={PATRON_LINK} onChange={onLevelChange}/>
+			</label>
+			<label>
+				Monthly
+				<input type="radio" defaultChecked name={'patron'} value={PATRON_LINK_MONTHLY} onChange={onLevelChange}/>
+			</label>
+			<label>
+				Yearly
+				<input type="radio" name={'patron'} value={PATRON_LINK_YEARLY} onChange={onLevelChange}/>
+			</label>
+			<a href={patronLevel}>Support</a>
+		</fieldset>
+	)
 }

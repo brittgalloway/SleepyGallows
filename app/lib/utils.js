@@ -13,9 +13,9 @@
     triplet(0, r, g) + triplet(b, 255, 255)
   }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`;
 
-  export const USD = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+export const USD = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
 });
 
 export const year = new Date().getFullYear();

@@ -1,4 +1,3 @@
-// pages/checkout.js
 'use client'
 import { useState } from 'react'
 import { useCartContext } from '@/shop/cartContext'
