@@ -80,23 +80,23 @@
 }
 .product_display {
     display: block;
-    transition: all .2s ease-in-out 0s;
+    transition: all var(--transition) ease-in-out 0s;
     p, div {
         padding: 0 5px;
-        transition: all .2s ease-in-out 0s;
+        transition: all var(--transition) ease-in-out 0s;
     }
     &:hover {
         text-decoration: none;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         overflow: hidden;
-        transition: all .2s ease-in-out 0s;
+        transition: all var(--transition) ease-in-out 0s;
         border-radius: var(--border-radius);
         img {
             border-radius: var(--border-radius_flat-bottom);
         }
         p, div {
             padding: 0 5px;
-            transition: all .2s ease-in-out 0s;
+            transition: all var(--transition) ease-in-out 0s;
             @media(max-width: 830px) {
                 padding: 0 2.5px;
             }

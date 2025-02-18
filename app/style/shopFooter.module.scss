@@ -35,6 +35,7 @@
         color: var(--text-color);
         font-weight: 400;
         font-size: 1rem;
+        transition: color var(--transition);
     }
     @media(min-width: 830px) {
         gap: 6rem;

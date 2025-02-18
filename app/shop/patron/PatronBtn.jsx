@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react"
 import { PATRON_LINK, PATRON_LINK_MONTHLY, PATRON_LINK_YEARLY } from '@/lib/stripe';
-import styles from '../page.module.scss';
+import patronStyles from '@/shop/patron/patron.module.scss'
 
 export function StripeButton() {
 	const [ patronLevel, setPatronLevel ] = useState(PATRON_LINK_MONTHLY);
@@ -11,7 +11,7 @@ export function StripeButton() {
 	  }
 
 	return (
-		<fieldset>
+		<fieldset className={patronStyles.fieldset}>
 			<legend>Become a Patron</legend>
 			<label>
 				One-Time

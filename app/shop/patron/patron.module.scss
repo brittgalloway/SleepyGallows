@@ -1,0 +1,49 @@
+.patron_h1 {
+    font-size: 1.25rem;
+    color: var(--brand-color);
+  }
+.patronText strong {
+    color: var(--brand-color);
+}
+.fieldset {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 3rem 1rem;
+  width:60%;
+  margin: 3rem auto;
+  border: 2px solid var(--brand-color);
+  border-radius: var(--border-radius);
+  padding: 2rem 1rem;
+  legend {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    padding: 0;
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--brand-color);
+    font-weight: 700;
+    text-align: center;
+  }
+  label {
+    grid-row: 2/3;
+    justify-self: center;
+    font-size: 1rem;
+  }
+  a {
+    grid-column: 1/4;
+    grid-row: 3/4;
+    justify-self: center;
+    border: 2px solid var(--brand-color);
+    border-radius: var(--border-radius);
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    transition: all var(--transition);
+    &:hover,
+    &:active {
+      background-color: var(--brand-color);
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}

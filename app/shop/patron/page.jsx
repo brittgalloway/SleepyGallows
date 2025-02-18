@@ -1,6 +1,7 @@
 import { performRequest } from '@/lib/datocms'
 import { lato } from '@/fonts'
 import styles from '@/shop/page.module.scss'
+import patronStyles from '@/shop/patron/patron.module.scss'
 import { StripeButton } from './PatronBtn'
 
 
@@ -24,8 +25,8 @@ export default async function Patron() {
 
   return (
     <main className={styles.main}>
-      <h1 className={styles.patron_h1}>{patron?.header}</h1>
-      <div className={`${lato.className}`} dangerouslySetInnerHTML={{__html: patron?.patronText}} />
+      <h1 className={patronStyles.patron_h1}>{patron?.header}</h1>
+      <div className={`${lato.className} ${patronStyles.patronText}`} dangerouslySetInnerHTML={{__html: patron?.patronText}} />
       <StripeButton/>
       <p className={`${lato.className}`}>Or, if you&apos;d prefer, you can buy me a <a href="https://ko-fi.com/sleepygallows">Kofi</a></p>
     </main>

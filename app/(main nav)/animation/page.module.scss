@@ -92,6 +92,7 @@
     p {
       margin-top: 0;
       a {
+        transition: color var(--transition);
         word-break: break-all;
       }
     }
@@ -128,7 +129,7 @@
   }
 }
 .project {
-  transition: scale .2s ease-in-out;
+  transition: scale var(--transition) ease-in-out;
   border-radius: 4px;
   &:hover{
     transform: scale(1.05);
