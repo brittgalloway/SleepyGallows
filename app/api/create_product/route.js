@@ -41,10 +41,10 @@ export async function GET() {
         description: shop.shortDescription,
       });
 
-    const createdProducts = await Promise(product);
-    return NextResponse.json({ createdProducts }, { status: 200 });
-  } catch (err) {
-    console.error('Error creating products:', err);
-    return NextResponse.json({ error: err.message }, { status: 500 });
+    const createdProduct = await Promise(product);
+    return NextResponse.json({ createdProduct }, { status: 200 });
+  } catch (error) {
+    console.error('Error creating products:', error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

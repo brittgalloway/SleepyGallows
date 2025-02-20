@@ -5,45 +5,41 @@
 .patronText strong {
     color: var(--brand-color);
 }
-.fieldset {
+.form {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, auto);
-  gap: 3rem 1rem;
-  width:60%;
-  margin: 3rem auto;
-  border: 2px solid var(--brand-color);
+  border: 1px solid var(--purple-highlight);
   border-radius: var(--border-radius);
-  padding: 2rem 1rem;
-  legend {
-    grid-column: 1/4;
-    grid-row: 1/2;
-    padding: 0;
-    margin: 0;
-    font-size: 1.5rem;
+  width: 60%;
+  margin: 3rem auto;
+  h2 {
     color: var(--brand-color);
-    font-weight: 700;
     text-align: center;
+
   }
+}
+.fieldset {
+  display: inherit;
+  grid-template-columns: repeat(3, 1fr);
+  gap:1rem;
+  border: none;
   label {
     grid-row: 2/3;
     justify-self: center;
     font-size: 1rem;
   }
-  a {
-    grid-column: 1/4;
-    grid-row: 3/4;
-    justify-self: center;
-    border: 2px solid var(--brand-color);
-    border-radius: var(--border-radius);
-    padding: 1rem 2rem;
-    margin-bottom: 2rem;
-    transition: all var(--transition);
-    &:hover,
-    &:active {
-      background-color: var(--brand-color);
-      color: #fff;
-      text-decoration: none;
-    }
+}
+.support {
+  justify-self: center;
+  background-color: #fff;
+  border: 2px solid var(--brand-color);
+  border-radius: var(--border-radius);
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  transition: all var(--transition);
+  &:hover,
+  &:active {
+    background-color: var(--brand-color);
+    color: #fff;
+    text-decoration: none;
   }
 }
