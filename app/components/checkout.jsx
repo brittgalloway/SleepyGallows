@@ -13,14 +13,13 @@ export default function Checkout() {
   const handleCheckout = async () => {
     setLoading(true);
   
-    const response = await fetch('/api/create_session', {
+    const response = await fetch('/api/create_checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ items: cart.items }),
     });
-  
     const session = await response.json();
   
     const stripe = await stripePromise;

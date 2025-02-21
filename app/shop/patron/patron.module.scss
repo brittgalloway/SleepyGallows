@@ -23,9 +23,16 @@
   gap:1rem;
   border: none;
   label {
-    grid-row: 2/3;
+    grid-row: 1/2;
     justify-self: center;
     font-size: 1rem;
+  }
+}
+.prices {
+  grid-template-rows: repeat(2, auto);
+  label:last-child {
+    grid-row: 2/3;
+    grid-column: 1/4;
   }
 }
 .support {

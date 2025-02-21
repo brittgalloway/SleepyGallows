@@ -1,8 +1,10 @@
 'use client'
 import { useState } from "react"
-import { PATRON_LINK_CHOOSE,
+import { stripePromise} from '@/lib/stripe'
+import { 
 	PATRON_LINK_5,
 	PATRON_LINK_10,
+	PATRON_LINK_15,
 	PATRON_LINK_MONTHLY_5,
 	PATRON_LINK_MONTHLY_10,
 	PATRON_LINK_MONTHLY_15,
@@ -14,16 +16,61 @@ import patronStyles from '@/shop/patron/patron.module.scss'
 
 export function StripeButton() {
 	const [ patronFrequency, setPatronFrequency ] = useState('monthly');
-	const [ patronAount, setPatronAount ] = useState(PATRON_LINK_MONTHLY_5);
+	const [ patronAmount, setPatronAmount ] = useState(PATRON_LINK_MONTHLY_5);
 
-	const onFrequencyChange = frequncy => {
-		setPatronFrequency(frequncy.target.value);
+	const onFrequencyChange = (event) => {
+		const frequency = event.target.value;
+		setPatronFrequency(frequency);
+		if (frequency == 'monthly'){
+			setPatronAmount(PATRON_LINK_MONTHLY_5);
+		}
+		else if (frequency == 'yearly'){
+			setPatronAmount(PATRON_LINK_YEARLY_60);
+		}
+		else {
+			setPatronAmount(PATRON_LINK_5);
+		}
 	}
 
-	const onAmountChange = amount => {
-		setPatronAount(amount.target.value);
-	}
+	const onAmountChange = (event) => {
+		const selectedAmount = JSON.parse(event.target.dataset.amount);
+		setPatronAmount(selectedAmount);
+		
+	};
+	const onValueChange = (event) => {
+		const price = event.target.value;
+		const interval = event.target.dataset.interval !== 'once' ? event.target.dataset.interval : null;
+		setPatronAmount(
+			{
+				price: price,
+				interval: interval,
+			}
+		);
 
+	};
+	const handleCheckout = async () => {
+	  
+		const response = await fetch('/api/create_patron', {
+		  method: 'POST',
+		  headers: {
+			'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify({ patron:
+			{
+				price: parseFloat(patronAmount.price).toFixed(2),
+				interval: patronAmount.interval,
+			}
+		  }),
+		});
+	  
+		const session = await response.json();
+	  
+		const stripe = await stripePromise;
+		const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
+		if (error) {
+		  console.error('Error:', error);
+		}
+	  };
 	return (
 		<form className={patronStyles.form}> 
 				<h2>Become a Patron</h2>
@@ -42,57 +89,78 @@ export function StripeButton() {
 				</label>
 			</fieldset>
 			{patronFrequency == 'monthly' ? (
-				<fieldset className={patronStyles.fieldset} >
+				<fieldset className={`${patronStyles.fieldset} ${patronStyles.prices}`} >
 					<label>
-					$5
-					<input type="radio" name='monthly_amount' defaultChecked value={PATRON_LINK_MONTHLY_5} onChange={onAmountChange}/>
-				</label>
-				<label>
-					$10
-					<input type="radio" name='monthly_amount' value={PATRON_LINK_MONTHLY_10} onChange={onAmountChange}/>
-				</label>
-				<label>
-					$15
-				<input type="radio" name='monthly_amount' value={PATRON_LINK_MONTHLY_15} onChange={onAmountChange}/>
-				</label>
+						$5
+						<input type="radio" name='monthly_amount' defaultChecked data-amount={JSON.stringify(PATRON_LINK_MONTHLY_5)} onChange={onAmountChange}/>
+					</label>
+					<label>
+						$10
+						<input type="radio" name='monthly_amount' data-amount={JSON.stringify(PATRON_LINK_MONTHLY_10)} onChange={onAmountChange}/>
+					</label>
+					<label>
+						$15
+						<input type="radio" name='monthly_amount' data-amount={JSON.stringify(PATRON_LINK_MONTHLY_15)} onChange={onAmountChange}/>
+					</label>
+					<label>
+						Patron's Choice
+						<input type="number" 
+							name='monthly_amount' 
+							data-interval='month' 
+							onChange={onValueChange}/>
+					</label>
 				</fieldset>
 				) : ''
 			}
 			{patronFrequency == 'once' ? (
-				<fieldset className={patronStyles.fieldset} >
+				<fieldset className={`${patronStyles.fieldset} ${patronStyles.prices}`} >
 					<label>
 					$5
-					<input type="radio" name='one_amount' defaultChecked value={PATRON_LINK_5} onChange={onAmountChange}/>
+					<input type="radio" name='one_amount' defaultChecked data-amount={JSON.stringify(PATRON_LINK_5)} onChange={onAmountChange}/>
 				</label>
 				<label>
 					$10
-					<input type="radio" name='one_amount' value={PATRON_LINK_10} onChange={onAmountChange}/>
+					<input type="radio" name='one_amount' data-amount={JSON.stringify(PATRON_LINK_10)} onChange={onAmountChange}/>
 				</label>
 				<label>
-					Pay What you want
-					<input type="number" name='one_amount' placeholder="$5" onChange={onAmountChange}/>
+					$15
+					<input type="radio" name='one_amount' data-amount={JSON.stringify(PATRON_LINK_15)} onChange={onAmountChange}/>
 				</label>
+				<label>
+					Patron's Choice
+					<input type="number"
+						name='one_amount' 
+						data-interval='once'
+						onChange={onValueChange}/>
+					</label>
 				</fieldset>
 				) : ''
 			}
 			{patronFrequency == 'yearly' ? (
-				<fieldset className={patronStyles.fieldset}>
+				<fieldset className={`${patronStyles.fieldset} ${patronStyles.prices}`}>
 					<label>
-					$12
-					<input type="radio" name='yearly_amount' value={PATRON_LINK_YEARLY_12} onChange={onAmountChange}/>
-				</label>
-				<label>
-					$60
-					<input type="radio" name='yearly_amount' defaultChecked value={PATRON_LINK_YEARLY_60} onChange={onAmountChange}/>
-				</label>
-				<label>
-					$120
-					<input type="radio" name='yearly_amount' value={PATRON_LINK_YEARLY_120} onChange={onAmountChange}/>
-				</label>
+						$12
+						<input type="radio" name='yearly_amount' data-amount={JSON.stringify(PATRON_LINK_YEARLY_12)} onChange={onAmountChange}/>
+					</label>
+					<label>
+						$60
+						<input type="radio" name='yearly_amount' defaultChecked data-amount={JSON.stringify(PATRON_LINK_YEARLY_60)} onChange={onAmountChange}/>
+					</label>
+					<label>
+						$120
+						<input type="radio" name='yearly_amount' data-amount={JSON.stringify(PATRON_LINK_YEARLY_120)} onChange={onAmountChange}/>
+					</label>
+					<label>
+						Patron's Choice
+						<input type="number" name='yearly_amount' 
+							data-interval='year'
+							onChange={onValueChange}/>
+					</label>
 				</fieldset>
 				) : ''
 			}
-			<a href={patronAount} className={patronStyles.support}>Support</a>
+			<button type="button" onClick={handleCheckout} className={patronStyles.support}>Support</button>
 		</form>
 	)
+
 }
