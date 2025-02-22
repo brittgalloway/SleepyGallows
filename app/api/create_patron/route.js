@@ -11,57 +11,57 @@ export async function POST(req) {
       return NextResponse.json({ error: "Patron tier not selected" }, { status: 400 });
     }
 
-    const successURL = `${origin}/return?session_id={CHECKOUT_SESSION_ID}`; // make a sucess page
+    const successURL = `${origin}/shop/patron/thank_you_patron`;
     const cancelURL = `${origin}/shop/patron`;
 
     const session = patron.interval === null ? 
-    await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
-      line_items:[ 
-        {
-          quantity: 1,
-          price_data: {
-            currency: 'usd',
-            product: PATRON_PRODUCT,
-            unit_amount: patron?.price * 100,
-          }
-        }
-      ],
-      mode: 'payment',
-      success_url: successURL,
-      cancel_url: cancelURL,
-      automatic_tax: {
-        enabled: false
-      }
-    }) : await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
-      line_items:[ 
-        {
-          quantity: 1,
-          price_data: {
-            currency: 'usd',
-            product: PATRON_PRODUCT,
-            unit_amount: patron?.price * 100,
-            recurring : {
-              interval: patron?.interval, 
+      await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items:[ 
+          {
+            quantity: 1,
+            price_data: {
+              currency: 'usd',
+              product: PATRON_PRODUCT,
+              unit_amount: patron?.price * 100,
             }
           }
+        ],
+        mode: 'payment',
+        success_url: successURL,
+        cancel_url: cancelURL,
+        automatic_tax: {
+          enabled: false
         }
-      ],
-      mode: 'subscription',
-      success_url: successURL,
-      cancel_url: cancelURL,
-      automatic_tax: {
-        enabled: false
-      }
-    }) ;
+      }) : await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items:[ 
+          {
+            quantity: 1,
+            price_data: {
+              currency: 'usd',
+              product: PATRON_PRODUCT,
+              unit_amount: patron?.price * 100,
+              recurring : {
+                interval: patron?.interval, 
+              }
+            }
+          }
+        ],
+        mode: 'subscription',
+        submit_type: 'donate',
+        success_url: successURL,
+        cancel_url: cancelURL,
+        automatic_tax: {
+          enabled: false
+        }
+      }) ;
 
     return NextResponse.json({ id: session.id }, { status: 200 });
   } catch (err) {
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }
-
 
 export async function OPTIONS() {
   return NextResponse.json({ message: 'POST method is allowed' }, { status: 200, headers: { Allow: 'POST' } });

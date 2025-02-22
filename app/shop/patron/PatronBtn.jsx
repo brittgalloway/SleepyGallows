@@ -14,7 +14,7 @@ import {
  } from '@/lib/stripe';
 import patronStyles from '@/shop/patron/patron.module.scss'
 
-export function StripeButton() {
+export function StripePatron() {
 	const [ patronFrequency, setPatronFrequency ] = useState('monthly');
 	const [ patronAmount, setPatronAmount ] = useState(PATRON_LINK_MONTHLY_5);
 

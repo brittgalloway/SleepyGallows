@@ -45,13 +45,15 @@ describe('Patron variables required to pass the correct data are valid', () => {
     });
 });
 
-describe('Patron choosing the payment price and frequency', () => {
-    it('shoud select the default price, when changing the Payment Frequency', () => {});
-    it('should be a whole number when the user inputs their own price, 1.50 should fail', () => {});
-
-});
 describe('Patron redirects after success or canceled/failed transactions', () => {
     it('should send the user back to /patron if the payment/cart is failed or cancelled', () => {});
     it('should send the user to /patron/thank_you_patron if the payment is sucessful', () => {});
     it('should create a new promotion code when /thank_you_patron triggers /api/create_promotion', () =>{});
+});
+
+/* @jest-environment jsdom */
+describe('Patron choosing the payment price and frequency', () => {
+    it('shoud select the default price, when changing the Payment Frequency', () => {});
+    it('should be a whole number when the user inputs their own price, 1.50 should fail', () => {});
+
 });
