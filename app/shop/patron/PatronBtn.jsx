@@ -2,33 +2,33 @@
 import { useState } from "react"
 import { stripePromise} from '@/lib/stripe'
 import { 
-	PATRON_LINK_5,
-	PATRON_LINK_10,
-	PATRON_LINK_15,
-	PATRON_LINK_MONTHLY_5,
-	PATRON_LINK_MONTHLY_10,
-	PATRON_LINK_MONTHLY_15,
-	PATRON_LINK_YEARLY_12,
-	PATRON_LINK_YEARLY_60,
-	PATRON_LINK_YEARLY_120
+	PATRON_5,
+	PATRON_10,
+	PATRON_15,
+	PATRON_MONTHLY_5,
+	PATRON_MONTHLY_10,
+	PATRON_MONTHLY_15,
+	PATRON_YEARLY_12,
+	PATRON_YEARLY_60,
+	PATRON_YEARLY_120
  } from '@/lib/stripe';
 import patronStyles from '@/shop/patron/patron.module.scss'
 
 export function StripePatron() {
 	const [ patronFrequency, setPatronFrequency ] = useState('monthly');
-	const [ patronAmount, setPatronAmount ] = useState(PATRON_LINK_MONTHLY_5);
+	const [ patronAmount, setPatronAmount ] = useState(PATRON_MONTHLY_5);
 
 	const onFrequencyChange = (event) => {
 		const frequency = event.target.value;
 		setPatronFrequency(frequency);
 		if (frequency == 'monthly'){
-			setPatronAmount(PATRON_LINK_MONTHLY_5);
+			setPatronAmount(PATRON_MONTHLY_5);
 		}
 		else if (frequency == 'yearly'){
-			setPatronAmount(PATRON_LINK_YEARLY_60);
+			setPatronAmount(PATRON_YEARLY_60);
 		}
 		else {
-			setPatronAmount(PATRON_LINK_5);
+			setPatronAmount(PATRON_5);
 		}
 	}
 
@@ -92,15 +92,15 @@ export function StripePatron() {
 				<fieldset className={`${patronStyles.fieldset} ${patronStyles.prices}`} >
 					<label>
 						$5
-						<input type="radio" name='monthly_amount' defaultChecked data-amount={JSON.stringify(PATRON_LINK_MONTHLY_5)} onChange={onAmountChange}/>
+						<input type="radio" name='monthly_amount' defaultChecked data-amount={JSON.stringify(PATRON_MONTHLY_5)} onChange={onAmountChange}/>
 					</label>
 					<label>
 						$10
-						<input type="radio" name='monthly_amount' data-amount={JSON.stringify(PATRON_LINK_MONTHLY_10)} onChange={onAmountChange}/>
+						<input type="radio" name='monthly_amount' data-amount={JSON.stringify(PATRON_MONTHLY_10)} onChange={onAmountChange}/>
 					</label>
 					<label>
 						$15
-						<input type="radio" name='monthly_amount' data-amount={JSON.stringify(PATRON_LINK_MONTHLY_15)} onChange={onAmountChange}/>
+						<input type="radio" name='monthly_amount' data-amount={JSON.stringify(PATRON_MONTHLY_15)} onChange={onAmountChange}/>
 					</label>
 					<label>
 						Patron's Choice
@@ -116,15 +116,15 @@ export function StripePatron() {
 				<fieldset className={`${patronStyles.fieldset} ${patronStyles.prices}`} >
 					<label>
 					$5
-					<input type="radio" name='one_amount' defaultChecked data-amount={JSON.stringify(PATRON_LINK_5)} onChange={onAmountChange}/>
+					<input type="radio" name='one_amount' defaultChecked data-amount={JSON.stringify(PATRON_5)} onChange={onAmountChange}/>
 				</label>
 				<label>
 					$10
-					<input type="radio" name='one_amount' data-amount={JSON.stringify(PATRON_LINK_10)} onChange={onAmountChange}/>
+					<input type="radio" name='one_amount' data-amount={JSON.stringify(PATRON_10)} onChange={onAmountChange}/>
 				</label>
 				<label>
 					$15
-					<input type="radio" name='one_amount' data-amount={JSON.stringify(PATRON_LINK_15)} onChange={onAmountChange}/>
+					<input type="radio" name='one_amount' data-amount={JSON.stringify(PATRON_15)} onChange={onAmountChange}/>
 				</label>
 				<label>
 					Patron's Choice
@@ -140,15 +140,15 @@ export function StripePatron() {
 				<fieldset className={`${patronStyles.fieldset} ${patronStyles.prices}`}>
 					<label>
 						$12
-						<input type="radio" name='yearly_amount' data-amount={JSON.stringify(PATRON_LINK_YEARLY_12)} onChange={onAmountChange}/>
+						<input type="radio" name='yearly_amount' data-amount={JSON.stringify(PATRON_YEARLY_12)} onChange={onAmountChange}/>
 					</label>
 					<label>
 						$60
-						<input type="radio" name='yearly_amount' defaultChecked data-amount={JSON.stringify(PATRON_LINK_YEARLY_60)} onChange={onAmountChange}/>
+						<input type="radio" name='yearly_amount' defaultChecked data-amount={JSON.stringify(PATRON_YEARLY_60)} onChange={onAmountChange}/>
 					</label>
 					<label>
 						$120
-						<input type="radio" name='yearly_amount' data-amount={JSON.stringify(PATRON_LINK_YEARLY_120)} onChange={onAmountChange}/>
+						<input type="radio" name='yearly_amount' data-amount={JSON.stringify(PATRON_YEARLY_120)} onChange={onAmountChange}/>
 					</label>
 					<label>
 						Patron's Choice

@@ -2,29 +2,29 @@ import '@testing-library/react'
 import {cleanup, render, screen, fireEvent} from '@testing-library/react'
 import { afterEach } from 'node:test'
 import { PATRON_PRODUCT,
-    PATRON_LINK_5,
-    PATRON_LINK_10,
-    PATRON_LINK_15,
-    PATRON_LINK_MONTHLY_5,
-    PATRON_LINK_MONTHLY_10,
-    PATRON_LINK_MONTHLY_15,
-    PATRON_LINK_YEARLY_12,
-    PATRON_LINK_YEARLY_60,
-    PATRON_LINK_YEARLY_120
+    PATRON_5,
+    PATRON_10,
+    PATRON_15,
+    PATRON_MONTHLY_5,
+    PATRON_MONTHLY_10,
+    PATRON_MONTHLY_15,
+    PATRON_YEARLY_12,
+    PATRON_YEARLY_60,
+    PATRON_YEARLY_120
  } from '@/lib/stripe'
 import { describe } from 'node:test';
 
 describe('Patron variables required to pass the correct data are valid', () => {
     const patronOptions = [
-        PATRON_LINK_5,
-        PATRON_LINK_10,
-        PATRON_LINK_15,
-        PATRON_LINK_MONTHLY_5,
-        PATRON_LINK_MONTHLY_10,
-        PATRON_LINK_MONTHLY_15,
-        PATRON_LINK_YEARLY_12,
-        PATRON_LINK_YEARLY_60,
-        PATRON_LINK_YEARLY_120
+        PATRON_5,
+        PATRON_10,
+        PATRON_15,
+        PATRON_MONTHLY_5,
+        PATRON_MONTHLY_10,
+        PATRON_MONTHLY_15,
+        PATRON_YEARLY_12,
+        PATRON_YEARLY_60,
+        PATRON_YEARLY_120
     ];
     it('is PATRON_PRODUCT and should have a string that starts with /prod_/', () => {
         expect(() => {
