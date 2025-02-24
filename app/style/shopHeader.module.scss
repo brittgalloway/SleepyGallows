@@ -103,6 +103,10 @@
 .checkout {
     z-index: 3; 
     cursor: pointer;
+    border: none;
+    background: transparent;
+    color: var(--brand-color);
+    font-size: 1.25rem;
     @media(max-width: 830px) {
         top: 4.5rem; 
         right: 1rem;

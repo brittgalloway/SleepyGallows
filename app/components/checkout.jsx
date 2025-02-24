@@ -31,9 +31,16 @@ export default function Checkout() {
   };
   
   return (
-      <span onClick={handleCheckout} className={styles.checkout}>
-        {loading ? <FontAwesomeIcon icon={faCartShopping} className={styles.loading} /> : <FontAwesomeIcon icon={faCartShopping}/>}
-        {cart.count}
-      </span>
+      <>
+        <button type="button" className={styles.checkout} popovertarget="cart">
+          {loading ? <FontAwesomeIcon icon={faCartShopping} className={styles.loading} /> : <FontAwesomeIcon icon={faCartShopping}/>}
+          {cart.count}
+        </button>
+        <dialog popover="true" id="cart">
+          <h2>Your Cart</h2>
+          <button type="button" onSubmit={handleCheckout}>Checkout</button>
+          <button type="button" popovertarget="cart" popovertargetaction="hide">Continue Shopping</button>
+        </dialog>
+      </>
   );
 }
