@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
-import { stripe, PATRON_COUPON } from '@/lib/stripe';
+import { NextResponse } from 'next/server'
+import { stripe, PATRON_COUPON } from '@/lib/stripe'
 
 export async function POST(req) {
   try {

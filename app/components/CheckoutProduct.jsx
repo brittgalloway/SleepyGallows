@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { USD } from '@/lib/utils';
 import { useCartContext } from '@/shop/cartContext'
-import styles from '@/style/productCategory.module.scss'
+import styles from '@/shop/page.module.scss'
 
 export function CheckoutProduct() {
     const { cart, setCart } = useCartContext();
@@ -27,7 +27,7 @@ export function CheckoutProduct() {
       );
     }
     return (
-      <ul>
+      <ul className={styles.productList}>
         {cart.items.map((item) => (
           <li key={item.price}>
               <button type="button" onClick={() => handleRemoval(item.price)} onKeyUp={() => handleRemoval(item.price)}>Remove</button>
@@ -38,12 +38,12 @@ export function CheckoutProduct() {
                 alt={`${item.productName} product thumbnail`}
                 title={`${item.productName} product thumbnail`}
               />
-              <p className={`${styles.product_name}`}>{item.productName}</p>
+              <p className={``}>{item.productName}</p>
               <p>{item.productDescription}</p>
               <p>Qty: {item.quantity}</p>
               {item.discount ? 
-                <p className={`${styles.product_info}`}>Unit Price: {item.productDiscount}</p> :
-                <p className={`${styles.product_info}`}>Unit Price: {USD.format(item.productPrice)}</p>
+                <p className={``}>Unit Price: {item.productDiscount}</p> :
+                <p className={``}>Unit Price: {USD.format(item.productPrice)}</p>
               }
               {item?.productStock > 1 ?
                 <label>

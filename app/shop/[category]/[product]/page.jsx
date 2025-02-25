@@ -44,7 +44,8 @@ export default async function Product( {params} ) {
   `;
   const { data: { shop } } = await performRequest({ query: PAGE_CONTENT_QUERY });
 
-  const product = await stripe.products.retrieve(shop?.id);
+  const product = JSON.parse(JSON.stringify(await stripe.products.retrieve(shop?.id)));
+
 
   return (
     <main className={`${layoutStyle.main} ${style.max_width}`}>

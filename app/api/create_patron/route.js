@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server';
-import { stripe } from '@/lib/stripe';
-import { PATRON_PRODUCT } from '@/lib/stripe';
+import { NextResponse } from 'next/server'
+import { stripe } from '@/lib/stripe'
+import { PATRON_PRODUCT } from '@/lib/stripe'
 
 export async function POST(req) {
   try {
@@ -18,10 +18,9 @@ export async function POST(req) {
     });
 
     const promoData = await promoResponse.json();
-    const promoCode = promoData?.promo?.code || ''; // Get the generated promo code
+    const promoCode = promoData?.promo?.code || ''; 
 
-    // Append the promo code to the success URL
-    const successURL = `${origin}/shop/patron/thank_you_patron?promo=${encodeURIComponent(promoCode)}&interval=${promoData?.promo?.interval}`;
+    const successURL = `${origin}/shop/patron/thank_you_patron?promo=${encodeURIComponent(promoCode)}&interval=${patron?.interval || 1}`;
     const cancelURL = `${origin}/shop/patron`;
 
     const session = patron.interval === null
