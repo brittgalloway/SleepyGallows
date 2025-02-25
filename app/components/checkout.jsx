@@ -4,21 +4,22 @@ import { useCartContext } from '@/shop/cartContext'
 import { stripePromise} from '@/lib/stripe'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping} from '@fortawesome/free-solid-svg-icons'
+import { CheckoutProduct } from '@/components/CheckoutProduct'
 import styles from '@/style/shopHeader.module.scss'
 
 export default function Checkout() {
   const [loading, setLoading] = useState(false);
   const { cart } = useCartContext();
 
+
   const handleCheckout = async () => {
     setLoading(true);
-  
     const response = await fetch('/api/create_checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ items: cart.items }),
+      body: JSON.stringify({items: cart?.items}),
     });
     const session = await response.json();
   
@@ -38,8 +39,12 @@ export default function Checkout() {
         </button>
         <dialog popover="true" id="cart">
           <h2>Your Cart</h2>
-          <button type="button" onSubmit={handleCheckout}>Checkout</button>
-          <button type="button" popovertarget="cart" popovertargetaction="hide">Continue Shopping</button>
+          {cart.count > 0 ?
+            <CheckoutProduct/>  :
+            <p>Your cart is empty</p>
+          }
+          <button type="button" disabled={cart.items > 0} onClick={()=> handleCheckout()}>Checkout</button> 
+          <button type="button" popovertarget="cart">Continue Shopping</button>
         </dialog>
       </>
   );

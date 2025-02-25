@@ -64,6 +64,10 @@ export default async function Product( {params} ) {
           {shop?.stock > 0 ?<p className={`${style.stock}`}>In Stock</p> : <p className={`${style.no_stock}`}>Sold Out</p>}
           <AddToCart
             product={product}
+            discount={shop?.discount}
+            stock={shop?.stock}
+            price={shop?.price}
+            productDescription={shop?.productDescriptions}
           />
         </div>
       </div>
@@ -74,7 +78,7 @@ export default async function Product( {params} ) {
         </p>
           {shop?.originalsSummary?.showLink !== undefined ? 
             <Link  className={`${style.learn_more}`} href={`/animation/originals/${shop?.originalsSummary?.showLink}`}>
-            Learn More
+              Learn More
             </Link> : null}
       </aside>
     </main>

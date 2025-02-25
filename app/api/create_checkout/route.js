@@ -5,7 +5,6 @@ export async function POST(req) {
   try {
     const { origin } = new URL(req.url);
     const { items } = await req.json(); // Extract cart items
-
     if (!items || items.length === 0) {
       return NextResponse.json({ error: "Cart is empty" }, { status: 400 });
     }

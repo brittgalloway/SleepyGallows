@@ -1,21 +1,25 @@
-import { NextResponse } from 'next/server'
-import { stripe } from '@/lib/stripe'
+import { NextResponse } from 'next/server';
+import { stripe, PATRON_COUPON } from '@/lib/stripe';
 
-export async function POST() {
+export async function POST(req) {
   try {
-      const promo = await stripe.promotionCodes.create({
-        coupon:'t_patron-y',
-        active: true,
-      });
+    const { interval } = await req.json();
+    
+    const duration = interval === "year" ? 12 : 1; //need to consider null
+    
+    const date = new Date();
+    date.setMonth(date.getMonth() + duration);
+    const expiresAt = Math.floor(date.getTime() / 1000);
 
-    const createdPromo = await Promise(promo);
-    return NextResponse.json({ createdPromo }, { status: 200 });
+    const promo = await stripe.promotionCodes.create({
+      coupon: PATRON_COUPON,
+      active: true,
+      expires_at: expiresAt,
+    });
+
+    return NextResponse.json({ promo }, { status: 200 });
   } catch (error) {
     console.error('Error creating promotionCodes:', error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
-}
-
-export async function OPTIONS() {
-  return NextResponse.json({ message: 'POST method is allowed' }, { status: 200, headers: { Allow: 'POST' } });
 }

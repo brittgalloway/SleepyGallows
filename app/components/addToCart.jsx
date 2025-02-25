@@ -1,38 +1,47 @@
 'use client'
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useCartContext } from "@/shop/cartContext"
 
-export default function AddToCart({ product }) {
+export default function AddToCart({ product, discount, stock, price, productDescription}) {
     const { cart, setCart } = useCartContext();
-    const [ qty, setQty ] = useState(1);
-
-    const handleQty = () => {
-        setQty( qty+1 )
-    }
-
-    const handleCheckout = () => {
+    const handleCart = () => {
         setCart({
             count: cart?.count + 1,
             items: [{ 
-                price: product?.default_price, 
-                    quantity: qty,
+                    price: product?.default_price, 
+                    quantity: 1,
+                    productName: product?.name,
+                    productStock: stock,
+                    productPrice: price,
+                    productDiscount: discount,
+                    productDescription: productDescription,
+                    productDisplay: product?.images[0]
                 },
                 ...cart.items
             ]
         });
     };
 
-    useEffect(() => {}, [cart]);
+    useEffect(() => {
+        const sgCartCount = sessionStorage.getItem('sgCartCount');
+        const sgCartItems = sessionStorage.getItem('sgCartItems');
+        if (sgCartCount > 0) {
+            setCart({
+                count: sgCartCount,
+                items: sgCartItems,
+            });
+        } else {
+            sessionStorage.removeItem('sgCartCount');
+            sessionStorage.removeItem('sgCartItems');
+        }
+        sessionStorage.setItem('sgCartCount', JSON.stringify(cart.count));
+        sessionStorage.setItem('sgCartItems', JSON.stringify(cart.items));
+    }, [cart]);
 
     return (
-        <fieldset>
-            <label>Quantity
-                <input type="number" maxLength={2} min={1} max={99} minLength={1} size={3} defaultValue={qty} onChange={handleQty}></input>
-            </label>
-            <button type="button" onClick={handleCheckout} onKeyDown={handleCheckout}>
-                Add To Cart
-            </button>
-        </fieldset>
+        <button type="button" disabled={stock <= 0} onClick={handleCart} onKeyDown={handleCart}>
+            Add To Cart
+        </button> 
     );
 }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        

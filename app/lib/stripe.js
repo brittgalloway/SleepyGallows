@@ -52,3 +52,4 @@ export const PATRON_YEARLY_120 = env === 'sandbox' ? {
     price: 120,
     interval: 'year',
 } : 'https://donate.stripe.com/6oE4k7aCwdmj5qw4gi';
+export const PATRON_COUPON = env === 'sandbox' ? '6BusZfcF' : '';
