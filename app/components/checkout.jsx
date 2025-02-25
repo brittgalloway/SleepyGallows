@@ -4,7 +4,7 @@ import { useCartContext } from '@/shop/cartContext'
 import { stripePromise} from '@/lib/stripe'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping} from '@fortawesome/free-solid-svg-icons'
-import { CheckoutProduct } from '@/components/CheckoutProduct'
+import { CartProduct } from '@/components/CartProduct'
 import styles from '@/style/shopHeader.module.scss'
 
 export default function Checkout() {
@@ -40,7 +40,7 @@ export default function Checkout() {
         <dialog popover="true" id="cart">
           <h2>Your Cart</h2>
           {cart.count > 0 ?
-            <CheckoutProduct/>  :
+            <CartProduct/>  :
             <p>Your cart is empty</p>
           }
           <button type="button" disabled={cart.items > 0} onClick={()=> handleCheckout()}>Checkout</button> 

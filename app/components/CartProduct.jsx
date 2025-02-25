@@ -3,7 +3,7 @@ import { USD } from '@/lib/utils';
 import { useCartContext } from '@/shop/cartContext'
 import styles from '@/shop/page.module.scss'
 
-export function CheckoutProduct() {
+export function CartProduct() {
     const { cart, setCart } = useCartContext();
 
     const handleQty = (event, price) => {
@@ -19,12 +19,21 @@ export function CheckoutProduct() {
         }));
     };
     const handleRemoval = (key) => {
-      setCart((prevCart) => ({
-        ...prevCart,
-        items: prevCart.items.filter((item) => item.price !== key),
-        count: prevCart.items.length - 1,
-        })
-      );
+      setCart((prevCart) => {
+        const existingItemIndex = prevCart.items.findIndex(
+          (item) => item.price === key
+        );
+
+        let updatedItems;
+        if (existingItemIndex !== -1) {
+          updatedItems = prevCart.items.filter((item) => item.price !== key);
+          const newCount = updatedItems.reduce((total, item) => total + item.quantity, 0);
+          return {
+            count: newCount,
+            items: updatedItems,
+          };
+        }
+      });
     }
     return (
       <ul className={styles.productList}>
@@ -37,6 +46,7 @@ export function CheckoutProduct() {
                 height={100}
                 alt={`${item.productName} product thumbnail`}
                 title={`${item.productName} product thumbnail`}
+                style={{objectFit: "cover"}}
               />
               <p className={``}>{item.productName}</p>
               <p>{item.productDescription}</p>
