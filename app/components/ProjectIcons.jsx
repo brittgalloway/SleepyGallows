@@ -29,6 +29,7 @@ const  AnimatedIcons = ({title, src}) =>{
         width={150}
         height={150}
         loading='lazy'
+        alt='Project logo'
         style={{objectFit: "contain"}}/>
     )
     );
