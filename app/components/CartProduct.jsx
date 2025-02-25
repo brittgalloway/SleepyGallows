@@ -51,7 +51,8 @@ export function CartProduct() {
               <p className={``}>{item.productName}</p>
               <p>{item.productDescription}</p>
               <p>Qty: {item.quantity}</p>
-              {item.discount ? 
+              {console.log(item.productDiscount)}
+              {item.productDiscount ? 
                 <p className={``}>Unit Price: {item.productDiscount}</p> :
                 <p className={``}>Unit Price: {USD.format(item.productPrice)}</p>
               }

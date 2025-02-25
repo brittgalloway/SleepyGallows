@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
 
+// https://docs.stripe.com/payments/checkout/after-the-payment
 export async function POST(req) {
   try {
     const { origin } = new URL(req.url);
@@ -18,6 +19,19 @@ export async function POST(req) {
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: 'payment',
+      allow_promotion_codes: true,
+      shipping_address_collection: {
+        allowed_countries: [
+          'US',
+          'CA',
+          'MX'
+        ]
+      },
+      shipping_options: [
+        {
+          shipping_rate:'shr_1QuqfTJiAoJrRPIxEZjH27YW',
+        }
+      ],
       success_url: `${origin}/shop`, // make some kind of success page
       cancel_url: `${origin}/shop`, //update this, back to the last product: https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#using-the-native-history-api
     });
