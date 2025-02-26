@@ -35,15 +35,15 @@ export default function Checkout() {
       <>
         <button type="button" className={styles.checkout} popovertarget="cart">
           {loading ? <FontAwesomeIcon icon={faCartShopping} className={styles.loading} /> : <FontAwesomeIcon icon={faCartShopping}/>}
-          {cart.count}
+          {cart?.count}
         </button>
         <dialog popover="true" id="cart">
           <h2>Your Cart</h2>
-          {cart.count > 0 ?
+          {cart?.count > 0 ?
             <CartProduct/>  :
             <p>Your cart is empty</p>
           }
-          <button type="button" disabled={cart.items > 0} onClick={()=> handleCheckout()}>Checkout</button> 
+          <button type="button" disabled={cart?.items > 0} onClick={()=> handleCheckout()}>Checkout</button> 
           <button type="button" popovertarget="cart">Continue Shopping</button>
         </dialog>
       </>
