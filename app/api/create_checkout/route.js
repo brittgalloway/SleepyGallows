@@ -32,7 +32,7 @@ export async function POST(req) {
           shipping_rate:'shr_1QuqfTJiAoJrRPIxEZjH27YW',
         }
       ],
-      success_url: `${origin}/shop`, // make some kind of success page
+      success_url: `${origin}/shop/thank_you`, // make some kind of success page
       cancel_url: `${origin}/shop`, //update this, back to the last product: https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#using-the-native-history-api
     });
 

@@ -27,8 +27,8 @@ export default function ThankYouPatron() {
             <Suspense>
               <PromoCodeDisplay/>
             </Suspense>
-            <p>A coupn code should be sent to your email within 24 hours.</p>
-            <p>If not, please reach out to bg@sleepygallows.com</p>
+            <p>A coupon code should be sent to your email within 24 hours.</p>
+            <p>If not, please reach out to support@sleepygallows.com</p>
         </div>
     );
 }
