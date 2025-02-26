@@ -5,7 +5,7 @@ export async function POST(req) {
   try {
     const { interval } = await req.json();
     
-    const duration = interval === "year" ? 12 : 1; //need to consider null
+    const duration = interval === "year" ? 12 : 1;
     
     const date = new Date();
     date.setMonth(date.getMonth() + duration);

@@ -19,11 +19,11 @@ export async function POST(req) {
 
     const promoData = await promoResponse.json();
     const promoCode = promoData?.promo?.code || ''; 
-
+    const unitPrice = patron?.price * 100;
     const successURL = `${origin}/shop/patron/thank_you_patron?promo=${encodeURIComponent(promoCode)}&interval=${patron?.interval || 1}`;
     const cancelURL = `${origin}/shop/patron`;
 
-    const session = patron.interval === null
+    const session = patron.interval === 'once'
       ? await stripe.checkout.sessions.create({
           payment_method_types: ['card'],
           line_items: [
@@ -32,11 +32,18 @@ export async function POST(req) {
               price_data: {
                 currency: 'usd',
                 product: PATRON_PRODUCT,
-                unit_amount: patron?.price * 100,
+                unit_amount: unitPrice,
               },
             },
           ],
           mode: 'payment',
+          submit_type: 'donate',
+          invoice_creation: {
+            enabled: true,
+            invoice_data: {
+              description: `Exclusive Patron Coupon Code: ${promoCode}`,
+            }
+          },
           success_url: successURL,
           cancel_url: cancelURL,
           automatic_tax: { enabled: false },
@@ -49,7 +56,7 @@ export async function POST(req) {
               price_data: {
                 currency: 'usd',
                 product: PATRON_PRODUCT,
-                unit_amount: patron?.price * 100,
+                unit_amount: unitPrice,
                 recurring: {
                   interval: patron?.interval, // "month" or "year"
                 },

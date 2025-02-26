@@ -4,13 +4,13 @@ import { useEffect } from 'react';
 import { useCartContext } from "@/shop/cartContext"
 
 export default function ThankYou() {
-    const { setCart } = useCartContext();
+    const { cart, setCart } = useCartContext();
     useEffect(() => {
         setCart({
             count: 0,
             items: [],
         })
-      }), [];
+      }), [cart];
 
     return (
         <div>

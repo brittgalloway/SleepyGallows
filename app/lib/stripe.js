@@ -18,15 +18,15 @@ export const PATRON_PRODUCT = env === 'sandbox' ? 'prod_RnZ1n8UFz12j3c' :
 '';
 export const PATRON_5 = env === 'sandbox' ? {
     price: 5,
-    interval: null,
+    interval: 'once',
 } : 'https://donate.stripe.com/8wMg2PbGA6XV8CIcMM';
 export const PATRON_10 = env === 'sandbox' ? {
     price: 10,
-    interval: null,
+    interval: 'once',
 } : 'https://donate.stripe.com/8wMg2PbGA6XV8CIcMM';
 export const PATRON_15 = env === 'sandbox' ? {
     price: 15,
-    interval: null,
+    interval: 'once',
 } : '';
 export const PATRON_MONTHLY_5 = env === 'sandbox' ? {
     price: 5,

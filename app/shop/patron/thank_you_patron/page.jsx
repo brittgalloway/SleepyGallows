@@ -22,13 +22,13 @@ function PromoCodeDisplay() {
 
 export default function ThankYouPatron() {
     return (
-        <div>
+        <section>
             <h1>Thank You for Becoming a Patron!</h1>
             <Suspense>
               <PromoCodeDisplay/>
             </Suspense>
-            <p>A coupon code should be sent to your email within 24 hours.</p>
+            <p>The coupon code should on your receipt and sent to your email within 24 hours.</p>
             <p>If not, please reach out to support@sleepygallows.com</p>
-        </div>
+        </section>
     );
 }

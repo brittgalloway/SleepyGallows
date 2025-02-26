@@ -32,10 +32,12 @@ export async function POST(req) {
           shipping_rate:'shr_1QuqfTJiAoJrRPIxEZjH27YW',
         }
       ],
+      invoice_creation: {
+        enabled: true,
+      },
       success_url: `${origin}/shop/thank_you`, // make some kind of success page
       cancel_url: `${origin}/shop`, //update this, back to the last product: https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#using-the-native-history-api
     });
-
     return NextResponse.json({ id: session.id }, { status: 200 });
   } catch (err) {
     return NextResponse.json({ error: err.message }, { status: 500 });
