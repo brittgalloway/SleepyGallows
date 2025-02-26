@@ -11,12 +11,19 @@ const PAGE_CONTENT_QUERY = `
 
 export async function ShopBanner() {
     
-    const { data: { allAnnouncements } } = await performRequest({ query: PAGE_CONTENT_QUERY });
-    return (
-      <aside className={`${styles.aside}`}>
-        {allAnnouncements.map((message)=>(
-           <p key={message?.id}>{message?.announcementBanner}</p>
-        ))}
+  const { data: { allAnnouncements } } = await performRequest({ query: PAGE_CONTENT_QUERY });
+  return (
+    <aside className={styles.aside}>
+      <div className={styles.announcementWrapper}>
+        {allAnnouncements.map((message, index) => {
+          return (
+            <p key={message.id} className={styles.announcementText} style={{ animationDelay: `${(index * 10) * (1 / allAnnouncements.length)}s` }}>
+              {message.announcementBanner}
+            </p>
+          )}
+        )}
+      </div>
     </aside>
+
   )
 }

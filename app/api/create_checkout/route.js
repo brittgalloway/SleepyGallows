@@ -35,8 +35,8 @@ export async function POST(req) {
       invoice_creation: {
         enabled: true,
       },
-      success_url: `${origin}/shop/thank_you`, // make some kind of success page
-      cancel_url: `${origin}/shop`, //update this, back to the last product: https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#using-the-native-history-api
+      success_url: `${origin}/shop/thank_you`,
+      cancel_url: `${origin}/shop`,
     });
     return NextResponse.json({ id: session.id }, { status: 200 });
   } catch (err) {
