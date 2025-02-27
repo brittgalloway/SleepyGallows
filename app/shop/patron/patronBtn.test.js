@@ -36,8 +36,8 @@ describe('Patron choosing the payment price and frequency', () => {
         const defaultOnceAmount = screen.getByTestId('once_5');
         expect(defaultOnceAmount).toBeChecked();
     });
-    it('should be a whole number when the user inputs their own price, 1.50 should fail', () => {
-        render(<StripePatron handleCheckout={jest.fn()} />);
+    it('should be a number with 0-2 digits after the decimal if present when the user inputs their own price, 1.143 should fail', () => {
+        render(<StripePatron/>);
         
         // Get the custom input field for monthly amount
         const customAmountInput = screen.getByTestId('monthly_pc');
@@ -45,12 +45,19 @@ describe('Patron choosing the payment price and frequency', () => {
         // Enter valid whole value (2)
         fireEvent.change(customAmountInput, { target: { value: '2' } });
 
-        // Check if the input is rejected
         expect(customAmountInput.value).toBe('2');
-        // Enter invalid decimal value (1.50)
-        fireEvent.change(customAmountInput, { target: { value: '1.50' } });
+        expect(customAmountInput.validationMessage).toBe('');
 
-        // Check if the input is rejected
-        expect(customAmountInput.value).not.toBe('1.50');
+        // Enter valid decimal value (1.50)
+        fireEvent.change(customAmountInput, { target: { value: '1.50' } });
+    
+        expect(customAmountInput.value).toBe('1.50');
+        expect(customAmountInput.validationMessage).toBe('');
+        
+        // Enter invalid decimal value (1.5089)
+        fireEvent.change(customAmountInput, { target: { value: '1.5089' } });
+
+        expect(customAmountInput.value).toBe('1.5089');
+        expect(customAmountInput.validationMessage).not.toBe('');
     });
 });

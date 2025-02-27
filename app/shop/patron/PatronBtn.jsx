@@ -109,6 +109,8 @@ export function StripePatron() {
 							data-testid="monthly_pc"
 							name="monthly_amount" 
 							data-interval="month" 
+							pattern="^\d+?(\.\d{0,2})$"
+							step="0.01"
 							onChange={onValueChange}/>
 					</label>
 				</fieldset>
@@ -134,6 +136,8 @@ export function StripePatron() {
 						data-testid="once_pc"
 						name="one_amount" 
 						data-interval="once"
+						pattern="^\d+?(\.\d{0,2})$"
+						step="0.01"
 						onChange={onValueChange}/>
 					</label>
 				</fieldset>
@@ -159,6 +163,8 @@ export function StripePatron() {
 							data-testid="yearly_pc"
 							name="yearly_amount" 
 							data-interval="year"
+							pattern="^\d+?(\.\d{0,2})$"
+							step="0.01"
 							onChange={onValueChange}/>
 					</label>
 				</fieldset>
