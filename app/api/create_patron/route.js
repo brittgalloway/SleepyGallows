@@ -8,7 +8,7 @@ export async function POST(req) {
     const { patron } = await req.json();
 
     if (!patron || !patron.interval) {
-      return NextResponse.json({ error: "Patron tier not selected" }, { status: 400 });
+      return NextResponse.json({ error: 'Patron tier not selected' }, { status: 400 });
     }
 
     const promoResponse = await fetch(`${origin}/api/create_promotion`, {
@@ -58,7 +58,7 @@ export async function POST(req) {
                 product: PATRON_PRODUCT,
                 unit_amount: unitPrice,
                 recurring: {
-                  interval: patron?.interval, // "month" or "year"
+                  interval: patron?.interval, // 'month' or 'year'
                 },
               },
             },

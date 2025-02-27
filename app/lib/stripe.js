@@ -16,6 +16,7 @@ export const userAccountLink = env === 'sandbox' ? 'https://billing.stripe.com/p
 // Patron variables
 export const PATRON_PRODUCT = env === 'sandbox' ? 'prod_RnZ1n8UFz12j3c' :
 '';
+export const PATRON_COUPON = env === 'sandbox' ? '6BusZfcF' : '';
 export const PATRON_5 = env === 'sandbox' ? {
     price: 5,
     interval: 'once',
@@ -52,4 +53,3 @@ export const PATRON_YEARLY_120 = env === 'sandbox' ? {
     price: 120,
     interval: 'year',
 } : 'https://donate.stripe.com/6oE4k7aCwdmj5qw4gi';
-export const PATRON_COUPON = env === 'sandbox' ? '6BusZfcF' : '';

@@ -1,7 +1,8 @@
 import '@testing-library/react'
 import {cleanup, render, screen, fireEvent} from '@testing-library/react'
-import { afterEach } from 'node:test'
-import { PATRON_PRODUCT,
+import { 
+    PATRON_PRODUCT,
+    PATRON_COUPON,
     PATRON_5,
     PATRON_10,
     PATRON_15,
@@ -12,7 +13,6 @@ import { PATRON_PRODUCT,
     PATRON_YEARLY_60,
     PATRON_YEARLY_120
  } from '@/lib/stripe'
-import { describe } from 'node:test';
 
 describe('Patron variables required to pass the correct data are valid', () => {
     const patronOptions = [
@@ -43,12 +43,6 @@ describe('Patron variables required to pass the correct data are valid', () => {
         expect(obj.interval).not.toBe('');
         expect(obj.interval).not.toBeUndefined();
     });
-});
-
-describe('Patron redirects after success or canceled/failed transactions', () => {
-    it('should send the user back to /patron if the payment/cart is failed or cancelled', () => {});
-    it('should send the user to /patron/thank_you_patron if the payment is sucessful', () => {});
-    it('should create a new promotion code when /thank_you_patron triggers /api/create_promotion', () =>{});
 });
 
 /* @jest-environment jsdom */

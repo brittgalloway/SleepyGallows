@@ -24,6 +24,5 @@ export async function ShopBanner() {
         )}
       </div>
     </aside>
-
   )
 }
