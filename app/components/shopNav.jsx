@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import Image from 'next/image'
 import Link from 'next/link'
-import { userAccountLink } from '@/lib/stripe'
+import { USER_ACCOUNT_LINK } from '@/lib/stripe'
 import styles from '@/style/shopHeader.module.scss'
 
 export default function ShopNavigation() {
@@ -35,7 +35,7 @@ export default function ShopNavigation() {
           ))}
           {isMobile && 
               <li>
-                  <a href={userAccountLink}>Account</a>
+                  <a href={USER_ACCOUNT_LINK}>Account</a>
               </li>
           }
         </ul>
