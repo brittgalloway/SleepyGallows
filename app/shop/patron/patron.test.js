@@ -1,5 +1,3 @@
-import '@testing-library/react'
-import {cleanup, render, screen, fireEvent} from '@testing-library/react'
 import { 
     USER_ACCOUNT_LINK,
     PATRON_PRODUCT,
@@ -54,11 +52,4 @@ describe('Patron variables required to pass the correct data are valid', () => {
         expect(obj.interval).not.toBe('');
         expect(obj.interval).not.toBeUndefined();
     });
-});
-
-/* @jest-environment jsdom */
-describe('Patron choosing the payment price and frequency', () => {
-    it('shoud select the default price, when changing the Payment Frequency', () => {});
-    it('should be a whole number when the user inputs their own price, 1.50 should fail', () => {});
-
 });

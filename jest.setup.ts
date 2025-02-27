@@ -1,5 +1,5 @@
-import '@testing-library/jest-dom';
-import { jest} from '@jest/globals';
+import '@testing-library/jest-dom'
+import { jest} from '@jest/globals'
 
 // Mock next/router to prevent issues in tests
 jest.mock('next/router', () => ({

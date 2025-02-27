@@ -5,6 +5,7 @@ require('dotenv').config();
 
 export const env = process.env.ENVIRONMENT || 'sandbox';
 
+// Stripe constants
 const STRIPE_SECRET = env === 'sandbox' ? process.env.STRIPE_SECRET_TEST : process.env.STRIPE_SECRET;
 const STRIPE_PUBLIC = env === 'sandbox' ? process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_TEST : process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
 
@@ -13,7 +14,7 @@ export const stripePromise = loadStripe(STRIPE_PUBLIC);
 
 export const USER_ACCOUNT_LINK = env === 'sandbox' ? 'https://billing.stripe.com/p/login/test_dR615302V1Hz1K8fYY' : 'https://billing.stripe.com/p/login/aEU16L6Aq6EP7yE000';
 
-// Patron variables
+// Patron constants
 export const PATRON_PRODUCT = env === 'sandbox' ? 'prod_RnZ1n8UFz12j3c' :
 '';
 export const PATRON_COUPON = env === 'sandbox' ? '6BusZfcF' : '';

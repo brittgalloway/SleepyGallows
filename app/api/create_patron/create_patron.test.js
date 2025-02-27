@@ -1,6 +1,6 @@
-import { createMocks } from 'node-mocks-http';
-import { POST } from '@/api/create_patron/route';
-import { stripe } from '@/lib/stripe';
+import { createMocks } from 'node-mocks-http'
+import { POST } from '@/api/create_patron/route'
+import { stripe } from '@/lib/stripe'
 
 global.fetch = jest.fn();
 

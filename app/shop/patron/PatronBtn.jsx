@@ -11,7 +11,7 @@ import {
 	PATRON_YEARLY_12,
 	PATRON_YEARLY_60,
 	PATRON_YEARLY_120
- } from '@/lib/stripe';
+ } from '@/lib/stripe'
 import patronStyles from '@/shop/patron/patron.module.scss'
 
 export function StripePatron() {
@@ -21,6 +21,7 @@ export function StripePatron() {
 	const onFrequencyChange = (event) => {
 		const frequency = event.target.value;
 		setPatronFrequency(frequency);
+
 		if (frequency == 'monthly'){
 			setPatronAmount(PATRON_MONTHLY_5);
 		}
@@ -77,36 +78,37 @@ export function StripePatron() {
 			<fieldset className={patronStyles.fieldset}>
 				<label>
 					One-Time
-					<input type="radio" name='patron_frequency' value='once' onChange={onFrequencyChange}/>
+					<input type="radio" name="patron_frequency" value="once" onChange={onFrequencyChange}/>
 				</label>
 				<label>
 					Monthly
-					<input type="radio" defaultChecked name='patron_frequency' value='monthly' onChange={onFrequencyChange}/>
+					<input type="radio" defaultChecked name="patron_frequency" value="monthly" onChange={onFrequencyChange}/>
 				</label>
 				<label>
 					Yearly
-					<input type="radio" name='patron_frequency' value='yearly' onChange={onFrequencyChange}/>
+					<input type="radio" name="patron_frequency" value="yearly" onChange={onFrequencyChange}/>
 				</label>
 			</fieldset>
 			{patronFrequency == 'monthly' ? (
 				<fieldset className={`${patronStyles.fieldset} ${patronStyles.prices}`} >
 					<label>
 						$5
-						<input type="radio" name='monthly_amount' defaultChecked data-amount={JSON.stringify(PATRON_MONTHLY_5)} onChange={onAmountChange}/>
+						<input type="radio" data-testid="monthly_5" name="monthly_amount" defaultChecked data-amount={JSON.stringify(PATRON_MONTHLY_5)} onChange={onAmountChange}/>
 					</label>
 					<label>
 						$10
-						<input type="radio" name='monthly_amount' data-amount={JSON.stringify(PATRON_MONTHLY_10)} onChange={onAmountChange}/>
+						<input type="radio" data-testid="monthly_10" name="monthly_amount" data-amount={JSON.stringify(PATRON_MONTHLY_10)} onChange={onAmountChange}/>
 					</label>
 					<label>
 						$15
-						<input type="radio" name='monthly_amount' data-amount={JSON.stringify(PATRON_MONTHLY_15)} onChange={onAmountChange}/>
+						<input type="radio" data-testid="monthly_15" name="monthly_amount" data-amount={JSON.stringify(PATRON_MONTHLY_15)} onChange={onAmountChange}/>
 					</label>
 					<label>
-						Patron's Choice
+						Patron&apos;s Choice
 						<input type="number" 
-							name='monthly_amount' 
-							data-interval='month' 
+							data-testid="monthly_pc"
+							name="monthly_amount" 
+							data-interval="month" 
 							onChange={onValueChange}/>
 					</label>
 				</fieldset>
@@ -116,21 +118,22 @@ export function StripePatron() {
 				<fieldset className={`${patronStyles.fieldset} ${patronStyles.prices}`} >
 					<label>
 					$5
-					<input type="radio" name='one_amount' defaultChecked data-amount={JSON.stringify(PATRON_5)} onChange={onAmountChange}/>
+					<input type="radio" data-testid="once_5" name="one_amount" defaultChecked data-amount={JSON.stringify(PATRON_5)} onChange={onAmountChange}/>
 				</label>
 				<label>
 					$10
-					<input type="radio" name='one_amount' data-amount={JSON.stringify(PATRON_10)} onChange={onAmountChange}/>
+					<input type="radio" data-testid="once_10" name="one_amount" data-amount={JSON.stringify(PATRON_10)} onChange={onAmountChange}/>
 				</label>
 				<label>
 					$15
-					<input type="radio" name='one_amount' data-amount={JSON.stringify(PATRON_15)} onChange={onAmountChange}/>
+					<input type="radio" data-testid="once_15" name="one_amount" data-amount={JSON.stringify(PATRON_15)} onChange={onAmountChange}/>
 				</label>
 				<label>
-					Patron's Choice
+					Patron&apos;s Choice
 					<input type="number"
-						name='one_amount' 
-						data-interval='once'
+						data-testid="once_pc"
+						name="one_amount" 
+						data-interval="once"
 						onChange={onValueChange}/>
 					</label>
 				</fieldset>
@@ -140,20 +143,22 @@ export function StripePatron() {
 				<fieldset className={`${patronStyles.fieldset} ${patronStyles.prices}`}>
 					<label>
 						$12
-						<input type="radio" name='yearly_amount' data-amount={JSON.stringify(PATRON_YEARLY_12)} onChange={onAmountChange}/>
+						<input type="radio" data-testid="yearly_12" name="yearly_amount" data-amount={JSON.stringify(PATRON_YEARLY_12)} onChange={onAmountChange}/>
 					</label>
 					<label>
 						$60
-						<input type="radio" name='yearly_amount' defaultChecked data-amount={JSON.stringify(PATRON_YEARLY_60)} onChange={onAmountChange}/>
+						<input type="radio" data-testid="yearly_60" name="yearly_amount" defaultChecked data-amount={JSON.stringify(PATRON_YEARLY_60)} onChange={onAmountChange}/>
 					</label>
 					<label>
 						$120
-						<input type="radio" name='yearly_amount' data-amount={JSON.stringify(PATRON_YEARLY_120)} onChange={onAmountChange}/>
+						<input type="radio" data-testid="yearly_120" name="yearly_amount" data-amount={JSON.stringify(PATRON_YEARLY_120)} onChange={onAmountChange}/>
 					</label>
 					<label>
-						Patron's Choice
-						<input type="number" name='yearly_amount' 
-							data-interval='year'
+						Patron&apos;s Choice
+						<input type="number" 
+							data-testid="yearly_pc"
+							name="yearly_amount" 
+							data-interval="year"
 							onChange={onValueChange}/>
 					</label>
 				</fieldset>
