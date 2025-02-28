@@ -25,7 +25,13 @@ query Shop {
 export async function GET() {
   try {
     const { data: { shop } } = await performRequest({ query: PAGE_CONTENT_QUERY });
-
+    
+    const products = await stripe.products.search({
+      query: `id:${shop.id}`,
+    });
+    if (products) {
+      return null;
+    } else {
       const product = await stripe.products.create({
         name: shop.productName,
         id: shop.id,
@@ -40,9 +46,10 @@ export async function GET() {
         tax_code: 'txcd_99999999',
         description: shop.shortDescription,
       });
+      const createdProduct = await Promise(product);
+      return NextResponse.json({ createdProduct }, { status: 200 });
+    }
 
-    const createdProduct = await Promise(product);
-    return NextResponse.json({ createdProduct }, { status: 200 });
   } catch (error) {
     console.error('Error creating products:', error);
     return NextResponse.json({ error: error.message }, { status: 500 });
