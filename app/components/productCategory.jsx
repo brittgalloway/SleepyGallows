@@ -26,7 +26,7 @@ query Shop {
 }
 `;
 
-const categories = ['collage', 'prints', 'books', 'stickers'];
+const categories = ['fine-art', 'prints', 'books', 'stickers'];
 
 export async function ProductCategory() {
   const { data: { allShops } } = await performRequest({ query: PAGE_CONTENT_QUERY });

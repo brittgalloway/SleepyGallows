@@ -13,7 +13,7 @@ export default function ShopNavigation() {
   function handleClick() {
     isOpen === true ? setIsOpen(false) : setIsOpen(true);
   }
-  const links = ['collage', 'prints', 'stickers', 'books', 'patron'];
+  const links = ['fine-art', 'prints', 'stickers', 'books', 'patron'];
   return(
     <nav aria-label='Main shop navigation' className={isMobile && isOpen ? `${styles.mobile} ${styles.nav}` : styles.nav} onClick={handleClick}>
       {isMobile ? 
