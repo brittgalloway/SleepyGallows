@@ -46,7 +46,7 @@ export default function Checkout() {
           <button 
             data-testid="checkout-button"
             type="button" 
-            disabled={cart?.count > 0 ? false : "true"} 
+            disabled={cart?.count > 0 ? false : true} 
             onClick={()=> handleCheckout()}>
               Checkout
           </button> 
