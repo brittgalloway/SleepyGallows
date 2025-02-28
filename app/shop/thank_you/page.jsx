@@ -1,16 +1,18 @@
 'use client'
 import Link from "next/link"
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useCartContext } from "@/shop/cartContext"
 
 export default function ThankYou() {
     const { cart, setCart } = useCartContext();
+    const hasClearedCart = useRef(false); // Prevent multiple resets
+
     useEffect(() => {
-        setCart({
-            count: 0,
-            items: [],
-        })
-      }), [cart];
+        if (!hasClearedCart.current) {
+            setCart({ count: 0, items: [] });
+            hasClearedCart.current = true;
+        }
+    }, [setCart]);
 
     return (
         <div>
