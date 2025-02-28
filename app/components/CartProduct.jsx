@@ -38,9 +38,11 @@ export function CartProduct() {
     return (
       <ul className={styles.productList}>
         {cart.items.map((item) => (
-          <li key={item.price}>
-              <button type="button" onClick={() => handleRemoval(item.price)} onKeyUp={() => handleRemoval(item.price)}>Remove</button>
+          
+          <li key={item.price} data-testid={`item_${item.price}`}>
+              <button data-testid={`delete-item_${item.price}`} type="button" onClick={() => handleRemoval(item.price)} onKeyUp={() => handleRemoval(item.price)}>Remove</button>
               <Image
+                data-testid={`item-image_${item.price}`}
                 src={item.productDisplay}
                 width={100}
                 height={100}
@@ -48,17 +50,15 @@ export function CartProduct() {
                 title={`${item.productName} product thumbnail`}
                 style={{objectFit: "cover"}}
               />
-              <p className={``}>{item.productName}</p>
-              <p>{item.productDescription}</p>
-              <p>Qty: {item.quantity}</p>
-              {item.productDiscount ? 
-                <p className={``}>Unit Price: {item.productDiscount}</p> :
-                <p className={``}>Unit Price: {USD.format(item.productPrice)}</p>
-              }
+              <p data-testid={`item-name_${item.price}`} className={``}>{item.productName}</p>
+              <p data-testid={`item-description_${item.price}`}>{item.productDescription}</p>
+              <p data-testid={`item-qty_${item.price}`}>Qty: {item.quantity}</p>
+              <p data-testid={`item-price_${item.price}`} className={``}>Unit Price: {USD.format(item.productPrice)}</p>
               {item?.productStock > 1 ?
                 <label>
                   Quantity
                   <input
+                    data-testid={`item-qty-input_${item.price}`}
                     type="number"
                     min={1}
                     max={item.productStock}

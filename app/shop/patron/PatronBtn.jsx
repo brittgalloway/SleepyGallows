@@ -31,8 +31,7 @@ export function StripePatron() {
 		else {
 			setPatronAmount(PATRON_5);
 		}
-	}
-
+	};
 	const onAmountChange = (event) => {
 		const selectedAmount = JSON.parse(event.target.dataset.amount);
 		setPatronAmount(selectedAmount);
@@ -71,7 +70,7 @@ export function StripePatron() {
 		if (error) {
 		  console.error('Error:', error);
 		}
-	  };
+	};
 	return (
 		<form className={patronStyles.form}> 
 				<h2>Become a Patron</h2>
