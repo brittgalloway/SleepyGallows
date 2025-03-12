@@ -1,9 +1,7 @@
-import { NextResponse } from 'next/server';
-import { performRequest } from '@/lib/datocms';
-import { STRIPE_SECRET_KEY, STRIPE_WH_SECRET } from '@/lib/stripe';
-import Stripe from 'stripe';
+import { NextResponse } from 'next/server'
+import { performRequest } from '@/lib/datocms'
+import { STRIPE_WH_SECRET, stripe } from '@/lib/stripe'
 
-const stripe = new Stripe(STRIPE_SECRET_KEY);
 const endpointSecret = STRIPE_WH_SECRET;
 
 export async function POST(req) {
