@@ -1,7 +1,7 @@
 'use client'
-import Link from "next/link"
-import { useEffect, useRef } from 'react';
-import { useCartContext } from "@/shop/cartContext"
+import Link from 'next/link'
+import { useEffect, useRef } from 'react'
+import { useCartContext } from '@/shop/cartContext'
 
 export default function ThankYou() {
     const { cart, setCart } = useCartContext();

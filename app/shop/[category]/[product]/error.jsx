@@ -1,4 +1,4 @@
 'use client';
-import Error from "@/components/error"
+import Error from '@/components/error'
 
 <Error/>

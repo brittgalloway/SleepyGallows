@@ -65,6 +65,7 @@ export async function POST(req) {
           ],
           mode: 'subscription',
           submit_type: 'donate',
+          
           success_url: successURL,
           cancel_url: cancelURL,
           automatic_tax: { enabled: false },
