@@ -1,4 +1,4 @@
-import { stripe, STRIPE_WEBHOOK_SECRET } from '@/lib/stripe'
+import { stripe, STRIPE_WH_SECRET } from '@/lib/stripe'
 import { NextResponse } from 'next/server'
 
 
@@ -22,7 +22,7 @@ export async function POST(req) {
     let event;
     try {
         const rawBody = await getRawBody(req);
-        event = stripe.webhooks.constructEvent(rawBody, sig, STRIPE_WEBHOOK_SECRET);
+        event = stripe.webhooks.constructEvent(rawBody, sig, STRIPE_WH_SECRET);
     } catch (err) {
         console.error("Webhook error:", err.message);
         return NextResponse.json({ error: `Webhook Error: ${err.message}` }, { status: 400 });
