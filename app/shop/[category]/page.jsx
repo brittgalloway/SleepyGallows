@@ -11,7 +11,6 @@ export default async function Category({params}) {
     productName
     productSlug
     productType
-    discount
     stock
     price
     id
@@ -40,7 +39,6 @@ export default async function Category({params}) {
             productSlug={product?.productSlug}
             productDisplay={product?.productDisplay}
             productName={product?.productName}
-            discount={product?.discount}
             stock={product?.stock}
             price={product?.price}
         />

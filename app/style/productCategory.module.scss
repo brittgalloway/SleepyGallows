@@ -46,10 +46,10 @@
 .img {
     object-fit: cover;
     height: 100px;
-    width: 100%;
+    max-width: 140px;
     @media(min-width: 831px) {
         height: 275px;
-        width: 100%;
+        max-width: 309px;
     }
 }
 @mixin productInfo {
@@ -57,8 +57,10 @@
     font-weight: normal;
     font-size: .8em;
     margin: 1px 0;
+    max-width: 140px;
     @media(min-width: 831px) {
         font-size: 1.2em;
+        max-width: 309px;
     }
 }
 .product_name {
@@ -116,15 +118,11 @@
     align-items: baseline;
 }
 .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5%;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
     width: 100%;
-    grid-auto-rows: minmax(100px, auto);
-    
-    @media(min-width: 831px) {
-        grid-template-columns: repeat(auto-fill, minmax(min(215px), 1fr));
-    }
+    justify-content: space-between;
 }
 .h1 {
     font-size: 1em;

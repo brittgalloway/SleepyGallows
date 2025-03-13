@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 import { useCartContext } from '@/shop/cartContext'
 
-export default function AddToCart({ product, discount, stock, price, productDescription }) {
+export default function AddToCart({ product, stock, price, productDescription }) {
     const { cart, setCart } = useCartContext();
 
     const handleCart = () => {
@@ -31,7 +31,6 @@ export default function AddToCart({ product, discount, stock, price, productDesc
                         productName: product?.name,
                         productStock: stock,
                         productPrice: price,
-                        productDiscount: discount,
                         productDescription: productDescription,
                         productDisplay: product?.images?.[0],
                     },

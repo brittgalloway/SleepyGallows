@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '@/style/productCategory.module.scss'
 
 
-export function ProductDisplay( {category, productSlug, productName, discount, price, stock, productDisplay} ) {
+export function ProductDisplay( {category, productSlug, productName, price, stock, productDisplay} ) {
 
   return (
     <Link className={`${styles.product_display}`} href={`/shop/${category}/${productSlug}`}>
@@ -16,9 +16,6 @@ export function ProductDisplay( {category, productSlug, productName, discount, p
         />
         <p className={`${styles.product_name}`}>&ldquo;{productName}&rdquo;</p>
         <div className={`${styles.price_wrap}`}>
-          {discount !== 0 ? 
-            <p className={`${styles.product_info}`}>${discount}</p> : 
-            null} 
           {stock > 0 ? 
             <p className={`${styles.product_info}`}>${price}</p> : 
             <p className={`${styles.product_soldout}`}>Sold Out</p>}
