@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping} from '@fortawesome/free-solid-svg-icons'
 import { CartProduct } from '@/components/CartProduct'
 import styles from '@/style/shopHeader.module.scss'
+import cartStyles from '@/shop/page.module.scss'
 
 export default function Checkout() {
   const [loading, setLoading] = useState(false);
@@ -37,11 +38,11 @@ export default function Checkout() {
           {loading ? <FontAwesomeIcon icon={faCartShopping} className={styles.loading} /> : <FontAwesomeIcon icon={faCartShopping}/>}
           {cart?.count}
         </button>
-        <dialog data-testid="cart-popup" popover="true" id="cart">
+        <dialog data-testid="cart-popup" popover="true" id="cart" className={cartStyles.cart}>
           <h2>Your Cart</h2>
           {cart?.count > 0 ?
             <CartProduct/>  :
-            <p>... is empty</p>
+            <p>... is empty. <br/> Let's put something in it</p>
           }
           <button 
             data-testid="checkout-button"

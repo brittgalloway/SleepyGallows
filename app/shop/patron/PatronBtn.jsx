@@ -74,7 +74,7 @@ export function StripePatron() {
 	return (
 		<form className={patronStyles.form}> 
 				<h2>Become a Patron</h2>
-			<fieldset className={patronStyles.fieldset}>
+			<fieldset className={`${patronStyles.fieldset} ${patronStyles.frequency}`}>
 				<label>
 					One-Time
 					<input type="radio" name="patron_frequency" value="once" onChange={onFrequencyChange}/>
@@ -88,7 +88,7 @@ export function StripePatron() {
 					<input type="radio" name="patron_frequency" value="yearly" onChange={onFrequencyChange}/>
 				</label>
 			</fieldset>
-			{patronFrequency == 'monthly' ? (
+			{patronFrequency == 'monthly' && (
 				<fieldset className={`${patronStyles.fieldset} ${patronStyles.prices}`} >
 					<label>
 						$5
@@ -113,9 +113,8 @@ export function StripePatron() {
 							onChange={onValueChange}/>
 					</label>
 				</fieldset>
-				) : ''
-			}
-			{patronFrequency == 'once' ? (
+			)}
+			{patronFrequency == 'once' && (
 				<fieldset className={`${patronStyles.fieldset} ${patronStyles.prices}`} >
 					<label>
 					$5
@@ -140,9 +139,8 @@ export function StripePatron() {
 						onChange={onValueChange}/>
 					</label>
 				</fieldset>
-				) : ''
-			}
-			{patronFrequency == 'yearly' ? (
+			)}
+			{patronFrequency == 'yearly' && (
 				<fieldset className={`${patronStyles.fieldset} ${patronStyles.prices}`}>
 					<label>
 						$12
@@ -167,8 +165,7 @@ export function StripePatron() {
 							onChange={onValueChange}/>
 					</label>
 				</fieldset>
-				) : ''
-			}
+			)}
 			<button type="button" onClick={handleCheckout} className={patronStyles.support}>Support</button>
 		</form>
 	)

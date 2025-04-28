@@ -11,12 +11,11 @@ export function ShopFooter() {
     const links = ['animation', 'comics', 'art', 'about'];
     return (
      <footer className={styles.footer}>
-        {isMobile ? 
+        {isMobile && 
             (<div className={styles.socials}>
                 <a href='https://www.youtube.com/@sleepygallows'><FontAwesomeIcon icon={faYoutube} /></a>
                 <a href='https://www.instagram.com/sleepy_gallows/'><FontAwesomeIcon icon={faInstagram} /></a>
-              </div>) :
-            null
+              </div>)
         }
         <p className={styles.title}>Sleepy Gallows Studio</p>
         <ul className={styles.ul}>

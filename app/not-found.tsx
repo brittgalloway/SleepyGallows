@@ -12,7 +12,7 @@ export default async function NotFound() {
           we couldn’t find what you were looking for.
           <br/>
         </p>
-        <Link className={styles.a} href="/">Return Home</Link>.
+        <p>Let’s <Link className={styles.a} href="/">Return Home</Link>.</p>
     </section>
   )
 }

@@ -50,6 +50,12 @@
 .h2 {
   border-radius: 0px;
 }
+.cart {
+  max-width: 90%;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--brand-color);
+  overflow: hidden;
+}
 .productList {
   max-height: 500px;
   overflow-y: auto;

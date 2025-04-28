@@ -40,7 +40,7 @@ export default function  WebProjects({id, projectName, role, icon, description, 
             <h2 style={happy_monkey.style}>{projectName}</h2>
             <p>{role}</p>
         </div>
-        { display ? (
+        { display && (
           <>
             <div className={styles.project} role="dialog" aria-modal="true" key={projectName}>
               <button className={styles.close} aria-label="Close" onClick={handleDisplay} tabIndex={0}>
@@ -59,7 +59,7 @@ export default function  WebProjects({id, projectName, role, icon, description, 
             </div>
             <div data-testid="backdrop" className={styles.backdrop} aria-label="Click or press Enter to close" onClick={handleDisplay} onKeyDown={(e)=>handleKeyPress(e)} tabIndex={0}></div>
           </>
-        ) : null }
+        )}
       </>
     )
 }

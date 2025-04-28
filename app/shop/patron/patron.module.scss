@@ -28,6 +28,27 @@
     font-size: 1rem;
   }
 }
+.frequency {
+  input {
+    visibility: hidden;
+    height: 1px;
+    width: 0;
+  }
+  label {
+    text-align: center;
+    background: #fff;
+    border: 1px solid var(--brand-color);
+    border-radius: var(--border-radius);
+    padding: .5rem 1rem;
+  }
+  label:has(input:checked) {
+    text-align: center;
+    background: var(--purple-highlight);
+    border-radius: var(--border-radius);
+    color: #fff;
+  }
+  // border: 2px solid var(--purple-highlight);
+}
 .prices {
   grid-template-rows: repeat(2, auto);
   label:last-child {

@@ -74,10 +74,10 @@ export default async function Product( {params} ) {
         <p className={`${lato.className}`}>
           {shop?.originalsSummary?.storySummary?.value?.document?.children[0]?.children[0]?.value}
         </p>
-          {shop?.originalsSummary?.showLink !== undefined ? 
+          {shop?.originalsSummary?.showLink !== undefined && 
             <Link  className={`${style.learn_more}`} href={`/animation/originals/${shop?.originalsSummary?.showLink}`}>
               Learn More
-            </Link> : null}
+            </Link>}
       </aside>
     </main>
   )

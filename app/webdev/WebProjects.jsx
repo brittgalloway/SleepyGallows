@@ -20,7 +20,7 @@ export default function  WebProjects({id, projectName, icon, screenshot, descrip
             <h2 style={happy_monkey.style}>{projectName}</h2>
             <p>development & design</p>
         </div>
-        { display ? (
+        { display && (
           <>
             <div className={styles.project} role="dialog" aria-modal="true" key={projectName}>
               <button className={styles.close} onClick={handleClick}>
@@ -46,7 +46,7 @@ export default function  WebProjects({id, projectName, icon, screenshot, descrip
             </div>
             <div className={styles.backdrop} onClick={handleClick}></div>
           </>
-        ) : null }
+        )}
       </>
     )
   }

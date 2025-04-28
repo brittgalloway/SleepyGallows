@@ -16,7 +16,7 @@ export default function ShopNavigation() {
   const links = ['fine-art', 'prints', 'stickers', 'books', 'patron'];
   return(
     <nav aria-label='Main shop navigation' className={isMobile && isOpen ? `${styles.mobile} ${styles.nav}` : styles.nav} onClick={handleClick}>
-      {isMobile ? 
+      {isMobile && 
         <div className={styles.mobile_menu} >
           <button className={styles.hamburger} onClick={handleClick}>
             <Image src='/hamburger.svg' 
@@ -24,7 +24,7 @@ export default function ShopNavigation() {
             height={30} 
             alt="hamburger menu"/>
           </button>
-        </div> : null
+        </div>
       }
       
       {(isOpen || !isMobile) && (
