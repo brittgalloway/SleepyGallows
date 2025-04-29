@@ -102,7 +102,7 @@ export function StripePatron() {
 						$15
 						<input type="radio" data-testid="monthly_15" name="monthly_amount" data-amount={JSON.stringify(PATRON_MONTHLY_15)} onChange={onAmountChange}/>
 					</label>
-					<label>
+					<label className={`${patronStyles.patronChoice}`}>
 						Patron&apos;s Choice
 						<input type="number" 
 							data-testid="monthly_pc"
@@ -110,6 +110,8 @@ export function StripePatron() {
 							data-interval="month" 
 							pattern="^\d+?(\.\d{0,2})$"
 							step="0.01"
+							min="1"
+							placeholder="3"
 							onChange={onValueChange}/>
 					</label>
 				</fieldset>
@@ -128,7 +130,7 @@ export function StripePatron() {
 					$15
 					<input type="radio" data-testid="once_15" name="one_amount" data-amount={JSON.stringify(PATRON_15)} onChange={onAmountChange}/>
 				</label>
-				<label>
+				<label className={`${patronStyles.patronChoice}`}>
 					Patron&apos;s Choice
 					<input type="number"
 						data-testid="once_pc"
@@ -154,7 +156,7 @@ export function StripePatron() {
 						$120
 						<input type="radio" data-testid="yearly_120" name="yearly_amount" data-amount={JSON.stringify(PATRON_YEARLY_120)} onChange={onAmountChange}/>
 					</label>
-					<label>
+					<label className={`${patronStyles.patronChoice}`}>
 						Patron&apos;s Choice
 						<input type="number" 
 							data-testid="yearly_pc"

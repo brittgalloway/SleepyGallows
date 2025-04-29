@@ -29,31 +29,85 @@
   }
 }
 .frequency {
+  padding: .5rem;
+  border-radius: var(--border-radius);
+  background: #4a287c20;
+  justify-self: center;
   input {
     visibility: hidden;
     height: 1px;
     width: 0;
+    margin: 0;
   }
   label {
     text-align: center;
     background: #fff;
-    border: 1px solid var(--brand-color);
     border-radius: var(--border-radius);
+    border: 3px solid transparent;
     padding: .5rem 1rem;
+    transition: border-color var(--transition);
+    cursor: pointer;
+    &:hover{
+      border-color: var(--brand-color);
+    }
+    
   }
   label:has(input:checked) {
     text-align: center;
     background: var(--purple-highlight);
     border-radius: var(--border-radius);
     color: #fff;
+    transition: background var(--transition);
+    &:hover{
+      background: darken(#4a287c, 5%);
+    }
   }
-  // border: 2px solid var(--purple-highlight);
 }
 .prices {
   grid-template-rows: repeat(2, auto);
-  label:last-child {
-    grid-row: 2/3;
-    grid-column: 1/4;
+  justify-self: center;
+  margin-block: 2rem;
+
+  input:not([type=number]) {
+    visibility: hidden;
+    height: 1px;
+    width: 0;
+    margin: 0;
+  }
+  label:has(input:not([type=number])) {
+    text-align: center;
+    background: #fff;
+    border-radius: var(--border-radius);
+    padding: .5rem 1rem;
+    border: 1px solid var(--brand-color);
+    transition: background var(--transition);
+    cursor: pointer;
+    &:hover{
+      background: lighten(#4a287c, 60%);
+    }
+  }
+  label:has(input:checked) {
+    text-align: center;
+    background: var(--purple-highlight);
+    border-radius: var(--border-radius);
+    color: #fff;
+    transition: background var(--transition);
+    &:hover{
+      background: darken(#4a287c, 5%);
+    }
+  }
+}
+.patronChoice{
+  grid-row: 2/3 !important;
+  grid-column: 1/4;
+  border: none !important;
+  input {
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-bottom: 2px solid var(--brand-color);
+    border-radius: var(--border-radius);
+    background: #4a287c20;
   }
 }
 .support {
@@ -64,6 +118,7 @@
   padding: 1rem 2rem;
   margin-bottom: 2rem;
   transition: all var(--transition);
+  cursor: pointer;
   &:hover,
   &:active {
     background-color: var(--brand-color);
