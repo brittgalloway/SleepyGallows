@@ -1,7 +1,7 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
-import styles from '../page.module.scss'
+import styles from '../patron.module.scss'
 
 function PromoCodeDisplay() {
   const searchParams = useSearchParams();
