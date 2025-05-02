@@ -40,7 +40,7 @@ export default function ShopHeader() {
       )}
         <p>Take some of the Magic with you</p>
       </div>
-      {!isMobile&& (<a href={USER_ACCOUNT_LINK}><FontAwesomeIcon icon={faUser} /></a>)}
+      {!isMobile && (<a href={USER_ACCOUNT_LINK} style={{marginBlock: '1rem'}}><FontAwesomeIcon icon={faUser} /></a>)}
         <Checkout/>
       </div>
       <ShopNavigation/>

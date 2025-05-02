@@ -7,7 +7,7 @@
 }
 .form {
   display: grid;
-  border: 1px solid var(--purple-highlight);
+  border: 1px solid var(--brand-color);
   border-radius: var(--border-radius);
   width: 60%;
   margin: 3rem auto;
@@ -41,6 +41,7 @@
   }
   label {
     text-align: center;
+    width: 100%;
     background: #fff;
     border-radius: var(--border-radius);
     border: 3px solid transparent;
