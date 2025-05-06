@@ -26,9 +26,6 @@
         margin: 1rem;
     }
 }
-.logo_wrapper {
-    margin-top: 2rem;
-}
 .nav {
     border-top: 1px solid var(--brand-color);
     width: 100%;
@@ -108,7 +105,7 @@
     background: transparent;
     color: var(--brand-color);
     font-size: 1.25rem;
-    margin-block: 1rem;
+    margin: 1rem;
     @media(max-width: 830px) {
         top: 4.5rem; 
         right: 1rem;

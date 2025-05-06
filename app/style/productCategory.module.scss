@@ -13,9 +13,9 @@
         margin-block: 0 2em;
     }
     @media(min-width: 831px) {
-        margin-block: 3em;
+        margin-block: 2em;
         &:first-of-type{
-            margin-block: 3.5em;
+            margin-top: 3.5em;
         }
     }
 }
@@ -33,7 +33,7 @@
     @media(min-width: 831px) {
         padding: 20px;
         gap: 20px;
-        height: 400px;
+        height: 350px;
     }
     li {
         height: 100px;
@@ -48,7 +48,7 @@
     height: 100px;
     max-width: 140px;
     @media(min-width: 831px) {
-        height: 275px;
+        height: 240px;
         max-width: 309px;
     }
 }
