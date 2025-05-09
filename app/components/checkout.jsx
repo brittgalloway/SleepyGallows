@@ -45,18 +45,19 @@ export default function Checkout() {
             <p>... is empty. <br/> Let's put something in it</p>
           }
           <button 
+            data-testid="continue-button"
+            type="button" 
+            popovertarget="cart">
+              Continue Shopping
+            </button>
+          <button 
+            className={cartStyles.checkoutBtn}
             data-testid="checkout-button"
             type="button" 
             disabled={cart?.count > 0 ? false : true} 
             onClick={()=> handleCheckout()}>
               Checkout
           </button> 
-          <button 
-            data-testid="continue-button"
-            type="button" 
-            popovertarget="cart">
-              Continue Shopping
-            </button>
         </dialog>
       </>
   );

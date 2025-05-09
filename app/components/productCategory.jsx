@@ -13,6 +13,7 @@ query Shop {
     productSlug
     stock
     price
+    discount
     productDisplay {
       alt
       title
@@ -43,6 +44,7 @@ export async function ProductCategory() {
                       productDisplay={product?.productDisplay}
                       productName={product?.productName}
                       stock={product?.stock}
+                      discount={product?.discount}
                       price={product?.price}
                     />
                 </li>

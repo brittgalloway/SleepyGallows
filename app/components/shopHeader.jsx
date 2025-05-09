@@ -23,7 +23,7 @@ export default function ShopHeader() {
           <a className={styles.icons} href='https://www.instagram.com/sleepy_gallows/'><FontAwesomeIcon icon={faInstagram} /></a>
         </div>
         )}
-        <div className={styles.logo_wrapper}>
+        <div>
         {isMobile && 
           <Link href={'/shop/'} aria-label='This link takes you back to the Shop&apos;s home page. It holds the Sleepy Gallows "SG"'>
             <Image 

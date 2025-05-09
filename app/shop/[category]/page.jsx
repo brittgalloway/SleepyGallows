@@ -13,6 +13,7 @@ export default async function Category({params}) {
     productType
     stock
     price
+    discount
     id
     productDisplay {
       alt
@@ -39,6 +40,7 @@ export default async function Category({params}) {
             productSlug={product?.productSlug}
             productDisplay={product?.productDisplay}
             productName={product?.productName}
+            discount={product?.discount}
             stock={product?.stock}
             price={product?.price}
         />
