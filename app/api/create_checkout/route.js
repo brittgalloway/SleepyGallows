@@ -11,7 +11,16 @@ export async function POST(req) {
     }
 
     const lineItems = items.map(item => ({
-      price: item?.price, 
+      price_data:{
+        product_data:{
+          name: item?.productName,
+          description: item?.productDescription,
+          images: [item?.productDisplay],
+          tax_code: 'txcd_99999999',
+        },
+        currency: 'usd',
+        unit_amount: item?.productDiscount > 0 ? item?.productDiscount * 100 : item?.productPrice  * 100,
+      },
       quantity: item?.quantity,
     }));
 

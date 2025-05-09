@@ -18,6 +18,7 @@ export default async function Product( {params} ) {
         productType
         stock
         price
+        discount
         productDescriptions       
         originalsSummary {
           id
@@ -59,11 +60,13 @@ export default async function Product( {params} ) {
           <div>
             <p className={`${style.price}`}>{USD.format(shop?.price)}</p>
           </div>
+          {shop?.discount > 0 && <p className={`${style.price} discount`}>{USD.format(shop?.discount)}</p>}
           <div className={`${lato.className}`} dangerouslySetInnerHTML={{__html: `${shop?.productDescriptions}`}} />
           {shop?.stock > 0 ?<p className={`${style.stock}`}>In Stock</p> : <p className={`${style.no_stock}`}>Sold Out</p>}
           <AddToCart
             product={product}
             stock={shop?.stock}
+            discount={shop?.discount}
             price={shop?.price}
             productDescription={shop?.productDescriptions}
           />
