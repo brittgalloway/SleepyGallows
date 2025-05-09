@@ -8,10 +8,24 @@
   margin-bottom: 2rem;
   transition: all var(--transition);
   cursor: pointer;
+  &:not(:disabled) {
+    &:hover,
+    &:active {
+        background-color: $color;
+        color: $bg-color;
+        border-color: $bg-color;
+        text-decoration: none;
+    }
+  }
+  &:disabled {
+    filter: saturate(30%);
+    cursor: not-allowed;
+  }
+}
+@mixin svg ($color, $hover-color) {
+  fill: $color;
   &:hover,
-  &:active {
-    background-color: $color;
-    color: $bg-color;
-    text-decoration: none;
+  &active {
+    fill: $hover-color;
   }
 }

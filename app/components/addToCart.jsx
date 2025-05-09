@@ -1,6 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import { useCartContext } from '@/shop/cartContext'
+import styles from '@/style/product.module.scss'
 
 export default function AddToCart({ product, stock, price, discount, productDescription }) {
     const { cart, setCart } = useCartContext();
@@ -50,7 +51,7 @@ export default function AddToCart({ product, stock, price, discount, productDesc
     useEffect(() => {}, [cart]);
 
     return (
-        <button type="button" disabled={stock <= 0} onClick={handleCart} onKeyDown={handleCart}>
+        <button className={styles.addToCart} type="button" disabled={stock <= 0} onClick={handleCart} onKeyDown={handleCart}>
             Add To Cart
         </button>
     );

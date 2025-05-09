@@ -1,3 +1,4 @@
+@import './mixins.scss';
 .h1 {
     font-size: 1em;
     color: var(--brand-color);
@@ -55,7 +56,6 @@
         margin: 0 .5em .5em 0;
     }
     &~p {
-        text-decoration: line-through;
         font-size: 1em;
         font-weight: 400;
     }
@@ -80,4 +80,7 @@
     display: block;
     width: 100%;
     margin-top: 1em;
+}
+.addToCart {
+    @include btn(#fff, var(--brand-color));
 }
