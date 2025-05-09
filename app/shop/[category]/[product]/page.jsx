@@ -57,12 +57,16 @@ export default async function Product( {params} ) {
          />
         </div>
         <div className={`${style.product_info}`}>
-          <div>
-            <p className={`${style.price}`}>{USD.format(shop?.price)}</p>
-          </div>
-          {shop?.discount > 0 && <p className={`${style.price} discount`}>{USD.format(shop?.discount)}</p>}
-          <div className={`${lato.className}`} dangerouslySetInnerHTML={{__html: `${shop?.productDescriptions}`}} />
+          {shop?.discount > 0 ? <div className={`${style.discount}`}>
+            <p className={``} aria-label="This is the current sale price.">{USD.format(shop?.discount)}</p>
+            <p className={``} aria-label="This is the former price, not the price you will pay today.">{USD.format(shop?.price)}</p>
+            </div> :
+            <div className={`${style.price}`}>
+              <p>{USD.format(shop?.price)}</p>
+            </div>
+          }
           {shop?.stock > 0 ?<p className={`${style.stock}`}>In Stock</p> : <p className={`${style.no_stock}`}>Sold Out</p>}
+          <div className={`${lato.className}`} dangerouslySetInnerHTML={{__html: `${shop?.productDescriptions}`}} />
           <AddToCart
             product={product}
             stock={shop?.stock}
