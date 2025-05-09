@@ -11,7 +11,7 @@
 }
 .p {
   font-size: 2em;
-  color: white;
+  color:#fff;
   z-index:1;
   padding: 0.5rem;
   grid-column: 1 / 2;
@@ -105,7 +105,7 @@
       transition: content-visibility 1s allow-discrete,
                   opacity 1s,
                   block-size 1s;
-      background: white;
+      background:#fff;
       border: 1px solid purple;
       border-radius: 4px;
       padding: 1rem;

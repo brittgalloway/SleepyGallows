@@ -1,5 +1,7 @@
-.main{
-  background: white;
+@import '../style/mixins.scss';
+
+.main {
+  background:#fff;
   padding: 2rem;
   display: flex;
   justify-content: flex-start;
@@ -56,30 +58,11 @@
   border: 1px solid var(--brand-color);
   overflow: hidden;
   button {
-      justify-self: center;
-      background-color: #fff;
-      border: 2px solid var(--brand-color);
-      border-radius: var(--border-radius);
-      padding: 1rem 2rem;
-      margin: 1rem 0.5rem;
-      transition: all var(--transition);
-      cursor: pointer;
-      &:hover,
-      &:active {
-        background-color: var(--brand-color);
-        color: #fff;
-        text-decoration: none;
-      }
-    }
-    .checkoutBtn {
-      background-color: var(--brand-color);
-      color: #fff;
-      &:hover,
-      &:active {
-        background-color: #fff;
-        color: var(--brand-color);
-      }
-    
+    @include btn(var(--brand-color), #fff);
+    margin: 1rem 0.5rem;
+  }
+  .checkoutBtn {
+    @include btn(#fff, var(--brand-color));
   }
 }
 .productList {
@@ -102,7 +85,7 @@
       border-radius: var(--border-radius);
       border: none;
       background: red;
-      color: white;
+      color:#fff;
       width: auto;
       cursor: pointer;
     }

@@ -185,7 +185,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #fff;
+  background:#fff;
   @media (width <= 450px) {
     padding: 1rem;
     width: 90%;
@@ -205,7 +205,7 @@
   overflow-y: auto;
   margin-bottom: 1rem;
   scrollbar-width: auto;
-  scrollbar-color: var(--light-green) #fff;
+  scrollbar-color: var(--light-green) :#fff;
   scrollbar-gutter: stable both-edges;
 }
 
@@ -223,7 +223,7 @@
 @mixin button {
   display: inline-block;
   background: var(--light-purple);
-  color: white;
+  color:#fff;
   text-shadow: -1px -1px 0 var(--purple), 1px -1px 0 var(--purple), -1px 1px 0 var(--purple), 1px 1px 0 var(--purple);
   border: 1px solid var(--purple);
   border-radius: 10px;
@@ -232,7 +232,7 @@
   width: 40%;
   margin: 40px 5% 0 5%;
   &:hover {
-    color: white;
+    color:#fff;
     text-decoration: none;
     background: var(--purple);
   }
@@ -261,7 +261,7 @@
   background: #F2C3D3;
   padding:15px;
   border: none;
-  color: #fff;
+  color:#fff;
   line-height: 0;
   position: absolute;
   top: -20px;

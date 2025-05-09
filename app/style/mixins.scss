@@ -1,0 +1,17 @@
+@mixin btn ($color, $bg-color) {
+  justify-self: center;
+  background-color: $bg-color;
+  border: 2px solid $color;
+  color: $color;
+  border-radius: var(--border-radius);
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  transition: all var(--transition);
+  cursor: pointer;
+  &:hover,
+  &:active {
+    background-color: $color;
+    color: $bg-color;
+    text-decoration: none;
+  }
+}
