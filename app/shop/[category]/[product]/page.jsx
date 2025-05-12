@@ -46,15 +46,14 @@ export default async function Product( {params} ) {
 
   const product = JSON.parse(JSON.stringify(await stripe.products.retrieve(shop?.id)));
 
-
   return (
     <main className={`${layoutStyle.main} ${style.max_width}`}>
-      <div className={`${style.product}`}>
+      <div className={`${shop?.productDisplay[0].responsiveImage.height > 500 ? style.product_tall : style.product_wide}`}>
         <h1 className={`${style.h1}`}>{shop?.productName}</h1>
-        <div className={`${style.img_small}`}>
-         <ProductImages
+        <div className={`${style.imgDisplay}`}>
+          <ProductImages
           photos={shop?.productDisplay}
-         />
+          />
         </div>
         <div className={`${style.product_info}`}>
           {shop?.discount > 0 ? <div className={`${style.discount}`}>

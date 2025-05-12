@@ -74,10 +74,7 @@
     @include productInfo();
     &~p {
         text-decoration: line-through;
-        font-size: .6em;
-        @media(min-width: 831px) {
-            font-size: 1em;
-        }
+        font-size: .75em;
     }
 }
 .product_display {

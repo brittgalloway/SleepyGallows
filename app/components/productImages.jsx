@@ -20,6 +20,7 @@ export function ProductImages({photos}) {
     }))
   return (
     <>
+      <div className={`${style.productImage}`}>
         <Image className={`${style.img}`}
             key= {photos[index]?.id}
             src= {photos[index]?.responsiveImage?.src}
@@ -28,16 +29,17 @@ export function ProductImages({photos}) {
             title= {photos[index]?.title}
             alt= {photos[index]?.alt}
         />
-        <PhotoAlbum 
-            layout="columns"
-            photos={slides}
-            maxPhotos={4}
-            columns={4}
-            height={100}
-            width={100}
-            spacing={10}
-            onClick={handleClick}
-        />
+      </div>
+      <PhotoAlbum 
+          layout="columns"
+          photos={slides}
+          maxPhotos={4}
+          columns={4}
+          height={100}
+          width={100}
+          spacing={10}
+          onClick={handleClick}
+      />
     </>
   )
 }
