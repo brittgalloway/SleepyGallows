@@ -66,7 +66,7 @@ export default async function Product( {params} ) {
             </div>
           }
           {shop?.stock > 0 ?<p className={`${style.stock}`}>In Stock</p> : <p className={`${style.no_stock}`}>Sold Out</p>}
-          <div className={`${lato.className}`} dangerouslySetInnerHTML={{__html: `${shop?.productDescriptions}`}} />
+          <div className={`${lato.className}`} dangerouslySetInnerHTML={{__html: shop?.productDescriptions}} />
           <AddToCart
             product={product}
             stock={shop?.stock}

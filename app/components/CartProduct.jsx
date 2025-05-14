@@ -60,7 +60,7 @@ export function CartProduct() {
             style={{ objectFit: 'cover' }}
           />
           <p className={styles.prodName} data-testid={`item-name_${item.price}`}>{item.productName}</p>
-          <p className={styles.description} data-testid={`item-description_${item.price}`}>{item.productDescription}</p>
+          <p className={styles.description} data-testid={`item-description_${item.price}`} dangerouslySetInnerHTML={{__html: item.productDescription}}/>
           <p className={styles.price} data-testid={`item-price_${item.price}`}>Unit Price: {USD.format(item.productPrice)}</p>
           {item?.productStock > 1 ? (
             <label className={styles.qty} aria-label={`Current quantity of ${item.productName}. Adjust quantity here.`}>
