@@ -71,6 +71,7 @@ export function CartProduct() {
                 min={1}
                 max={item.productStock}
                 size={3}
+                maxlength={3}
                 value={item.quantity}
                 onChange={(e) => handleQty(e, item.price)}
               />

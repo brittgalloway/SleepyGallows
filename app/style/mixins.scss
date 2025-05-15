@@ -1,7 +1,8 @@
 @mixin btn ($color, $bg-color) {
   justify-self: center;
   background-color: $bg-color;
-  border: 2px solid $color;
+  border: 1px solid $color;
+  border-bottom-width: 2px;
   color: $color;
   border-radius: var(--border-radius);
   padding: 1rem 2rem;
@@ -24,9 +25,11 @@
 }
 @mixin svg ($color, $hover-color) {
   fill: $color;
+  transition: all var(--transition);
   &:hover,
   &active {
     fill: $hover-color;
+    scale: 1.1;
   }
 }
 @mixin display-price {

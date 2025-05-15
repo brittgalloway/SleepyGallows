@@ -22,6 +22,7 @@
 .category_wrapper {
     display: flex;
     border: 1px solid var(--brand-color);
+    border-bottom-width: 2px;
     border-radius: var(--border-radius);
     height: 175px;
     width: 100%;

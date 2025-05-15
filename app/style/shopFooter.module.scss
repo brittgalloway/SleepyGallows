@@ -1,3 +1,5 @@
+@import './mixins.scss';
+
 .footer {
     width: 100%;
     margin-left: 0;
@@ -45,4 +47,7 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
+    svg {
+        @include svg(var(--brand-color), var(--purple-highlight));
+    }
 }
