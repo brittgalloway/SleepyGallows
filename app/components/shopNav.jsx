@@ -31,7 +31,7 @@ export default function ShopNavigation() {
         <ul aria-label="Shop Menu" className={styles.nav_list}>
           {links.map((link, index) => (
             <li key={index}>
-              <Link href={`/shop/${link}`}>{link}</Link></li>
+              <Link href={`/shop/${link}`}>{link.replace('-', ' ')}</Link></li>
           ))}
           {isMobile && 
               <li>
