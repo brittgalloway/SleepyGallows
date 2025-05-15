@@ -52,14 +52,16 @@ export default function Checkout() {
             popovertarget="cart">
               Continue Shopping
             </button>
-          <button 
-            className={cartStyles.checkoutBtn}
-            data-testid="checkout-button"
-            type="button" 
-            disabled={cart?.count > 0 ? false : true} 
-            onClick={()=> handleCheckout()}>
-              Checkout
-          </button> 
+          {cart?.count > 0 && 
+            <button 
+              className={cartStyles.checkoutBtn}
+              data-testid="checkout-button"
+              type="button" 
+              disabled={cart?.count > 0 ? false : true} 
+              onClick={()=> handleCheckout()}>
+                Checkout
+            </button> 
+          }
         </dialog>
       </>
   );
