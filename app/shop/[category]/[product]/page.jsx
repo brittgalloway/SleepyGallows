@@ -49,11 +49,12 @@ export default async function Product( {params} ) {
   const imgWidth = shop?.productDisplay[0].responsiveImage.width;
   return (
     <main className={`${layoutStyle.main} ${style.max_width}`}>
-      <div className={`${imgHeight > imgWidth ? style.product_tall : style.product_wide}`}>
+      <div className={`${imgHeight > imgWidth ? style.product_portrait : style.product_landscape}`}>
         <h1 className={`${style.h1}`}>{shop?.productName}</h1>
         <div className={`${style.imgDisplay}`}>
           <ProductImages
           photos={shop?.productDisplay}
+          layout={imgHeight > imgWidth ? 'portrait' : 'landscape'}
           />
         </div>
         <div className={`${style.product_info}`}>

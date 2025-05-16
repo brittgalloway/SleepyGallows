@@ -4,7 +4,7 @@ import Image from 'next/image'
 import PhotoAlbum from 'react-photo-album'
 import style from '@/style/product.module.scss'
 
-export function ProductImages({photos}) {
+export function ProductImages({photos, layout}) {
   const [index, setIndex] = useState(0);
   const handleClick = ({ index: current }) => {
     setIndex(current);
@@ -30,16 +30,28 @@ export function ProductImages({photos}) {
             alt= {photos[index]?.alt}
         />
       </div>
-      <PhotoAlbum 
-          layout="columns"
-          photos={slides}
-          maxPhotos={4}
-          columns={4}
-          height={100}
-          width={100}
-          spacing={10}
-          onClick={handleClick}
-      />
+      {layout === 'portrait' ? 
+        <PhotoAlbum 
+            layout="columns"
+            photos={slides}
+            maxPhotos={4}
+            columns={4}
+            height={100}
+            width={100}
+            spacing={10}
+            onClick={handleClick}
+        /> :
+        <PhotoAlbum 
+            layout="rows"
+            photos={slides}
+            maxPhotos={4}
+            columns={1}
+            height={100}
+            width={100}
+            spacing={10}
+            onClick={handleClick}
+        />
+      } 
     </>
   )
 }
