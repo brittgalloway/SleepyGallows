@@ -4,8 +4,8 @@ import styles from './page.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Shop',
-  description: "The Sleepy Gallows e-commerce store. Browse Collages, Prints, Stickers, and Books",
-  keywords: "shop, art, art prints, sleepy gallows",
+  description: 'The Sleepy Gallows e-commerce store. Browse Collages, Prints, Stickers, and Books',
+  keywords: 'shop, art, art prints, sleepy gallows, chicago artist, evanston artist, black artist',
 }
 
 export default function Shop() {

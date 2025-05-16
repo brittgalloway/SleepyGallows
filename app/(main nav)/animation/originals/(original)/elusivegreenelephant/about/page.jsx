@@ -8,8 +8,8 @@ import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | About EGE',
-  description: "The Elusive Green Elephant is a short Animated film created by the Sleepy Gallows. Learn about the concept and the see related art.",
-  keywords: "animation, sleepy gallows, elusive green elephant",
+  description: 'The Elusive Green Elephant is a short Animated film created by the Sleepy Gallows. Learn about the concept and the see related art.',
+  keywords: 'animation, sleepy gallows, elusive green elephant, chicago artist, evanston artist, black artist',
 }
 
 const PAGE_CONTENT_QUERY = `
@@ -55,6 +55,7 @@ export default async function EgeAbout() {
               </div>
           ))}
         </div>
+        Concept Art
     </section>
   )
 }

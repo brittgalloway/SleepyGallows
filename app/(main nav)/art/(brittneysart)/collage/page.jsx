@@ -6,8 +6,8 @@ import styles from '@/style/artGrid.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Brittney\'s Art',
-  description: "Showcase the art of Brittney Galloway.",
-  keywords: "brittney galloway, art, plh, collage",
+  description: 'Showcase the art of Brittney Galloway.',
+  keywords: 'brittney galloway, art, plh, collage, chicago artist, evanston artist, black artist',
 }
 
 const PAGE_CONTENT_QUERY = `

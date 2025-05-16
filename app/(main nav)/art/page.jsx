@@ -7,8 +7,8 @@ import MainNavigation from '@/components/MainNavigation'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Art',
-  description: "Showcase the art of Brittney and Crystal Galloway.",
-  keywords: "brittney galloway, crystal galloway, art, necahual, elusive green elephant, plh",
+  description: 'Showcase the art of Brittney and Crystal Galloway.',
+  keywords: 'brittney galloway, crystal galloway, art, necahual, elusive green elephant, plh, chicago artist, evanston artist, black artist',
 }
 
 export default function Art() {

@@ -5,8 +5,8 @@ import styles from './page.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Animation',
-  description: "Animation of the Sleepy Gallows.",
-  keywords: "animation, sleepy gallows, brittney",
+  description: 'Animation of the Sleepy Gallows.',
+  keywords: 'animation, sleepy gallows, brittney, chicago artist, evanston artist, black artist',
 }
 
 export default function Animation() {

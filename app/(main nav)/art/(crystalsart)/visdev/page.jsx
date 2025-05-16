@@ -7,8 +7,8 @@ import styles from '@/art/page.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Crystal\'s Art',
-  description: "Showcase the art of Crystal Galloway.",
-  keywords: "crystal galloway, art, necahual, plh, the little mermaid",
+  description: 'Showcase the art of Crystal Galloway.',
+  keywords: 'crystal galloway, art, necahual, plh, the little mermaid, chicago artist, evanston artist, black artist',
 }
 
 const PAGE_CONTENT_QUERY = `

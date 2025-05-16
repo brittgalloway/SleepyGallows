@@ -6,8 +6,8 @@ import styles from '@/style/artGrid.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Crystal\'s Art',
-  description: "Showcase the art of Crystal Galloway.",
-  keywords: "crystal galloway, art, necahual, plh, the little mermaid, illustration",
+  description: 'Showcase the art of Crystal Galloway.',
+  keywords: 'crystal galloway, art, necahual, plh, the little mermaid, illustration, chicago artist, evanston artist, black artist',
 }
 
 const PAGE_CONTENT_QUERY = `

@@ -7,8 +7,8 @@ import { StripePatron } from './PatronBtn'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Patron Support',
-  description: "The Sleepy Gallows e-commerce store. Please consider becoming a patron and get 15% off all orders.",
-  keywords: "shop, art, art prints, sleepy gallows",
+  description: 'The Sleepy Gallows e-commerce store. Please consider becoming a patron and get 15% off all orders.',
+  keywords: 'shop, art, art prints, sleepy gallows, chicago artist, evanston artist',
 }
 const PAGE_CONTENT_QUERY = `
 query Patron{

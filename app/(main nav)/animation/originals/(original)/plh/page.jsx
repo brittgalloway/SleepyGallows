@@ -7,8 +7,8 @@ import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | For Peace, Love, & Harmony',
-  description: "For Peace, Love, & Harmony is a short Animated film created by the Sleepy Gallows. Learn about the concept and the see related art.",
-  keywords: "animation, sleepy gallows, for peace love and harmony",
+  description: 'For Peace, Love, & Harmony is a short Animated film created by the Sleepy Gallows. Learn about the concept and the see related art.',
+  keywords: 'animation, sleepy gallows, for peace love and harmony, chicago artist, evanston artist, black artist',
 }
 
 const PAGE_CONTENT_QUERY = `

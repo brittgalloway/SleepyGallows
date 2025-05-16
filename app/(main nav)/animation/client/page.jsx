@@ -9,8 +9,8 @@ import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Client Animation',
-  description: "Client Animation created by the Sleepy Gallows.",
-  keywords: "animation, sleepy gallows, brittney",
+  description: 'Client Animation created by the Sleepy Gallows.',
+  keywords: 'animation, sleepy gallows, brittney, chicago artist, evanston artist, black artist',
 }
 
 const PAGE_CONTENT_QUERY = `
