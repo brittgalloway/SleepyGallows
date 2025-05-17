@@ -23,6 +23,7 @@ query Watch{
         id
       }
     }
+    conceptArt {}
     name
     summary
     link

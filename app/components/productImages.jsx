@@ -42,7 +42,7 @@ export function ProductImages({photos, layout}) {
             onClick={handleClick}
         /> :
         <PhotoAlbum 
-            layout="rows"
+            layout="columns"
             photos={slides}
             maxPhotos={4}
             columns={1}

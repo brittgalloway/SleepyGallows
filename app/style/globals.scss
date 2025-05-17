@@ -30,6 +30,12 @@
   --transition: 300ms;
 }
 
+.react-photo-album--column {
+  justify-content: flex-start !important;
+}
+.react-photo-album--photo{
+  object-fit: cover !important;
+}
 body {
   width: 100%;
   padding: 0;

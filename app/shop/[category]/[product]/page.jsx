@@ -19,6 +19,7 @@ export default async function Product( {params} ) {
         stock
         price
         discount
+        shortDescription
         productDescriptions       
         originalsSummary {
           id
@@ -73,7 +74,7 @@ export default async function Product( {params} ) {
             stock={shop?.stock}
             discount={shop?.discount}
             price={shop?.price}
-            productDescription={shop?.productDescriptions}
+            productDescription={shop?.shortDescription}
           />
         </div>
       </div>
