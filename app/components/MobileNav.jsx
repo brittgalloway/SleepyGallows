@@ -25,7 +25,7 @@ export default function MobileNav({navType, navId, testId, ariaLabel, navItems})
                     )}
                     {navItems.map((link, index) => (
                     <li key={index}>
-                        <Link href={`${navType === 'shop' ? '/shop/' : ''} ${link}`} className={`${cinzel_decorative.className}`}>
+                        <Link href={`${navType === 'shop' ? '/shop/' : ''}${link}`} className={`${cinzel_decorative.className}`}>
                             {link.replace('-', ' ')}
                         </Link>
                     </li>
