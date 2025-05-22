@@ -40,7 +40,7 @@ export default function Checkout() {
             }
           {cart?.count}
         </button>
-        <dialog data-testid="cart-popup" popover="true" id="cart" className={cartStyles.cart}>
+        <dialog data-testid="cart-popup" popover="auto" id="cart" className={cartStyles.cart}>
           <h2>Your Cart</h2>
           {cart?.count > 0 ?
             <CartProduct/>  :
