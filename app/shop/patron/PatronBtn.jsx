@@ -80,7 +80,7 @@ export function StripePatron() {
 		};
 		this.onValueChange = (event) => {
 			const price = event.target.value;
-			const interval = event.target.dataset.interval !== 'once' ?? event.target.dataset.interval;
+			const interval = event.target.dataset.interval !== 'once' ? event.target.dataset.interval : null;
 			setPatronAmount(
 				{
 					price: price,

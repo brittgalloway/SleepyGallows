@@ -7,6 +7,7 @@ import mainStyles from '@/style/MainNavigation.module.scss'
 import shopStyles from '@/style/shopHeader.module.scss'
 
 export default function MobileNav({navType, navId, testId, ariaLabel, navItems}) {
+    // https://nextjs.org/docs/pages/api-reference/components/link#onnavigate
   return (
       <>
         <div className={shopStyles.mobile_menu} >
