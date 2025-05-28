@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { stripePromise} from '@/lib/stripe'
 import { 
 	PATRON_5,
@@ -17,7 +17,9 @@ import patronStyles from '@/shop/patron/patron.module.scss'
 export function StripePatron() {
 	const [ patronFrequency, setPatronFrequency ] = useState('monthly');
 	const [ patronAmount, setPatronAmount ] = useState(PATRON_MONTHLY_5);
+	const numberInput = useRef(null);
 	const [ hasError, setHasError ] = useState(false);
+	const [ loading, setLoading ] = useState(false);
 
 	const onFrequencyChange = (event) => {
 		const frequency = event.target.value;
@@ -35,7 +37,7 @@ export function StripePatron() {
 		}
 	};
 	const handleCheckout = async () => {
-		// Add some kind of loading state here
+		setLoading(true);
 		const response = await fetch('/api/create_patron', {
 		  method: 'POST',
 		  headers: {
@@ -50,15 +52,18 @@ export function StripePatron() {
 		});
 		if (!response.ok) {
 			setHasError(true);
+			setLoading(false);
 			const errorMessage = await response.text();
-			console.error('Error creating checkout session, status 500:', errorMessage);
+			console.error('Error creating checkout session:', errorMessage);
 		}
 		const session = await response.json();
 	  
 		const stripe = await stripePromise;
 		const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
 		if (error) {
-		  console.error('Error:', error);
+			setHasError(true);
+			setLoading(false);
+		 	console.error('Error:', error);
 		}
 	};
 	function PatronField( fieldName, interval, defaultChecked,
@@ -81,10 +86,13 @@ export function StripePatron() {
 		this.stripePrice2 = stripePrice2;
 		this.stripePrice3 = stripePrice3;
 		this.onAmountChange = (event) => {
+			setHasError(false);	
+			numberInput.current.value = '';
 			const selectedAmount = JSON.parse(event.target.dataset.amount);
-			setPatronAmount(selectedAmount);	
+			setPatronAmount(selectedAmount);
 		};
 		this.onValueChange = (event) => {
+			setHasError(false);
 			const price = event.target.value;
 			const interval = event.target.dataset.interval !== 'once' ? event.target.dataset.interval : null;
 			setPatronAmount(
@@ -120,14 +128,16 @@ export function StripePatron() {
 					<input type="radio" name="patron_frequency" value="yearly" onChange={onFrequencyChange}/>
 				</label>
 			</fieldset>
-			{patronFrequency == 'monthly' && FieldSet(patronMonthly, hasError)}
-			{patronFrequency == 'once' && FieldSet(patronOnce, hasError)}
-			{patronFrequency == 'yearly' && FieldSet(patronYearly, hasError)}
-			<button type="button" onClick={handleCheckout} className={patronStyles.support}>Support</button>
+			{patronFrequency == 'monthly' && FieldSet(patronMonthly, hasError, numberInput)}
+			{patronFrequency == 'once' && FieldSet(patronOnce, hasError, numberInput)}
+			{patronFrequency == 'yearly' && FieldSet(patronYearly, hasError, numberInput)}
+			<button type="button" onClick={handleCheckout} className={patronStyles.support}>
+				{loading ? 'loading' : 'Support'}
+			</button>
 		</form>
 	)
 }
-function FieldSet (opts, hasError){
+function FieldSet (opts, hasError, numberInput){
 	return(
 	<fieldset className={`${patronStyles.fieldset} ${patronStyles.prices}`}>
 		<label>
@@ -153,6 +163,7 @@ function FieldSet (opts, hasError){
 				step="0.01"
 				placeholder={opts.suggested}
 				onChange={opts.onValueChange}
+				ref={numberInput}
 				aria-invalid={hasError}
 				aria-describedby={hasError ? "element-error" : ''}/>
 			{hasError && <p id="element-error" role="alert">The number must be between 1 and 999999.</p>}
