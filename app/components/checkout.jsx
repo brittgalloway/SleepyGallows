@@ -57,14 +57,17 @@ export default function Checkout() {
               Continue Shopping
             </button>
           {cart?.count > 0 && 
+          <>
+            {hasError ? <p>Oops, something went wrong! We might be out of stock. Refresh and try again.</p> : ''}
             <button 
               className={cartStyles.checkoutBtn}
               data-testid="checkout-button"
               type="button" 
-              disabled={cart?.count > 0 ? false : true} 
+              disabled={cart?.count > 0 && !hasError ? false : true} 
               onClick={()=> handleCheckout()}>
                 {loading ? 'loading...' : 'Checkout'}
             </button> 
+          </>
           }
         </dialog>
       </>

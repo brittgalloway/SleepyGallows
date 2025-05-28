@@ -1,6 +1,6 @@
 'use client'
 import { useState, useRef } from 'react'
-import { stripePromise} from '@/lib/stripe'
+import { stripePromise } from '@/lib/stripe'
 import { 
 	PATRON_5,
 	PATRON_10,
