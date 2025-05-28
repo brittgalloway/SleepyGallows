@@ -17,10 +17,12 @@ import patronStyles from '@/shop/patron/patron.module.scss'
 export function StripePatron() {
 	const [ patronFrequency, setPatronFrequency ] = useState('monthly');
 	const [ patronAmount, setPatronAmount ] = useState(PATRON_MONTHLY_5);
+	const [ hasError, setHasError ] = useState(false);
 
 	const onFrequencyChange = (event) => {
 		const frequency = event.target.value;
 		setPatronFrequency(frequency);
+		setHasError(false);
 
 		if (frequency == 'monthly'){
 			setPatronAmount(PATRON_MONTHLY_5);
@@ -33,7 +35,7 @@ export function StripePatron() {
 		}
 	};
 	const handleCheckout = async () => {
-	  
+		// Add some kind of loading state here
 		const response = await fetch('/api/create_patron', {
 		  method: 'POST',
 		  headers: {
@@ -46,7 +48,11 @@ export function StripePatron() {
 			}
 		  }),
 		});
-	  
+		if (!response.ok) {
+			setHasError(true);
+			const errorMessage = await response.text();
+			console.error('Error creating checkout session, status 500:', errorMessage);
+		}
 		const session = await response.json();
 	  
 		const stripe = await stripePromise;
@@ -114,15 +120,14 @@ export function StripePatron() {
 					<input type="radio" name="patron_frequency" value="yearly" onChange={onFrequencyChange}/>
 				</label>
 			</fieldset>
-			{patronFrequency == 'monthly' && FieldSet(patronMonthly)}
-			{patronFrequency == 'once' && FieldSet(patronOnce)}
-			{patronFrequency == 'yearly' && FieldSet(patronYearly)}
+			{patronFrequency == 'monthly' && FieldSet(patronMonthly, hasError)}
+			{patronFrequency == 'once' && FieldSet(patronOnce, hasError)}
+			{patronFrequency == 'yearly' && FieldSet(patronYearly, hasError)}
 			<button type="button" onClick={handleCheckout} className={patronStyles.support}>Support</button>
 		</form>
 	)
-
 }
-function FieldSet (opts){
+function FieldSet (opts, hasError){
 	return(
 	<fieldset className={`${patronStyles.fieldset} ${patronStyles.prices}`}>
 		<label>
@@ -147,7 +152,10 @@ function FieldSet (opts){
 				min={1}
 				step="0.01"
 				placeholder={opts.suggested}
-				onChange={opts.onValueChange}/>
+				onChange={opts.onValueChange}
+				aria-invalid={hasError}
+				aria-describedby={hasError ? "element-error" : ''}/>
+			{hasError && <p id="element-error" role="alert">The number must be between 1 and 999999.</p>}
 		</label>
 	</fieldset>
 	)
