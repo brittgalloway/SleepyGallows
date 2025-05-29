@@ -1,10 +1,11 @@
 'use client'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useCartContext } from '@/shop/cartContext'
 import styles from '@/style/product.module.scss'
 
 export default function AddToCart({ product, stock, price, discount, productDescription }) {
     const { cart, setCart } = useCartContext();
+    const [btnText, setBtnText] = useState('Add To Cart');
 
     const handleCart = () => {
         setCart((prevCart) => {
@@ -46,13 +47,17 @@ export default function AddToCart({ product, stock, price, discount, productDesc
                 items: updatedItems,
             };
         });
+        setBtnText('Added!');
+        setTimeout(() => {
+            setBtnText('Add To Cart');
+        }, 2000);
     };
 
     useEffect(() => {}, [cart]);
 
     return (
         <button className={styles.addToCart} type="button" disabled={stock <= 0} onClick={handleCart} onKeyDown={handleCart}>
-            Add To Cart
+            {btnText}
         </button>
     );
 }

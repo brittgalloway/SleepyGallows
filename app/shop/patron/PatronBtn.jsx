@@ -102,7 +102,6 @@ export function StripePatron() {
 				}
 			);
 		};
-
 	}
 	
 	const patronOnce = new PatronField('one_amount', 'once', 1, 'once_5', 'once_10', 'once_15', 'once_pc', 5, 10, 15, 3, PATRON_5, PATRON_10, PATRON_15);
@@ -132,7 +131,7 @@ export function StripePatron() {
 			{patronFrequency == 'once' && FieldSet(patronOnce, hasError, numberInput)}
 			{patronFrequency == 'yearly' && FieldSet(patronYearly, hasError, numberInput)}
 			<button type="button" onClick={handleCheckout} className={patronStyles.support}>
-				{loading ? 'loading' : 'Support'}
+				{loading ? <div aria-label="A spinning dotted circle while the computer thinks." className="spinner"></div> : 'Support'}
 			</button>
 		</form>
 	)

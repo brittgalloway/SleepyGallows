@@ -65,7 +65,7 @@ export default function Checkout() {
               type="button" 
               disabled={cart?.count > 0 && !hasError ? false : true} 
               onClick={()=> handleCheckout()}>
-                {loading ? 'loading...' : 'Checkout'}
+                {loading ? <div aria-label="A spinning dotted circle while the computer thinks." className="spinner"></div> : 'Checkout'}
             </button> 
           </>
           }
