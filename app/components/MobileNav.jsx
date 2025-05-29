@@ -7,7 +7,9 @@ import mainStyles from '@/style/MainNavigation.module.scss'
 import shopStyles from '@/style/shopHeader.module.scss'
 
 export default function MobileNav({navType, navId, testId, ariaLabel, navItems}) {
-    // https://nextjs.org/docs/pages/api-reference/components/link#onnavigate
+    function handleClick() {
+        document.getElementById(`${navId}`).hidePopover();
+    }
   return (
       <>
         <div className={shopStyles.mobile_menu} >
@@ -21,12 +23,14 @@ export default function MobileNav({navType, navId, testId, ariaLabel, navItems})
                 <ul aria-label={ariaLabel} className={shopStyles.nav_list}>
                     {navType === 'main' && (
                         <li className={`${shopStyles.li} ${shopStyles.about}`}>
-                            <Link className={`${mainStyles.a} ${cinzel_decorative.className}`} href="/about">About</Link>
+                            <Link className={`${mainStyles.a} ${cinzel_decorative.className}`} onClick={handleClick} href="/about">
+                                About
+                            </Link>
                         </li>
                     )}
                     {navItems.map((link, index) => (
                     <li key={index}>
-                        <Link href={`${navType === 'shop' ? '/shop/' : ''}${link}`} className={`${cinzel_decorative.className}`}>
+                        <Link href={`${navType === 'shop' ? '/shop/' : ''}${link}`} onClick={handleClick} className={`${cinzel_decorative.className}`}>
                             {link.replace('-', ' ')}
                         </Link>
                     </li>
