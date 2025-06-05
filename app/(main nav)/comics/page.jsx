@@ -1,6 +1,7 @@
 import { cinzel_decorative } from '@/fonts'
 import Image from 'next/image'
 import { rgbDataURL } from '@/lib/utils'
+import { INSTA_2HEROES, TWITTER_2HEROES, PATREON_2HEROES, NECAHUAL, WEBTOON, NECAHUAL1_IMG, NECAHUAL2_IMG, NECAHUAL3_IMG, NECAHUAL4_IMG } from '@/lib/data'
 import { Footer } from '@/components/Footer'
 import styles from './page.module.scss'
 
@@ -13,9 +14,9 @@ export const metadata = {
 
 export default function Comics() {
   const links = [
-    ['instagram', 'https://www.instagram.com/2.heroes/'],
-    ['twitter', 'https://twitter.com/2Heroes1'],
-    ['patreon', 'https://www.patreon.com/2heroes'],
+    ['instagram', INSTA_2HEROES],
+    ['twitter', TWITTER_2HEROES],
+    ['patreon', PATREON_2HEROES],
   ];
   return (
     <>
@@ -33,11 +34,11 @@ export default function Comics() {
             </div>
             <section className={styles.section}>
             <p>
-              Come join us on our first journey with Necahual, Quetzalli, and Anacoana as they discover their destiny and help save their people. <a href="https://www.webtoons.com/en/challenge/necahual/a-peaceful-day/viewer?title_no=216820&episode_no=1">NECAHUAL</a> is a new and refreshing take on the magical trope that also honors Meso-American cultures. Subscribe to the <a href="https://www.webtoons.com/en/challenge/necahual/a-peaceful-day/viewer?title_no=216820&episode_no=1">WEBTOON</a> and never miss an update!
+              Come join us on our first journey with Necahual, Quetzalli, and Anacoana as they discover their destiny and help save their people. <a href={WEBTOON}>NECAHUAL</a> is a new and refreshing take on the magical trope that also honors Meso-American cultures. Subscribe to the <a href={WEBTOON}>WEBTOON</a> and never miss an update!
             </p>
             <div className={styles.image}>
               <Image 
-                src='https://www.datocms-assets.com/53347/1705187376-necamasterpiece-small.gif' 
+                src={NECAHUAL1_IMG} 
                 alt='Necahual, Quetzalli, and Anacaona lounging together'
                 width={349}
                 height={349}
@@ -51,14 +52,14 @@ export default function Comics() {
         <article>
           <h3>Already a Fan?</h3>
           <p className={styles.p}>
-            Find Stickers, Buttons, Charms, and Prints at <a href="https://candyfluffs.com/2heroes">CandyFluffs.com</a>
+            Find Stickers, Buttons, Charms, and Prints at <a href={NECAHUAL}>CandyFluffs.com</a>
           </p>
           <small>
             Patreon supporters get 15% off everything in the store
           </small>
           <div className={styles.products}>
             <Image 
-            src='https://www.datocms-assets.com/53347/1628171910-necacharms.jpg' 
+            src={NECAHUAL2_IMG} 
             alt='Necahual Charms found at candyfluffs.com/2heroes'
             width={200}
             height={200}
@@ -67,8 +68,8 @@ export default function Comics() {
             loading='lazy'
             />
             <Image 
-            src='https://www.datocms-assets.com/53347/1628171809-necaminicomics.jpg' 
-            alt='The handmade Necahual  Art book  found at candyfluffs.com/2heroes'
+            src={NECAHUAL3_IMG} 
+            alt='The handmade Necahual Art book  found at candyfluffs.com/2heroes'
             width={200}
             height={200}
             placeholder='blur'
@@ -76,8 +77,8 @@ export default function Comics() {
             loading='lazy'
             />
             <Image 
-            src='https://www.datocms-assets.com/53347/1628171977-necastickers.jpg' 
-            alt='The handmade Necahual  Stickers found at candyfluffs.com/2heroes'
+            src={NECAHUAL4_IMG} 
+            alt='The handmade Necahual Stickers found at candyfluffs.com/2heroes'
             width={200}
             height={200}
             placeholder='blur'

@@ -1,6 +1,7 @@
 import { grandstander } from '@/fonts'
 import Image from 'next/image'
 import Link from 'next/link'
+import { GITHUB, LINKEDIN } from '@/lib/data'
 import style from './page.module.scss'
 
 export default function  WebContact() {
@@ -10,7 +11,7 @@ export default function  WebContact() {
             <h2 className={grandstander.className} id='connect'>Connect w/Me!</h2>
             <ul className={style.ul}>
                 <li className={style.li}>
-                    <Link href="https://github.com/brittgalloway">
+                    <Link href={GITHUB}>
                         <Image 
                         width={60}
                         height={60}
@@ -19,7 +20,7 @@ export default function  WebContact() {
                     </Link>
                 </li>
                 <li className={style.li}>
-                    <Link href="https://www.linkedin.com/in/brittneygalloway/">
+                    <Link href={LINKEDIN}>
                         <Image 
                         width={60}
                         height={60}

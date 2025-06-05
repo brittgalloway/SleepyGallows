@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { grandstander } from '@/fonts'
+import { GITHUB, LINKEDIN } from '@/lib/data'
 import style from '@/webdev/page.module.scss'
 
 export default function  WebContact() {
@@ -11,7 +12,7 @@ export default function  WebContact() {
             <h2 className={grandstander.className} id='connect'>Connect w/Me!</h2>
             <ul className={style.ul}>
                 <li className={style.li}>
-                    <Link href="https://github.com/brittgalloway">
+                    <Link href={GITHUB}>
                         <Image 
                         width={60}
                         height={60}
@@ -20,26 +21,12 @@ export default function  WebContact() {
                     </Link>
                 </li>
                 <li className={style.li}>
-                    <Link href="https://www.linkedin.com/in/brittneygalloway/">
+                    <Link href={LINKEDIN}>
                         <Image 
                         width={60}
                         height={60}
                         alt="LinkedIn logo" 
                         src="data:image/svg+xml,%3Csvg fill='%236B599E' height='60px' width='60px' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-143 145 512 512' xml:space='preserve'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'/%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round' stroke='%23CCCCCC' stroke-width='1.024'/%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M329,145h-432c-22.1,0-40,17.9-40,40v432c0,22.1,17.9,40,40,40h432c22.1,0,40-17.9,40-40V185C369,162.9,351.1,145,329,145z M41.4,508.1H-8.5V348.4h49.9V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7 c18.4,0,29.7,11.9,30.1,27.7C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4 c-14.9,0-23.2,10-27,19.6c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6 c35.5,0,63.3,23,63.3,72.4V508.1z'/%3E%3C/g%3E%3C/svg%3E" />
-                    </Link>
-                </li>
-                <li className={style.li}>
-                    <Link href='/Brittney-Galloway_Front-end-developer.pdf'
-                      download="Brittney_Galloway_Resume"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                        <Image 
-                        alt="Resume icon" 
-                        src="data:image/svg+xml,%3Csvg width='60px' height='60px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.29289 1.29289C9.48043 1.10536 9.73478 1 10 1H18C19.6569 1 21 2.34315 21 4V20C21 21.6569 19.6569 23 18 23H6C4.34315 23 3 21.6569 3 20V8C3 7.73478 3.10536 7.48043 3.29289 7.29289L9.29289 1.29289ZM18 3H11V8C11 8.55228 10.5523 9 10 9H5V20C5 20.5523 5.44772 21 6 21H18C18.5523 21 19 20.5523 19 20V4C19 3.44772 18.5523 3 18 3ZM6.41421 7H9V4.41421L6.41421 7ZM7 13C7 12.4477 7.44772 12 8 12H16C16.5523 12 17 12.4477 17 13C17 13.5523 16.5523 14 16 14H8C7.44772 14 7 13.5523 7 13ZM7 17C7 16.4477 7.44772 16 8 16H16C16.5523 16 17 16.4477 17 17C17 17.5523 16.5523 18 16 18H8C7.44772 18 7 17.5523 7 17Z' fill='%236B599E'/%3E%3C/svg%3E" 
-                        width={60}
-                        height={60}
-                        />
                     </Link>
                 </li>
                 <li className={style.li}>

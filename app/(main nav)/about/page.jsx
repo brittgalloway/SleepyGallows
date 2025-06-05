@@ -2,6 +2,7 @@ import { cinzel_decorative } from '@/fonts'
 import Image from 'next/image'
 import Link from 'next/link'
 import { NoClients } from '@/components/NoClients'
+import { ABOUT_IMG } from '@/lib/data'
 import styles from './page.module.scss'
 
 export const metadata = {
@@ -33,7 +34,7 @@ export default function About() {
             We are Sisters by blood in sister fields: Animation and Illustration!
           ​​​​​​​</h3>
           <Image 
-          src='https://www.datocms-assets.com/53347/1628171501-brit-mio.png' 
+          src={ABOUT_IMG}
           alt='The Galloway Sisters: Crystal (left) and Brittney (right) as drawn in the "For Peace, Love, and Harmony" style. Art by Crystal'
           width={530} 
           height={600}

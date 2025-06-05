@@ -1,6 +1,7 @@
 import { cinzel_decorative, lato } from '@/fonts'
 import Link from 'next/link'
 import styles from './page.module.scss'
+import { KOFI, NEWSLETTER, YOUTUBE, INSTAGRAM, NECAHUAL, BLUESKY, TUMBLR } from '@/lib/data'
 
 export const metadata = {
     title: 'Sleepy Gallows Studio | Links',
@@ -10,13 +11,13 @@ export const metadata = {
 export default function Links() {
     const links = [
         ['/', 'Offical Website'],
-        ['https://ko-fi.com/sleepygallows', 'Ko-fi'],
-        ['https://sleepygallows.beehiiv.com/', 'The Newsletter'],
-        ['https://www.youtube.com/@sleepygallows', 'YouTube'],
-        ['https://www.instagram.com/sleepy_gallows/', 'Instagram'],
-        ['https://bsky.app/blgalloway.bsky.social', 'Bluesky'],
-        ['https://sleepygallows.tumblr.com/', 'Tumblr'],
-        ['https://www.candyfluffs.com/2heroes', '2Heroes Necahual'],
+        [KOFI, 'Ko-fi'],
+        [NEWSLETTER, 'The Newsletter'],
+        [YOUTUBE, 'YouTube'],
+        [INSTAGRAM, 'Instagram'],
+        [BLUESKY, 'Bluesky'],
+        [TUMBLR, 'Tumblr'],
+        [NECAHUAL, '2Heroes Necahual'],
         ['/webdev', 'Web Development'],
     ];
     return (

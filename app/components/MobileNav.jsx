@@ -10,7 +10,7 @@ export default function MobileNav({navType, navId, testId, ariaLabel, navItems})
     function handleClick() {
         document.getElementById(`${navId}`).hidePopover();
     }
-  return (
+    return (
       <>
         <div className={shopStyles.mobile_menu} >
             <button className={shopStyles.hamburger} data-testid={testId} type="button" popovertarget={navId}>
