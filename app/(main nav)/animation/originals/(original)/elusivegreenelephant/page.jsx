@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { cinzel_decorative } from '@/fonts'
 import { performRequest } from '@/lib/datocms'
 import { rgbDataURL } from '@/lib/utils'
+import { JOEY } from '@/lib/data'
 import OriginalsNav from '@/components/OriginalsNav'
 import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
@@ -50,7 +51,7 @@ export default async function EgeWatch() {
           width: '250px',
           height:'auto',
         }}
-        src="https://www.datocms-assets.com/53347/1698974110-turnaroundjoey.gif" 
+        src={JOEY} 
         alt="360 view of the character Joey."
         placeholder='blur'
         blurDataURL={rgbDataURL(228, 220, 243)}
