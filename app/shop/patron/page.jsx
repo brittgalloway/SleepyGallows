@@ -1,5 +1,5 @@
 import { performRequest } from '@/lib/datocms'
-import { NEWSLETTER } from '@/lib/data'
+import { KOFI } from '@/lib/data'
 import { lato } from '@/fonts'
 import styles from '@/shop/page.module.scss'
 import patronStyles from '@/shop/patron/patron.module.scss'
@@ -29,7 +29,7 @@ export default async function Patron() {
       <h1 className={patronStyles.patron_h1}>{patron?.header}</h1>
       <div className={`${lato.className} ${patronStyles.patronText}`} dangerouslySetInnerHTML={{__html: patron?.patronText}} />
       <StripePatron/>
-      <p className={`${lato.className}`}>Or, if you&apos;d prefer, you can buy me a <a href={NEWSLETTER}>Kofi</a></p>
+      <p className={`${lato.className}`}>Or, if you&apos;d prefer, you can buy me a <a href={KOFI}>Kofi</a></p>
     </main>
   )
 }
