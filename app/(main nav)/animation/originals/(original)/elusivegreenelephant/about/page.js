@@ -64,7 +64,7 @@ export default async function EgeAbout() {
               </div>
           ))}
         </div>
-        {original?.conceptArt && (
+        {original.conceptArt.url && (
           <>
             <h2 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>
               Concept Art
