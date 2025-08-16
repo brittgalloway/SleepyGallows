@@ -3,6 +3,7 @@ import { cinzel_decorative } from '@/fonts'
 import { performRequest } from '@/lib/datocms'
 import { rgbDataURL } from '@/lib/utils'
 import OriginalsNav from '@/components/OriginalsNav'
+import Grid from '@/components/Grid'
 import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
