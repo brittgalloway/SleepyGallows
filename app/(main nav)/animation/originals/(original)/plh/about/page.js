@@ -23,9 +23,17 @@ query Watch{
         id
       }
     }
+    conceptArt {
+      url
+      height
+      width
+      id
+      title
+      alt
+    }
     name
-    link
     summary
+    link
   }
 }
 `;
@@ -55,6 +63,17 @@ export default async function PlhAbout() {
           </div>
       ))}
       </div>
+      {original?.conceptArt && (
+          <>
+            <h2 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>
+              Concept Art
+            </h2>
+            <Grid
+              photos={original.conceptArt}
+              name={''}
+              />
+          </>
+        )}
     </section>
   )
 }
