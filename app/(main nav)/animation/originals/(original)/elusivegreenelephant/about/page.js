@@ -3,6 +3,7 @@ import { cinzel_decorative } from '@/fonts'
 import OriginalsNav from '@/components/OriginalsNav'
 import { performRequest } from '@/lib/datocms'
 import { rgbDataURL } from '@/lib/utils'
+import Grid from '@/components/Grid'
 import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
@@ -22,6 +23,14 @@ query Watch{
         alt
         id
       }
+    }
+    conceptArt {
+      url
+      height
+      width
+      id
+      title
+      alt
     }
     name
     summary
@@ -55,6 +64,17 @@ export default async function EgeAbout() {
               </div>
           ))}
         </div>
+        {original.conceptArt.url && (
+          <>
+            <h2 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>
+              Concept Art
+            </h2>
+            <Grid
+              photos={original.conceptArt}
+              name={''}
+              />
+          </>
+        )}
     </section>
   )
 }

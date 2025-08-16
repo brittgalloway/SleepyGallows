@@ -3,6 +3,7 @@ import { cinzel_decorative } from '@/fonts'
 import { performRequest } from '@/lib/datocms'
 import { rgbDataURL } from '@/lib/utils'
 import OriginalsNav from '@/components/OriginalsNav'
+import Grid from '@/components/Grid'
 import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
@@ -23,9 +24,17 @@ query Watch{
         id
       }
     }
+    conceptArt {
+      url
+      height
+      width
+      id
+      title
+      alt
+    }
     name
-    link
     summary
+    link
   }
 }
 `;
@@ -55,6 +64,17 @@ export default async function PlhAbout() {
           </div>
       ))}
       </div>
+      {original.conceptArt.url && (
+          <>
+            <h2 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>
+              Concept Art
+            </h2>
+            <Grid
+              photos={original.conceptArt}
+              name={''}
+              />
+          </>
+        )}
     </section>
   )
 }
