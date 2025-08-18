@@ -25,13 +25,14 @@ This project is a work in progress, continuously refined to enhance both functio
 
 - [Next.js](https://nextjs.org/) (Migrated from Gatsby)
 - TypeScript (In Progress)
-- [DatoCMS](https://www.datocms.com/)
+- ~~[DatoCMS](https://www.datocms.com/)~~
+- [Sanity](https://www.sanity.io/)
 - GraphQL
 - [Stripe Checkout](https://stripe.com/payments/checkout) for eCommerce (In Development)
 - [Jest](https://jestjs.io/) (In Development)
 - [Figma](https://www.figma.com/) for design
 - [Vercel](https://vercel.com/) for deployment
-- [Lottie Files](https://lottiefiles.com/) for aniamtions
+- [Lottie Files](https://lottiefiles.com/) for animations
 
 ---
 
