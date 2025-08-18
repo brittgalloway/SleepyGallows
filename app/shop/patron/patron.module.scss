@@ -121,7 +121,9 @@
     font-size: 1.25rem;
     font-size: 1.25rem;
     max-width: 150px;
-    
+    &:error {
+      border-color: var(--dark-pink);
+    }
   }
   &:before {
     content:'$';

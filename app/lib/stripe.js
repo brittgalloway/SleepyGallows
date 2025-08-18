@@ -20,39 +20,39 @@ export const USER_ACCOUNT_LINK = env === 'sandbox' ? 'https://billing.stripe.com
 export const PATRON_PRODUCT = env === 'sandbox' ? 'prod_RnZ1n8UFz12j3c' :
 '';
 export const PATRON_COUPON = env === 'sandbox' ? '6BusZfcF' : '';
-export const PATRON_5 = env === 'sandbox' ? {
+export const PATRON_5 = {
     price: 5,
     interval: 'once',
-} : 'https://donate.stripe.com/8wMg2PbGA6XV8CIcMM';
-export const PATRON_10 = env === 'sandbox' ? {
+};
+export const PATRON_10 = {
     price: 10,
     interval: 'once',
-} : 'https://donate.stripe.com/8wMg2PbGA6XV8CIcMM';
-export const PATRON_15 = env === 'sandbox' ? {
+};
+export const PATRON_15 = {
     price: 15,
     interval: 'once',
-} : '';
-export const PATRON_MONTHLY_5 = env === 'sandbox' ? {
+};
+export const PATRON_MONTHLY_5 = {
     price: 5,
     interval: 'month',
-} : 'https://donate.stripe.com/5kA9Erh0U1DBbOUcMN';
-export const PATRON_MONTHLY_10 = env === 'sandbox' ? {
+};
+export const PATRON_MONTHLY_10 = {
     price: 10,
     interval: 'month',
-} : 'https://donate.stripe.com/5kA9Erh0U1DBbOUcMN';
-export const PATRON_MONTHLY_15 = env === 'sandbox' ? {
+};
+export const PATRON_MONTHLY_15 = {
     price: 15,
     interval: 'month',
-} : 'https://donate.stripe.com/5kA9Erh0U1DBbOUcMN';
-export const PATRON_YEARLY_12 = env === 'sandbox' ? {
+};
+export const PATRON_YEARLY_12 = {
     price: 12,
     interval: 'year',
-} : 'https://donate.stripe.com/6oE4k7aCwdmj5qw4gi';
-export const PATRON_YEARLY_60 = env === 'sandbox' ? {
+};
+export const PATRON_YEARLY_60 = {
     price: 60,
     interval: 'year',
-} : 'https://donate.stripe.com/6oE4k7aCwdmj5qw4gi';
-export const PATRON_YEARLY_120 = env === 'sandbox' ? {
+};
+export const PATRON_YEARLY_120 = {
     price: 120,
     interval: 'year',
-} : 'https://donate.stripe.com/6oE4k7aCwdmj5qw4gi';
+};
