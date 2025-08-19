@@ -14,10 +14,10 @@
     "@lottiefiles/dotlottie-react": "^0.9.3",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^4.4.1",
-    "next": "^14.2.5",
+    "next": "15.4.7",
     "next-sanity": "^10.0.12",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
     "react-photo-album": "^2.3.0",
     "react-responsive": "^9.0.2",
     "sanity": "^4.4.1",
@@ -31,12 +31,15 @@
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
     "@types/node": "20.14.12",
-    "@types/react": "18.3.3",
+    "@types/react": "19.1.10",
     "eslint": "^8",
-    "eslint-config-next": "14.0.4",
+    "eslint-config-next": "15.4.7",
     "jest-environment-jsdom": "^29.7.0",
     "sass": "^1.69.5",
     "ts-jest": "^29.2.4",
     "typescript": "5.9.2"
+  },
+  "overrides": {
+    "@types/react": "19.1.10"
   }
 }

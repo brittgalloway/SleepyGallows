@@ -13,8 +13,8 @@ export const brittneyArt = defineType({
     }),
     defineField({
         name: 'drawingsGallery',
-        type: 'array',
-        of: [{type: 'imageGallery'}],
+        type: 'reference', 
+        to: [{type: 'imageGallery'}],
         description: 'These should be the finished, non-collage 2D work',
         
     }),
@@ -26,10 +26,15 @@ export const brittneyArt = defineType({
     }),
     defineField({
         name: 'collageGallery',
-        type: 'array',
-        of: [{type: 'imageGallery'}],
+        type: 'reference', 
+        to: [{type: 'imageGallery'}],
         description: 'These should be the finished, non-collage 2D work',
-        
+    }),
+    defineField({
+      name: 'updatedAt',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+      validation: (rule) => rule.required(),
     }),
     defineField({
         name: 'publishedAt',

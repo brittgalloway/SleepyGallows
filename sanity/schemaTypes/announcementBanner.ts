@@ -16,6 +16,12 @@ export const announcement = defineType({
         validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'updatedAt',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'publishedAt',
       type: 'datetime',
       initialValue: () => new Date().toISOString(),

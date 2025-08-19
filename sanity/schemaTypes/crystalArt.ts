@@ -13,8 +13,8 @@ export const crystalArt = defineType({
     }),
     defineField({
         name: 'illustrationGallery',
-        type: 'array',
-        of: [{type: 'imageGallery'}],
+        type: 'reference', 
+        to: [{type: 'imageGallery'}],
         description: 'These should be finished illustrations of Crystal',
         
     }),
@@ -32,8 +32,8 @@ export const crystalArt = defineType({
         }),
     defineField({
         name: 'mermaidGallery',
-        type: 'array',
-        of: [{type: 'imageGallery'}],
+        type: 'reference', 
+        to: [{type: 'imageGallery'}],
         description: 'These should be the desi mermaid character concept art',
         
     }),
@@ -46,10 +46,15 @@ export const crystalArt = defineType({
     }),
     defineField({
         name: 'visDevGallery',
-        type: 'array',
-        of: [{type: 'imageGallery'}],
+        type: 'reference', 
+        to: [{type: 'imageGallery'}],
         description: 'These should be non character concept art',
-        
+    }),
+    defineField({
+      name: 'updatedAt',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+      validation: (rule) => rule.required(),
     }),
     defineField({
         name: 'publishedAt',

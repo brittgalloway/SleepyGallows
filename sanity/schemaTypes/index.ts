@@ -5,10 +5,11 @@ import { webProject } from './webProject'
 import { original } from './original'
 import { announcement } from './announcementBanner'
 import { storySummary } from './storySummary'
-import { patron } from './patron'
+import { textBlock } from './textBlock'
 import { shopProduct } from './shopProduct'
 import { brittneyArt } from './brittneyArt'
 import { crystalArt } from './crystalArt'
+import { staticImage } from './staticImage'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -18,9 +19,10 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     original,
     announcement,
     storySummary,
-    patron,
+    textBlock,
     shopProduct,
     brittneyArt,
-    crystalArt
+    crystalArt,
+    staticImage
   ],
 }

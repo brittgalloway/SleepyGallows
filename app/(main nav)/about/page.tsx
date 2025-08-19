@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { type SanityDocument } from 'next-sanity'
+import { client } from '../../../sanity/lib/client'
 import { cinzel_decorative } from '@/fonts'
 import { rgbDataURL } from '@/lib/utils'
 import { NoClients } from '@/components/NoClients'
@@ -11,21 +13,39 @@ export const metadata = {
   keywords: "animation, sleepy gallows, brittney, crystal, galloway, art, for peace love harmony",
 }
 
-export default function About() {
+
+const POSTS_QUERY = `*[
+  _type == "textPages"
+    && header == "About the Sleepy Gallows"
+  ] 
+  {
+    "header": header,
+    "subHeader": body[0].children[0].text,
+    "body1": body[1].children[0].text,
+    "body2": body[2].children[0].text,
+    "body3": body[3].children[0].text,
+    "linkText": body[3].children[1].text,
+    "body4": body[3].children[2].text,
+  }`;
+
+
+export default async function About() {
+  const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
+  const text = posts[0];
   return (
     <>
       <main className={styles.main}>
         <article>
-          <h1 className={`${cinzel_decorative.className}`}>About the Sleepy Gallows</h1>
-          <h3>Hello Dreamers!</h3>
+          <h1 className={`${cinzel_decorative.className}`}>{text.header}</h1>
+          <h3>{text.subHeader}</h3>
           <p>
-            We are spreading the beauty of human nature through whimsical, charming art inspired by cultures from around the world. We want you to see the magic of many cultures in the way only animation can. The Sleepy Gallows Studio makes shows and shorts to give children of color heroes that look like them. Heroes their people have had all along. And to do so in such a way that even adults will be captivated by how much magic is still on earth. We want to broaden what your idea of a fairytale can be.
+            {text.body1}
           </p>
           <p>
-            We live in realm of whimsy to bring Native American, African, African American, and Indian mythology, legends; and triumphs to western film and animation in ways we haven’t seen before. We love fairytales/mythology and legends that blur truth and fiction. To tell the untold stories of under represented people. To tell the stories of their gods and legends and victories. That is what the Sleepy Gallows will be known for.
+            {text.body2}
           </p>
           <p>
-            Join us in our first dream, <Link href='/animation/originals/plh'>For Peace, Love, and Harmony (PLH)</Link>, a 7 piece drama in the Magnolia Fairy Ring. Follow the lives of 3 poor fay-folk, Harmony; Love; and Tranquility, tangled in the chaos of the royal family.
+            {text.body3}<Link href='/animation/originals/plh'>{text.linkText}</Link>{text.body4}
           </p>
         </article>
         <article className={styles.creators}>

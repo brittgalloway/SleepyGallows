@@ -22,17 +22,41 @@ export const original = defineType({
         validation: (rule) => rule.required(),
     }),
     defineField({
-        name: 'hasLiveVideo',
-        type: 'boolean',
-        description: 'Does this published, shareable videos?',
-    }),
-    defineField({
         title: 'Watch',
         name: 'watch',
-        type: 'array',
-        of: [{type: 'animatedWork'}],
+        type: 'reference', 
+        to: [{type: 'animatedWork'}],
         description: 'This is the video or video gallery for the project',
         
+    }),
+    defineField({
+        title: 'Production',
+        name: 'production',
+        type: 'object',
+        fields: [
+            {
+                title: 'Has a Live Video?',
+                name: 'hasLiveVideo',
+                type: 'boolean',
+                description: 'Does this published, shareable videos?',
+            },
+            {
+                title: 'Watch',
+                name: 'watch',
+                type: 'reference',
+                to: [{type: 'animatedWork'}],
+                description: 'This is the video or video gallery for the project',
+                hidden: ({ parent }) => parent?.hasLiveVideo != true,
+            },
+            {
+                title: 'Coming Soon',
+                name: 'inProduction',
+                type: 'reference',
+                to: [{type: 'staticImage'}],
+                description: 'This is the video or video gallery for the project',
+                hidden: ({ parent }) => parent?.hasLiveVideo == true,
+            },
+        ]
     }),
     defineField({
         title: 'About',
@@ -48,8 +72,8 @@ export const original = defineType({
             {
                 title: 'Characters',
                 name: 'characters',
-                type: 'array',
-                of: [{type: 'imageGallery'}],
+                type: 'reference', 
+                to: [{type: 'imageGallery'}],
                 validation: (rule) => rule.required(),
             },
             {
@@ -62,10 +86,15 @@ export const original = defineType({
     }),
     defineField({
         name: 'art',
-        type: 'array',
-        of: [{type: 'imageGallery'}],
+        type: 'reference', 
+        to: [{type: 'imageGallery'}],
         description: 'These should be the finished, art, promo art, etc. Will be on a page with little text, mostly the gallery.',
-        
+    }),
+    defineField({
+      name: 'updatedAt',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+      validation: (rule) => rule.required(),
     }),
     defineField({
         name: 'publishedAt',

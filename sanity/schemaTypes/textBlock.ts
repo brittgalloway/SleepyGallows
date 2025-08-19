@@ -1,24 +1,20 @@
 import {defineField, defineType} from 'sanity'
 
-export const storySummary = defineType({
-  name: 'storySummary',
-  title: 'Story Summary',
+export const textBlock = defineType({
+  name: 'textPages',
+  title: 'Text Pages',
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
+      name: 'header',
       type: 'string',
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'slug',
-      type: 'slug',
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'body',
       type: 'array',
       of: [{type: 'block'}],
+      description: 'Large text blocks, like the Patron page, or SG About Page'
     }),
     defineField({
       name: 'updatedAt',

@@ -13,6 +13,13 @@ export const webProject = defineType({
     defineField({
       name: 'role',
       type: 'string',
+        options: {
+            list: [
+                { title: "Design", value: "design" },
+                { title: "Development", value: "dev" },
+                { title: "Development & Design", value: "dev-design" },
+            ],
+        },
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -39,6 +46,12 @@ export const webProject = defineType({
     defineField({
         name: 'description',
         type: 'text',
+    }),
+    defineField({
+      name: 'updatedAt',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'publishedAt',

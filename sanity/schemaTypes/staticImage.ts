@@ -1,19 +1,25 @@
 import {defineField, defineType} from 'sanity'
 
-export const patron = defineType({
-  name: 'patron',
-  title: 'Patron Page',
+export const staticImage = defineType({
+  name: 'staticImage',
+  title: 'Static Image',
   type: 'document',
   fields: [
     defineField({
-      name: 'header',
+      name: 'title',
       type: 'string',
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'body',
-      type: 'array',
-      of: [{type: 'block'}],
+      name: 'image',
+      type: 'image',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'updatedAt',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'publishedAt',

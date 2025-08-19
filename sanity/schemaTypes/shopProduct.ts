@@ -41,9 +41,9 @@ export const shopProduct = defineType({
     defineField({
         title: 'Product Display',
         name: 'productDisplay',
-        type: 'array',
-        of: [{type: 'imageGallery'}],
-        description: 'Max of 4 images',
+        type: 'reference', 
+        to: [{type: 'imageGallery'}],
+        description: 'Max of 4 images, webp. Sizes: 855px x 450px or 430px X 500px',
         validation: (rule) => rule.required(),
     }),
     defineField({
@@ -60,16 +60,43 @@ export const shopProduct = defineType({
         validation: (rule) => rule.required(),
     }),
     defineField({
-        title: 'Is this shippable?',
-        name: 'shippable',
-        type: 'boolean',
-        description: 'Physical items need to be shipped, digital products do not',
-        
+        title: 'Shipping',
+        name: 'shipping',
+        type: 'object',
+        fields: [
+            {
+                title: 'Is this shippable?',
+                name: 'shippable',
+                type: 'boolean',
+                description: 'Physical items need to be shipped, digital products do not',
+            },
+            {
+                title: 'Shipping Options',
+                name: 'shippingOptions',
+                type: 'string',
+                options: {
+                    list: [
+                        { title: "Print Domestic", value: "print domestic" },
+                        { title: "Wood Panel", value: "wood panel" },
+                        { title: "Mat Board", value: "mat board" },
+                        { title: "Stickers", value: "stickers" },
+                        { title: "Books", value: "books" },
+                    ],
+                },
+                hidden: ({ parent }) => parent?.shippable != true,
+            },
+        ]
+    }),
+    defineField({
+      name: 'updatedAt',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+      validation: (rule) => rule.required(),
     }),
     defineField({
         name: 'originalsSummary',
-        type: 'array',
-        of: [{type: 'storySummary'}],
+        type: 'reference',
+        to: [{type: 'storySummary'}],
         description: 'This is a short summary to add under the product details. To tell new shoppers what the product is related to.',
     }),
     ],
