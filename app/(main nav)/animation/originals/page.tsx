@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import { type SanityDocument } from 'next-sanity'
+import { client } from '../../../../sanity/lib/client'
 import { cinzel_decorative } from '@/fonts'
-import { performRequest } from '@/lib/datocms'
-import { rgbDataURL } from '@/lib/utils'
+import ImageComponent from '@/components/sanityImage'
 import AnimationNav from '@/components/Nav'
 import { Footer } from '@/components/Footer'
 import styles from '@/animation/page.module.scss'
@@ -14,21 +14,18 @@ export const metadata = {
   keywords: "animation, sleepy gallows, for peace love and harmony, elusive green elephant",
 }
 
-const PAGE_CONTENT_QUERY = `
-query Originals{
-  allOriginals {
-    name
-    link
-    id
-    thumb {
-      alt
-      url
-    }
-  }
-}
-`;
+const POSTS_QUERY = `*[
+  _type == "original"
+  ] 
+  {
+    "title": title,
+    "id": _id,
+    "link": link.current,
+    "thumbnail": thumbnail.asset._ref,
+ }`;
+ 
 export default async function Originals() {
-  const { data: { allOriginals} } = await performRequest({ query: PAGE_CONTENT_QUERY });
+  const originals = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (
     <>
       <main> 
@@ -38,21 +35,19 @@ export default async function Originals() {
           <h2 className={`${textStyles.textCenter }`}>SG Shorts and Webseries</h2>
         </header>
         <div className={styles.projectWrapper}>
-          {allOriginals.map((project)=> (
-            <div key={project?.id} className={styles.project}>
-              <Link href={`/animation/originals/${project?.link.toString().toLowerCase()}`}
-                aria-label={`Click here for more information on ${project?.name}`}> 
-                <Image
-                width={400}
-                height={400}
-                src={project?.thumb?.url} 
-                alt={`Reads as: "${project?.name}"`}
-                placeholder='blur'
-                blurDataURL={rgbDataURL(228, 220, 243)}
-                loading='lazy'/>
+          {originals.map((original)=> {
+          return(
+            <div key={original?.id} className={styles.project}>
+              <Link href={`/animation/originals/${original?.link}`}
+                aria-label={`Click here for more information on ${original?.title}`}> 
+                <ImageComponent
+                  image={original?.thumbnail}
+                  altText={original?.title}
+                  />
               </Link>
             </div>
-          ))}
+          )}
+          )}
         </div>
       </main>
       <Footer
@@ -61,3 +56,4 @@ export default async function Originals() {
     </>
   )
 }
+

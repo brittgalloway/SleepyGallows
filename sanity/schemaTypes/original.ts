@@ -22,14 +22,6 @@ export const original = defineType({
         validation: (rule) => rule.required(),
     }),
     defineField({
-        title: 'Watch',
-        name: 'watch',
-        type: 'reference', 
-        to: [{type: 'animatedWork'}],
-        description: 'This is the video or video gallery for the project',
-        
-    }),
-    defineField({
         title: 'Production',
         name: 'production',
         type: 'object',

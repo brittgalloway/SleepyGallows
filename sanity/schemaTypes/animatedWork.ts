@@ -44,7 +44,6 @@ export const animatedWork = defineType({
           {
             name: 'summary',
             type: 'text',
-            validation: (rule) => rule.required(),
           },
         ]
       }]
