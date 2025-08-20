@@ -68,11 +68,19 @@ export const original = defineType({
                 to: [{type: 'imageGallery'}],
                 validation: (rule) => rule.required(),
             },
+             {
+                title: 'Has Concept Art?',
+                name: 'hasConceptArt',
+                type: 'boolean',
+                description: 'Does this have concept art as webp?',
+            },
             {
                 title: 'Concept Art',
                 name: 'conceptArt',
                 type: 'array',
                 of: [{type: 'imageGallery'}],
+                hidden: ({ parent }) => !parent?.hasConceptArt,
+
             },
         ]
     }),
