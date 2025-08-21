@@ -1,5 +1,6 @@
 import { cinzel_decorative } from '@/fonts'
-import { performRequest } from '@/lib/datocms'
+import { type SanityDocument } from 'next-sanity'
+import { client } from '../../../../sanity/lib/client'
 import AnimationNav from '@/components/Nav'
 import Project from '../projects'
 import { Footer } from '@/components/Footer'
@@ -8,24 +9,21 @@ import styles from '../page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
-  title: 'Sleepy Gallows Studio | Client Animation',
+  title: 'SG | Client Animation',
   description: "Client Animation created by the Sleepy Gallows.",
-  keywords: "animation, sleepy gallows, brittney",
+  keywords: "animation, sleepy gallows, brittney Galloway",
 }
 
-const PAGE_CONTENT_QUERY = `
-query Client{
-  allClientWorks(orderBy: year_DESC) {
-    year
-    website
-    title
-    summary
-    link
-  }
-}
+const POSTS_QUERY = `
+*[ _type == "animatedWork"
+   && Header == "Client Work"
+ ] {
+    "id": _id,
+    "animations": animation[]{ _key, link, summary, title, year}
+ }
 `;
 export default async function Client() {
-  const { data: { allClientWorks } } = await performRequest({ query: PAGE_CONTENT_QUERY });
+  const project = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (
     <>
       <main> 
@@ -34,9 +32,9 @@ export default async function Client() {
           <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>Client Work</h1>
         </header>
         <div className={styles.videoWrapper}>
-          {allClientWorks.map((project)=> (
+          {project[0].animations.map((project)=> (
             <Project
-              key={project.title}
+              key={project._key}
               title={project.title}
               year={project.year}
               summary={project.summary}
