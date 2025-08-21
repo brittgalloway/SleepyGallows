@@ -1,5 +1,3 @@
-
-
 import { lato } from '@/fonts'
 import Iframe from '@/components/Iframe'
 import styles from './page.module.scss'
