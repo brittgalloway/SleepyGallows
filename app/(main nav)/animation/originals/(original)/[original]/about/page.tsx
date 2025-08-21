@@ -9,7 +9,7 @@ import textStyles from '@/style/titles.module.scss'
 
 
 export default async function aboutOriginal({params}) {
-  const POSTS_QUERY = `*[
+  const POSTS_QUERY = await `*[
       _type == "original"
       && link.current == "${params.original}"
     ] 

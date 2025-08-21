@@ -7,15 +7,33 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@/*": ["app/*"],
-      "@/styles/*": ["app/styles/*"],
-      "@/components/*": ["app/components/*"],
-      "@/api/*": ["app/api/*"],
-      "@/lib/*": ["app/lib/*"],
-      "@/json/*": ["app/json/*"],
-      "@/webdev/*": ["app/webdev/*"],
-      "@/animation/*": ["app/(main nav)/animation/*"],
-      "@/art/*": ["app/(main nav)/art/*"],
+      "@/*": [
+        "app/*"
+      ],
+      "@/styles/*": [
+        "app/styles/*"
+      ],
+      "@/components/*": [
+        "app/components/*"
+      ],
+      "@/api/*": [
+        "app/api/*"
+      ],
+      "@/lib/*": [
+        "app/lib/*"
+      ],
+      "@/json/*": [
+        "app/json/*"
+      ],
+      "@/webdev/*": [
+        "app/webdev/*"
+      ],
+      "@/animation/*": [
+        "app/(main nav)/animation/*"
+      ],
+      "@/art/*": [
+        "app/(main nav)/art/*"
+      ]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -32,7 +50,8 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",

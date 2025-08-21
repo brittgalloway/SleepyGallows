@@ -7,7 +7,7 @@ import styles from '@/style/artGrid.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export default async function artOriginals({params}) {
-    const POSTS_QUERY = `*[
+    const POSTS_QUERY = await `*[
         _type == "original"
         && link.current == "${params.original}"
         ] 
@@ -26,6 +26,7 @@ export default async function artOriginals({params}) {
         <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>Art of {original[0].title}</h1>
       </header>
       <div>
+        not yet connected
         {/* <Grid
           photos={original[0].art}
           name={'image2'}
