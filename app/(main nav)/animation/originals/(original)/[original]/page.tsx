@@ -3,14 +3,9 @@ import { type SanityDocument } from 'next-sanity'
 import { client } from '../../../../../../sanity/lib/client'
 import { cinzel_decorative } from '@/fonts'
 import OriginalsNav from '@/components/OriginalsNav'
+import  Iframe  from '@/components/Iframe'
 import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
-
-export const metadata = {
-  title: 'Sleepy Gallows Studio | The Elusive Green Elephant',
-  description: "The Elusive Green Elephant is a short Animated film created by the Sleepy Gallows. Learn about the concept and the see related art.",
-  keywords: "animation, sleepy gallows, elusive green elephant",
-}
 
 
 export default async function watchOriginal({params}) {
@@ -23,7 +18,7 @@ export default async function watchOriginal({params}) {
     "id": _id,
     "link": link.current,
     "hasVideo": production.hasLiveVideo,
-    "watch": production.watch,
+    "watch": production.watch->{ _id, animation[]{link, title,year} },
   }`;
     const original = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (
@@ -35,10 +30,9 @@ export default async function watchOriginal({params}) {
       </header>
       { original[0]?.hasVideo == true ? (
         <main>
-          <h2> watch, not connected</h2>
-           {/* <div className={styles.videoWrapper}>
-                   {original.watch.map((video)=> (
-                     <div key={video?.id} className={styles.video}>
+           <div className={styles.videoWrapper}>
+                   {original[0].watch.animation.map((video)=> (
+                     <div key={video?._id} className={styles.video}>
                        <Iframe 
                          link={video?.link} 
                          title={video?.title} 
@@ -49,7 +43,7 @@ export default async function watchOriginal({params}) {
                        <p className={textStyles.title}>{video?.year}</p>        
                      </div>
                    ))}
-                 </div> */}
+                 </div>
         </main>
       ) : (<main>
               <h2 className={`${textStyles.textCenter }`}>

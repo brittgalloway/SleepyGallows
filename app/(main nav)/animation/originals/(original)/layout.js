@@ -5,7 +5,7 @@ import { Footer } from '@/components/Footer'
 import '@/style/globals.scss'
 
 export const metadata = {
-  title: 'Sleepy Gallows Studio',
+  title: 'SG | Animation',
   description: "Showcase of Animation by Brittney Galloway and Crystal Galloway.",
   keywords: "animation, sleepy gallows, brittney, crystal, galloway, art, elusive green elephant, plh",
 }

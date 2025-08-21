@@ -6,12 +6,6 @@ import { client } from '../../../../../../../sanity/lib/client'
 import styles from '@/style/artGrid.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
-export const metadata = {
-  title: 'Sleepy Gallows Studio | Art of PLH',
-  description: "For Peace, Love, & Harmony is a short Animated film created by the Sleepy Gallows. Learn about the concept and the see related art.",
-  keywords: "animation, sleepy gallows, for peace love and harmony",
-}
-
 export default async function artOriginals({params}) {
     const POSTS_QUERY = `*[
         _type == "original"
@@ -21,7 +15,7 @@ export default async function artOriginals({params}) {
         "title": title,
         "id": _id,
         "link": link.current,
-        "art": art.charaters._ref,
+        "art": art.characters._ref,
         }`;
   const original = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (

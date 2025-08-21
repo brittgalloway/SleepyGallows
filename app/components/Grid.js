@@ -18,12 +18,11 @@ export default function Grid({photos, name}) {
         title: photo[`${name}`]?.title,
         alt: photo[`${name}`]?.alt
     } : {
-        key: photo.id,
+        key: photo?.assetId,
         src: photo?.url,
-        width: photo?.width,
-        height: photo?.height,
-        title: photo?.title,
-        alt: photo?.alt
+        width: photo?.metadata?.dimensions?.width,
+        height: photo?.metadata?.dimensions?.height,
+        alt: photo?.altText
     }
   ))
   return (
