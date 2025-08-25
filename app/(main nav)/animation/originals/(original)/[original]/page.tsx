@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { type SanityDocument } from 'next-sanity'
 import { client } from '../../../../../../sanity/lib/client'
 import { cinzel_decorative } from '@/fonts'
