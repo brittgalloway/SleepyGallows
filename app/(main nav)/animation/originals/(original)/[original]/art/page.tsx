@@ -1,36 +1,36 @@
 import { cinzel_decorative } from '@/fonts'
-import Grid from '@/components/Grid'
 import OriginalsNav from '@/components/OriginalsNav'
 import { type SanityDocument } from 'next-sanity'
 import { client } from '../../../../../../../sanity/lib/client'
+import Grid from '@/components/Grid'
 import styles from '@/style/artGrid.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export default async function artOriginals({params}) {
-    const POSTS_QUERY = await `*[
+  const { original } = await params
+    const POSTS_QUERY = `*[
         _type == "original"
-        && link.current == "${params.original}"
+        && link.current == "${original}"
         ] 
         {
         "title": title,
         "id": _id,
         "link": link.current,
-        "art": art.characters._ref,
+        "art": art-> { gallery[]{ asset-> { assetId, altText, metadata, _id, url } } },
         }`;
-  const original = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
+  const originalArt = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (
     <section className={styles.gridImg}>
       <header>
         <OriginalsNav 
-          navLabel={original[0].link}/>
-        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>Art of {original[0].title}</h1>
+          navLabel={originalArt[0].link}/>
+        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>Art of {originalArt[0].title}</h1>
       </header>
       <div>
-        not yet connected
-        {/* <Grid
-          photos={original[0].art}
-          name={'image2'}
-          /> */}
+        <Grid
+          photos={originalArt[0].art.gallery}
+          name={'asset'}
+          />
       </div>
     </section>
   )

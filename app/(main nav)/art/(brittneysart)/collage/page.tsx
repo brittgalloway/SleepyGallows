@@ -1,4 +1,5 @@
-import { performRequest } from '@/lib/datocms'
+import { type SanityDocument } from 'next-sanity'
+import { client } from '../../../../../sanity/lib/client'
 import Grid from '@/components/Grid'
 import ArtNav from '@/art/nav'
 import { Footer } from '@/components/Footer'
@@ -10,22 +11,17 @@ export const metadata = {
   keywords: "brittney galloway, art, plh, collage",
 }
 
-const PAGE_CONTENT_QUERY = `
-query Collage{
-  allPaperCutouts {
-    id
-    paperArt {
-      alt
-      url
-      title
-      height
-      width
+const POSTS_QUERY = `*[
+  _type == "imageGallery" &&
+  title == "Brittney's Collage"
+  ] 
+  {
+    "id": _id,
+    "gallery": gallery[].asset->{ title, assetId, altText, metadata, _id, url},
     }
-  }
-}
 `;
 export default async function Collage() {
-  const { data: { allPaperCutouts } } = await performRequest({ query: PAGE_CONTENT_QUERY });
+  const images = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (
     <>
       <main className={styles.gridImg}> 
@@ -36,9 +32,8 @@ export default async function Collage() {
         />
         <section>
           <Grid
-          photos={allPaperCutouts}
-          name={'paperArt'}
-          />
+            photos={images[0].gallery}
+            />
         </section>
       </main>
       <Footer

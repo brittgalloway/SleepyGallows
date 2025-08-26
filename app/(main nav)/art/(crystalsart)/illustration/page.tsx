@@ -1,4 +1,5 @@
-import { performRequest } from '@/lib/datocms'
+import { type SanityDocument } from 'next-sanity'
+import { client } from '../../../../../sanity/lib/client'
 import Grid from '@/components/Grid'
 import ArtNav from '@/art/nav'
 import { Footer } from '@/components/Footer'
@@ -10,22 +11,16 @@ export const metadata = {
   keywords: "crystal galloway, art, necahual, plh, the little mermaid, illustration",
 }
 
-const PAGE_CONTENT_QUERY = `
-query Illustration {
-  allIllustraions {
-    id
-    art {
-      title
-      url
-      width
-      height
-      alt
-    }
+const POSTS_QUERY = `*[
+    _type == "crystalArt"
+  ] 
+  {
+      "id": _id,
+      "illustrationGallery": illustrationGallery-> {  gallery[]{ asset-> { assetId, altText, metadata, _id, url } } },
   }
-}
 `;
 export default async function Crystal() {
-  const { data: { allIllustraions } } = await performRequest({ query: PAGE_CONTENT_QUERY });
+  const images = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (
     <>
       <main className={styles.gridImg}> 
@@ -35,9 +30,9 @@ export default async function Crystal() {
           page2={'visdev'}
           />
           <Grid
-          photos={allIllustraions}
-          name={'art'}
-          />
+            photos={images[0].illustrationGallery.gallery}
+            name={'asset'}
+            />
       </main>
       <Footer
       name={'Crystal Galloway'}

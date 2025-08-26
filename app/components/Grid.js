@@ -7,16 +7,16 @@ import Captions from 'yet-another-react-lightbox/plugins/captions'
 import 'yet-another-react-lightbox/styles.css'
 import 'yet-another-react-lightbox/plugins/captions.css'
 
-export default function Grid({photos, name}) {
+export default function Grid({photos, name=''}) {
   const [index, setIndex] = React.useState(-1);
   const slides = photos.map((photo) => ( 
     name ? {
         key: photo.id,
-        src: photo[`${name}`]?.url,
-        width: photo[`${name}`]?.width,
-        height: photo[`${name}`]?.height,
-        title: photo[`${name}`]?.title,
-        alt: photo[`${name}`]?.alt
+        src: photo[name]?.url,
+        width: photo[name]?.metadata?.dimensions?.width,
+        height: photo[name]?.metadata?.dimensions?.height,
+        title: photo[name]?.title,
+        alt: photo[name]?.altText,
       } : {
         key: photo?.assetId,
         src: photo?.url,

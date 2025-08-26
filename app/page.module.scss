@@ -78,8 +78,10 @@
 
 .imgComic {
   @include img;
-  grid-row: 1/2;
-  grid-column: 2/3;
+  & {
+    grid-row: 1/2;
+    grid-column: 2/3;
+  }
   @media(max-width: 830px){
     grid-row:2/3;
   }

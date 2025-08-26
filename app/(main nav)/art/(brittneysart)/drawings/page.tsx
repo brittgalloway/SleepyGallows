@@ -33,7 +33,6 @@ export default async function Brittney() {
         <section>
           <Grid
             photos={images[0].gallery}
-            name={''}
             />
         </section>
       </main>
