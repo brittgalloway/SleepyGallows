@@ -7,7 +7,6 @@ import { announcement } from './announcementBanner'
 import { storySummary } from './storySummary'
 import { textBlock } from './textBlock'
 import { shopProduct } from './shopProduct'
-import { brittneyArt } from './brittneyArt'
 import { crystalArt } from './crystalArt'
 import { staticImage } from './staticImage'
 
@@ -21,7 +20,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     storySummary,
     textBlock,
     shopProduct,
-    brittneyArt,
     crystalArt,
     staticImage
   ],
