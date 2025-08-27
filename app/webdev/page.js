@@ -65,7 +65,7 @@ export default async function Webdev() {
         <WebProjects
           key={project?.id}
           id={project?.id}
-          icon={project?.icon}
+          // icon={project?.icon}
           projectName={project?.projectName}
           role={project?.role}
           description={project?.description}

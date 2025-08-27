@@ -16,7 +16,7 @@ type WebProject = {
   description:string, liveApp:string, 
   github:string
 }
-export default function  WebProjects({id, projectName, role, icon, description, liveApp, github}: WebProject
+export default function  WebProjects({id, projectName, role, icon={title:"",url:""}, description, liveApp, github}: WebProject
 ) {
     const [display, setDisplay] = useState(false);
 
