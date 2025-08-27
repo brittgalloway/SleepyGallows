@@ -15,13 +15,6 @@ const  AnimatedIcons = ({title, src}) =>{
   }
 
     return (
-
-    animation !== null ? (
-      <DotLottieReact
-        src={animation}
-        loop
-        autoplay
-      />) : (
       <Image
         className='project-icon'
         src={src}
@@ -29,7 +22,7 @@ const  AnimatedIcons = ({title, src}) =>{
         height={150}
         loading='lazy'
         style={{objectFit: "contain"}}/>
-    )
+  
     );
 }
 

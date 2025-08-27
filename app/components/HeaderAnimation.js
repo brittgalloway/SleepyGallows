@@ -3,10 +3,5 @@
 export default function BrittneyAvitar() {
   return (
     <p>header</p>
-    // <DotLottieReact
-    //   src="https://lottie.host/587e9359-6db3-483b-aa28-2691b9e88526/F7p4nnIjAT.lottie"
-    //   loop
-    //   autoplay
-    // />
   )
 }
