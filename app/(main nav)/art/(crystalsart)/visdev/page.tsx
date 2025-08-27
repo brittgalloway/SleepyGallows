@@ -37,7 +37,7 @@ export default async function Visdev() {
         <article className={styles.article}>
           <header>
             <h1 className={`${cinzel_decorative.className} ${styles.h1}`}>{images[0].mermaidTitle}</h1>
-            {images[0].mermaidDescription.map((description) => <p>{description.children[0].text}</p>)}
+            {images[0].mermaidDescription.map((description, idx) => <p key={idx}>{description.children[0].text}</p>)}
           </header>
           <h2 className={`${cinzel_decorative.className} ${styles.h1}`}>Characters</h2>
           <Grid
