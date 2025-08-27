@@ -1,6 +1,5 @@
 'use client'
 import Image from 'next/image';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 
 const  AnimatedIcons = ({title, src}) =>{
   let animation = 'https://lottie.host/8d693f15-8708-46a2-a046-999364e935e4/VXD69Ru2XZ.json';
