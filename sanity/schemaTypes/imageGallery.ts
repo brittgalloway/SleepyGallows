@@ -13,7 +13,23 @@ export const imageGallery = defineType({
     defineField({
       name: 'gallery',
       type: 'array',
-      of: [{type: 'image'}],
+      of: [{type: 'image',
+        fields: [
+          defineField({
+            name: 'caption',
+            type: 'string',
+          }),
+          defineField({
+            name: 'alt',
+            type: 'string',
+            validation: (rule) => rule.required(),
+          })
+        ],
+        options: {
+          accept: 'image/webp',
+          hotspot: true,
+        },
+      }],
       validation: (rule) => rule.required(),
     }),
     defineField({

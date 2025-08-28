@@ -20,8 +20,8 @@ const POSTS_QUERY = `*[
       "visualDevelopment": visualDevelopment,
       "mermaidTitle":mermaidTitle,
       "mermaidDescription":MermaidDescription[]{children[]{text}},
-      "mermaidGallery": mermaidGallery-> {  gallery[]{ asset-> { assetId, altText, metadata, _id, url } } },
-      "visDevGallery": visDevGallery-> {  gallery[]{ asset-> { assetId, altText, metadata, _id, url } } },
+      "mermaidGallery": mermaidGallery-> { gallery[]{ caption, alt, hotspot{...},  asset-> { assetId, metadata, _id, url } } },
+      "visDevGallery": visDevGallery-> { gallery[]{ caption, alt, hotspot{...},  asset-> { assetId, metadata, _id, url } } },
   }
 `;
 export default async function Visdev() {

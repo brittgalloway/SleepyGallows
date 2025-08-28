@@ -18,9 +18,9 @@ export default async function aboutOriginal({params}) {
       "id": _id,
       "link": link.current,
       "summary": about.summary[0].children[0].text,
-      "characters": about.characters-> { gallery[]{ asset-> { assetId, altText, metadata, _id } } },
+      "characters": about.characters-> { gallery[]{ caption, alt, hotspot{...},  asset-> { assetId, metadata, _id, url } } },
       "hasConceptArt": about.hasConceptArt,
-      "conceptArt": about.conceptArt[].gallery[].asset->{ assetId, altText, metadata, _id, url},
+      "conceptArt": about.conceptArt[].gallery[]{ caption, alt, hotspot{...},  asset-> { assetId, metadata, _id, url } }
     }`;
   const original = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (

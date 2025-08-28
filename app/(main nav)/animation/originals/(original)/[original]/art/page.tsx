@@ -16,7 +16,7 @@ export default async function artOriginals({params}) {
         "title": title,
         "id": _id,
         "link": link.current,
-        "art": art-> { gallery[]{ asset-> { assetId, altText, metadata, _id, url } } },
+        "art": art-> { gallery[]{ caption, alt, hotspot{...},  asset-> { assetId, metadata, _id, url } }},
         }`;
   const originalArt = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (

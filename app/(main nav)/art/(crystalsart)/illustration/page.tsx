@@ -16,7 +16,7 @@ const POSTS_QUERY = `*[
   ] 
   {
       "id": _id,
-      "illustrationGallery": illustrationGallery-> {  gallery[]{ asset-> { assetId, altText, metadata, _id, url } } },
+      "illustrationGallery": illustrationGallery-> { gallery[]{ caption, alt, hotspot{...},  asset-> { assetId, metadata, _id, url } } },
   }
 `;
 export default async function Crystal() {

@@ -15,15 +15,15 @@ export default function Grid({photos, name=''}) {
         src: photo[name]?.url,
         width: photo[name]?.metadata?.dimensions?.width,
         height: photo[name]?.metadata?.dimensions?.height,
-        title: photo[name]?.title,
-        alt: photo[name]?.altText,
+        title: photo?.caption,
+        alt: photo?.alt,
       } : {
         key: photo?.assetId,
         src: photo?.url,
         width: photo?.metadata?.dimensions?.width,
         height: photo?.metadata?.dimensions?.height,
-        alt: photo?.altText,
-        title: photo?.title,
+        alt: photo?.alt,
+        title: photo?.caption,
     }
   ))
   return (

@@ -17,7 +17,7 @@ const POSTS_QUERY = `*[
   ] 
   {
     "id": _id,
-    "gallery": gallery[].asset->{ title, assetId, altText, metadata, _id, url},
+    "gallery": gallery[]{ caption, alt, hotspot{...},  asset-> { assetId, metadata, _id, url } },
     }
 `;
 export default async function Collage() {
