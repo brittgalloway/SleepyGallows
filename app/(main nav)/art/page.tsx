@@ -1,3 +1,5 @@
+import { type SanityDocument } from 'next-sanity'
+import { client } from '../../../sanity/lib/client'
 import Image from 'next/image'
 import Link from 'next/link'
 import { cinzel_decorative } from '@/fonts'
@@ -10,8 +12,18 @@ export const metadata = {
   description: "Showcase the art of Brittney and Crystal Galloway.",
   keywords: "brittney galloway, crystal galloway, art, necahual, elusive green elephant, plh",
 }
-
-export default function Art() {
+const POSTS_QUERY = `*[
+  _type == "imageGallery" &&
+  title == "Art Home"
+  ] 
+  {
+    "id": _id,
+    "gallery": gallery[]{alt, asset->{ url }},
+    }
+`;
+export default async function Art() {
+  const images = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
+  const img = images[0];
   return (
     <>
       <MainNavigation/>
@@ -20,28 +32,28 @@ export default function Art() {
               <p className={`${styles.p} ${cinzel_decorative.className}`} >Crystal</p>
               <Image 
                 className={styles.img}
-                src="https://www.datocms-assets.com/53347/1629472253-crystalsart.svg" 
-                alt="Link to Crystal's art. Drawing of Baby Harmony and His Parents" 
+                src={img.gallery[1].asset.url} 
+                alt={img.gallery[1].alt}
                 width={700}
                 height={1000}
                 placeholder='blur'
                 blurDataURL={rgbDataURL(228, 220, 243)}
                 loading='lazy'
                 />
-            </Link>
-            <Link className={styles.a} href="/art/drawings">
-              <p className={`${styles.p} ${cinzel_decorative.className}`}>Brittney</p>
-              <Image 
-                className={styles.img}
-                src="https://www.datocms-assets.com/53347/1629472435-brittneysart.svg"
-                alt="Link to Brittney's art. Drawing of a woman in a blue patterned dress and a headwrap"
-                width={700}
-                height={1000}
-                placeholder='blur'
-                blurDataURL={rgbDataURL(228, 220, 243)}
-                loading='lazy'
-                />
-            </Link>
+          </Link>
+          <Link className={styles.a} href="/art/drawings">
+            <p className={`${styles.p} ${cinzel_decorative.className}`}>Brittney</p>
+            <Image 
+              className={styles.img}
+              src={img.gallery[0].asset.url} 
+              alt={img.gallery[0].alt}
+              width={700}
+              height={1000}
+              placeholder='blur'
+              blurDataURL={rgbDataURL(228, 220, 243)}
+              loading='lazy'
+              />
+          </Link>
       </main>
     </>
   )
