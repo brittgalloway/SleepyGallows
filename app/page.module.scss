@@ -1,5 +1,6 @@
+@use "sass:color";
 .main {
-  background:  lighten(#9370db, 20%);
+  background:  color.adjust(#9370db, $lightness: 20%);
   width: 100vw;
   height: 100vh;
   overflow-y: hidden;

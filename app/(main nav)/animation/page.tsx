@@ -1,3 +1,5 @@
+import { type SanityDocument } from 'next-sanity'
+import { client } from '../../../sanity/lib/client'
 import Image from 'next/image'
 import Link from 'next/link'
 import { cinzel_decorative } from '@/fonts'
@@ -9,12 +11,22 @@ export const metadata = {
   description: "Animation of the Sleepy Gallows.",
   keywords: "animation, sleepy gallows, brittney",
 }
-
-export default function Animation() {
+const POSTS_QUERY = `*[
+  _type == "imageGallery" &&
+  title == "Animation Home"
+  ] 
+  {
+    "id": _id,
+    "gallery": gallery[]{alt, asset->{ url }},
+    }
+`;
+export default async function Animation() {
+  const images = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
+  const img = images[0];
   const links = [
-    ['Originals', styles.original, styles.imgOriginal, 'originals', 'https://www.datocms-assets.com/53347/1731641471-originals.webp', 'Link to Original animations page. Nirvana sitting on the branch'],
-    ['Client Work', styles.client, styles.img, 'client', 'https://www.datocms-assets.com/53347/1731641033-inhuman-figures.webp', 'Futuristic city scape with high rises and flying cars with the text "Robots Clones Aliens"'],
-    ['For Fun', styles.fun, styles.img, 'fun', 'https://www.datocms-assets.com/53347/1731641125-crushsm.webp', 'Link to page of short fun animations. This is a drawing of Yuna inspired by her Chapters album visuals'],
+    ['Originals', styles.original, styles.imgOriginal, 'originals', img.gallery[0].asset.url, img.gallery[0].asset.alt],
+    ['Client Work', styles.client, styles.img, 'client', img.gallery[1].asset.url, img.gallery[1].asset.alt],
+    ['For Fun', styles.fun, styles.img, 'fun', img.gallery[2].asset.url, img.gallery[2].asset.alt],
   ];
   return (
     <main className={styles.main}> 
