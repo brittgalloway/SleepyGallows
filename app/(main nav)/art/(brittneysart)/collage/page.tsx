@@ -33,6 +33,7 @@ export default async function Collage() {
         <section>
           <Grid
             photos={images[0].gallery}
+            name={'asset'}
             />
         </section>
       </main>

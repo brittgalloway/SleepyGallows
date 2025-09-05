@@ -52,6 +52,7 @@ export default async function aboutOriginal({params}) {
             </h2>
             <Grid
               photos={original[0].conceptArt}
+              name={'asset'}
               />
           </>
         )}

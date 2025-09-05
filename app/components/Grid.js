@@ -11,19 +11,19 @@ export default function Grid({photos, name=''}) {
   const [index, setIndex] = React.useState(-1);
   const slides = photos.map((photo) => ( 
     name ? {
-        key: photo.id,
-        src: photo[name]?.url,
-        width: photo[name]?.metadata?.dimensions?.width,
-        height: photo[name]?.metadata?.dimensions?.height,
-        title: photo?.caption,
-        alt: photo?.alt,
-      } : {
-        key: photo?.assetId,
-        src: photo?.url,
-        width: photo?.metadata?.dimensions?.width,
-        height: photo?.metadata?.dimensions?.height,
-        alt: photo?.alt,
-        title: photo?.caption,
+      key: photo.id,
+      src: photo[name]?.url,
+      width: photo[name]?.metadata?.dimensions?.width,
+      height: photo[name]?.metadata?.dimensions?.height,
+      title: photo?.caption,
+      alt: photo?.alt,
+    } : {
+      key: photo?.assetId,
+      src: photo?.url,
+      width: photo?.metadata?.dimensions?.width,
+      height: photo?.metadata?.dimensions?.height,
+      alt: photo?.alt,
+      title: photo?.caption,
     }
   ))
   return (
