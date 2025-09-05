@@ -29,6 +29,7 @@ export default async function artOriginals({params}) {
       <div>
         <Grid
           photos={originalArt[0].art.gallery}
+          name={'asset'}
           />
       </div>
     </section>
