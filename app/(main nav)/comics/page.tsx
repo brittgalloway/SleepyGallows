@@ -1,3 +1,5 @@
+import { type SanityDocument } from 'next-sanity'
+import { client } from '../../../sanity/lib/client'
 import Image from 'next/image'
 import { cinzel_decorative } from '@/fonts'
 import { rgbDataURL } from '@/lib/utils'
@@ -10,8 +12,18 @@ export const metadata = {
   keywords: "comics, manga, Necahual, meso-american, magical girls",
   author:"Crystal Galloway",
 }
-
-export default function Comics() {
+const POSTS_QUERY = `*[
+  _type == "imageGallery" &&
+  title == "Comics"
+  ] 
+  {
+    "id": _id,
+    "gallery": gallery[]{alt, asset->{ url }},
+    }
+`;
+export default async function Comics() {
+  const images = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
+  const img = images[0];
   const links = [
     ['instagram', 'https://www.instagram.com/2.heroes/'],
     ['twitter', 'https://twitter.com/2Heroes1'],
@@ -37,8 +49,8 @@ export default function Comics() {
             </p>
             <div className={styles.image}>
               <Image 
-                src='https://www.datocms-assets.com/53347/1705187376-necamasterpiece-small.gif' 
-                alt='Necahual, Quetzalli, and Anacaona lounging together'
+                src={img.gallery[0].asset.url}
+                alt={img.gallery[0].alt}
                 width={349}
                 height={349}
                 placeholder='blur'
@@ -58,8 +70,8 @@ export default function Comics() {
           </small>
           <div className={styles.products}>
             <Image 
-            src='https://www.datocms-assets.com/53347/1628171910-necacharms.jpg' 
-            alt='Necahual Charms found at candyfluffs.com/2heroes'
+            src={img.gallery[1].asset.url}
+            alt={img.gallery[1].alt}
             width={200}
             height={200}
             placeholder='blur'
@@ -67,8 +79,8 @@ export default function Comics() {
             loading='lazy'
             />
             <Image 
-            src='https://www.datocms-assets.com/53347/1628171809-necaminicomics.jpg' 
-            alt='The handmade Necahual  Art book  found at candyfluffs.com/2heroes'
+            src={img.gallery[2].asset.url}
+            alt={img.gallery[2].alt}
             width={200}
             height={200}
             placeholder='blur'
@@ -76,8 +88,8 @@ export default function Comics() {
             loading='lazy'
             />
             <Image 
-            src='https://www.datocms-assets.com/53347/1628171977-necastickers.jpg' 
-            alt='The handmade Necahual  Stickers found at candyfluffs.com/2heroes'
+            src={img.gallery[3].asset.url} 
+            alt={img.gallery[3].alt}
             width={200}
             height={200}
             placeholder='blur'

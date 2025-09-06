@@ -31,7 +31,6 @@ export default async function Crystal() {
           />
           <Grid
             photos={images[0].illustrationGallery.gallery}
-            name={'asset'}
             />
       </main>
       <Footer

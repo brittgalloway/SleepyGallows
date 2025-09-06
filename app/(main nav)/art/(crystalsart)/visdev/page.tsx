@@ -42,14 +42,12 @@ export default async function Visdev() {
           <h2 className={`${cinzel_decorative.className} ${styles.h1}`}>Characters</h2>
           <Grid
           photos={images[0].mermaidGallery.gallery}
-          name={'asset'}
           />
         </article>
         <article className={styles.article}>
           <h2 className={`${cinzel_decorative.className} ${styles.h1}`}>{images[0].visualDevelopment}</h2>
           <Grid
           photos={images[0].visDevGallery.gallery}
-          name={'asset'}
           />
         </article>
       </main>
