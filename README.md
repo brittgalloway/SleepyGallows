@@ -32,7 +32,7 @@ This project is a work in progress, continuously refined to enhance both functio
 - [Jest](https://jestjs.io/) (In Development)
 - [Figma](https://www.figma.com/) for design
 - [Vercel](https://vercel.com/) for deployment
-- [Lottie Files](https://lottiefiles.com/) for animations
+- ~~[Lottie Files](https://lottiefiles.com/) for animations~~
 
 ---
 

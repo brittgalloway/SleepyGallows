@@ -19,6 +19,14 @@ export const shopProduct = defineType({
     defineField({
         name: 'productType',
         type: 'string',
+        options: {
+            list: [
+                { title: "fine art", value: "fine-art" },
+                { title: "prints", value: "prints" },
+                { title: "books", value: "books" },
+                { title: "accessories", value: "accessories" },
+            ],
+        },
         validation: (rule) => rule.required(),
     }),
     defineField({

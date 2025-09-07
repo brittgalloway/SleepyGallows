@@ -23,17 +23,13 @@ export const webProject = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-        name: 'icon',
-        type: 'image',
-    }),
-    defineField({
       name: 'tools',
       type: 'string',
       validation: (rule) => rule.required(),
     }),
     defineField({
         name: 'liveApp',
-        type: 'url',
+        type: 'string',
         description: 'Link to the live application',
         validation: (rule) => rule.required(),
     }),
