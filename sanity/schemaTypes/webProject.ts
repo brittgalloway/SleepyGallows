@@ -15,9 +15,9 @@ export const webProject = defineType({
       type: 'string',
         options: {
             list: [
-                { title: "Design", value: "design" },
-                { title: "Development", value: "dev" },
-                { title: "Development & Design", value: "dev-design" },
+                { title: "Design", value: "Design" },
+                { title: "Development", value: "Development" },
+                { title: "Development & Design", value: "Development & Design" },
             ],
         },
       validation: (rule) => rule.required(),

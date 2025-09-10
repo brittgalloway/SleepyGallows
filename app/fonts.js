@@ -1,19 +1,11 @@
 import { 
     Grandstander, 
-    Happy_Monkey, 
     Heebo,
     Cinzel_Decorative,
     Lato
 } from 'next/font/google'
  
 export const grandstander = Grandstander({
-    style: ['normal'],
-    subsets: ['latin'],
-    display: 'swap',
-})
- 
-export const happy_monkey = Happy_Monkey({
-    weight: ['400'],
     style: ['normal'],
     subsets: ['latin'],
     display: 'swap',

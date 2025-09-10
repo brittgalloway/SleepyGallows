@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { performRequest } from '@/lib/datocms'
+import { type SanityDocument } from 'next-sanity'
+import { client } from '../../sanity/lib/client'
 import { grandstander } from '@/fonts'
 import BrittneyAvitar from '@/components/HeaderAnimation'
 import WebProjects from '@/components/WebProjects'
@@ -7,26 +8,14 @@ import WebContact from '@/components/WebContact'
 import WebTools from '@/components/WebTools'
 import styles from './page.module.scss'
 
-const PAGE_CONTENT_QUERY = `
-query web {
-  allWebProjects {
-    tools
-    projectName
-    role
-    liveApp
-    id
-    github
-    description
-    icon {
-      title
-      url
-    }
-  }
-}
-  `;
+const PROJECT_QUERY = `*[
+     _type == "webProject"
+     ] 
+     { _id, _type, description, github, liveApp, role, title, tools}
+`;
 
 export default async function Webdev() {
- const { data: { allWebProjects } } = await performRequest({ query: PAGE_CONTENT_QUERY });
+     const webProjects = await client.fetch<SanityDocument[]>(PROJECT_QUERY, {});
  return (
   <>
    <main className={styles.main}>
@@ -52,7 +41,7 @@ export default async function Webdev() {
                Built a Node.js script to migrate Gulp builds to Webpack, standardizing our codebase and improving developer efficiency.
           </li>
           <li>
-               Led a major code refactor for a Wait Don&apos;t Leave popup—removing XSS vulnerabilities, enhancing legal compliance, and improving platform stability.
+               Led a major code refactor for a Wait Don&apos;t Leave pop-up--removing XSS vulnerabilities, enhancing legal compliance, and improving platform stability.
           </li>
           <li>
                Reviewed and refactored code to reduce technical debt and ensure long-term maintainability.
@@ -61,12 +50,11 @@ export default async function Webdev() {
     </section> 
     <h2 className={`${styles.h2} ${grandstander.className}`}>Projects</h2>
     <section className={styles.projectSection}>
-     {allWebProjects.map((project)=> (
+     {webProjects.map((project)=> (
         <WebProjects
-          key={project?.id}
-          id={project?.id}
-          // icon={project?.icon}
-          projectName={project?.projectName}
+          key={project?._id}
+          id={project?._id}
+          projectName={project?.title}
           role={project?.role}
           description={project?.description}
           liveApp={project?.liveApp}
