@@ -7,13 +7,8 @@ import styles from '@/style/artGrid.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Brittney\'s Art',
-<<<<<<<< HEAD:app/(main nav)/art/(brittneysart)/drawings/page.jsx
   description: 'Showcase the art of Brittney Galloway.',
   keywords: 'brittney galloway, art, plh, chicago artist, evanston artist, black artist',
-========
-  description: "Showcase the art of Brittney Galloway.",
-  keywords: "brittney galloway, art, elusive green elephant, ",
->>>>>>>> 20f5eb587527c61cc5c62598eec3a8d6359505f5:app/(main nav)/art/(brittneysart)/drawings/page.tsx
 }
 
 const POSTS_QUERY = `*[

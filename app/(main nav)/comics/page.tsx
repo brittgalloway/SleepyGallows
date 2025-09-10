@@ -1,9 +1,5 @@
-<<<<<<<< HEAD:app/(main nav)/comics/page.jsx
-========
 import { type SanityDocument } from 'next-sanity'
 import { client } from '../../../sanity/lib/client'
-import Image from 'next/image'
->>>>>>>> 20f5eb587527c61cc5c62598eec3a8d6359505f5:app/(main nav)/comics/page.tsx
 import { cinzel_decorative } from '@/fonts'
 import Image from 'next/image'
 import { rgbDataURL } from '@/lib/utils'
@@ -54,13 +50,8 @@ export default async function Comics() {
             </p>
             <div className={styles.image}>
               <Image 
-<<<<<<<< HEAD:app/(main nav)/comics/page.jsx
-                src={NECAHUAL1_IMG} 
-                alt='Necahual, Quetzalli, and Anacaona lounging together'
-========
                 src={img.gallery[0].asset.url}
                 alt={img.gallery[0].alt}
->>>>>>>> 20f5eb587527c61cc5c62598eec3a8d6359505f5:app/(main nav)/comics/page.tsx
                 width={349}
                 height={349}
                 placeholder='blur'
@@ -79,14 +70,9 @@ export default async function Comics() {
             Patreon supporters get 15% off everything in the store
           </small>
           <div className={styles.products}>
-            <Image 
-<<<<<<<< HEAD:app/(main nav)/comics/page.jsx
-            src={NECAHUAL2_IMG} 
-            alt='Necahual Charms found at candyfluffs.com/2heroes'
-========
+            <Image
             src={img.gallery[1].asset.url}
             alt={img.gallery[1].alt}
->>>>>>>> 20f5eb587527c61cc5c62598eec3a8d6359505f5:app/(main nav)/comics/page.tsx
             width={200}
             height={200}
             placeholder='blur'
@@ -94,13 +80,8 @@ export default async function Comics() {
             loading='lazy'
             />
             <Image 
-<<<<<<<< HEAD:app/(main nav)/comics/page.jsx
-            src={NECAHUAL3_IMG} 
-            alt='The handmade Necahual Art book  found at candyfluffs.com/2heroes'
-========
             src={img.gallery[2].asset.url}
             alt={img.gallery[2].alt}
->>>>>>>> 20f5eb587527c61cc5c62598eec3a8d6359505f5:app/(main nav)/comics/page.tsx
             width={200}
             height={200}
             placeholder='blur'
@@ -108,13 +89,8 @@ export default async function Comics() {
             loading='lazy'
             />
             <Image 
-<<<<<<<< HEAD:app/(main nav)/comics/page.jsx
-            src={NECAHUAL4_IMG} 
-            alt='The handmade Necahual Stickers found at candyfluffs.com/2heroes'
-========
             src={img.gallery[3].asset.url} 
             alt={img.gallery[3].alt}
->>>>>>>> 20f5eb587527c61cc5c62598eec3a8d6359505f5:app/(main nav)/comics/page.tsx
             width={200}
             height={200}
             placeholder='blur'
