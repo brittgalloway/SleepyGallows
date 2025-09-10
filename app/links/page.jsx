@@ -11,6 +11,7 @@ export const metadata = {
 export default function Links() {
     const links = [
         ['/', 'Offical Website'],
+        ['https://www.prettyprismtarot.com/', 'Pretty Prism Tarot'],
         [KOFI, 'Ko-fi'],
         [NEWSLETTER, 'The Newsletter'],
         [YOUTUBE, 'YouTube'],

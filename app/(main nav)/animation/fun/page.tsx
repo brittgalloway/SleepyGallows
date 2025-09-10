@@ -8,15 +8,9 @@ import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
-<<<<<<<< HEAD:app/(main nav)/animation/fun/page.jsx
-  title: 'Sleepy Gallows Studio | Fun Animations',
+  title: 'SG | Fun Animations',
   description: 'Fun Animation created by Brittney Galloway.',
   keywords: 'animation, sleepy gallows, brittney, chicago artist, evanston artist, black artist',
-========
-  title: 'SG | Fun Animations',
-  description: "Fun Animation created by Brittney Galloway.",
-  keywords: "animation, sleepy gallows, brittney galloway",
->>>>>>>> 20f5eb587527c61cc5c62598eec3a8d6359505f5:app/(main nav)/animation/fun/page.tsx
 }
 
 const POSTS_QUERY = `

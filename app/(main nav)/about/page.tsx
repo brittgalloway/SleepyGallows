@@ -52,7 +52,7 @@ export default async function About() {
           <h2 className={`${cinzel_decorative.className}`}>About the Creators</h2>
           <h3>
             We are Sisters by blood in sister fields: Animation and Illustration!
-          ​​​​​​​</h3>
+          ​​​​</h3>
           <Image 
           src={ABOUT_IMG}
           alt='The Galloway Sisters: Crystal (left) and Brittney (right) as drawn in the "For Peace, Love, and Harmony" style. Art by Crystal'

@@ -1,11 +1,9 @@
-
-
 import { lato } from '@/fonts'
 import Iframe from '@/components/Iframe'
 import styles from './page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
-export default function Project({title, link, year, summary, website}) {
+export default function Project({title, link, year, summary, website = ''}) {
   return (
     <figure className={`${styles.video} ${lato.className}`}>
         <Iframe 

@@ -4,7 +4,7 @@ export default function Iframe({title, link}) {
   return (
     <iframe 
         maxwidth={376} 
-        maxHeight={212}
+        maxheight={212}
         src={link} 
         title={`Watch ${title}`} 
         loading="lazy" 
