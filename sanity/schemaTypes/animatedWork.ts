@@ -49,6 +49,12 @@ export const animatedWork = defineType({
       }]
     }),
     defineField({
+      title: 'Rive File',
+      name: 'rive',
+      type: 'file',
+      description: 'This is the riv file, probably for the webdev header',
+    }),
+    defineField({
       name: 'updatedAt',
       type: 'datetime',
       initialValue: () => new Date().toISOString(),

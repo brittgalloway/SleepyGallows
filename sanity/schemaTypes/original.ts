@@ -43,9 +43,8 @@ export const original = defineType({
             {
                 title: 'Coming Soon',
                 name: 'inProduction',
-                type: 'reference',
-                to: [{type: 'staticImage'}],
-                description: 'This is the video or video gallery for the project',
+                type: 'file',
+                description: 'This is the riv file',
                 hidden: ({ parent }) => parent?.hasLiveVideo == true,
             },
         ]
