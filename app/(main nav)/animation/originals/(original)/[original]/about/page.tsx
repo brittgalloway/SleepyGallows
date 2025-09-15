@@ -18,7 +18,7 @@ export default async function aboutOriginal({params}) {
       "id": _id,
       "link": link.current,
       "summary": about.summary[0].children[0].text,
-      "characters": about.characters-> { gallery[]{ caption, alt, hotspot{...},  asset-> { assetId, metadata, _id, url } } },
+      "characters": about.characters-> { gallery[]{ alt, hotspot{...},  asset-> { assetId, url } } },
       "hasConceptArt": about.hasConceptArt,
       "conceptArt": about.conceptArt[].gallery[]{ caption, alt, hotspot{...},  asset-> { assetId, metadata, _id, url } }
     }`;
@@ -34,20 +34,19 @@ export default async function aboutOriginal({params}) {
         <h2 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>
           Characters
         </h2>
-        <div className={styles.videoWrapper}>
+        <div className={`${styles.videoWrapper} ${styles.charactersBlock}`}>
           {original[0].characters.gallery.map((character)=> 
            (
-              <div key={character?.asset?.assetId}>
-                <ImageComponent
-                  image={character?.asset?._id}
-                  altText={character?.asset?.altText}
-                  />
-              </div>
+            <ImageComponent
+              key={character?.asset?.assetId}
+              image={character?.asset?.url}
+              altText={character?.alt}
+              />
           ))}
         </div>
         {original[0].hasConceptArt && (
           <>
-            <h2 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>
+            <h2 className={`${textStyles.textCenter} ${cinzel_decorative.className}`}>
               Concept Art
             </h2>
             <Grid

@@ -137,3 +137,11 @@
     width: 100%;
   }
 }
+.charactersBlock {
+  display: grid;
+  gap:0.5rem;
+  grid-template-columns: repeat(3, auto);
+  img {
+    max-width: 370px;
+  }
+} 
