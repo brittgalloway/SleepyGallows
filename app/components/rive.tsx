@@ -1,5 +1,5 @@
 'use client'
-import { useRive, Layout, Fit } from '@rive-app/react-canvas-lite';
+import { useRive, Layout, Fit, Alignment } from '@rive-app/react-canvas-lite';
 
 export default function Animation({src}) {
   const { rive, RiveComponent } = useRive({
@@ -7,7 +7,8 @@ export default function Animation({src}) {
     stateMachines: 'State Machine 1',
     autoplay: true,
         layout: new Layout({
-        fit: Fit.Contain,
+        fit: Fit.Cover,
+        alignment: Alignment.TopCenter,
     }),
   });
 

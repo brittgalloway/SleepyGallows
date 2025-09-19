@@ -10,7 +10,7 @@ const POSTS_QUERY = `*[
 export default async function BrittneyAvitar() {
   const rive = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (
-    <div style={{'height': '500px', 'mixBlendMode':'multiply'}}>
+    <div style={{'height': '400px', 'mixBlendMode':'multiply'}}>
       <Animation
         src={rive[0].rive}
         />
