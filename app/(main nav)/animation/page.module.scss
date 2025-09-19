@@ -140,14 +140,16 @@
 .charactersBlock {
   display: grid;
   gap:0.5rem;
+  margin: auto;
   img {
     max-width: 300px;
   }
   @media (width >= 830px) {
-    max-width: none;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 33%);
+    justify-self: anchor-center;
     img {
-      max-width: 370px;
+      width: 100%;
+      height: auto;
     }
   }
 } 
