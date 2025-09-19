@@ -126,8 +126,8 @@
   }
 }
 .project {
-  transition: scale .2s ease-in-out;
   border-radius: 4px;
+  transition: transform 0.2s ease-in-out;
   &:hover{
     transform: scale(1.05);
     box-shadow: 1px 1px 7px var(--brand-color);

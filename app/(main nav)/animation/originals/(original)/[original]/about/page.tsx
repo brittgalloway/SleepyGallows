@@ -6,6 +6,7 @@ import ImageComponent from '@/components/sanityImage'
 import Grid from '@/components/Grid'
 import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
+import imgGrid from '@/style/artGrid.module.scss'
 
 
 export default async function aboutOriginal({params}) {
@@ -45,14 +46,14 @@ export default async function aboutOriginal({params}) {
           ))}
         </div>
         {original[0].hasConceptArt && (
-          <>
+          <div className={imgGrid.gridImg}>
             <h2 className={`${textStyles.textCenter} ${cinzel_decorative.className}`}>
               Concept Art
             </h2>
             <Grid
               photos={original[0].conceptArt}
               />
-          </>
+          </div>
         )}
     </section>
   )
