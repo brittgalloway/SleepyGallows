@@ -64,6 +64,7 @@ a {
   color: var(--brand-color);
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.2s ease-in-out;
   &:hover {
     color: var(--pink-highlight);
     text-decoration: underline;
