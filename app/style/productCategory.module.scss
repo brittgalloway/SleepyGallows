@@ -66,9 +66,11 @@
 }
 .product_name {
     @include productInfo();
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+    &{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
 }
 
 .product_info {
