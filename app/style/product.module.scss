@@ -125,5 +125,5 @@
     margin-top: 1em;
 }
 .addToCart {
-    @include btn(#fff, var(--brand-color));
+    @include mixins.btn(#fff, var(--brand-color));
 }
