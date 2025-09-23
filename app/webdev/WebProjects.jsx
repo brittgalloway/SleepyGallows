@@ -1,8 +1,7 @@
 'use client'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { happy_monkey } from '@/fonts'
 import Image from 'next/image'
-import AnimatedIcons from '@/components/projectIcons'
 import styles from './page.module.scss'
 
 export default function  WebProjects({id, projectName, icon, screenshot, description, liveApp, github}) {
@@ -14,9 +13,6 @@ export default function  WebProjects({id, projectName, icon, screenshot, descrip
     return (
       <>
         <div className={styles.projectWrapper} key={id} onClick={handleClick} >
-            <AnimatedIcons
-              title={icon.title}
-            />
             <h2 style={happy_monkey.style}>{projectName}</h2>
             <p>development & design</p>
         </div>
