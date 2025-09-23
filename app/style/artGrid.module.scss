@@ -1,7 +1,8 @@
-.grid_img {
-    img:hover{
+.gridImg {
+  img{
+    transition: transform .2s ease-in-out;
+    &:hover{
         transform: scale(1.025);
-        transition: all var(--transition) ease-in-out;
         cursor:pointer;
         box-shadow: 1px 1px 7px var(--brand-color);
         @media(max-width: 400px){
@@ -9,4 +10,5 @@
           margin-left: 0;
         }
       }
+  }
   }

@@ -5,6 +5,7 @@ import Grid from '@/components/Grid'
 import ArtNav from '@/art/nav'
 import { Footer } from '@/components/Footer'
 import styles from '@/art/page.module.scss'
+import imgGrid from '@/style/artGrid.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Crystal\'s Art',
@@ -34,7 +35,7 @@ export default async function Visdev() {
         page1={'illustration'}
         page2={'visdev'}
         />
-        <article className={styles.article}>
+        <article className={`${styles.article} ${imgGrid.gridImg}`}>
           <header>
             <h1 className={`${cinzel_decorative.className} ${styles.h1}`}>{images[0].mermaidTitle}</h1>
             {images[0].mermaidDescription.map((description, idx) => <p key={idx}>{description.children[0].text}</p>)}
@@ -44,7 +45,7 @@ export default async function Visdev() {
           photos={images[0].mermaidGallery.gallery}
           />
         </article>
-        <article className={styles.article}>
+        <article className={`${styles.article} ${imgGrid.gridImg}`}>
           <h2 className={`${cinzel_decorative.className} ${styles.h1}`}>{images[0].visualDevelopment}</h2>
           <Grid
           photos={images[0].visDevGallery.gallery}

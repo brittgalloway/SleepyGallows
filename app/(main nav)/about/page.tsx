@@ -27,10 +27,20 @@ const POSTS_QUERY = `*[
     "linkText": body[3].children[1].text,
     "body4": body[3].children[2].text,
   }`;
-
+const IMAGE_QUERY = `*[
+  _type == "imageGallery" &&
+  title == "Home Page"
+  ] 
+  {
+    "title": title,
+    "id": _id,
+    "gallery": gallery[4]{alt, asset->{ url}},
+    }
+`;
 
 export default async function About() {
   const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
+  const img = await client.fetch<SanityDocument[]>(IMAGE_QUERY, {});
   const text = posts[0];
   return (
     <>
@@ -54,8 +64,8 @@ export default async function About() {
             We are Sisters by blood in sister fields: Animation and Illustration!
           ​​​​</h3>
           <Image 
-          src={ABOUT_IMG}
-          alt='The Galloway Sisters: Crystal (left) and Brittney (right) as drawn in the "For Peace, Love, and Harmony" style. Art by Crystal'
+          src={img[0].gallery.asset.url}
+          alt={img[0].alt}
           width={530} 
           height={600}
           />

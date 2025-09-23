@@ -10,7 +10,7 @@ This project is a work in progress, continuously refined to enhance both functio
 - Migrating to TypeScript for improved type safety and scalability.
 - Developing an eCommerce shop using Stripe Checkout, allowing visitors to purchase high-end collage art, prints, stickers, and books.
 - Implementing pagination in the shop for better navigation.
-- Expanding Jest test coverage and exploring end-to-end testing with Cypress.
+- Expanding Jest test coverage and exploring end-to-end testing with Cypress or Playwright.
 - Optimizing layouts and routing to accommodate growing content.
 
 ---
@@ -33,6 +33,7 @@ This project is a work in progress, continuously refined to enhance both functio
 - [Figma](https://www.figma.com/) for design
 - [Vercel](https://vercel.com/) for deployment
 - ~~[Lottie Files](https://lottiefiles.com/) for animations~~
+- [Rive](https://rive.app/) for animations
 
 ---
 

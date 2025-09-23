@@ -22,9 +22,9 @@ export default async function Home() {
   
   const links = [
     [styles.imgAnimation, 'animation', img.gallery[0].url, img.gallery[0].altText],
-    [styles.imgComic, 'comics', img.gallery[2].url, img.gallery[0].altText],
-    [styles.imgArt, 'art', img.gallery[1].url, img.gallery[0].altText],
-    [styles.imgShop, 'shop', img.gallery[3].url, img.gallery[0].altText],
+    [styles.imgComic, 'comics', img.gallery[2].url, img.gallery[2].altText],
+    [styles.imgArt, 'art', img.gallery[1].url, img.gallery[1].altText],
+    [styles.imgShop, 'shop', img.gallery[3].url, img.gallery[3].altText],
   ]
   return (
     <main className={styles.main}>

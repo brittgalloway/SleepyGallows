@@ -131,6 +131,7 @@
 .project {
   transition: scale var(--transition) ease-in-out;
   border-radius: 4px;
+  transition: transform 0.2s ease-in-out;
   &:hover{
     transform: scale(1.05);
     box-shadow: 1px 1px 7px var(--brand-color);
@@ -144,3 +145,19 @@
   margin: 0;
   padding: 0;
 }
+.charactersBlock {
+  display: grid;
+  gap:0.5rem;
+  margin: auto;
+  img {
+    max-width: 300px;
+  }
+  @media (width >= 830px) {
+    grid-template-columns: repeat(3, 33%);
+    justify-self: anchor-center;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+} 

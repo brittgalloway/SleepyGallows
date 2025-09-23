@@ -90,7 +90,7 @@ export default async function Webdev() {
    <aside className={styles.oneMoreThing}>
     <h2 className={grandstander.className}>Art & Code—The Best of Both Worlds</h2>
     <p>Art helps my coding, and coding helps my art.</p>
-    <p>Learning JavaScript has enhanced my 2D animations in Adobe After Effects through Expressions, while Python scripting in Blender has expanded what I can create. I&apos;ve also developed custom Lottie animations using After Effects to bring web interfaces to life. Every day, I find new ways to blend these two passions, and I can&apos;t wait to explore more.</p>
+    <p>Learning JavaScript has enhanced my 2D animations in Adobe After Effects through Expressions, while Python scripting in Blender has expanded what I can create. I&apos;ve also developed custom Lottie animations using After Effects to bring web interfaces to life, but now I like to use Rive. Every day, I find new ways to blend these two passions, and I can&apos;t wait to explore more.</p>
    </aside>
   </>
  )
