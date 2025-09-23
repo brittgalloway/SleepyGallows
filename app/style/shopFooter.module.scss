@@ -48,6 +48,6 @@
     justify-content: space-around;
     width: 100%;
     svg {
-        @include svg(var(--brand-color), var(--purple-highlight));
+        @include mixins.svg(var(--brand-color), var(--purple-highlight));
     }
 }

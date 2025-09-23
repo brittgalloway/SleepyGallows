@@ -84,7 +84,7 @@
     gap: 1rem;
     align-items: self-end;
     p {
-        @include display-price;
+        @include mixins.display-price;
     }
     p:last-child {
         text-decoration: line-through;
@@ -95,7 +95,7 @@
 }
 .price {
     p {
-        @include display-price;
+        @include mixins.display-price;
     }
 }
 .product_info {

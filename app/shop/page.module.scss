@@ -61,11 +61,11 @@
   border-bottom-width: 2px;
   overflow: clip;
   button {
-    @include btn(var(--brand-color), #fff);
+    @include mixins.btn(var(--brand-color), #fff);
     margin: 1rem 0.5rem;
   }
   .checkoutBtn {
-    @include btn(#fff, var(--brand-color));
+    @include mixins.btn(#fff, var(--brand-color));
   }
   &::backdrop {
     background-color: var(--backdrop);

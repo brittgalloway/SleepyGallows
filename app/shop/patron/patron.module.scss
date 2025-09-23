@@ -136,5 +136,5 @@
   }
 }
 .support {
-  @include btn(var(--brand-color), #fff);
+  @include mixins.btn(var(--brand-color), #fff);
 }
