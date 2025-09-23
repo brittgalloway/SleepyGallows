@@ -1,4 +1,4 @@
-@import '../style/mixins.scss';
+@use '../style/mixins.scss';
 
 .main {
   background:#fff;
@@ -59,7 +59,7 @@
   border-radius: var(--border-radius);
   border: 1px solid var(--brand-color);
   border-bottom-width: 2px;
-  overflow: hidden;
+  overflow: clip;
   button {
     @include btn(var(--brand-color), #fff);
     margin: 1rem 0.5rem;

@@ -1,4 +1,5 @@
-@import '../../style/mixins.scss';
+@use "sass:color";
+@use '../../style/mixins.scss';
 
 .patron_h1 {
     font-size: 1.25rem;
@@ -63,7 +64,7 @@
     color:#fff;
     transition: background var(--transition);
     &:hover{
-      background: darken(#4a287c, 5%);
+      background: color.adjust(#4a287c, $lightness: -5%);
     }
   }
 }
@@ -88,7 +89,7 @@
     transition: background var(--transition);
     cursor: pointer;
     &:hover{
-      background: lighten(#4a287c, 60%);
+      background: color.adjust(#4a287c, $lightness: 60%);
     }
   }
   label:has(input:checked) {
@@ -98,7 +99,7 @@
     color:#fff;
     transition: background var(--transition);
     &:hover{
-      background: darken(#4a287c, 5%);
+      background: color.adjust(#4a287c, $lightness: -5%);
     }
   }
 }

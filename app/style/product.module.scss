@@ -1,4 +1,4 @@
-@import './mixins.scss';
+@use './mixins.scss';
 .h1 {
     font-size: 1em;
     color: var(--brand-color);
