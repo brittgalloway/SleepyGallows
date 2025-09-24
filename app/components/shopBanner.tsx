@@ -5,18 +5,22 @@ import { client } from '../../sanity/lib/client'
   const POSTS_QUERY = await `*[
     _type == "announcement"
   ] 
-  {}`;
+  {
+    "id": _id,
+    "body": body,
+  }`;
 
 export async function ShopBanner() {
     
   const banners = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (
+    banners[0] !== undefined && 
     <aside className={styles.aside}>
       <div className={styles.announcementWrapper}>
         {banners.map((message, index) => {
           return (
             <p key={message.id} className={styles.announcementText} style={{ animationDelay: `${(index * 10) * (1 / banners.length)}s` }}>
-              {message.announcementBanner}
+              {message.body}
             </p>
           )}
         )}

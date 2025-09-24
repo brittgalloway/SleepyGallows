@@ -7,7 +7,7 @@ import styles from '@/style/shopHeader.module.scss'
 export default function ShopNavigation() {
 
   const isMobile = useMediaQuery({query: `(max-width: 830px)`});
-  const links = ['fine-art', 'prints', 'stationary', 'books', 'patron'];
+  const links = ['fine-art', 'prints', 'stationary', 'patron'];
 
   return(
     <nav aria-label='Main shop navigation' className={isMobile ? `${styles.mobile} ${styles.nav}` : styles.nav}>

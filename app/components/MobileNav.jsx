@@ -13,7 +13,7 @@ export default function MobileNav({navType, navId, testId, ariaLabel, navItems})
     return (
       <>
         <div className={shopStyles.mobile_menu} >
-            <button className={shopStyles.hamburger} data-testid={testId} type="button" popovertarget={navId}>
+            <button className={shopStyles.hamburger} data-testid={testId} type="button" popoverTarget={navId}>
                 <Image src='/hamburger.svg' 
                 width={40} 
                 height={30} 
