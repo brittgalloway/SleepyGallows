@@ -32,45 +32,45 @@ export default async function Product( {params} ) {
   const product = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
 
   // const product = JSON.parse(JSON.stringify(await stripe.products.retrieve(product?.id)));
-  const imgHeight = product?.productDisplay[0].responsiveImage.height;
-  const imgWidth = product?.productDisplay[0].responsiveImage.width;
+  const imgHeight = product[0]?.productDisplay[0].responsiveImage.height;
+  const imgWidth = product[0]?.productDisplay[0].responsiveImage.width;
   return (
     <main className={`${layoutStyle.main} ${style.max_width}`}>
       <div className={`${imgHeight > imgWidth ? style.product_portrait : style.product_landscape}`}>
-        <h1 className={`${style.h1}`}>{product?.productName}</h1>
+        <h1 className={`${style.h1}`}>{product[0]?.productName}</h1>
         <div className={`${style.imgDisplay}`}>
           <ProductImages
-          photos={product?.productDisplay}
+          photos={product[0]?.productDisplay}
           layout={imgHeight > imgWidth ? 'portrait' : 'landscape'}
           />
         </div>
         <div className={`${style.product_info}`}>
-          {product?.discount > 0 ? <div className={`${style.discount}`}>
-            <p className={``} aria-label="This is the current sale price.">{USD.format(product?.discount)}</p>
-            <p className={``} aria-label="This is the former price, not the price you will pay today.">{USD.format(product?.price)}</p>
+          {product[0]?.discount > 0 ? <div className={`${style.discount}`}>
+            <p className={``} aria-label="This is the current sale price.">{USD.format(product[0]?.discount)}</p>
+            <p className={``} aria-label="This is the former price, not the price you will pay today.">{USD.format(product[0]?.price)}</p>
             </div> :
             <div className={`${style.price}`}>
-              <p>{USD.format(product?.price)}</p>
+              <p>{USD.format(product[0]?.price)}</p>
             </div>
           }
-          {product?.stock > 0 ?<p className={`${style.stock}`}>In Stock</p> : <p className={`${style.no_stock}`}>Sold Out</p>}
-          <div className={`${lato.className}`} dangerouslySetInnerHTML={{__html: product?.longDescription}} />
+          {product[0]?.stock > 0 ?<p className={`${style.stock}`}>In Stock</p> : <p className={`${style.no_stock}`}>Sold Out</p>}
+          <div className={`${lato.className}`} dangerouslySetInnerHTML={{__html: product[0]?.longDescription}} />
           <AddToCart
-            product={product}
-            stock={product?.stock}
-            discount={product?.discount}
-            price={product?.price}
-            productDescription={product?.shortDescription}
+            product={product[0]}
+            stock={product[0]?.stock}
+            discount={product[0]?.discount}
+            price={product[0]?.price}
+            productDescription={product[0]?.shortDescription}
           />
         </div>
       </div>
       <aside className={`${style.aside}`}>
-        <h2 className={`${style.h2} ${cinzel_decorative.className}`}>{product?.originalsSummary?.storyName}</h2>
+        <h2 className={`${style.h2} ${cinzel_decorative.className}`}>{product[0]?.originalsSummary?.storyName}</h2>
         <p className={`${lato.className}`}>
-          {product?.originalsSummary?.storySummary?.value?.document?.children[0]?.children[0]?.value}
+          {product[0]?.originalsSummary?.storySummary?.value?.document?.children[0]?.children[0]?.value}
         </p>
-          {product?.originalsSummary?.showLink !== undefined && 
-            <Link  className={`${style.learn_more}`} href={`/animation/originals/${product?.originalsSummary?.showLink}`}>
+          {product[0]?.originalsSummary?.showLink !== undefined && 
+            <Link  className={`${style.learn_more}`} href={`/animation/originals/${product[0]?.originalsSummary?.showLink}`}>
               Learn More
             </Link>}
       </aside>
