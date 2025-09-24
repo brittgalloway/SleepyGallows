@@ -251,8 +251,10 @@
 }
 .btnPink {
   @include button();
-  background: #F2C3D3;
-  text-shadow: -1px -1px 0 #A05770, 1px -1px 0 #A05770, -1px 1px 0 #A05770, 1px 1px 0 #A05770;
+  & {
+    background: #F2C3D3;
+    text-shadow: -1px -1px 0 #A05770, 1px -1px 0 #A05770, -1px 1px 0 #A05770, 1px 1px 0 #A05770;
+  }
   &:hover {
     background: #A05770;
   }

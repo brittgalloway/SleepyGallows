@@ -4,15 +4,14 @@ import styles from '@/style/productCategory.module.scss'
 
 
 export function ProductDisplay( {category, productSlug, productName, price, discount, stock, productDisplay} ) {
-
   return (
     <Link className={`${styles.product_display}`} href={`/shop/${category}/${productSlug}`}>
         <Image className={`${styles.img}`}
-          src={productDisplay[0]?.responsiveImage?.src}
+          src={productDisplay?.asset?.url}
           width={350}
           height={280}
-          alt={productDisplay[0]?.alt}
-          title={productDisplay[0]?.title}
+          alt={productDisplay?.alt}
+          title={productDisplay?.caption}
         />
         <p className={`${styles.product_name}`}>&ldquo;{productName}&rdquo;</p>
         <div className={`${styles.price_wrap}`}>

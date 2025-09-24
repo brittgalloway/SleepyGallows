@@ -107,10 +107,12 @@
 }
 .product_soldout {
     @include productInfo();
-    font-weight: bold;
-    color: #FF0000;
-    text-decoration: none !important;
-    font-size: .8em !important;
+    & {
+        font-weight: bold;
+        color: #FF0000;
+        text-decoration: none !important;
+        font-size: .8em !important;
+    }
 }
 .price_wrap {
     display: flex;

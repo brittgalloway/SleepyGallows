@@ -1,45 +1,37 @@
 import { cinzel_decorative } from '@/fonts'
-import { performRequest } from '@/lib/datocms'
 import { ProductDisplay } from '@/components/productDisplay'
+import { type SanityDocument } from 'next-sanity'
+import { client } from '../../../sanity/lib/client'
 import styles from '@/style/productCategory.module.scss'
 import layoutStyle from '@/shop/page.module.scss'
 
 export default async function Category({params}) {
-  const PAGE_CONTENT_QUERY = `
-  query Shop {
-    allShops(filter: {productType: {eq: "${params.category}"}}){
-    productName
-    productSlug
-    productType
-    stock
-    price
-    discount
-    id
-    productDisplay {
-      alt
-      title
-      id
-      responsiveImage {
-        src
-      }
-    }
-  }
-  }
-  `;
-    
-  const { data: { allShops } } = await performRequest({ query: PAGE_CONTENT_QUERY });
+
+  const POSTS_QUERY = await `*[
+    _type == "shopProduct"
+    && link.current == "${params.original}"
+  ] 
+  {
+    "id": _id, 
+    "title": productName, 
+    "price": price, 
+    "stock": stock, 
+    "productType": productType, 
+    "slug": productSlug.current,
+    "productDisplay": productDisplay -> {gallery[]{ alt, asset ->{url}}}
+  }`;
+  const products = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (
     <main className={`${layoutStyle.main}`}>
       <h1 style={cinzel_decorative.style} className={`${styles.h1}`}>{params.category}</h1>
       <div className={`${styles.grid}`}>
-        {allShops.map((product)=>(
+        {products.map((product)=>(
           <ProductDisplay
             key={product?.id}
-            id={product?.id}
             category={params.category}
-            productSlug={product?.productSlug}
-            productDisplay={product?.productDisplay}
-            productName={product?.productName}
+            productSlug={product?.slug}
+            productDisplay={product?.productDisplay.gallery[0]}
+            productName={product?.title}
             discount={product?.discount}
             stock={product?.stock}
             price={product?.price}
