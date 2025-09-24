@@ -48,7 +48,7 @@ export default function Checkout() {
           <h2>Your Cart</h2>
           {cart?.count > 0 ?
             <CartProduct/>  :
-            <p>... is empty. <br/> Let's put something in it</p>
+            <p>... is empty. <br/> Let&apos;s put something in it</p>
           }
           <button 
             data-testid="continue-button"
