@@ -1,6 +1,7 @@
-import { performRequest } from '@/lib/datocms'
 import { KOFI } from '@/lib/data'
 import { lato } from '@/fonts'
+import { type SanityDocument } from 'next-sanity'
+import { client } from '../../../sanity/lib/client'
 import styles from '@/shop/page.module.scss'
 import patronStyles from '@/shop/patron/patron.module.scss'
 import { StripePatron } from './PatronBtn'
@@ -11,18 +12,10 @@ export const metadata = {
   description: 'The Sleepy Gallows e-commerce store. Please consider becoming a patron and get 15% off all orders.',
   keywords: 'shop, art, art prints, sleepy gallows, chicago artist, evanston artist, black artist',
 }
-const PAGE_CONTENT_QUERY = `
-query Patron{
-  patron {
-    id
-    header
-    patronText
-  }
-}
-`;
+const POSTS_QUERY = ``;
 
 export default async function Patron() {
-  const { data: { patron } } = await performRequest({ query: PAGE_CONTENT_QUERY });
+  const patron = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
 
   return (
     <main className={styles.main}>

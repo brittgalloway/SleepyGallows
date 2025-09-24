@@ -3,7 +3,7 @@ import { client } from '../../../sanity/lib/client'
 import { cinzel_decorative } from '@/fonts'
 import Image from 'next/image'
 import { rgbDataURL } from '@/lib/utils'
-import { INSTA_2HEROES, TWITTER_2HEROES, PATREON_2HEROES, NECAHUAL, WEBTOON, NECAHUAL1_IMG, NECAHUAL2_IMG, NECAHUAL3_IMG, NECAHUAL4_IMG } from '@/lib/data'
+import { INSTA_2HEROES, TWITTER_2HEROES, PATREON_2HEROES, NECAHUAL, WEBTOON} from '@/lib/data'
 import { Footer } from '@/components/Footer'
 import styles from './page.module.scss'
 

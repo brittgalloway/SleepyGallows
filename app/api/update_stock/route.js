@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server'
-import { performRequest } from '@/lib/datocms'
 import { STRIPE_WH_SECRET, stripe } from '@/lib/stripe'
 
 const endpointSecret = STRIPE_WH_SECRET;
@@ -29,41 +28,24 @@ export async function POST(req) {
         const quantity = lineItem.quantity;
 
         try {
-          // Fetch current stock from DatoCMS
-          const CONTENT_QUERY = `
-            query GetStock($id: ItemId) {
-              shop(filter: { id: { eq: $id } }) {
-                id
-                stock
-              }
-            }`;
+          // Fetch current stock from Santity
+          const CONTENT_QUERY = ``;
           
-          const { data } = await performRequest({ 
-            query: CONTENT_QUERY, 
-            variables: { id: productId }
-          });
+          // const { data } = await performRequest({ 
+          //   query: CONTENT_QUERY, 
+          //   variables: { id: productId }
+          // });
 
           if (!data?.shop) {
-            console.log(`Product ${productId} not found in DatoCMS.`);
+            console.log(`Product ${productId} not found in Santity.`);
             continue;
           }
 
           const currentStock = data.shop.stock;
           const updatedStock = currentStock - quantity;
 
-          // Update stock in DatoCMS
-          const UPDATE_STOCK_MUTATION = `
-            mutation UpdateStock($id: ItemId, $stock: Int) {
-              updateShop(filter: { id: { eq: $id } }, data: { stock: $stock }) {
-                id
-                stock
-              }
-            }`;
-
-          await performRequest({ 
-            query: UPDATE_STOCK_MUTATION, 
-            variables: { id: productId, stock: updatedStock }
-          });
+          // Update stock in Santity
+          const UPDATE_STOCK_MUTATION = ``;
 
           console.log(`Stock updated for product ${productId}: New stock = ${updatedStock}`);
         } catch (error) {

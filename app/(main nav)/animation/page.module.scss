@@ -55,7 +55,9 @@
 }
 .client {
   @include a;
-  background-color: var(--seagreen-highlight); 
+  & {
+    background-color: var(--seagreen-highlight); 
+  }
 }
 .fun {
   @include a;
