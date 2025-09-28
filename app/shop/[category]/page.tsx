@@ -9,12 +9,13 @@ export default async function Category({params}) {
 
   const POSTS_QUERY = await `*[
     _type == "shopProduct"
-    && link.current == "${params.original}"
+    && productType == "${params.category}"
   ] 
   {
     "id": _id, 
     "title": productName, 
     "price": price, 
+    "discount": discountedPrice,
     "stock": stock, 
     "productType": productType, 
     "slug": productSlug.current,

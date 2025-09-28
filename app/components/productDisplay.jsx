@@ -15,7 +15,7 @@ export function ProductDisplay( {category, productSlug, productName, price, disc
         />
         <p className={`${styles.product_name}`}>&ldquo;{productName}&rdquo;</p>
         <div className={`${styles.price_wrap}`}>
-        {discount !== 0 && stock > 0  &&
+        {discount !== null && stock > 0  &&
           <p className={`${styles.product_info}`}>${discount}</p>
         }
           {stock > 0 ? 

@@ -11,6 +11,7 @@ const POSTS_QUERY = `
     "id": _id, 
     "title": productName, 
     "price": price, 
+    "discount": discountedPrice,
     "stock": stock, 
     "productType": productType, 
     "slug": productSlug.current, 

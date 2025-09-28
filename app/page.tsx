@@ -13,7 +13,7 @@ const POSTS_QUERY = `*[
   {
     "title": title,
     "id": _id,
-    "gallery": gallery[].asset->{ title, assetId, altText, metadata, _id, url},
+    "gallery": gallery[]{alt, hotspot{...},  asset-> { url } },
     }
 `;
 export default async function Home() {
@@ -21,10 +21,10 @@ export default async function Home() {
   const img = images[0];
   
   const links = [
-    [styles.imgAnimation, 'animation', img.gallery[0].url, img.gallery[0].altText],
-    [styles.imgComic, 'comics', img.gallery[2].url, img.gallery[2].altText],
-    [styles.imgArt, 'art', img.gallery[1].url, img.gallery[1].altText],
-    [styles.imgShop, 'shop', img.gallery[3].url, img.gallery[3].altText],
+    [styles.imgAnimation, 'animation', img.gallery[0].asset.url, img.gallery[0].alt],
+    [styles.imgComic, 'comics', img.gallery[2].asset.url, img.gallery[2].alt],
+    [styles.imgArt, 'art', img.gallery[1].asset.url, img.gallery[1].alt],
+    [styles.imgShop, 'shop', img.gallery[3].asset.url, img.gallery[3].alt],
   ]
   return (
     <main className={styles.main}>

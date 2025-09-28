@@ -12,7 +12,7 @@ export function ProductImages({photos, layout}) {
   const slides = photos.map((photo) => (
     {
         key: photo?.id,
-        src: photo?.responsiveImage?.src,
+        src: photo?.asset?.url,
         width: 100,
         height: 100,
         title: photo?.title,
@@ -23,9 +23,9 @@ export function ProductImages({photos, layout}) {
       <div className={`${style.productImage}`}>
         <Image className={`${style.img}`}
             key= {photos[index]?.id}
-            src= {photos[index]?.responsiveImage?.src}
-            width={photos[index]?.responsiveImage?.width}
-            height={photos[index]?.responsiveImage?.height}
+            src= {photos[index]?.asset?.url}
+            width={photos[index]?.asset.metadata.dimensions.width}
+            height={photos[index]?.asset.metadata.dimensions.height}
             title= {photos[index]?.title}
             alt= {photos[index]?.alt}
         />
