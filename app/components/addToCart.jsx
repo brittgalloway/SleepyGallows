@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useCartContext } from '@/shop/cartContext'
 import styles from '@/style/product.module.scss'
 
-export default function AddToCart({ product, stock, price, discount, productDescription }) {
+export default function AddToCart({ id, product, stock, price, discount, productDescription }) {
     const { cart, setCart } = useCartContext();
     const [btnText, setBtnText] = useState('Add To Cart');
 
@@ -28,6 +28,7 @@ export default function AddToCart({ product, stock, price, discount, productDesc
                 updatedItems = [
                     ...prevItems,
                     {
+                        id: id,
                         price: product?.default_price,
                         quantity: 1,
                         productName: product?.name,

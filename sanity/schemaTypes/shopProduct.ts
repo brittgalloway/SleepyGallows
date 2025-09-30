@@ -69,6 +69,11 @@ export const shopProduct = defineType({
                 type: 'number',
                 description: 'variant price',
             }),
+            defineField({
+                name: 'stock',
+                type: 'number',
+                description: 'No negative numbers',
+            }),
         ]
       }],
     }),

@@ -64,6 +64,8 @@
             grid-template-columns: auto 100px;
             grid-template-rows: 430px;
             max-width: none;
+            max-height: 500px;
+            overflow-y: clip;
         }
         .productImage {
             overflow-y: hidden;

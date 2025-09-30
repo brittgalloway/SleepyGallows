@@ -6,10 +6,10 @@ import styles from '@/style/productCategory.module.scss'
 import layoutStyle from '@/shop/page.module.scss'
 
 export default async function Category({params}) {
-
+  const { category } = await params;
   const POSTS_QUERY = await `*[
     _type == "shopProduct"
-    && productType == "${params.category}"
+    && productType == "${category}"
   ] 
   {
     "id": _id, 
@@ -24,12 +24,12 @@ export default async function Category({params}) {
   const products = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (
     <main className={`${layoutStyle.main}`}>
-      <h1 style={cinzel_decorative.style} className={`${styles.h1}`}>{params.category}</h1>
+      <h1 style={cinzel_decorative.style} className={`${styles.h1}`}>{category}</h1>
       <div className={`${styles.grid}`}>
         {products.map((product)=>(
           <ProductDisplay
             key={product?.id}
-            category={params.category}
+            category={category}
             productSlug={product?.slug}
             productDisplay={product?.productDisplay.gallery[0]}
             productName={product?.title}

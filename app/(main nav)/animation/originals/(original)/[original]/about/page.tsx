@@ -10,9 +10,10 @@ import imgGrid from '@/style/artGrid.module.scss'
 
 
 export default async function aboutOriginal({params}) {
+  const { originalDynamic } = await params;
   const POSTS_QUERY = await `*[
       _type == "original"
-      && link.current == "${params.original}"
+      && link.current == "${originalDynamic}"
     ] 
     {
       "title": title,

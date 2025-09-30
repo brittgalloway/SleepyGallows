@@ -32,56 +32,68 @@ export default async function Product( {params} ) {
     "variant": variant[]{ title, price }
   }`;
   const _product = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
+  const item = _product[0];
 
   // const product = JSON.parse(JSON.stringify(await stripe.products.retrieve(product?.id)));
-  const imgHeight = _product[0]?.productDisplay[0]?.gallery[0].asset.metadata.dimensions.height;
-  const imgWidth = _product[0]?.productDisplay[0]?.gallery[0].asset.metadata.dimensions.width;
-  
+  const imgHeight = item?.productDisplay[0]?.gallery[0].asset.metadata.dimensions.height;
+  const imgWidth = item?.productDisplay[0]?.gallery[0].asset.metadata.dimensions.width;
   return (
     <main className={`${layoutStyle.main} ${style.max_width}`}>
       <div className={`${imgHeight > imgWidth ? style.product_portrait : style.product_landscape}`}>
-        <h1 className={`${style.h1}`}>{_product[0]?.productName}</h1>
+        <h1 className={`${style.h1}`}>{item?.productName}</h1>
         <div className={`${style.imgDisplay}`}>
           <ProductImages
-          photos={_product[0]?.productDisplay?.gallery}
+          photos={item?.productDisplay?.gallery}
           layout={imgHeight > imgWidth ? 'portrait' : 'landscape'}
           />
         </div>
         <div className={`${style.product_info}`}>
-          {_product[0]?.discount !== null ? <div className={`${style.discount}`}>
-            <p className={``} aria-label="This is the current sale price.">{USD.format(_product[0]?.discount)}</p>
-            <p className={``} aria-label="This is the former price, not the price you will pay today.">{USD.format(_product[0]?.price)}</p>
+          {item?.discount !== null ? <div className={`${style.discount}`}>
+            <p className={``} aria-label="This is the current sale price.">{USD.format(item?.discount)}</p>
+            <p className={``} aria-label="This is the former price, not the price you will pay today.">{USD.format(item?.price)}</p>
             </div> :
             <div className={`${style.price}`}>
-              <p>{USD.format(_product[0]?.price)}</p>
+              <p>{USD.format(item?.price)}</p>
             </div>
           }
-          {_product[0]?.stock > 0 ?<p className={`${style.stock}`}>In Stock</p> : <p className={`${style.no_stock}`}>Sold Out</p>}
+          {item.variant && (
+            <label>
+              <p></p>
+              <select>
+                {item.variant.map((listItem) =>(
+                  <option key={listItem.title}>{listItem.title} - ${listItem.price}</option>
+                  )
+                )}
+              </select>
+            </label>
+          )}
+          {item?.stock > 0 ?<p className={`${style.stock}`}>In Stock</p> : <p className={`${style.no_stock}`}>Sold Out</p>}
           <div className={`${lato.className}`}>
-            {_product[0]?.longDescription?.map((content, idx)=><p key={idx} className={`${lato.className}`}>
+            {item?.longDescription?.map((content, idx)=><p key={idx} className={`${lato.className}`}>
               {content.children[0].text}
             </p>)}
           </div>
           <AddToCart
-            product={_product[0]}
-            stock={_product[0]?.stock}
-            discount={_product[0]?.discount}
-            price={_product[0]?.price}
-            productDescription={_product[0]?.shortDescription}
+            id={item.id}
+            product={item}
+            stock={item?.stock}
+            discount={item?.discount}
+            price={item?.price}
+            productDescription={item?.shortDescription}
           />
         </div>
       </div>
       <aside className={`${style.aside}`}>
-        <h2 className={`${style.h2} ${cinzel_decorative.className}`}>{_product[0]?.originalsSummary?.title}</h2>
-          {_product[0]?.originalsSummary && 
-            _product[0]?.originalsSummary?.body.map((content, idx)=>
+        <h2 className={`${style.h2} ${cinzel_decorative.className}`}>{item?.originalsSummary?.title}</h2>
+          {item?.originalsSummary && 
+            item?.originalsSummary?.body.map((content, idx)=>
             <p key={idx} className={`${lato.className}`}>
               {content.children.text}
             </p>
           )
         }
-        {_product[0]?.originalsSummary?.slug.current !== null && 
-          <Link  className={`${style.learn_more}`} href={`/animation/originals/${_product[0]?.originalsSummary?.slug.current}`}>
+        {item?.originalsSummary &&  item?.originalsSummary?.slug.current !== null && 
+          <Link  className={`${style.learn_more}`} href={`/animation/originals/${item?.originalsSummary?.slug.current}`}>
             Learn More
           </Link>}
       </aside>

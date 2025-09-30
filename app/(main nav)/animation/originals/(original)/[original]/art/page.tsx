@@ -7,7 +7,7 @@ import styles from '@/style/artGrid.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export default async function artOriginals({params}) {
-  const { original } = await params
+  const { original } = await params;
     const POSTS_QUERY = `*[
         _type == "original"
         && link.current == "${original}"
