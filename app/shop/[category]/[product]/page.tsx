@@ -1,10 +1,9 @@
 import Link from 'next/link'
 import { lato, cinzel_decorative } from '@/fonts'
 import { ProductImages } from '@/components/productImages'
-import AddToCart from '@/components/addToCart'
+import ProductInfo from '@/components/productInfo'
 import { type SanityDocument } from 'next-sanity'
 import { client } from '../../../../sanity/lib/client'
-import { USD } from '@/lib/utils'
 import { stripe } from '@/lib/stripe'
 import style from '@/style/product.module.scss'
 import layoutStyle from '@/shop/page.module.scss'
@@ -43,45 +42,20 @@ export default async function Product( {params} ) {
         <h1 className={`${style.h1}`}>{item?.productName}</h1>
         <div className={`${style.imgDisplay}`}>
           <ProductImages
-          photos={item?.productDisplay?.gallery}
-          layout={imgHeight > imgWidth ? 'portrait' : 'landscape'}
-          />
+            photos={item?.productDisplay?.gallery}
+            layout={imgHeight > imgWidth ? 'portrait' : 'landscape'}
+            />
         </div>
-        <div className={`${style.product_info}`}>
-          {item?.discount !== null ? <div className={`${style.discount}`}>
-            <p className={``} aria-label="This is the current sale price.">{USD.format(item?.discount)}</p>
-            <p className={``} aria-label="This is the former price, not the price you will pay today.">{USD.format(item?.price)}</p>
-            </div> :
-            <div className={`${style.price}`}>
-              <p>{USD.format(item?.price)}</p>
-            </div>
-          }
-          {item.variant && (
-            <label>
-              <p></p>
-              <select>
-                {item.variant.map((listItem) =>(
-                  <option key={listItem.title}>{listItem.title} - ${listItem.price}</option>
-                  )
-                )}
-              </select>
-            </label>
-          )}
-          {item?.stock > 0 ?<p className={`${style.stock}`}>In Stock</p> : <p className={`${style.no_stock}`}>Sold Out</p>}
-          <div className={`${lato.className}`}>
-            {item?.longDescription?.map((content, idx)=><p key={idx} className={`${lato.className}`}>
-              {content.children[0].text}
-            </p>)}
-          </div>
-          <AddToCart
+        <ProductInfo
             id={item.id}
-            product={item}
-            stock={item?.stock}
-            discount={item?.discount}
+            title={item?.productName}
+            stock={item?.stock} 
             price={item?.price}
-            productDescription={item?.shortDescription}
-          />
-        </div>
+            discount={item?.discount} 
+            variant={item?.variant} 
+            longDescription={item?.longDescription}
+            shortDescription={item?.shortDescription}
+        />
       </div>
       <aside className={`${style.aside}`}>
         <h2 className={`${style.h2} ${cinzel_decorative.className}`}>{item?.originalsSummary?.title}</h2>

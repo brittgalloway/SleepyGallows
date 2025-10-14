@@ -7,7 +7,8 @@ type WebProject = {
   id:string, 
   projectName:string, 
   role:string,
-  description:string, liveApp:string, 
+  description:string, 
+  liveApp:string, 
   github:string
 }
 export default function  WebProjects({id, projectName, role, description, liveApp, github}: WebProject
