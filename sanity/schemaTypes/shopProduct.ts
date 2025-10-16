@@ -1,4 +1,7 @@
 import {defineField, defineType} from 'sanity'
+import {uuid} from '@sanity/uuid'
+
+const variantID = uuid()
 
 export const shopProduct = defineType({
   name: 'shopProduct',
@@ -60,14 +63,25 @@ export const shopProduct = defineType({
       of: [{ type:'document',
         fields: [
             defineField({
+                name: 'ID',
+                type: 'string',
+                description: 'Identifier',
+                initialValue: variantID,
+            }),
+            defineField({
                 name: 'title',
                 type: 'string',
-                description: 'The defining difference, usually size, color,  or character name',
+                description: 'The defining difference, usually size, color,  or character name. Please put the default first.',
             }),
             defineField({
                 name: 'price',
                 type: 'number',
                 description: 'variant price',
+            }),
+            defineField({
+                name: 'discountedPrice',
+                type: 'number',
+                description: 'Discounted price for the variant',
             }),
             defineField({
                 name: 'stock',

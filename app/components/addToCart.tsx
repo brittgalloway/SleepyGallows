@@ -3,7 +3,17 @@ import { useEffect, useState } from 'react'
 import { useCartContext } from '@/shop/cartContext'
 import styles from '@/style/product.module.scss'
 
-export default function AddToCart({ id, _productName, stock, price, discount, productDescription }) {
+type CartProduct = {
+    id:string, 
+    _productName:string,
+    variantName:string,
+    stock:number, 
+    price:number,
+    discount:number,
+    productDescription:any
+}
+
+export default function AddToCart({ id, _productName, variantName, stock, price, discount, productDescription }:CartProduct) {
     const { cart, setCart } = useCartContext();
     const [btnText, setBtnText] = useState('Add To Cart');
 
@@ -11,7 +21,7 @@ export default function AddToCart({ id, _productName, stock, price, discount, pr
         setCart((prevCart) => {
             const prevItems = prevCart?.items || []; // Ensure we handle an empty cart properly
             const existingItemIndex = prevItems.findIndex(
-                (item) => item.productName === _productName
+                (item) => item.id === id
             );
 
             let updatedItems;
@@ -32,11 +42,12 @@ export default function AddToCart({ id, _productName, stock, price, discount, pr
                         // price: product?.default_price,
                         quantity: 1,
                         productName: _productName,
+                        variantName:variantName,
                         productStock: stock,
                         productPrice: price,
                         productDiscount: discount,
                         productDescription: productDescription,
-                        productDisplay: product?.images?.[0],
+                        // productDisplay: product?.images?.[0],
                     },
                 ];
             }

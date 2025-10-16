@@ -28,18 +28,19 @@ export default async function Product( {params} ) {
     "shippingType": shipping.shippingOptions,
     "productDisplay": productDisplay -> {gallery[]{ caption, alt, asset ->{metadata{dimensions}, url}}},
     "originalsSummary": originalsSummary->{ body[]{children[0]{text}}, slug, title },
-    "variant": variant[]{ title, price }
+    "variant": variant[]{ ID, title, price, discountedPrice, stock }
   }`;
   const _product = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   const item = _product[0];
-
   // const product = JSON.parse(JSON.stringify(await stripe.products.retrieve(product?.id)));
   const imgHeight = item?.productDisplay[0]?.gallery[0].asset.metadata.dimensions.height;
   const imgWidth = item?.productDisplay[0]?.gallery[0].asset.metadata.dimensions.width;
   return (
     <main className={`${layoutStyle.main} ${style.max_width}`}>
       <div className={`${imgHeight > imgWidth ? style.product_portrait : style.product_landscape}`}>
-        <h1 className={`${style.h1}`}>{item?.productName}</h1>
+        <h1 className={`${style.h1}`}>
+          {item?.title}
+        </h1>
         <div className={`${style.imgDisplay}`}>
           <ProductImages
             photos={item?.productDisplay?.gallery}
@@ -48,7 +49,7 @@ export default async function Product( {params} ) {
         </div>
         <ProductInfo
             id={item.id}
-            title={item?.productName}
+            title={item?.title}
             stock={item?.stock} 
             price={item?.price}
             discount={item?.discount} 
