@@ -37,6 +37,7 @@ export async function POST(req) {
           ],
           mode: 'payment',
           submit_type: 'donate',
+          origin_context:'web',
           invoice_creation: {
             enabled: true,
             invoice_data: {
@@ -64,7 +65,10 @@ export async function POST(req) {
           ],
           mode: 'subscription',
           submit_type: 'donate',
-          
+          subscription_data: {
+            description: `Patron discount code: ${promoCode} for ${patron?.interval}.`
+          },
+          origin_context:'web',
           success_url: successURL,
           cancel_url: cancelURL,
           automatic_tax: { enabled: false },

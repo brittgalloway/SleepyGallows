@@ -1,7 +1,6 @@
 import {defineField, defineType} from 'sanity'
-import {uuid} from '@sanity/uuid'
 
-const variantID = uuid()
+const variantID = crypto.randomUUID();
 
 export const shopProduct = defineType({
   name: 'shopProduct',

@@ -61,7 +61,7 @@ export function CartProduct() {
           /> */}
           <p className={styles.prodName} data-testid={`item-name_${item.id}`}>{item.productName}{item.variantName && ` | ${item.variantName}`}</p>
           <p className={styles.description} data-testid={`item-description_${item.id}`}>{item.productDescription}</p>
-          <p className={styles.price} data-testid={`item-price_${item.id}`}>Unit Price: {USD.format(item.productPrice)}</p>
+          <p className={styles.price} data-testid={`item-price_${item.id}`}>Unit Price: {USD.format(item.productDiscount ? item.productDiscount : item.productPrice)}</p>
           {item?.productStock > 1 ? (
             <label className={styles.qty} aria-label={`Current quantity of ${item.productName}. Adjust quantity here.`}>
               Qty:

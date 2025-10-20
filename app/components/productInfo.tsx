@@ -51,7 +51,7 @@ export default function ProductInfo({ id, title, stock, price, discount, variant
           }
           {variant && (
             <label>
-              <p></p>
+              <p>Choose Size</p>
               <select name="options" onChange={handleVariant}>
                 {variant.map((listItem) =>(
                     <option key={listItem.title} value={listItem.title}>
