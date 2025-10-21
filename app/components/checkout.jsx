@@ -35,7 +35,7 @@ export default function Checkout() {
       setLoading(false);
     }
   };
-  
+
   return (
       <>
         <button data-testid="toggle-checkout-button" type="button" className={styles.checkout} popoverTarget="cart">
