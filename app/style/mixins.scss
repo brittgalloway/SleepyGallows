@@ -1,21 +1,21 @@
 @mixin btn ($color, $bg-color) {
   justify-self: center;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  color: $color;
   background-color: $bg-color;
   border: 1px solid $color;
   border-bottom-width: 2px;
-  color: $color;
   border-radius: var(--border-radius);
-  padding: 1rem 2rem;
-  margin-bottom: 2rem;
   transition: all var(--transition);
   cursor: pointer;
   &:not(:disabled) {
     &:hover,
     &:active {
-        background-color: $color;
-        color: $bg-color;
-        border-color: $bg-color;
-        text-decoration: none;
+      text-decoration: none;
+      background-color: $color;
+      color: $bg-color;
+      border-color: $bg-color;
     }
   }
   &:disabled {
@@ -33,13 +33,11 @@
   }
 }
 @mixin display-price {
-  font-size: 1rem;
-  font-weight: 400;
-  font-size: 1em;
-  color: var(--brand-color); 
-  font-weight: bold;
   display: inline-block;
   margin: 0;
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--brand-color); 
   @media(min-width: 831px) {
       font-size: 1.5em;
   } 

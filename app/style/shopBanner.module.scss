@@ -17,13 +17,13 @@
 .announcementText {
     grid-column: 1/2;
     grid-row: 1/2;
-    font-size: 1.2rem;
-    font-weight: 700;
     margin: 0;
     width: 100%;
-    opacity: 0;
     align-self: center;
+    font-size: 1.2rem;
+    font-weight: 700;
     text-align: center;
+    opacity: 0;
     transform: translateX(100%);
     animation: slideInOut 10s infinite ease-in-out forwards;
 }

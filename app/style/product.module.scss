@@ -84,7 +84,7 @@
 .discount {
     display: flex;
     gap: 1rem;
-    align-items: self-end;
+    align-items: flex-end;
     p {
         @include mixins.display-price;
     }
@@ -101,30 +101,30 @@
     }
 }
 .product_info {
-    display: flex;
-    flex-direction: column;
     grid-column: 2/3;
     grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
 }
 .stock {
     margin: 0;
 }
 .no_stock {
-    color: #ff0000;
-    font-weight: bold;
     margin: 0;
+    font-weight: bold;
+    color: #ff0000;
 }
 .aside {
     margin-block: 2.5em;
 }
 .learn_more {
-    font-weight: 400;
-    font-size: 1.25em;
-    text-align: center;
     display: block;
     width: 100%;
     margin-top: 1em;
+    font-weight: 400;
+    font-size: 1.25em;
+    text-align: center;
 }
 .addToCart {
     @include mixins.btn(#fff, var(--brand-color));

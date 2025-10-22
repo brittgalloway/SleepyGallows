@@ -32,22 +32,22 @@
     }
 }
 .nav {
-    border-top: 1px solid var(--brand-color);
     width: 100%;
+    border-top: 1px solid var(--brand-color);
 }
 .nav_list {
+    z-index: 3;
+    position: fixed;
+    top: 20%;
+    left: 5%;
     display: flex;
     flex-direction: column;
     width: 90%;
+    padding: 2rem;
     background:#fff;
     border: 2px solid var(--brand-color);
     border-radius: 10px;
     overflow: hidden;
-    position: fixed;
-    z-index: 3;
-    top: 20%;
-    left: 5%;
-    padding: 2rem;
     li {
         margin-block: 1rem;
         a {
@@ -57,14 +57,14 @@
         }
     }
     @media(min-width: 830px) {
-        gap: 2rem;
-        justify-content: center;
-        background: transparent;
-        border: none;
-        flex-direction: row;
         position: static;
+        justify-content: center;
+        flex-direction: row;
+        gap: 2rem;
         padding: 10px;
         margin: auto;
+        background: transparent;
+        border: none;
         li {
             margin-block: 0;
             a {
@@ -74,28 +74,28 @@
     }
 }
 .mobile_menu{
-    border: none;
     box-shadow:none;
     height:100%;
     padding:0;
     margin:0;
+    border: none;
   }
   .hamburger {
-    z-index: 3; 
-    display: none;
-    cursor: pointer;
-    top: 4.5rem; 
-    left: 1rem;
-    position: fixed;
-    width: 80px;
+      z-index: 3; 
+      position: fixed;
+      display: none;
+      top: 4.5rem; 
+      left: 1rem;
+      width: 80px;
+      cursor: pointer;
     @media(max-width: 830px) {
       display: inline;
-      border: none;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.5);
       text-align: center; 
       padding: 2%;
       width: fit-content;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
     }
   }
 .icons {
@@ -105,17 +105,17 @@
 }
 .checkout {
     z-index: 3; 
-    cursor: pointer;
+    display: flex;
+    margin: 1rem;
+    font-size: 1.25rem;
     border: none;
     background: transparent;
     color: var(--brand-color);
-    font-size: 1.25rem;
-    margin: 1rem;
-    display: flex;
+    cursor: pointer;
     @media(max-width: 830px) {
+        position: absolute;
         top: 4.5rem; 
         right: 1rem;
-        position: absolute;
         width: 80px;
     }
 }

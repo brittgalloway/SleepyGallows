@@ -12,7 +12,7 @@ export function CartProduct() {
     const current = cartItems[i];
     total += current.productPrice * current.quantity;
   }
-
+  
   const handleQty = (event, id) => {
     const newQty = Number(event.target.value);
     if (newQty < 1) return;
@@ -22,9 +22,11 @@ export function CartProduct() {
       items: prevCart.items.map((item) =>
         item.id === id ? { ...item, quantity: newQty } : item
       ),
-      count: (cart.count - newQty) + newQty,
+      count: cartItems.reduce((total, item) => total + item.quantity, 1) //works going up
     }));
-  };
+    console.log('new qty',newQty)
+    console.log('count',cart.count)
+  }
 
   const handleRemoval = (key) => {
     setCart((prevCart) => {
@@ -44,7 +46,6 @@ export function CartProduct() {
       return prevCart;
     });
   };
-
   return (
     <div>
       <ul className={styles.productList}>
@@ -89,7 +90,7 @@ export function CartProduct() {
           </li>
         ))}
       </ul>
-      <p>Subtotal: {total}</p>
+      <p>Subtotal: {USD.format(total)}</p>
     </div>
   );
 }

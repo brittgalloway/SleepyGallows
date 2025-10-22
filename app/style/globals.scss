@@ -37,12 +37,12 @@
   object-fit: cover !important;
 }
 body {
-  width: 100%;
   padding: 0;
   margin: 0;
+  width: 100%;
   height: 100%;
-  color: var(--text-color);
   font-size: 1.25rem;
+  color: var(--text-color);
 }
 section.wrapper {
   display: grid;
@@ -68,25 +68,25 @@ main {
 }
 
 ul {
-  list-style: none;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 a {
-  color: var(--brand-color);
   text-decoration: none;
   font-weight: bold;
+  color: var(--brand-color);
   transition: color var(--transition);
   &:hover {
-    color: var(--pink-highlight);
     text-decoration: underline;
+    color: var(--pink-highlight);
   }
 }
 
 main nav ul {
-  text-align: center;
   display: block;
   margin-bottom: 3rem;
+  text-align: center;
   &.animation {
     @media (max-width: 830px) {
       text-align: left;
@@ -96,8 +96,8 @@ main nav ul {
     display: inline;
     padding: 1rem 2rem;
     @media (max-width: 830px) {
-      font-size: 1rem;
       padding: 1rem;
+      font-size: 1rem;
     }
   }
 }
@@ -119,8 +119,8 @@ img {
 }
  footer { 
   grid-column: 2/3;
-  text-align: center;
   padding-block: 1rem;
+  text-align: center;
   @media (max-width: 830px) {
     grid-column: 1/3;
     margin-left: 0;
@@ -132,12 +132,12 @@ img {
 }
 
 .spinner {
-  border: 6px dotted var(--brand-color);
-  border-radius:50%;
   width: 30px;
   height: 30px;
   -webkit-animation: spin 3s linear infinite;
   animation: spin 3s linear infinite;
+  border: 6px dotted var(--brand-color);
+  border-radius:50%;
   transition: border-color var(--transition) ease-in-out;
 }
 .spinner:hover {
