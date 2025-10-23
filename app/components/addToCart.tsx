@@ -6,10 +6,10 @@ import styles from '@/style/product.module.scss'
 type CartProduct = {
     id:string, 
     _productName:string,
-    variantName:string,
+    variantName?:string,
     stock:number, 
     price:number,
-    discount:number,
+    discount?:number,
     productDescription:any
 }
 

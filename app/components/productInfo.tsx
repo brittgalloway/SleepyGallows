@@ -11,8 +11,8 @@ type ProductInfo = {
     title:string,
     stock:number, 
     price:number,
-    discount:number, 
-    variant:{
+    discount?:number, 
+    variant?:{
         ID:string,
         price:number, 
         title:string, 

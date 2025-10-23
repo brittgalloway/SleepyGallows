@@ -12,7 +12,7 @@ export function CartProduct() {
     const current = cartItems[i];
     total += current.productPrice * current.quantity;
   }
-  
+
   const handleQty = (event, id) => {
     const newQty = Number(event.target.value);
     if (newQty < 1) return;
@@ -22,10 +22,10 @@ export function CartProduct() {
       items: prevCart.items.map((item) =>
         item.id === id ? { ...item, quantity: newQty } : item
       ),
-      count: cartItems.reduce((total, item) => total + item.quantity, 1) //works going up
+      count: cartItems.reduce((total, item) => {
+          return item.id == id ? total + newQty : total + item.quantity;
+      }, 0)
     }));
-    console.log('new qty',newQty)
-    console.log('count',cart.count)
   }
 
   const handleRemoval = (key) => {
