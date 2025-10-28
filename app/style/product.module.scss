@@ -50,33 +50,51 @@
     }
 }
 .product_landscape {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 300px auto;
+    display: block;
     @media(min-width: 831px) {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 300px auto;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;
         gap: 2rem;
+        .h1 {
+            grid-row: 3/4;
+            margin: 0;
+        }
         .imgDisplay {
             grid-column: 1/3;
             grid-row: 2/3;
             display:grid;
             grid-template-columns: auto 100px;
             grid-template-rows: 430px;
+            gap: 1rem;
             max-width: none;
             max-height: 500px;
             overflow-y: clip;
         }
         .productImage {
             overflow-y: hidden;
+            border-radius: var(--border-radius);
         }
         .product_info {
             grid-column: 2/3;
             grid-row: 3/4;
             display: flex;
-            text-align: right;
+            text-align: end;
             .discount {
                 justify-content: right;
+            }
+            label > p{
+                margin:0;
+            }
+        }
+        .product_discription {
+            grid-row: 4/5;
+            grid-column: 1/2;
+            align-self: end;
+            p:first-child {
+                margin-top: 0;
             }
         }
     }
@@ -127,5 +145,14 @@
     text-align: center;
 }
 .addToCart {
-    @include mixins.btn(#fff, var(--brand-color));
+    grid-row: 4/5;
+    grid-column: 2/3;
+    align-self: start;
+    text-align: end;
+    display: inherit;
+    gap: 2rem;
+    button {
+        width: 100%;
+        @include mixins.btn(#fff, var(--brand-color));
+    }
 }

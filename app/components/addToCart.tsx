@@ -6,10 +6,10 @@ import styles from '@/style/product.module.scss'
 type CartProduct = {
     id:string, 
     _productName:string,
-    variantName:string,
+    variantName?:string,
     stock:number, 
     price:number,
-    discount:number,
+    discount?:number,
     productDescription:any
 }
 
@@ -68,8 +68,12 @@ export default function AddToCart({ id, _productName, variantName, stock, price,
     useEffect(() => {}, [cart]);
 
     return (
-        <button className={styles.addToCart} type="button" disabled={stock <= 0} onClick={handleCart} onKeyDown={handleCart}>
-            {btnText}
-        </button>
+        <div className={styles.addToCart}> 
+            {stock > 0 ?<p className={`${styles.stock}`}>In Stock</p> : <p className={`${styles.no_stock}`}>Sold Out</p>}
+
+            <button type="button" disabled={stock <= 0} onClick={handleCart} onKeyDown={handleCart}>
+                {btnText}
+            </button>
+        </div>
     );
 }

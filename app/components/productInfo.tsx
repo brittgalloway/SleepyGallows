@@ -11,8 +11,8 @@ type ProductInfo = {
     title:string,
     stock:number, 
     price:number,
-    discount:number, 
-    variant:{
+    discount?:number, 
+    variant?:{
         ID:string,
         price:number, 
         title:string, 
@@ -40,6 +40,7 @@ export default function ProductInfo({ id, title, stock, price, discount, variant
 		  setVariantProduct(selectedVariant);
     }
     return (
+      <>
         <div className={`${style.product_info}`}>
           {variantProduct.discountedPrice !== null ? <div className={`${style.discount}`}>
             <p className={``} aria-label="This is the current sale price.">{USD.format(variantProduct.discountedPrice)}</p>
@@ -62,8 +63,8 @@ export default function ProductInfo({ id, title, stock, price, discount, variant
               </select>
             </label>
           )}
-          {variantProduct.stock > 0 ?<p className={`${style.stock}`}>In Stock</p> : <p className={`${style.no_stock}`}>Sold Out</p>}
-          <div className={`${lato.className}`}>
+        </div>
+          <div className={`${lato.className} ${style.product_discription}`}>
             {longDescription?.map((content, idx)=><p key={idx} className={`${lato.className}`}>
               {content.children[0].text}
             </p>)}
@@ -77,6 +78,6 @@ export default function ProductInfo({ id, title, stock, price, discount, variant
             price={variantProduct.price}
             productDescription={shortDescription}
           />
-        </div>
+      </>
     );
 }

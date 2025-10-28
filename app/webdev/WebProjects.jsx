@@ -4,7 +4,7 @@ import { happy_monkey } from '@/fonts'
 import Image from 'next/image'
 import styles from './page.module.scss'
 
-export default function  WebProjects({id, projectName, icon, screenshot, description, liveApp, github}) {
+export default function  WebProjects({id, projectName, screenshot, description, liveApp, github}) {
     const [display, setDisplay] = useState(false);
     
     function handleClick() {

@@ -94,7 +94,7 @@
     width: 75%;
     text-align: justify;
     @media (width <= 450px){
-      text-align: left;
+      text-align: start;
     }
   }
 }
@@ -201,7 +201,7 @@
   border: 5px solid var(--light-green);
   border-radius: 15px;
   padding: 2rem;
-  text-align: left;
+  text-align: start;
   @media (width <= 450px) {
     padding: 1rem;
   }
