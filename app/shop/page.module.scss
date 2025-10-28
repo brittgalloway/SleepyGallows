@@ -1,28 +1,28 @@
 @use '../style/mixins.scss';
 
 .main {
-  background:#fff;
-  padding: 2rem;
   display: flex;
   justify-content: flex-start;
   align-content: center;
   flex-direction: column;
   flex-wrap: wrap;
   margin: auto;
+  padding: 2rem;
   max-width: 1024px;
+  background:#fff;
 }
 .h1 {
   font-size: 2rem;
   text-align: center;
 }
 .welcome {
+  position: relative;
+  width: calc(100% - 20px);
+  padding: 2em 4em;
+  margin-left: 20px;
   border: 2px solid var(--brand-color);
   border-bottom-width: 4px;
   border-radius: var(--border-radius);
-  padding: 2em 4em;
-  position: relative;
-  width: calc(100% - 20px);
-  margin-left: 20px;
   @media(max-width: 830px) {
     display: none;
   }
@@ -92,20 +92,20 @@
     gap:1rem;
     button {
       grid-area: delete;
-      border-radius: var(--border-radius);
-      border: none;
-      background: #fff;
       color:var(--brand-color);
       width: auto;
-      cursor: pointer;
       margin: 0;
       padding: 0.5rem;
       justify-self: flex-end;
       text-decoration: underline;
+      border-radius: var(--border-radius);
+      border: none;
+      background: #fff;
+      cursor: pointer;
       &:hover {
+        text-decoration: underline !important;
         background: #fff !important;
         color:#FF0000 !important;
-        text-decoration: underline !important;
       }
     }
     img {
