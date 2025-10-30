@@ -10,6 +10,7 @@ export const grandstander = Grandstander({
     style: ['normal'],
     subsets: ['latin'],
     display: 'swap',
+    variable: '--grandstander',
 })
 
 export const heebo = Heebo({
@@ -17,6 +18,7 @@ export const heebo = Heebo({
     style: ['normal'],
     subsets: ['latin'],
     display: 'swap',
+    variable: '--heebo',
 })
 
 export const lato = Lato({
@@ -24,6 +26,7 @@ export const lato = Lato({
     style: ['normal'],
     subsets: ['latin'],
     display: 'swap',
+    variable: '--lato',
 })
 
 export const cinzel_decorative = Cinzel_Decorative({
@@ -31,10 +34,12 @@ export const cinzel_decorative = Cinzel_Decorative({
     style: ['normal'],
     subsets: ['latin'],
     display: 'swap',
+    variable: '--cinzel_decorative',
 })
 export const cinzel = Cinzel({
     weight: ['400', '700'],
     style: ['normal'],
     subsets: ['latin'],
     display: 'swap',
+    variable: '--cinzel',
 })

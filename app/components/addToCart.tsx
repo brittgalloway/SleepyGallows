@@ -2,16 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useCartContext } from '@/shop/cartContext'
 import styles from '@/style/product.module.scss'
-
-type CartProduct = {
-    id:string, 
-    _productName:string,
-    variantName?:string,
-    stock:number, 
-    price:number,
-    discount?:number,
-    productDescription:any
-}
+import { CartProduct } from '@/lib/types'
 
 export default function AddToCart({ id, _productName, variantName, stock, price, discount, productDescription }:CartProduct) {
     const { cart, setCart } = useCartContext();

@@ -10,10 +10,15 @@
   padding: 2rem;
   max-width: 1024px;
   background:#fff;
+  p {
+    font-family: var(--lato);
+  }
 }
 .h1 {
+  font-family: var(--cinzel);
   font-size: 2rem;
   text-align: center;
+  
 }
 .welcome {
   position: relative;
@@ -52,14 +57,26 @@
   }
 }
 .h2 {
+  font-family: var(--cinzel);
   border-radius: 0px;
 }
 .cart {
   max-width: 500px;
+  padding: 1rem 2rem;
+  overflow: clip;
   border-radius: var(--border-radius);
   border: 1px solid var(--brand-color);
   border-bottom-width: 2px;
-  overflow: clip;
+  h2 {
+    font-family: var(--cinzel);
+    color: var(--brand-color);
+  }
+  p {
+    font-family: var(--lato);
+  }
+  p:last-child {
+    font-family: var(--cinzel);
+  }
   button {
     @include mixins.btn(var(--brand-color), #fff);
     & {
@@ -75,6 +92,7 @@
 }
 .productList {
   max-height: 350px;
+  font-family: var(--lato);
   overflow-y: auto;
   > li {
     display: grid;
@@ -86,13 +104,12 @@
     'descrip descrip descrip';
     padding: 1rem;
     margin: 1rem;
+    gap:1rem;
     border: 1px solid var(--brand-color);
     border-radius: var(--border-radius);
     border-bottom-width: 2px;
-    gap:1rem;
     button {
       grid-area: delete;
-      color:var(--brand-color);
       width: auto;
       margin: 0;
       padding: 0.5rem;
@@ -100,6 +117,7 @@
       text-decoration: underline;
       border-radius: var(--border-radius);
       border: none;
+      color:var(--brand-color);
       background: #fff;
       cursor: pointer;
       &:hover {
@@ -111,7 +129,6 @@
     img {
       grid-area: image;
       width: 100px;
-
     }
     .qty {
       grid-area: qty;

@@ -1,4 +1,4 @@
-import { cinzel } from '@/fonts'
+import { cinzel, lato } from '@/fonts'
 import ShopHeader from '@/components/shopHeader'
 import { ShopFooter } from '@/components/shopFooter'
 import { ShopBanner } from '@/components/shopBanner'
@@ -12,7 +12,7 @@ export const metadata = {
 export default function ShopLayout({ children }) {
   return (
     <StateProvider>
-      <section style={cinzel.style}>
+      <section className={`${cinzel.variable} ${lato.variable}`}>
         <ShopBanner/>
         <ShopHeader/>
           {children}

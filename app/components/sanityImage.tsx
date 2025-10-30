@@ -1,10 +1,6 @@
-import type { SanityImageObject } from '@sanity/image-url/lib/types/types'
 import { urlFor } from '../../sanity/lib/image'
+import {SanityImage} from '@/lib/types'
 
-type SanityImage = {
-    image: SanityImageObject,
-    altText: string
-}
 export default function ImageComponent({image, altText}: SanityImage) {
   return (
     <img 

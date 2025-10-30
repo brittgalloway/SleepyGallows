@@ -1,5 +1,6 @@
 @use './mixins.scss';
 .h1 {
+    font-family: var(--cinzel);
     font-size: 1em;
     color: var(--brand-color);
     margin-bottom: 0;
@@ -11,6 +12,7 @@
 }
 
 .h2 {
+    font-family: var(--cinzel);
     font-size: 1.5em;
     color: var(--brand-color);
     text-align: center;
@@ -104,6 +106,7 @@
     gap: 1rem;
     align-items: flex-end;
     p {
+        font-family: var(--cinzel) !important;
         @include mixins.display-price;
     }
     p:last-child {
@@ -115,6 +118,7 @@
 }
 .price {
     p {
+        font-family: var(--cinzel) !important;
         @include mixins.display-price;
     }
 }
@@ -130,6 +134,7 @@
 }
 .no_stock {
     margin: 0;
+    font-family: var(--cinzel) !important;
     font-weight: bold;
     color: #ff0000;
 }
@@ -140,6 +145,7 @@
     display: block;
     width: 100%;
     margin-top: 1em;
+    font-family: var(--cinzel);
     font-weight: 400;
     font-size: 1.25em;
     text-align: center;

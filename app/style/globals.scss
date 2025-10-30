@@ -156,3 +156,30 @@ img {
 .project-icon {
   animation: rotate-center-alternate 1s linear 0s infinite alternate none; 
 }
+
+select,
+::picker(select) {
+  appearance: base-select;
+}
+select {
+  padding: 10px;
+  font-family: var(--lato);
+  
+  border: 1px solid var(--brand-color);
+  border-radius: var(--border-radius);
+  background: #fff;
+  transition: var(--transition);
+}
+
+select:hover,
+select:focus {
+  background: rgb(0, 0, 0, 0.25);
+  color: #fff;
+}
+select::picker-icon {
+  color: #999999;
+  transition: var(--transition) rotate;
+}
+select:open::picker-icon {
+  rotate: 180deg;
+}

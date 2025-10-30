@@ -2,15 +2,8 @@
 import React, { KeyboardEvent, useState } from 'react'
 import Image from 'next/image'
 import styles from '@/webdev/page.module.scss'
+import { WebProject } from '@/lib/types'
 
-type WebProject = {
-  id:string, 
-  projectName:string, 
-  role:string,
-  description:string, 
-  liveApp:string, 
-  github:string
-}
 export default function  WebProjects({id, projectName, role, description, liveApp, github}: WebProject
 ) {
     const [display, setDisplay] = useState(false);

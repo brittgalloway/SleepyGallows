@@ -11,7 +11,6 @@ export default function Checkout() {
   const [hasError, setHasError] = useState(false);
   const { cart } = useCartContext();
 
-
   const handleCheckout = async () => {
     setLoading(true);
     const response = await fetch('/api/create_checkout', {
@@ -47,8 +46,8 @@ export default function Checkout() {
         <dialog data-testid="cart-popup" popover="auto" id="cart" className={cartStyles.cart}>
           <h2>Your Cart</h2>
           {cart?.count > 0 ?
-            <CartProduct/>  :
-            <p>... is empty. <br/> Let&apos;s put something in it</p>
+            <CartProduct />  :
+            <p>... is empty. <br/> Let&apos;s put something in it.</p>
           }
           <button 
             data-testid="continue-button"
