@@ -27,11 +27,7 @@ export type ProductDetails = {
         discountedPrice:number|null, 
         stock:number
     }[], 
-    longDescription: {
-        children: {
-            text:string
-        }
-    }[],
+    longDescription: [],
     shortDescription:string
 }
 

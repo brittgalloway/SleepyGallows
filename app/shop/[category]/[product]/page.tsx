@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { PortableText } from '@portabletext/react'
 import { lato, cinzel_decorative } from '@/fonts'
 import { ProductImages } from '@/components/productImages'
 import ProductInfo from '@/components/productInfo'
@@ -27,7 +28,7 @@ export default async function Product( {params} ) {
     "hasShipping": shipping.shippable,
     "shippingType": shipping.shippingOptions,
     "productDisplay": productDisplay -> {gallery[]{ caption, alt, asset ->{metadata{dimensions}, url}}},
-    "originalsSummary": originalsSummary->{ body[]{children[0]{text}}, slug, title },
+    "originalsSummary": originalsSummary->{ body[], slug, title },
     "variant": variant[]{ ID, title, price, discountedPrice, stock }
   }`;
   const _product = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
@@ -61,11 +62,10 @@ export default async function Product( {params} ) {
       <aside className={`${style.aside}`}>
         <h2 className={`${style.h2} ${cinzel_decorative.className}`}>{item?.originalsSummary?.title}</h2>
           {item?.originalsSummary && 
-            item?.originalsSummary?.body.map((content, idx)=>
-            <p key={idx} className={`${lato.className}`}>
-              {content.children.text}
-            </p>
-          )
+            <PortableText
+              value={item.originalsSummary.body}
+              // components={/* optional object of custom components to use */}
+            />
         }
         {item?.originalsSummary &&  item?.originalsSummary?.slug.current !== null && 
           <Link  className={`${style.learn_more}`} href={`/animation/originals/${item?.originalsSummary?.slug.current}`}>

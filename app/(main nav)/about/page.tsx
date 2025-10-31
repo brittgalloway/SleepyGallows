@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { PortableText } from '@portabletext/react'
 import { type SanityDocument } from 'next-sanity'
 import { client } from '../../../sanity/lib/client'
 import { cinzel_decorative } from '@/fonts'
@@ -19,12 +20,7 @@ const POSTS_QUERY = `*[
   ] 
   {
     "header": header,
-    "subHeader": body[0].children[0].text,
-    "body1": body[1].children[0].text,
-    "body2": body[2].children[0].text,
-    "body3": body[3].children[0].text,
-    "linkText": body[3].children[1].text,
-    "body4": body[3].children[2].text,
+    "bodyText": body,
   }`;
 const IMAGE_QUERY = `*[
   _type == "imageGallery" &&
@@ -46,16 +42,10 @@ export default async function About() {
       <main className={styles.main}>
         <article>
           <h1 className={`${cinzel_decorative.className}`}>{text.header}</h1>
-          <h3>{text.subHeader}</h3>
-          <p>
-            {text.body1}
-          </p>
-          <p>
-            {text.body2}
-          </p>
-          <p>
-            {text.body3}<Link href='/animation/originals/plh'>{text.linkText}</Link>{text.body4}
-          </p>
+          <PortableText
+            value={text.bodyText}
+            // components={/* optional object of custom components to use */}
+          />
         </article>
         <article className={styles.creators}>
           <h2 className={`${cinzel_decorative.className}`}>About the Creators</h2>

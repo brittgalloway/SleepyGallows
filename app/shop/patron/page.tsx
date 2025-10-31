@@ -1,5 +1,5 @@
 import { KOFI } from '@/lib/data'
-import { cinzel_decorative, lato } from '@/fonts'
+import {PortableText} from '@portabletext/react'
 import { type SanityDocument } from 'next-sanity'
 import { client } from '../../../sanity/lib/client'
 import styles from '@/shop/page.module.scss'
@@ -13,10 +13,10 @@ export const metadata = {
   keywords: 'shop, art, art prints, sleepy gallows, chicago artist, evanston artist, black artist',
 }
 const POSTS_QUERY = `*[
-  header == "Become a Patron"
+  header == "Support the Sleepy Gallows"
 ]{
   "header": header,
-  "text": body[0].children
+  "text": body
 }`;
 
 export default async function Patron() {
@@ -25,11 +25,14 @@ export default async function Patron() {
   return (
     <main className={styles.main}>
       <h1 className={patronStyles.patron_h1}>{patron[0]?.header}</h1>
-      <div className={`${lato.className}`}>
-        {patron[0]?.text[0].text}<span className={`${cinzel_decorative.className} ${patronStyles.patronText}`}>{patron[0]?.text[1].text}</span>{patron[0]?.text[2].text}
+      <div>
+        <PortableText
+          value={patron[0].text}
+          // components={/* optional object of custom components to use */}
+        />
       </div>
       <StripePatron/>
-      <p className={`${lato.className}`}>Or, if you&apos;d prefer, you can buy me a <a href={KOFI}>Ko-fi</a></p>
+      <p >Or, if you&apos;d prefer, you can buy me a <a href={KOFI}>Ko-fi</a></p>
     </main>
   )
 }

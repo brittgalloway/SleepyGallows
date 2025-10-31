@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { PortableText } from '@portabletext/react'
 import { USD } from '@/lib/utils'
 import { ProductDetails } from '@/lib/types'
 import { lato } from '@/fonts'
@@ -44,9 +45,10 @@ export default function ProductInfo({ id, title, stock, price, discount, variant
           )}
         </div>
           <div className={`${lato.className} ${style.product_discription}`}>
-            {longDescription?.map((content, idx)=><p key={idx} className={`${lato.className}`}>
-              {content.children[0].text}
-            </p>)}
+            <PortableText
+              value={longDescription}
+              // components={/* optional object of custom components to use */}
+            />
           </div>
           <AddToCart
             id={variantProduct.ID}
