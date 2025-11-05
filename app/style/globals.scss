@@ -161,25 +161,50 @@ select,
 ::picker(select) {
   appearance: base-select;
 }
+::picker(select) {
+  top: anchor(bottom);
+  border: 1px solid var(--brand-color);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  opacity: 0;
+  transition: all var(--transition) allow-discrete;
+  &:popover-open {
+    opacity: 1;
+    @starting-style {
+      opacity: 0;
+    }
+  }
+}
 select {
   padding: 10px;
   font-family: var(--lato);
-  
   border: 1px solid var(--brand-color);
   border-radius: var(--border-radius);
   background: #fff;
   transition: var(--transition);
-}
-
-select:hover,
-select:focus {
-  background: rgb(0, 0, 0, 0.25);
-  color: #fff;
-}
-select::picker-icon {
-  color: #999999;
-  transition: var(--transition) rotate;
-}
-select:open::picker-icon {
-  rotate: 180deg;
+  option{
+    padding: 0.5rem;
+    transition: var(--transition);
+    &:checked {
+      font-weight: bold;
+    }
+    &:last-of-type {
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+    }
+  }
+  &:hover,
+  &:focus {
+    outline: 1px solid var(--brand-color);
+  }
+  &::picker-icon {
+    width: 1.5rem;
+    height: auto;
+    content: url(/chevron-down-solid-full.svg);
+    transition: var(--transition) rotate;
+  }
+  &:open{
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    &::picker-icon {
+      rotate: 180deg;
+    }
+  }
 }
