@@ -1,20 +1,37 @@
 @use "sass:color";
 @use '../../style/mixins.scss';
 
+.main{
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-areas: 
+    'h1 h1'
+    'text patron'
+    'kofi kofi';
+    max-width: 1024px;
+    margin: auto;
+}
 .patron_h1 {
+    grid-area: h1;
+    margin: 0;
     font-size: 1.25rem;
     color: var(--brand-color);
   }
 .patronText {
+    grid-area: text;
+    max-width: 50ch;
     color: var(--brand-color);
+    p:first-of-type {
+      margin: 0;
+    }
 }
 .form {
+  grid-area: patron;
   display: grid;
+  margin-inline: 3rem;
   border: 1px solid var(--brand-color);
   border-bottom-width: 2px;
   border-radius: var(--border-radius);
-  width: 60%;
-  margin: 3rem auto;
   h2 {
     color: var(--brand-color);
     text-align: center;

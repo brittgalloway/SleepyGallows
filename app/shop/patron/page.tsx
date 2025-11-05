@@ -23,9 +23,9 @@ export default async function Patron() {
   const patron = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
 
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} ${patronStyles.main}`}>
       <h1 className={patronStyles.patron_h1}>{patron[0]?.header}</h1>
-      <div>
+      <div className={patronStyles.patronText}>
         <PortableText
           value={patron[0].text}
           // components={/* optional object of custom components to use */}
