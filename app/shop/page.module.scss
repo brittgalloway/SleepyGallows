@@ -28,6 +28,9 @@
   border: 2px solid var(--brand-color);
   border-bottom-width: 4px;
   border-radius: var(--border-radius);
+  p {
+    text-align: center;
+  }
   @media(max-width: 830px) {
     display: none;
   }

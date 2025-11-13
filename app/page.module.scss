@@ -1,4 +1,4 @@
-@use "sass:color";
+@use 'sass:color';
 .main {
   background:  color.adjust(#9370db, $lightness: 20%);
   width: 100vw;

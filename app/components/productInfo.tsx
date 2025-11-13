@@ -30,6 +30,14 @@ export default function ProductInfo({ id, title, stock, price, discount, variant
               <p>{USD.format(variantProduct.price)}</p>
             </div>
           }
+        </div>
+          <div className={`${lato.className} ${style.product_discription}`}>
+            <PortableText
+              value={longDescription}
+              // components={/* optional object of custom components to use */}
+            />
+          </div>
+          <div className={style.addToCart}>
           {variant && (
             <label>
               <p>Choose Size</p>
@@ -43,13 +51,6 @@ export default function ProductInfo({ id, title, stock, price, discount, variant
               </select>
             </label>
           )}
-        </div>
-          <div className={`${lato.className} ${style.product_discription}`}>
-            <PortableText
-              value={longDescription}
-              // components={/* optional object of custom components to use */}
-            />
-          </div>
           <AddToCart
             id={variantProduct.ID}
             _productName={title}
@@ -59,6 +60,7 @@ export default function ProductInfo({ id, title, stock, price, discount, variant
             price={variantProduct.price}
             productDescription={shortDescription}
           />
+          </div>
       </>
     );
 }

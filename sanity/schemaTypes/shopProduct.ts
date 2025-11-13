@@ -26,7 +26,7 @@ export const shopProduct = defineType({
                 { title: "fine art", value: "fine-art" },
                 { title: "prints", value: "prints" },
                 { title: "books", value: "books" },
-                { title: "stationary", value: "stationary" },
+                { title: "stationery", value: "stationery" },
             ],
         },
         validation: (rule) => rule.required(),
@@ -55,6 +55,18 @@ export const shopProduct = defineType({
         to: [{type: 'imageGallery'}],
         description: 'Max of 4 images, webp. Sizes: 855px x 450px or 430px X 500px',
         validation: (rule) => rule.required(),
+    }),
+    defineField({
+        title: 'Product Thumbnail',
+        name: 'Thumbnail',
+        type: 'image',
+        description: 'webp sized 309px x 240px',
+    }),
+    defineField({
+        title: 'Cart Product Thumbnail',
+        name: 'cartThumbnail',
+        type: 'image',
+        description: 'webp sized 100px x 100px',
     }),
     defineField({
       name: 'variant',

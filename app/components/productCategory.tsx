@@ -19,7 +19,7 @@ const POSTS_QUERY = `
   }
 `;
 
-const categories = ['fine-art', 'prints', 'stationary'];
+const categories = ['fine-art', 'prints', 'stationery'];
 
 export async function ProductCategory() {
   const products = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});

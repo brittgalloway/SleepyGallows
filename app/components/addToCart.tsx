@@ -59,12 +59,12 @@ export default function AddToCart({ id, _productName, variantName, stock, price,
     useEffect(() => {}, [cart]);
 
     return (
-        <div className={styles.addToCart}> 
+        <> 
             {stock > 0 ?<p className={`${styles.stock}`}>In Stock</p> : <p className={`${styles.no_stock}`}>Sold Out</p>}
 
             <button type="button" disabled={stock <= 0} onClick={handleCart} onKeyDown={handleCart}>
                 {btnText}
             </button>
-        </div>
+        </>
     );
 }
