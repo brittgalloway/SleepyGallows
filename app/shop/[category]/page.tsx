@@ -19,7 +19,7 @@ export default async function Category({params}) {
     "stock": stock, 
     "productType": productType, 
     "slug": productSlug.current,
-    "productDisplay": productDisplay -> {gallery[]{ alt, asset ->{url}}}
+    "thumbnail": Thumbnail.asset -> {url},
   }`;
   const products = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (
@@ -31,11 +31,11 @@ export default async function Category({params}) {
             key={product?.id}
             category={category}
             productSlug={product?.slug}
-            productDisplay={product?.productDisplay.gallery[0]}
             productName={product?.title}
             discount={product?.discount}
             stock={product?.stock}
             price={product?.price}
+            thumbnail={product?.thumbnail}
         />
         ))}
       </div>

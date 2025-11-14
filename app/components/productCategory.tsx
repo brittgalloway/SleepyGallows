@@ -15,7 +15,7 @@ const POSTS_QUERY = `
     "stock": stock, 
     "productType": productType, 
     "slug": productSlug.current, 
-    "productDisplay": productDisplay -> {gallery[]{ alt, asset ->{url}}}
+    "thumbnail": Thumbnail.asset -> {url},
   }
 `;
 
@@ -34,7 +34,7 @@ export async function ProductCategory() {
                     <ProductDisplay
                       category={category}
                       productSlug={product?.slug}
-                      productDisplay={product?.productDisplay.gallery[0]}
+                      thumbnail={product?.thumbnail}
                       productName={product?.title}
                       stock={product?.stock}
                       discount={product?.discount}
