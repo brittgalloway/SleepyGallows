@@ -27,7 +27,6 @@ export async function POST(req) {
       for (const lineItem of invoice.lines.data) {
         const productId = lineItem.price.product;
         const quantity = lineItem.quantity;
-        console.log("product: ", productId)
         const product = await stripe.products.retrieve(productId);
         const sanityID = product.metadata.id;
         try {
@@ -46,7 +45,7 @@ export async function POST(req) {
                   console.log('Hurray, the stock is updated! New document:', updatedStock)
                 })
         } catch (error) {
-          console.error(`Error updating stock for product ${sanityID}, product object retrieved ${products}:`, error.message);
+          console.error(`Error updating stock for product ${sanityID}, product object retrieved ${product}:`, error.message);
         }
       }
       break;
