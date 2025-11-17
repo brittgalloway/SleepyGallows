@@ -28,17 +28,18 @@ export async function POST(req) {
         const productId = lineItem.price.id;
         const quantity = lineItem.quantity;
         const product = await stripe.products.retrieve(productId);
-        const sanityID = product.metadata.id;
+        console.log("product: ",product)
+        // const sanityID = product.metadata.id;
         try {
           // Fetch current stock from Santity
 
-          const products = await client.fetch(`*[_type == "shopProduct" && _id == ${sanityID}]`);
+          const products = await client.fetch(`*[_type == "shopProduct" && _id == ${productId}]`);
 
           if (!products) {
-            console.error(`Product ${sanityID} not found in Santity.`);
+            console.error(`Product ${productId} not found in Santity.`);
             continue;
           }
-            return client.patch(sanityID)
+            return client.patch(productId)
               .dec({stock: quantity})
               .commit()
               .then((updatedStock) => {
