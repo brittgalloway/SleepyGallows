@@ -5,7 +5,6 @@ import { ProductImages } from '@/components/productImages'
 import ProductInfo from '@/components/productInfo'
 import { type SanityDocument } from 'next-sanity'
 import { client } from '../../../../sanity/lib/client'
-import { stripe } from '@/lib/stripe'
 import style from '@/style/product.module.scss'
 import layoutStyle from '@/shop/page.module.scss'
 
@@ -34,7 +33,6 @@ export default async function Product( {params} ) {
   }`;
   const _product = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   const item = _product[0];
-  // const product = JSON.parse(JSON.stringify(await stripe.products.retrieve(product?.id)));
   const imgHeight = item?.productDisplay?.gallery[0].asset.metadata.dimensions.height;
   const imgWidth = item?.productDisplay?.gallery[0].asset.metadata.dimensions.width;
   return (
