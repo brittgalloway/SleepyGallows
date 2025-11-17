@@ -25,7 +25,7 @@ export async function POST(req) {
       console.log('Invoice payment succeeded. Updating stock values...');
 
       for (const lineItem of invoice.lines.data) {
-        const productId = lineItem.metadata._id;
+        const productId = lineItem.metadata.id;
         const quantity = lineItem.quantity;
 
         try {
