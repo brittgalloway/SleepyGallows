@@ -25,26 +25,27 @@ export async function POST(req) {
       console.log('Invoice payment succeeded. Updating stock values...');
 
       for (const lineItem of invoice.lines.data) {
-        const productId = lineItem.metadata.id;
+        const productId = lineItem.price.id;
         const quantity = lineItem.quantity;
-
+        const product = await stripe.products.retrieve(productId);
+        const sanityID = product.metadata.id;
         try {
           // Fetch current stock from Santity
 
-          const products = await client.fetch(`*[_type == "shopProduct" && _id == ${productId}]`);
+          const products = await client.fetch(`*[_type == "shopProduct" && _id == ${sanityID}]`);
 
           if (!products) {
-            console.error(`Product ${productId} not found in Santity.`);
+            console.error(`Product ${sanityID} not found in Santity.`);
             continue;
           }
-            return client.patch(productId)
+            return client.patch(sanityID)
               .dec({stock: quantity})
               .commit()
               .then((updatedStock) => {
                   console.log('Hurray, the stock is updated! New document:', updatedStock)
                 })
         } catch (error) {
-          console.error(`Error updating stock for product ${productId}:`, error.message);
+          console.error(`Error updating stock for product ${sanityID}:`, error.message);
         }
       }
       break;
