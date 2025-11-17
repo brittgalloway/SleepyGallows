@@ -32,7 +32,7 @@ export async function POST(req) {
         try {
           // Fetch current stock from Santity
 
-          const products = await client.fetch(`*[_type == "shopProduct" && _id == ${sanityID}]`);
+          const products = await client.fetch(`*[_type == "shopProduct" && _id == "${sanityID}"]`);
 
           if (!products) {
             console.error(`Product ${sanityID} not found in Santity.`);
