@@ -25,13 +25,13 @@ export async function POST(req) {
       console.log('Invoice payment succeeded. Updating stock values...');
 
       for (const lineItem of invoice.lines.data) {
-        const productId = lineItem.product_data.name;
+        const productId = lineItem.description;
         const quantity = lineItem.quantity;
 
         try {
           // Fetch current stock from Santity
 
-          const products = await client.fetch('*[_type == "shopProduct"]');
+          const products = await client.fetch(`*[_type == "shopProduct" && productName == ${productId}]`);
 
           if (!products) {
             console.log(`Product ${productId} not found in Santity.`);
