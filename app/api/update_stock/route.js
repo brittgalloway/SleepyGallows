@@ -38,11 +38,12 @@ export async function POST(req) {
             console.error(`Product ${sanityID} not found in Santity.`);
             continue;
           }
-            return client.patch(sanityID)
+            client.patch(sanityID)
               .dec({stock: quantity})
               .commit()
               .then((updatedStock) => {
                   console.log('Hurray, the stock is updated! New document:', updatedStock)
+                  return updatedStock;
                 })
         } catch (error) {
           console.error(`Error updating stock for product ${sanityID}, product object retrieved ${product}:`, error.message);
