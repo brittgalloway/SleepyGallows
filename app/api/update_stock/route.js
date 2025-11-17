@@ -46,7 +46,7 @@ export async function POST(req) {
                   console.log('Hurray, the stock is updated! New document:', updatedStock)
                 })
         } catch (error) {
-          console.error(`Error updating stock for product ${sanityID}:`, error.message);
+          console.error(`Error updating stock for product ${sanityID}, product object retrieved ${products}:`, error.message);
         }
       }
       break;
