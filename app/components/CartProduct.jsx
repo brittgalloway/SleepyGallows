@@ -59,7 +59,7 @@ export function CartProduct() {
             >
               Remove
             </button>
-            {/* <Image
+            <Image
               data-testid={`item-image_${item.id}`}
               src={item.productDisplay}
               width={100}
@@ -67,7 +67,7 @@ export function CartProduct() {
               alt={`${item.productName} product thumbnail`}
               title={`${item.productName} product thumbnail`}
               style={{ objectFit: 'cover' }}
-            /> */}
+            />
             <p className={styles.prodName} data-testid={`item-name_${item.id}`}>{item.productName}{item.variantName && ` | ${item.variantName}`}</p>
             <p className={styles.description} data-testid={`item-description_${item.id}`}>{item.productDescription}</p>
             <p className={styles.price} data-testid={`item-price_${item.id}`}>Unit Price: {USD.format(item.productDiscount ? item.productDiscount : item.productPrice)}</p>

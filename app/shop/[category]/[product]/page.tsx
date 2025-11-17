@@ -29,13 +29,14 @@ export default async function Product( {params} ) {
     "shippingType": shipping.shippingOptions,
     "productDisplay": productDisplay -> {gallery[]{ caption, alt, asset ->{metadata{dimensions}, url}}},
     "originalsSummary": originalsSummary->{ body[], slug, title },
-    "variant": variant[]{ ID, title, price, discountedPrice, stock }
+    "variant": variant[]{ ID, title, price, discountedPrice, stock },
+    "cartThumbnail": cartThumbnail.asset -> {url}
   }`;
   const _product = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   const item = _product[0];
   // const product = JSON.parse(JSON.stringify(await stripe.products.retrieve(product?.id)));
-  const imgHeight = item?.productDisplay[0]?.gallery[0].asset.metadata.dimensions.height;
-  const imgWidth = item?.productDisplay[0]?.gallery[0].asset.metadata.dimensions.width;
+  const imgHeight = item?.productDisplay?.gallery[0].asset.metadata.dimensions.height;
+  const imgWidth = item?.productDisplay?.gallery[0].asset.metadata.dimensions.width;
   return (
     <main className={`${layoutStyle.main} ${style.max_width}`}>
       <div className={`${imgHeight > imgWidth ? style.product_portrait : style.product_landscape}`}>
@@ -57,6 +58,7 @@ export default async function Product( {params} ) {
             variant={item?.variant} 
             longDescription={item?.longDescription}
             shortDescription={item?.shortDescription}
+            img={item?.cartThumbnail?.url}
         />
       </div>
       <aside className={`${style.aside}`}>

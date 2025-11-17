@@ -34,7 +34,7 @@ export async function ProductCategory() {
                     <ProductDisplay
                       category={category}
                       productSlug={product?.slug}
-                      thumbnail={product?.thumbnail}
+                      thumbnail={product?.thumbnail?.url}
                       productName={product?.title}
                       stock={product?.stock}
                       discount={product?.discount}

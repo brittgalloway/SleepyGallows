@@ -25,8 +25,7 @@
 }
 .productImage {
     width: 100%;
-    max-height: 500px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 .img {
     width: 100%;
@@ -35,7 +34,6 @@
 .imgDisplay {
     display: grid;
     gap: 5px;
-    max-width: 430px;
     @media(min-width: 831px) {
         grid-column: 1/2;
         grid-row: 2/3;
@@ -44,12 +42,38 @@
 .product_portrait {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 300px auto;
+    grid-template-rows: auto auto auto;
     @media(min-width: 831px) {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-        gap: 2rem;
+        grid-template-rows: auto auto 1fr auto;
+        gap: 1rem 2rem;
     }
+    .imgDisplay {
+            grid-column: 1/2;
+            grid-row: 2/5;
+            display:grid;
+            gap: 1rem;
+            overflow-y: clip;
+        }
+    .product_info {
+            grid-column: 2/3;
+            grid-row: 2/3;
+            display: flex;
+            text-align: end;
+            .discount {
+                justify-content: right;
+            }
+            label > p{
+                margin:0;
+            }
+        }
+        .product_discription {
+            grid-row: 3/4;
+            grid-column: 2/3;
+            p:first-child {
+                margin-top: 0;
+            }
+        }
 }
 .product_landscape {
     display: block;

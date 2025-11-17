@@ -28,7 +28,8 @@ export type ProductDetails = {
         stock:number
     }[], 
     longDescription: [],
-    shortDescription:string
+    shortDescription:string,
+    img:string
 }
 
 export type CartProduct = {
@@ -38,5 +39,6 @@ export type CartProduct = {
     stock:number, 
     price:number,
     discount?:number,
-    productDescription:any
+    productDescription:any,
+    thumbnail:string
 }

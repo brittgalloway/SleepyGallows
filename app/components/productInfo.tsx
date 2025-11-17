@@ -7,7 +7,7 @@ import { lato } from '@/fonts'
 import AddToCart from '@/components/addToCart'
 import style from '@/style/product.module.scss'
 
-export default function ProductInfo({ id, title, stock, price, discount, variant, longDescription, shortDescription } : ProductDetails) {
+export default function ProductInfo({ id, title, stock, price, discount, variant, longDescription, shortDescription, img } : ProductDetails) {
     const [variantProduct, setVariantProduct] = useState({ID:id, title:null, price:price, discountedPrice:discount, stock:stock});
 
     const handleVariant = (event: any) => {
@@ -59,6 +59,7 @@ export default function ProductInfo({ id, title, stock, price, discount, variant
             discount={variantProduct.discountedPrice}
             price={variantProduct.price}
             productDescription={shortDescription}
+            thumbnail={img}
           />
           </div>
       </>

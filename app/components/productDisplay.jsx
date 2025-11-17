@@ -7,7 +7,7 @@ export function ProductDisplay( {category, productSlug, productName, price, disc
   return (
     <Link className={`${styles.product_display}`} href={`/shop/${category}/${productSlug}`}>
         <Image className={`${styles.img}`}
-          src={thumbnail?.url}
+          src={thumbnail}
           width={350}
           height={280}
           alt={`${productName} thumbnail`}
