@@ -27,8 +27,8 @@ export async function POST(req) {
       for (const lineItem of invoice.lines.data) {
         const productId = lineItem.price.id;
         const quantity = lineItem.quantity;
+        console.log("product: ", productId)
         const product = await stripe.products.retrieve(productId);
-        console.log("product: ",product)
         // const sanityID = product.metadata.id;
         try {
           // Fetch current stock from Santity
