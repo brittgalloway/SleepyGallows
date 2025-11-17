@@ -17,6 +17,9 @@ export async function POST(req) {
           description: item?.productDescription,
           images: [item?.productDisplay],
           tax_code: 'txcd_99999999',
+          metadata: {
+            _id: item?.id,
+          }
         },
         currency: 'usd',
         unit_amount: item?.productDiscount > 0 ? item?.productDiscount * 100 : item?.productPrice  * 100,

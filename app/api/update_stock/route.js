@@ -25,20 +25,20 @@ export async function POST(req) {
       console.log('Invoice payment succeeded. Updating stock values...');
 
       for (const lineItem of invoice.lines.data) {
-        const productId = lineItem.description;
+        const productId = lineItem.metadata._id;
         const quantity = lineItem.quantity;
 
         try {
           // Fetch current stock from Santity
 
-          const products = await client.fetch(`*[_type == "shopProduct" && productName == ${productId}]`);
+          const products = await client.fetch(`*[_type == "shopProduct" && _id == ${productId}]`);
 
           if (!products) {
-            console.log(`Product ${productId} not found in Santity.`);
+            console.error(`Product ${productId} not found in Santity.`);
             continue;
           }
             return client.patch(productId)
-              .dec({stock: 1}) // Decrement `inStock` by 1
+              .dec({stock: quantity})
               .commit()
               .then((updatedStock) => {
                   console.log('Hurray, the stock is updated! New document:', updatedStock)
