@@ -92,6 +92,7 @@
   &::backdrop {
     background-color: var(--backdrop);
   }
+  //add transition styles
 }
 .productList {
   max-height: 350px;
@@ -175,4 +176,11 @@
 .wrapper {
   max-width: 1024px;
   margin: auto;
+  h1,
+  a {
+    font-family: var(--cinzel);
+  }
+  p {
+    font-family: var(--lato);
+  }
 }

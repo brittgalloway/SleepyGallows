@@ -136,12 +136,12 @@ img {
   height: 30px;
   -webkit-animation: spin 3s linear infinite;
   animation: spin 3s linear infinite;
-  border: 6px dotted var(--brand-color);
+  border: 6px dotted #fff;
   border-radius:50%;
   transition: border-color var(--transition) ease-in-out;
 }
 .spinner:hover {
-  border-color: #fff;
+  border-color: var(--brand-color);
 }
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }

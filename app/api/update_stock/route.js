@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { STRIPE_WH_SECRET, stripe } from '@/lib/stripe'
+import {client} from '../../../sanity/lib/client'
 
 const endpointSecret = STRIPE_WH_SECRET;
 
@@ -24,30 +25,24 @@ export async function POST(req) {
       console.log('Invoice payment succeeded. Updating stock values...');
 
       for (const lineItem of invoice.lines.data) {
-        const productId = lineItem.price.product;
+        const productId = lineItem.product_data.name;
         const quantity = lineItem.quantity;
 
         try {
           // Fetch current stock from Santity
-          const CONTENT_QUERY = ``;
-          
-          // const { data } = await performRequest({ 
-          //   query: CONTENT_QUERY, 
-          //   variables: { id: productId }
-          // });
 
-          if (!data?.shop) {
+          const products = await client.fetch('*[_type == "shopProduct"]');
+
+          if (!products) {
             console.log(`Product ${productId} not found in Santity.`);
             continue;
           }
-
-          const currentStock = data.shop.stock;
-          const updatedStock = currentStock - quantity;
-
-          // Update stock in Santity
-          const UPDATE_STOCK_MUTATION = ``;
-
-          console.log(`Stock updated for product ${productId}: New stock = ${updatedStock}`);
+            return client.patch(productId)
+              .dec({stock: 1}) // Decrement `inStock` by 1
+              .commit()
+              .then((updatedStock) => {
+                  console.log('Hurray, the stock is updated! New document:', updatedStock)
+                })
         } catch (error) {
           console.error(`Error updating stock for product ${productId}:`, error.message);
         }
