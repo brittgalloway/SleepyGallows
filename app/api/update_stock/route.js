@@ -30,21 +30,27 @@ export async function POST(req) {
         const product = JSON.parse(JSON.stringify(await stripe.products.retrieve(productId)));
         const sanityID = product.metadata.id;
         try {
-          // Fetch current stock from Santity
+          // Fetch current product from Santity
 
-          const products = await client.fetch(`*[_type == "shopProduct" && _id == "${sanityID}"]`);
+          // const products = await client.fetch(`*[_type == "shopProduct" && _id == "${sanityID}"]`);
+          const products = await client.fetch(`*[_type == "shopProduct" && _id == "${sanityID}" || variant[].ID match "${sanityID}"]
+            {
+              _id == '${sanityID}' => {
+                "id": _id, 
+                "stock": stock,
+              },
+              variant[].ID match '${sanityID}' => {
+                "variant": variant[ID == '${sanityID}']{ stock },
+              }
+            }`);
 
           if (!products) {
             console.error(`Product ${sanityID} not found in Santity.`);
             continue;
           }
-          const results = await client.patch(sanityID)
-              .dec({stock: quantity})
-              .commit()
-              .then((updatedStock) => {
-                console.log('Hurray, the stock is updated! New document:', updatedStock)
-                updatedStock;
-              });
+          const results = await client.patch(sanityID) ?
+              client.patch(sanityID).dec({stock: quantity}).commit() :
+              client.patch(products[0].variant[0]).dec({stock: quantity}).commit();
           return NextResponse.json({ data: results }, { status: 201 });
         } catch (error) {
           console.error(`Error updating stock for product ${sanityID}, product object retrieved ${product}:`, error.message);
