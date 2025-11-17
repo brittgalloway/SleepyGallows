@@ -38,16 +38,14 @@ export async function POST(req) {
             console.error(`Product ${sanityID} not found in Santity.`);
             continue;
           }
-          const results = await new Promise((resolve, reject) => {
-            client.patch(sanityID)
+          const results = await client.patch(sanityID)
               .dec({stock: quantity})
               .commit()
               .then((updatedStock) => {
                 console.log('Hurray, the stock is updated! New document:', updatedStock)
                 updatedStock;
-              })
-            });
-           return NextResponse.json({ data: results }, { status: 201 });
+              });
+          return NextResponse.json({ data: results }, { status: 201 });
         } catch (error) {
           console.error(`Error updating stock for product ${sanityID}, product object retrieved ${product}:`, error.message);
         }
