@@ -17,6 +17,7 @@
       "@/animation/*": ["app/(main nav)/animation/*"],
       "@/art/*": ["app/(main nav)/art/*"],
       "@/shop/*": ["app/shop/*"],
+      "b/sanityLib/*":["./sanity/lib/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,

@@ -1,4 +1,4 @@
-import { urlFor } from '../../sanity/lib/image'
+import { urlFor } from 'b/sanityLib/image'
 import {SanityImage} from '@/lib/types'
 
 export default function ImageComponent({image, altText}: SanityImage) {

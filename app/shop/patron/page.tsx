@@ -1,7 +1,7 @@
 import { KOFI } from '@/lib/data'
 import {PortableText} from '@portabletext/react'
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../../sanity/lib/client'
+import { client } from 'b/sanityLib/client'
 import styles from '@/shop/page.module.scss'
 import patronStyles from '@/shop/patron/patron.module.scss'
 import { StripePatron } from './PatronBtn'

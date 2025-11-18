@@ -1,6 +1,5 @@
-import { cinzel_decorative } from '@/fonts'
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../../../../sanity/lib/client'
+import { client } from 'b/sanityLib/client'
 import Grid from '@/components/Grid'
 import ArtNav from '@/art/nav'
 import { Footer } from '@/components/Footer'
@@ -29,7 +28,7 @@ export default async function Visdev() {
   const images = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (
     <>
-      <main className={styles.gridImg}> 
+      <main className={`${styles.gridImg}`}> 
         <ArtNav
         navLabel={'Crystal\'s Art Page Navigation'}
         page1={'illustration'}
@@ -37,16 +36,16 @@ export default async function Visdev() {
         />
         <article className={`${styles.article} ${imgGrid.gridImg}`}>
           <header>
-            <h1 className={`${cinzel_decorative.className} ${styles.h1}`}>{images[0].mermaidTitle}</h1>
+            <h1 className={`${styles.h1}`}>{images[0].mermaidTitle}</h1>
             {images[0].mermaidDescription.map((description, idx) => <p key={idx}>{description.children[0].text}</p>)}
           </header>
-          <h2 className={`${cinzel_decorative.className} ${styles.h1}`}>Characters</h2>
+          <h2 className={`${styles.h1}`}>Characters</h2>
           <Grid
           photos={images[0].mermaidGallery.gallery}
           />
         </article>
         <article className={`${styles.article} ${imgGrid.gridImg}`}>
-          <h2 className={`${cinzel_decorative.className} ${styles.h1}`}>{images[0].visualDevelopment}</h2>
+          <h2 className={`${styles.h1}`}>{images[0].visualDevelopment}</h2>
           <Grid
           photos={images[0].visDevGallery.gallery}
           />

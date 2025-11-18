@@ -1,4 +1,3 @@
-import { heebo } from '@/fonts'
 import { year } from '@/lib/utils'
 import styles from './page.module.scss'
 
@@ -10,7 +9,7 @@ export const metadata = {
 
 export default function WebLayout({ children }) {
   return (
-      <section style={heebo.style}>
+      <section>
         {children}
         <footer className={styles.footer}>Brittney Galloway | {year} | Made with Next.js</footer>
       </section>

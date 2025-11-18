@@ -1,5 +1,5 @@
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../../../../sanity/lib/client'
+import { client } from 'b/sanityLib/client'
 import ArtNav from '@/art/nav'
 import Grid from '@/components/Grid'
 import { Footer } from '@/components/Footer'

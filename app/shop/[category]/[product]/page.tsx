@@ -4,7 +4,7 @@ import { lato, cinzel_decorative } from '@/fonts'
 import { ProductImages } from '@/components/productImages'
 import ProductInfo from '@/components/productInfo'
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../../../sanity/lib/client'
+import { client } from 'b/sanityLib/client'
 import style from '@/style/product.module.scss'
 import layoutStyle from '@/shop/page.module.scss'
 

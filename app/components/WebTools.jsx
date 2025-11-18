@@ -1,13 +1,13 @@
 import Image from 'next/image'
-import { grandstander } from '@/fonts'
 import tools from '@/json/tools.json'
 import styles from '@/webdev/page.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 export default function  WebTools() {
 
     return (
       <section className={styles.toolsSection}>
-        <h2 className={grandstander.className}>My Tools</h2>
+        <h2 className={textStyles.grandstander}>My Tools</h2>
         <ul className={styles.ul}>
           {tools.map((tool) => (
             <li key={tool?.title}>

@@ -1,5 +1,5 @@
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../sanity/lib/client'
+import { client } from 'b/sanityLib/client'
 import Animation from '@/components/rive'
 
 const POSTS_QUERY = `*[

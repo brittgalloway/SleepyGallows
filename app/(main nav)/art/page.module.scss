@@ -29,15 +29,15 @@
    }
 }
 .h1 {
-  text-align: center;
   margin-block: 2rem;
+  font-family: var(--cinzel_decorative);
+  text-align: center;
   font-size: 2rem;
 }
 .article {
   margin-bottom: 2rem 3rem;
 }
 .p {
-  font-family: var(--brandFont);
   font-size: 2.5em;
   color:#fff;
   z-index:1;

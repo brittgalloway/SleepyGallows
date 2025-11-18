@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../../../sanity/lib/client'
-import { cinzel_decorative } from '@/fonts'
+import { client } from 'b/sanityLib/client'
 import ImageComponent from '@/components/sanityImage'
 import AnimationNav from '@/components/Nav'
 import { Footer } from '@/components/Footer'
@@ -31,8 +30,8 @@ export default async function Originals() {
       <main> 
         <header>
           <AnimationNav/>
-          <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>Originals</h1>
-          <h2 className={`${textStyles.textCenter }`}>SG Shorts and Webseries</h2>
+          <h1 className={`${textStyles.text_center } ${textStyles.cinzelDec}`}>Originals</h1>
+          <h2 className={`${textStyles.text_center }`}>SG Shorts and Webseries</h2>
         </header>
         <div className={styles.projectWrapper}>
           {originals.map((original)=> {

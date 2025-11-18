@@ -1,6 +1,5 @@
 import { 
     Grandstander, 
-    Heebo,
     Cinzel_Decorative,
     Cinzel,
     Lato
@@ -13,16 +12,9 @@ export const grandstander = Grandstander({
     variable: '--grandstander',
 })
 
-export const heebo = Heebo({
-    weight: ['400'],
-    style: ['normal'],
-    subsets: ['latin'],
-    display: 'swap',
-    variable: '--heebo',
-})
 
 export const lato = Lato({
-    weight: ['300'],
+    weight: ['300','400'],
     style: ['normal'],
     subsets: ['latin'],
     display: 'swap',

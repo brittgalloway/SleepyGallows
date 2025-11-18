@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { cinzel_decorative } from '@/fonts'
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../sanity/lib/client'
+import { client } from 'b/sanityLib/client'
 import { ProductDisplay } from './productDisplay'
 import styles from '@/style/productCategory.module.scss'
 

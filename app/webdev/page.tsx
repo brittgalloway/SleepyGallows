@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../sanity/lib/client'
-import { grandstander } from '@/fonts'
+import { client } from 'b/sanityLib/client'
 import BrittneyAvitar from '@/components/HeaderAnimation'
 import WebProjects from '@/components/WebProjects'
 import WebContact from '@/components/WebContact'
 import WebTools from '@/components/WebTools'
 import styles from './page.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 const PROJECT_QUERY = `*[
      _type == "webProject"
@@ -20,7 +20,7 @@ export default async function Webdev() {
   <>
    <main className={styles.main}>
     <header>
-     <div className={`${styles.headerWrapper} ${grandstander.className}`}>
+     <div className={`${styles.headerWrapper} ${textStyles.grandstander}`}>
           <h1>Brittney Galloway</h1>
           <h2>Frontend Web Developer</h2>
           <Link href='#connect' className={styles.graphic}>
@@ -31,7 +31,7 @@ export default async function Webdev() {
     <section id='aboutMe'>
      <p>I&apos;m a frontend developer based in Chicagoland with a background in animation. My journey into web development started when I built a <Link href="/">portfolio site</Link> for my animated projects. That one project turned into a passion for crafting intuitive, accessible, and well-structured web experiences.</p>
      <p>In 2021, I built an ecommerce platform, <a href="https://candyfluffs.com">Candy Fluffs</a>, for my sister&apos;s artwork, focusing on performance, scalability, and maintainable code. Now, I work at an ecommerce company improving code quality, user experience, and site performance—from refining accessibility to optimizing page load times.</p>
-     <h2 className={`${styles.h2} ${grandstander.className}`}>Experience</h2>
+     <h2 className={`${styles.h2} ${textStyles.grandstander}`}>Experience</h2>
      <p className={`${styles.experience}`}><strong>Cleverbridge</strong> 2021-present</p>
      <ul className={styles.achievements}>
           <li className={styles.askAboutThis}>
@@ -48,7 +48,7 @@ export default async function Webdev() {
           </li>
      </ul>
     </section> 
-    <h2 className={`${styles.h2} ${grandstander.className}`}>Projects</h2>
+    <h2 className={`${styles.h2} ${textStyles.grandstander}`}>Projects</h2>
     <section className={styles.projectSection}>
      {webProjects.map((project)=> (
         <WebProjects
@@ -62,7 +62,7 @@ export default async function Webdev() {
         />
       ))}
     </section>
-    <h2 className={`${styles.h2} ${grandstander.className}`}>Education</h2>
+    <h2 className={`${styles.h2} ${textStyles.grandstander}`}>Education</h2>
     <ul>
      <li>
       <p className={`${styles.experience}`}>
@@ -88,7 +88,7 @@ export default async function Webdev() {
     <WebContact/>
    </main>
    <aside className={styles.oneMoreThing}>
-    <h2 className={grandstander.className}>Art & Code—The Best of Both Worlds</h2>
+    <h2 className={textStyles.grandstander}>Art & Code—The Best of Both Worlds</h2>
     <p>Art helps my coding, and coding helps my art.</p>
     <p>Learning JavaScript has enhanced my 2D animations in Adobe After Effects through Expressions, while Python scripting in Blender has expanded what I can create. I&apos;ve also developed custom Lottie animations using After Effects to bring web interfaces to life, but now I like to use Rive. Every day, I find new ways to blend these two passions, and I can&apos;t wait to explore more.</p>
    </aside>

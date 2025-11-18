@@ -1,6 +1,6 @@
 import { cinzel_decorative } from '@/fonts'
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../../../sanity/lib/client'
+import { client } from 'b/sanityLib/client'
 import AnimationNav from '@/components/Nav'
 import Project from '@/animation/projects'
 import { Footer } from '@/components/Footer'

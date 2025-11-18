@@ -1,6 +1,5 @@
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../../sanity/lib/client'
-import { cinzel_decorative } from '@/fonts'
+import { client } from 'b/sanityLib/client'
 import Image from 'next/image'
 import { rgbDataURL } from '@/lib/utils'
 import { INSTA_2HEROES, TWITTER_2HEROES, PATREON_2HEROES, NECAHUAL, WEBTOON} from '@/lib/data'
@@ -34,7 +33,7 @@ export default async function Comics() {
     <>
       <main className={styles.main}>
         <article>
-          <h1 className={`${styles.h1} ${cinzel_decorative.className}`}>2Heroes</h1>
+          <h1 className={`${styles.h1}`}>2Heroes</h1>
           <div className={styles.links}>
               <ul className={styles.ul}>
                 {links.map((link, index)=> (
@@ -100,7 +99,7 @@ export default async function Comics() {
           </div>
         </article>
         <article>
-          <h2 className={`${styles.h1} ${cinzel_decorative.className}`}>The Creators</h2>
+          <h2 className={`${styles.h1}`}>The Creators</h2>
           <p className={styles.p}>
             Serigio (the writer) and Crystal (the artist) met at a networking session at C2E2 in Chicago 2017. They became fast friends and have been working together ever since.
           </p>

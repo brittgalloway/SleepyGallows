@@ -1,3 +1,4 @@
+import { lato } from '@/fonts'
 import '@/style/globals.scss'
 
 export const metadata = {
@@ -16,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body style={lato.style}>
         {children}
       </body>
     </html>

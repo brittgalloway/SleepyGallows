@@ -1,15 +1,15 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { grandstander } from '@/fonts'
 import { GITHUB, LINKEDIN } from '@/lib/data'
 import style from '@/webdev/page.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 export default function  WebContact() {
 
     return (
 
         <section className={style.contactSection}>
-            <h2 className={grandstander.className} id='connect'>Connect w/Me!</h2>
+            <h2 className={textStyles.grandstander} id='connect'>Connect w/Me!</h2>
             <ul className={style.ul}>
                 <li className={style.li}>
                     <Link href={GITHUB}>

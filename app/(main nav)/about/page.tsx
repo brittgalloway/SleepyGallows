@@ -1,9 +1,7 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { PortableText } from '@portabletext/react'
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../../sanity/lib/client'
-import { cinzel_decorative } from '@/fonts'
+import { client } from 'b/sanityLib/client'
 import { NoClients } from '@/components/NoClients'
 import styles from './page.module.scss'
 
@@ -41,14 +39,14 @@ export default async function About() {
     <>
       <main className={styles.main}>
         <article>
-          <h1 className={`${cinzel_decorative.className}`}>{text.header}</h1>
+          <h1>{text.header}</h1>
           <PortableText
             value={text.bodyText}
             // components={/* optional object of custom components to use */}
           />
         </article>
         <article className={styles.creators}>
-          <h2 className={`${cinzel_decorative.className}`}>About the Creators</h2>
+          <h2>About the Creators</h2>
           <h3>
             We are Sisters by blood in sister fields: Animation and Illustration!
           ​​​​</h3>

@@ -1,7 +1,6 @@
-import { cinzel_decorative } from '@/fonts'
 import { ProductDisplay } from '@/components/productDisplay'
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../../sanity/lib/client'
+import { client } from 'b/sanityLib/client'
 import styles from '@/style/productCategory.module.scss'
 import layoutStyle from '@/shop/page.module.scss'
 
@@ -24,7 +23,7 @@ export default async function Category({params}) {
   const products = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (
     <main className={`${layoutStyle.main}`}>
-      <h1 style={cinzel_decorative.style} className={`${styles.h1}`}>{category}</h1>
+      <h1>{category}</h1>
       <div className={`${styles.grid}`}>
         {products.map((product)=>(
           <ProductDisplay
@@ -35,7 +34,7 @@ export default async function Category({params}) {
             discount={product?.discount}
             stock={product?.stock}
             price={product?.price}
-            thumbnail={product?.thumbnail}
+            thumbnail={product?.thumbnail?.url}
         />
         ))}
       </div>

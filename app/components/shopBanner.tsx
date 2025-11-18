@@ -1,6 +1,6 @@
 import styles from '@/style/shopBanner.module.scss'
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../sanity/lib/client'
+import { client } from 'b/sanityLib/client'
 
   const POSTS_QUERY = await `*[
     _type == "announcement"

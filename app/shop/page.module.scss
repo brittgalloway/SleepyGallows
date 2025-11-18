@@ -13,12 +13,10 @@
   p {
     font-family: var(--lato);
   }
-}
-.h1 {
-  font-family: var(--cinzel);
-  font-size: 2rem;
-  text-align: center;
-  
+  h1 {
+    font-family: var(--cinzel);
+    font-size: 2rem;
+  }
 }
 .welcome {
   position: relative;

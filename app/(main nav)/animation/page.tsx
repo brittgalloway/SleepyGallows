@@ -1,8 +1,7 @@
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../../sanity/lib/client'
+import { client } from 'b/sanityLib/client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { cinzel_decorative } from '@/fonts'
 import { rgbDataURL } from '@/lib/utils'
 import styles from './page.module.scss'
 
@@ -32,7 +31,7 @@ export default async function Animation() {
     <main className={styles.main}> 
     {links.map((link, index)=> (
       <Link key={index} className={link[1]} href={`/animation/${link[3]}`}>
-        <p className={`${styles.p} ${cinzel_decorative.className}`}>{link[0]}</p>
+        <p className={`${styles.p}`}>{link[0]}</p>
         <Image 
         className={link[2]}
         src={link[4]} 

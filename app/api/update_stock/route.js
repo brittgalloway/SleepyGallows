@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { STRIPE_WH_SECRET, stripe } from '@/lib/stripe'
-import {client} from '../../../sanity/lib/client'
+import { client } from 'b/sanityLib/client'
 
 const endpointSecret = STRIPE_WH_SECRET;
 
@@ -32,7 +32,6 @@ export async function POST(req) {
         try {
           // Fetch current product from Santity
 
-          // const products = await client.fetch(`*[_type == "shopProduct" && _id == "${sanityID}"]`);
           const products = await client.fetch(`*[_type == "shopProduct" && _id == "${sanityID}" || variant[].ID match "${sanityID}"]
             {
               _id == '${sanityID}' => {
@@ -51,6 +50,7 @@ export async function POST(req) {
           const results = await client.patch(sanityID) ?
               client.patch(sanityID).dec({stock: quantity}).commit() :
               client.patch(products[0].variant[0]).dec({stock: quantity}).commit();
+
           return NextResponse.json({ data: results }, { status: 201 });
         } catch (error) {
           console.error(`Error updating stock for product ${sanityID}, product object retrieved ${product}:`, error.message);
