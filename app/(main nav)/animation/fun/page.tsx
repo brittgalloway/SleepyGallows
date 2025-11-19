@@ -1,4 +1,3 @@
-import { cinzel_decorative } from '@/fonts'
 import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
 import AnimationNav from '@/components/Nav'
@@ -28,7 +27,7 @@ export default async function Fun() {
       <main> 
         <header>
           <AnimationNav/>
-          <h1 className={`${textStyles.text_center } ${cinzel_decorative.className}`}>Passion Projects</h1>
+          <h1 className={`${textStyles.text_center } ${textStyles.cinzelDec}`}>Passion Projects</h1>
         </header>
         <div className={styles.videoWrapper}>
           {project[0].animations.map((project)=> (

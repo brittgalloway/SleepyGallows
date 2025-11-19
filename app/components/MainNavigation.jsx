@@ -2,10 +2,10 @@
 import { useMediaQuery } from 'react-responsive'
 import Image from 'next/image'
 import Link from 'next/link'
-import { cinzel_decorative } from '@/fonts'
 import { rgbDataURL } from '@/lib/utils'
 import MobileNav from './MobileNav'
 import styles from '@/style/MainNavigation.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 export default function MainNavigation() {
   const links = ['animation', 'art', 'comics', 'shop'];
@@ -39,7 +39,7 @@ export default function MainNavigation() {
            
           {links.map((link, index)=> (
             <li key={index} className={styles.li}>
-              <Link className={`${styles.a} ${cinzel_decorative.className}`} href={`/${link}`}>{link}</Link>
+              <Link className={`${styles.a} ${textStyles.cinzelDec}`} href={`/${link}`}>{link}</Link>
             </li>
           ))}
         </ul>

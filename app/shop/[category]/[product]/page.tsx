@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import { PortableText } from '@portabletext/react'
-import { lato, cinzel_decorative } from '@/fonts'
 import { ProductImages } from '@/components/productImages'
 import ProductInfo from '@/components/productInfo'
 import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
 import style from '@/style/product.module.scss'
 import layoutStyle from '@/shop/page.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 export default async function Product( {params} ) {
   const { product } = await params
@@ -60,7 +60,7 @@ export default async function Product( {params} ) {
         />
       </div>
       <aside className={`${style.aside}`}>
-        <h2 className={`${style.h2} ${cinzel_decorative.className}`}>{item?.originalsSummary?.title}</h2>
+        <h2 className={`${style.h2} ${textStyles.cinzel}`}>{item?.originalsSummary?.title}</h2>
           {item?.originalsSummary && 
             <PortableText
               value={item.originalsSummary.body}

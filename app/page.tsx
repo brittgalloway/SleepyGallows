@@ -2,9 +2,9 @@ import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { cinzel_decorative } from '@/fonts'
 import { rgbDataURL } from '@/lib/utils'
 import styles from './page.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 const POSTS_QUERY = `*[
   _type == "imageGallery" &&
@@ -30,7 +30,7 @@ export default async function Home() {
     <main className={styles.main}>
       {links.map((link, index)=>(
         <Link key={index} href={`/${link[1]}`} className={link[0]}>
-          <p className={`${cinzel_decorative.className}`}>{link[1]}</p>
+          <p className={`${textStyles.cinzelDec}`}>{link[1]}</p>
           <Image 
             src={link[2]}
             alt={link[3]}

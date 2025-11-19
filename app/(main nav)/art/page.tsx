@@ -2,10 +2,10 @@ import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { cinzel_decorative } from '@/fonts'
 import { rgbDataURL } from '@/lib/utils'
 import styles from './page.module.scss'
 import MainNavigation from '@/components/MainNavigation'
+import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Art',
@@ -29,7 +29,7 @@ export default async function Art() {
       <MainNavigation/>
       <main className={styles.main}>
           <Link className={styles.a} href="/art/illustration">
-              <p className={`${styles.p} ${cinzel_decorative.className}`} >Crystal</p>
+              <p className={`${styles.p} ${textStyles.cinzelDec}`} >Crystal</p>
               <Image 
                 className={styles.img}
                 src={img.gallery[1].asset.url} 
@@ -42,7 +42,7 @@ export default async function Art() {
                 />
           </Link>
           <Link className={styles.a} href="/art/drawings">
-            <p className={`${styles.p} ${cinzel_decorative.className}`}>Brittney</p>
+            <p className={`${styles.p} ${textStyles.cinzelDec}`}>Brittney</p>
             <Image 
               className={styles.img}
               src={img.gallery[0].asset.url} 

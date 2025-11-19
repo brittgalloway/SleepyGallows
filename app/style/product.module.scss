@@ -1,6 +1,5 @@
 @use './mixins.scss';
 .h1 {
-    font-family: var(--cinzel);
     font-size: 1em;
     color: var(--brand-color);
     margin-bottom: 0;
@@ -12,10 +11,9 @@
 }
 
 .h2 {
-    font-family: var(--cinzel);
     font-size: 1.5em;
-    color: var(--brand-color);
     text-align: center;
+    color: var(--brand-color);
 }
 .max_width {
     @media(min-width: 831px) {
@@ -73,6 +71,10 @@
             p:first-child {
                 margin-top: 0;
             }
+            ul {
+                padding: revert;
+                list-style: circle;
+            }
         }
 }
 .product_landscape {
@@ -121,6 +123,10 @@
             align-self: end;
             p:first-child {
                 margin-top: 0;
+            }
+            ul {
+                padding: revert;
+                list-style: circle;
             }
         }
     }

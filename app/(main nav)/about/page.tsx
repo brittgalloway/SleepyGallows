@@ -4,6 +4,7 @@ import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
 import { NoClients } from '@/components/NoClients'
 import styles from './page.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | About',
@@ -38,7 +39,7 @@ export default async function About() {
   return (
     <>
       <main className={styles.main}>
-        <article>
+        <article className={`${textStyles.lato}`}>
           <h1>{text.header}</h1>
           <PortableText
             value={text.bodyText}
@@ -47,7 +48,7 @@ export default async function About() {
         </article>
         <article className={styles.creators}>
           <h2>About the Creators</h2>
-          <h3>
+          <h3 className={`${textStyles.weightNormal}`}>
             We are Sisters by blood in sister fields: Animation and Illustration!
           ​​​​</h3>
           <Image 

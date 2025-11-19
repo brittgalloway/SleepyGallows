@@ -1,7 +1,7 @@
 .main {
   padding:0;
   margin-left: auto;
-  height: 100vh;
+  min-height: 100vh;
   overflow-x: clip;
   @media(max-width: 830px){
     width: 100%;
@@ -14,8 +14,8 @@
   justify-self: center;
   padding: 0.5rem;
   margin: 0;
-  font-family: var(--cinzel_decorative);
   font-size: 2em;
+  font-weight: 700;
   color:#fff;
   text-shadow: 3px 3px 0px var(--text-color);
   -webkit-text-stroke: 1px var(--brand-color);
@@ -84,7 +84,7 @@
   margin: 0;
   summary {
     width: 100%;
-    font-weight: 700;
+    font-weight: 400;
   }
   summary::marker {
     color: var(--brand-color);

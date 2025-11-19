@@ -1,7 +1,7 @@
-import { cinzel_decorative } from '@/fonts'
 import styles from './page.module.scss'
 import Link from 'next/link'
 import { KOFI, NEWSLETTER } from '@/lib/data'
+import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Shop',
@@ -13,7 +13,7 @@ export default function Shop() {
   return (
     <main className={styles.main}>
       <div className={styles.wrapper}>
-        <h1 className={`${styles.h1} ${cinzel_decorative.className}`}>Ways to support us!</h1>
+        <h1 className={`${styles.h1} ${textStyles.cinzelDec}`}>Ways to support us!</h1>
         <ul>
           <li>
             <Link href={KOFI}>Visit the Ko-fi!</Link>        

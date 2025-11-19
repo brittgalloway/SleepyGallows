@@ -40,7 +40,7 @@ export default async function watchOriginal({params}) {
                     link={video?.link} 
                     title={video?.title} 
                     />
-                  <h2 className={textStyles.title}>
+                  <h2 className={`${textStyles.title} ${textStyles.lato} ${textStyles.weightNormal}`}>
                     {video?.title}
                   </h2> 
                   <p className={textStyles.title}>{video?.year}</p>        

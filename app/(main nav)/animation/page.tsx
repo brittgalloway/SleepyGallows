@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { rgbDataURL } from '@/lib/utils'
 import styles from './page.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Animation',
@@ -31,7 +32,7 @@ export default async function Animation() {
     <main className={styles.main}> 
     {links.map((link, index)=> (
       <Link key={index} className={link[1]} href={`/animation/${link[3]}`}>
-        <p className={`${styles.p}`}>{link[0]}</p>
+        <p className={`${styles.p} ${textStyles.cinzelDec}`}>{link[0]}</p>
         <Image 
         className={link[2]}
         src={link[4]} 

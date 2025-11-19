@@ -31,7 +31,7 @@ export default function ProductInfo({ id, title, stock, price, discount, variant
             </div>
           }
         </div>
-          <div className={`${lato.className} ${style.product_discription}`}>
+          <div className={`${style.product_discription}`}>
             <PortableText
               value={longDescription}
               // components={/* optional object of custom components to use */}

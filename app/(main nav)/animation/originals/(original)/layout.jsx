@@ -1,4 +1,3 @@
-import { lato } from '@/fonts'
 import MainNavigation from '@/components/MainNavigation'
 import AnimationNav from '@/components/Nav'
 import { Footer } from '@/components/Footer'

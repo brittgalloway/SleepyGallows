@@ -2,9 +2,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { USER_ACCOUNT_LINK } from '@/lib/stripe'
-import { cinzel_decorative } from '@/fonts'
 import mainStyles from '@/style/MainNavigation.module.scss'
 import shopStyles from '@/style/shopHeader.module.scss'
+import textStyles from '@/style/titles.module.scss'
 
 export default function MobileNav({navType, navId, testId, ariaLabel, navItems}) {
     function handleClick() {
@@ -23,14 +23,14 @@ export default function MobileNav({navType, navId, testId, ariaLabel, navItems})
                 <ul aria-label={ariaLabel} className={shopStyles.nav_list}>
                     {navType === 'main' && (
                         <li className={`${shopStyles.li} ${shopStyles.about}`}>
-                            <Link className={`${mainStyles.a} ${cinzel_decorative.className}`} onClick={handleClick} href="/about">
+                            <Link className={`${mainStyles.a} ${textStyles.cinzelDec}`} onClick={handleClick} href="/about">
                                 About
                             </Link>
                         </li>
                     )}
                     {navItems.map((link, index) => (
                     <li key={index}>
-                        <Link href={`${navType === 'shop' ? '/shop/' : ''}${link}`} onClick={handleClick} className={`${cinzel_decorative.className}`}>
+                        <Link href={`${navType === 'shop' ? '/shop/' : ''}${link}`} onClick={handleClick} className={`${textStyles.cinzelDec}`}>
                             {link.replace('-', ' ')}
                         </Link>
                     </li>

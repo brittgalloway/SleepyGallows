@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import { happy_monkey } from '@/fonts'
 import Image from 'next/image'
 import styles from './page.module.scss'
 
@@ -13,7 +12,7 @@ export default function  WebProjects({id, projectName, screenshot, description, 
     return (
       <>
         <div className={styles.projectWrapper} key={id} onClick={handleClick} >
-            <h2 style={happy_monkey.style}>{projectName}</h2>
+            <h2>{projectName}</h2>
             <p>development & design</p>
         </div>
         { display && (
@@ -34,7 +33,7 @@ export default function  WebProjects({id, projectName, screenshot, description, 
                   alt={`Screen shot of the project ${projectName}`}
                   className={styles.projectImg}
                   />
-                <h2 className={happy_monkey.className}>{projectName}</h2>
+                <h2>{projectName}</h2>
                 <div dangerouslySetInnerHTML={{ __html: description }}/>
                 <a className={styles.btnPink} href={liveApp}>See it here</a> 
                 <a className={styles.btnPurple} href={github}>Github</a>
