@@ -20,9 +20,9 @@ export default async function Webdev() {
   <>
    <main className={styles.main}>
     <header>
-     <div className={`${styles.headerWrapper} ${textStyles.grandstander}`}>
-          <h1>Brittney Galloway</h1>
-          <h2>Frontend Web Developer</h2>
+     <div className={`${styles.headerWrapper}`}>
+          <h1 className={`${textStyles.grandstander}`}>Brittney Galloway</h1>
+          <h2 className={`${textStyles.grandstander}`}>Frontend Web Developer</h2>
           <Link href='#connect' className={styles.graphic}>
                <BrittneyAvitar />
           </Link>
