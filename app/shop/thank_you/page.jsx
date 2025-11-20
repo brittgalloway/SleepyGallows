@@ -7,8 +7,8 @@ import textStyles from '@/style/titles.module.scss'
 
 export default function ThankYou() {
     const { cart, setCart } = useCartContext();
-    localStorage.removeItem('cart');
     useEffect(() => {
+        localStorage.removeItem('cart');
         setCart({ count: 0, items: [] });
     }, []);
 
