@@ -172,8 +172,11 @@
 
 }
 .wrapper {
-  max-width: 1024px;
+  max-width: 850px;
   margin: auto;
+  @media(width < 1024px ){
+    max-width: 650px;
+  }
   h1,
   a {
     font-family: var(--cinzel);

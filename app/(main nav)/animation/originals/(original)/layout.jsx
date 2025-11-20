@@ -12,8 +12,7 @@ export const metadata = {
 
 export default function RootLayout({children}) {
   return (
-    <html lang="en">
-      <body>
+      <>
         <MainNavigation/>
         <main className={styles.main}>
           <AnimationNav/>
@@ -22,8 +21,7 @@ export default function RootLayout({children}) {
         <Footer
           name={'Sleepy Gallows'}
         />
-      </body>
-    </html>
+      </>
   )
 }
 

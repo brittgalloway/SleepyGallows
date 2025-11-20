@@ -30,8 +30,8 @@ export default async function Originals() {
       <main> 
         <header>
           <AnimationNav/>
-          <h1 className={`${textStyles.text_center } ${textStyles.cinzelDec}`}>Originals</h1>
-          <h2 className={`${textStyles.text_center }`}>SG Shorts and Webseries</h2>
+          <h1 className={`${textStyles.text_center} ${textStyles.cinzelDec}`}>Originals</h1>
+          <h2 className={`${textStyles.text_center} ${textStyles.weightNormal}`}>SG Shorts and Webseries</h2>
         </header>
         <div className={styles.projectWrapper}>
           {originals.map((original)=> {

@@ -10,7 +10,8 @@ export function CartProduct() {
   const cartItems= cart.items;
   for (let i = 0; i < cartItems.length; i++) {
     const current = cartItems[i];
-    total += current.productPrice * current.quantity;
+    const currentPrice = current.productDiscount ? current.productDiscount : current.productPrice;
+    total += currentPrice * current.quantity;
   }
 
   const handleQty = (event, id) => {

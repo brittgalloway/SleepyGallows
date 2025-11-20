@@ -1,4 +1,4 @@
-import { lato } from '@/fonts'
+import { lato, cinzel_decorative } from '@/fonts'
 import '@/style/globals.scss'
 
 export const metadata = {
@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body style={lato.style}>
+      <body style={lato.style} className={`${cinzel_decorative.variable}`}>
         {children}
       </body>
     </html>

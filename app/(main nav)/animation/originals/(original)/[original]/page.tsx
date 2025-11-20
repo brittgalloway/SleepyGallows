@@ -43,17 +43,17 @@ export default async function watchOriginal({params}) {
                   <h2 className={`${textStyles.title} ${textStyles.lato} ${textStyles.weightNormal}`}>
                     {video?.title}
                   </h2> 
-                  <p className={textStyles.title}>{video?.year}</p>        
+                  <p className={`${textStyles.title} ${textStyles.lato} ${textStyles.weightNormal}`}>{video?.year}</p>        
                 </div>
               ))}
             </div>
         </main>
       ) : (
         <main>
-          <h2 className={`${textStyles.textCenter }`}>
+          <h2 className={`${textStyles.text_center} ${textStyles.cinzelDec}`}>
             In Production!
           </h2>
-          <h3 className={`${textStyles.textCenter }`}>
+          <h3 className={`${textStyles.text_center} ${textStyles.lato} ${textStyles.weightNormal}`}>
             Coming Soon
           </h3>
           <div style={{'height': '500px'}}>
