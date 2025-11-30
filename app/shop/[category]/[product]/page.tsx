@@ -68,7 +68,7 @@ export default async function Product( {params} ) {
             />
         }
         {item?.originalsSummary &&  item?.originalsSummary?.slug.current !== null && 
-          <Link  className={`${style.learn_more}`} href={`/animation/originals/${item?.originalsSummary?.slug.current}`}>
+          <Link  className={`${style.learn_more}`} href={`${item?.originalsSummary?.slug.current}`}>
             Learn More
           </Link>}
       </aside>

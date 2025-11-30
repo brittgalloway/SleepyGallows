@@ -3,10 +3,11 @@
 .footer {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin-left: 0;
-    padding: 2rem;
     align-items: center;
+    padding: 2rem;
+    margin: auto;
+    width: 100%;
+    max-width: 1024px;
     font-family: var(--cinzel);
     border-top: 2px solid var(--brand-color);
     @media(min-width: 830px) {
@@ -15,14 +16,14 @@
     iframe {
         width: 100%;
         height: 125px;
-        margin-bottom: 1rem;
+        margin-block: 1rem;
         @media(min-width: 830px) {
-            width: 50%;
+            width: 60%;
         }
     }
     p {
         font-family: var(--lato);
-        margin: 0.5rem;
+        margin: 0;
         font-size: 1rem;
     }
     p:first-child {
