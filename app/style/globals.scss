@@ -38,6 +38,17 @@ html {
 .react-photo-album--photo{
   object-fit: cover !important;
 }
+@media(max-width: 831px) {
+    .react-photo-album.react-photo-album--columns .react-photo-album--column{
+        flex-direction: row !important;
+        flex-flow: row !important;
+        overflow: scroll;
+        gap: 5px;
+        img {
+            max-width: 100px;
+        }
+    }
+}
 body {
   padding: 0;
   margin: 0;

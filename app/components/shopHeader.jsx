@@ -24,8 +24,7 @@ export default function ShopHeader() {
         <div>
         {isMobile && 
           <Link href={'/shop/'} aria-label='This link takes you back to the Shop&apos;s home page. It holds the Sleepy Gallows "SG"'>
-            <Image 
-            className="logo" 
+            <Image
             width={82} 
             height={61} 
             src="/sg_logo.svg" 
@@ -33,10 +32,10 @@ export default function ShopHeader() {
             />
           </Link>
         }
-      {!isMobile&& (
+      {!isMobile && (
         <h1 className={styles.h1}><Link href='/shop/'>Sleepy Gallows&apos; Shop</Link></h1>
       )}
-        <p>Take some of the Magic with you</p>
+        <p>Take some of the magic with you</p>
       </div>
       {!isMobile && (<a href={USER_ACCOUNT_LINK} style={{marginBlock: '1rem'}}><svg id="user-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="20" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg></a>)}
         <Checkout/>

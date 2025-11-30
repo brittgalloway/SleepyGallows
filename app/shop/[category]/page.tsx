@@ -23,7 +23,7 @@ export default async function Category({params}) {
   const products = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (
     <main className={`${layoutStyle.main}`}>
-      <h1>{category}</h1>
+      <h1>{category.replace('-', ' ')}</h1>
       <div className={`${styles.grid}`}>
         {products.map((product)=>(
           <ProductDisplay

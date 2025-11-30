@@ -10,6 +10,9 @@
     'kofi kofi';
     max-width: 1024px;
     margin: auto;
+    @media (max-width: 830px) {
+      display: block;
+    }
 }
 .patron_h1 {
     grid-area: h1;
@@ -35,7 +38,9 @@
   h2 {
     color: var(--brand-color);
     text-align: center;
-
+  }
+  @media (max-width: 830px) {
+    margin: 0;
   }
 }
 .fieldset {
@@ -69,6 +74,9 @@
     padding: .5rem 1rem;
     transition: border-color var(--transition);
     cursor: pointer;
+    @media (max-width: 830px) {
+      padding: 0.5rem;
+    }
     &:hover{
       border-color: var(--brand-color);
     }
