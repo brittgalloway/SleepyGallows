@@ -48,42 +48,48 @@ export default async function Webdev() {
           </li>
      </ul>
     </section> 
-    <h2 className={`${styles.h2} ${textStyles.grandstander}`}>Projects</h2>
-    <section className={styles.projectSection}>
-     {webProjects.map((project)=> (
-        <WebProjects
-          key={project?._id}
-          id={project?._id}
-          projectName={project?.title}
-          role={project?.role}
-          description={project?.description}
-          liveApp={project?.liveApp}
-          github={project?.github}
-        />
-      ))}
-    </section>
-    <h2 className={`${styles.h2} ${textStyles.grandstander}`}>Education</h2>
-    <ul>
-     <li>
-      <p className={`${styles.experience}`}>
-       <strong>Fullstack Web Development Bootcamp</strong> | 2020
-      </p>
-      <small>
-          Northwestern University | Evanston, IL
-      </small>
-      <p>
-          A 24-week intensive program covering HTML, CSS, JavaScript, React, Node.js, and database management.
-      </p>
-     </li>
-     <li>
-     <p className={`${styles.experience}`}>
-       <strong>BFA in Animation</strong> | 2014
-      </p>
-      <small>
-          California College of the Arts | Oakland, CA
-      </small>
-     </li>
-    </ul>
+     <div className={styles.wrapper}>
+                         <div>
+                              <h2 className={`${styles.h2}`}>Projects</h2>
+                              <section className={styles.projectSection}>
+                                   {webProjects.map((project)=> (
+                                        <WebProjects
+                                             key={project?._id}
+                                             id={project?._id}
+                                             projectName={project?.title}
+                                             role={project?.role}
+                                             description={project?.description}
+                                             liveApp={project?.liveApp}
+                                             github={project?.github}
+                                             />
+                                   ))}
+                              </section>
+                         </div>
+                         <div>
+                              <h2 className={`${styles.h2}`}>Education</h2>
+                              <ul>
+                                   <li>
+                                        <p className={`${styles.experience}`}>
+                                        <strong>Fullstack Web Development Bootcamp</strong> | 2020
+                                        </p>
+                                        <small>
+                                        Northwestern University | Evanston, IL
+                                        </small>
+                                        <p>
+                                        A 24-week intensive program covering HTML, CSS, JavaScript, React, Node.js, and database management.
+                                        </p>
+                                   </li>
+                                   <li>
+                                   <p className={`${styles.experience}`}>
+                                        <strong>BFA in Animation</strong> | 2014
+                                        </p>
+                                        <small>
+                                        California College of the Arts | Oakland, CA
+                                        </small>
+                                   </li>
+                              </ul>
+                         </div>
+                    </div>
     <WebTools/>
     <WebContact/>
    </main>

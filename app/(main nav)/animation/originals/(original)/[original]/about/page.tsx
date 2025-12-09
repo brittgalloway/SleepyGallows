@@ -23,21 +23,21 @@ export default async function aboutOriginal({params}) {
       "hasConceptArt": about.hasConceptArt,
       "conceptArt": about.conceptArt[].gallery[]{ caption, alt, hotspot{...},  asset-> { assetId, metadata, _id, url } }
     }`;
-  const originalObj = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
-  const orig = originalObj[0];
+  const originalSanity = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
+  const originalData = originalSanity[0];
   return (
     <section>
       <header>
         <OriginalsNav 
-          navLabel={orig.link}/>
-        <h1 className={`${textStyles.text_center } ${textStyles.cinzelDec}`}>What is {orig.title}?</h1>
+          navLabel={originalData.link}/>
+        <h1 className={`${textStyles.textCenter }`}>What is {originalData.title}?</h1>
       </header>
-        <p dangerouslySetInnerHTML={{ __html: orig.summary }}/>
-        <h2 className={`${textStyles.text_center } ${textStyles.cinzelDec}`}>
+        <p dangerouslySetInnerHTML={{ __html: originalData.summary }}/>
+        <h2 className={`${textStyles.textCenter }`}>
           Characters
         </h2>
         <div className={`${styles.videoWrapper} ${styles.charactersBlock}`}>
-          {orig.characters.gallery.map((character)=> 
+          {originalData.characters.gallery.map((character)=> 
            (
             <ImageComponent
               key={character?.asset?.assetId}
@@ -46,13 +46,13 @@ export default async function aboutOriginal({params}) {
               />
           ))}
         </div>
-        {orig.hasConceptArt && (
+        {originalData.hasConceptArt && (
           <div className={imgGrid.gridImg}>
             <h2 className={`${textStyles.text_center} ${textStyles.cinzelDec}`}>
               Concept Art
             </h2>
             <Grid
-              photos={orig.conceptArt}
+              photos={originalData.conceptArt}
               />
           </div>
         )}
