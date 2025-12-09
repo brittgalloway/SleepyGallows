@@ -13,16 +13,13 @@ export default function Shop() {
     <main className={styles.main}>
       <div className={styles.wrapper}>
         <h1 className={`${styles.h1} ${cinzel_decorative.className}`}>Ways to support us!</h1>
-        <ul>
-          <li>
-            <Link href='https://ko-fi.com/sleepygallows'>Visit the Ko-fi!</Link>        
-          </li>
-          <li>
-            <Link href='https://sleepygallows.beehiiv.com/'>Join Our Newsletter!</Link>
-          </li>
-        </ul>
+        <Link href='https://sleepygallows.beehiiv.com/'>Join Our Newsletter!</Link>
+        <iframe id='kofiframe' 
+          src='https://ko-fi.com/sleepygallows/?hidefeed=true&widget=true&embed=true&preview=true' 
+          style={{border:'none', width:'60%', minWidth:'300px', maxWidth:'540px', padding:'4px', background:'#fff'}}
+          height='712' title='sleepygallows'>
+        </iframe>
       </div>
-        
     </main>
   )
 }

@@ -1,5 +1,5 @@
 .main {
-  width: 75%;
+  max-width: 1024px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,6 +33,18 @@
   outline-color: var(--purple);
   border-radius: 34px;
 }
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  gap:2%;
+  div {
+    justify-self: center;
+    flex-basis:90%;
+    @media (width > 760px ) {
+      flex-basis: 45%;
+    }
+  }
+}
 .headerWrapper {
   border: 3px solid var(--light-purple);
   border-radius: 34px;
@@ -61,7 +73,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: center;
   @media (width <= 900px){
     grid-template-columns: repeat(2, 1fr);
