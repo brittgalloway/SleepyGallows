@@ -10,9 +10,10 @@ import imgGrid from '@/style/artGrid.module.scss'
 
 
 export default async function aboutOriginal({params}) {
+  const { original } = params;
   const POSTS_QUERY = await `*[
       _type == "original"
-      && link.current == "${params.original}"
+      && link.current == "${original}"
     ] 
     {
       "title": title,
@@ -23,20 +24,21 @@ export default async function aboutOriginal({params}) {
       "hasConceptArt": about.hasConceptArt,
       "conceptArt": about.conceptArt[].gallery[]{ caption, alt, hotspot{...},  asset-> { assetId, metadata, _id, url } }
     }`;
-  const original = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
+  const originalSanity = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
+  const originalData = originalSanity[0];
   return (
     <section>
       <header>
         <OriginalsNav 
-          navLabel={original[0].link}/>
-        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>What is {original[0].title}?</h1>
+          navLabel={originalData.link}/>
+        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>What is {originalData.title}?</h1>
       </header>
-        <p dangerouslySetInnerHTML={{ __html: original[0].summary }}/>
+        <p dangerouslySetInnerHTML={{ __html: originalData.summary }}/>
         <h2 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>
           Characters
         </h2>
         <div className={`${styles.videoWrapper} ${styles.charactersBlock}`}>
-          {original[0].characters.gallery.map((character)=> 
+          {originalData.characters.gallery.map((character)=> 
            (
             <ImageComponent
               key={character?.asset?.assetId}
@@ -45,13 +47,13 @@ export default async function aboutOriginal({params}) {
               />
           ))}
         </div>
-        {original[0].hasConceptArt && (
+        {originalData.hasConceptArt && (
           <div className={imgGrid.gridImg}>
             <h2 className={`${textStyles.textCenter} ${cinzel_decorative.className}`}>
               Concept Art
             </h2>
             <Grid
-              photos={original[0].conceptArt}
+              photos={originalData.conceptArt}
               />
           </div>
         )}

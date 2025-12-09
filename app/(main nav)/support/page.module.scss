@@ -1,25 +1,22 @@
-.main{
-  background: linear-gradient(155.85deg, #f7cade 11.48%, #cde7ff 67.04%);
+.main {
   padding: 2rem;
-  display: flex;
+  display: block;
   justify-content: center;
-  align-content: center;
   height: 100vh;
-  flex-direction: column;
-  flex-wrap: wrap;
+  
 }
 .h1 {
   font-size: 2rem;
   text-align: center;
 }
 .wrapper {
-  background: white;
   padding: 2rem;
-  border-radius: 15px;
-  border: 5px solid var(--brand-color);
   text-align: center;
-  li {
-    margin-block: 1rem;
-    font-size: 1.75rem;
+  p {
+    margin: 1rem;
+    display: block;
+  }
+  * {
+    margin-inline: auto;
   }
 }
