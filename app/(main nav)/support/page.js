@@ -13,7 +13,7 @@ export default function Shop() {
     <main className={styles.main}>
       <div className={styles.wrapper}>
         <h1 className={`${styles.h1} ${cinzel_decorative.className}`}>Ways to support us!</h1>
-        <Link href='https://sleepygallows.beehiiv.com/'>Join Our Newsletter!</Link>
+        <p><Link href='https://sleepygallows.beehiiv.com/'>Join Our Newsletter</Link> and give us a Ko-fi!</p>
         <iframe id='kofiframe' 
           src='https://ko-fi.com/sleepygallows/?hidefeed=true&widget=true&embed=true&preview=true' 
           style={{border:'none', width:'60%', minWidth:'300px', maxWidth:'540px', padding:'4px', background:'#fff'}}
