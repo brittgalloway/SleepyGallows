@@ -8,8 +8,9 @@ import style from '@/style/product.module.scss'
 import layoutStyle from '@/shop/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
-export default async function Product( {params} ) {
-  const { product } = await params
+export default async function Product({ params }: { params: { product: string } }) {
+  const { product } = await params;
+
   const POSTS_QUERY = await `*[
     _type == "shopProduct"
     && productSlug.current == "${product}"
@@ -48,7 +49,7 @@ export default async function Product( {params} ) {
             />
         </div>
         <ProductInfo
-            id={item.id}
+            id={item?.id}
             title={item?.title}
             stock={item?.stock} 
             price={item?.price}

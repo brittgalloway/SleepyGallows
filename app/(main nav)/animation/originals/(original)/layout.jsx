@@ -2,7 +2,6 @@ import MainNavigation from '@/components/MainNavigation'
 import AnimationNav from '@/components/Nav'
 import { Footer } from '@/components/Footer'
 import styles from '@/animation/page.module.scss'
-import '@/style/globals.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Originals',

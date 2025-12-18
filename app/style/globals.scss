@@ -187,64 +187,43 @@ select,
 ::picker(select) {
   appearance: base-select;
 }
-::picker(select) {
-  top: anchor(bottom);
-  border: 1px solid var(--brand-color);
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
-  opacity: 0;
-  transition: all var(--transition) allow-discrete;
-  &:popover-open {
-    opacity: 1;
-    @starting-style {
-      opacity: 0;
-    }
-  }
-}
+
 select {
+  appearance: base-select;
   padding: 10px;
   margin-top: 0.25rem;
   font-family: var(--lato);
   border: 1px solid var(--brand-color);
   border-radius: var(--border-radius);
   background: #fff;
-  transition: var(--transition);
-  option{
-    padding: 0.5rem;
-    transition: var(--transition);
-    &:checked {
-      font-weight: bold;
-    }
-    &:last-of-type {
-      border-radius: 0 0 var(--border-radius) var(--border-radius);
-    }
-  }
-  &:hover,
-  &:focus {
-    outline: 1px solid var(--brand-color);
-  }
-  &::picker-icon {
-    width: 1.5rem;
-    height: auto;
-    content: url(/chevron-down-solid-full.svg);
-    transition: var(--transition) rotate;
-  }
-  &:open{
-    border-radius: var(--border-radius) var(--border-radius) 0 0;
-    &::picker-icon {
-      rotate: 180deg;
-    }
-  }
+  transition: opacity var(--transition), border-radius var(--transition);
 }
-dialog[popover] {
-  transition: opacity 0.2s, display 0.2s allow-discrete;
-  opacity: 0;
-  &:popover-open {
-    opacity: 1;
-    @starting-style {
-      & {
-        opacity: 0;
-      }
-    }
-  }
+
+select:hover,
+select:focus {
+  outline: 1px solid var(--brand-color);
 }
+
+select option {
+  padding: 0.5rem;
+}
+
+select option:checked {
+  font-weight: bold;
+}
+
+select option:last-of-type {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+select[open] {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+select::after {
+  content: "";
+  background: url(/chevron-down-solid-full.svg) no-repeat center;
+}
+
+
 
