@@ -10,6 +10,7 @@
   --brand-color: #4a287c;
   --pink-highlight: #fc79b4;
   --text-color: #363636;
+  --text-header-color: var(--brand-color);
   --seagreen-highlight: #3bcacb;
   --purple-highlight: #9370db;
   --blue-highlight: #9ac8f3;
@@ -59,6 +60,10 @@ body {
   color: var(--text-color);
   opacity: 0;
   animation: fadeIn 1s forwards;
+}
+h1,
+h2 {
+  color: var(--text-header-color);
 }
 section,
 main {

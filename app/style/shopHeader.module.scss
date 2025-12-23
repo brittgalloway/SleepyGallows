@@ -15,7 +15,6 @@
 }
 .h1 {
     font-size: 3rem;
-    color: var(--brand-color);
     transition: all var(--transition) ease-in-out 0s;
     &:hover {
         transform: scale(1.05);
@@ -90,6 +89,7 @@
     margin:0;
     border: none;
     display: flex;
+    height: 80px;
 }
 .hamburger {
     display: none;

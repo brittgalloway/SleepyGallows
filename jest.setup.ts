@@ -13,10 +13,6 @@ jest.mock('next/router', () => ({
   },
 }));
 
-// Mock @lottiefiles/dotlottie-react to avoid import issues
-jest.mock('@lottiefiles/dotlottie-react', () => ({
-  DotLottieReact: () => 'Mocked Lottie',
-}));
 
 // Fix Jest "act" warnings for async operations
 globalThis.queueMicrotask = (callback) => Promise.resolve().then(callback);
