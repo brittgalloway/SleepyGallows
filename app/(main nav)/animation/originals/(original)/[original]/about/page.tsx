@@ -1,7 +1,7 @@
 import { cinzel_decorative } from '@/fonts'
 import OriginalsNav from '@/components/OriginalsNav'
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../../../../../../sanity/lib/client'
+import { client } from 'b/sanityLib/client'
 import ImageComponent from '@/components/sanityImage'
 import Grid from '@/components/Grid'
 import styles from '@/animation/page.module.scss'
@@ -10,7 +10,7 @@ import imgGrid from '@/style/artGrid.module.scss'
 
 
 export default async function aboutOriginal({params}) {
-  const { original } = params;
+  const { original } = await params;
   const POSTS_QUERY = await `*[
       _type == "original"
       && link.current == "${original}"
@@ -34,7 +34,7 @@ export default async function aboutOriginal({params}) {
         <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>What is {originalData.title}?</h1>
       </header>
         <p dangerouslySetInnerHTML={{ __html: originalData.summary }}/>
-        <h2 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>
+        <h2 className={`${textStyles.textCenter }`}>
           Characters
         </h2>
         <div className={`${styles.videoWrapper} ${styles.charactersBlock}`}>
@@ -60,4 +60,3 @@ export default async function aboutOriginal({params}) {
     </section>
   )
 }
-
