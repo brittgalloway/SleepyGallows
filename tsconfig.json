@@ -33,6 +33,9 @@
       ],
       "@/art/*": [
         "app/(main nav)/art/*"
+      ],
+      "b/sanityLib/*": [
+        "./sanity/lib/*"
       ]
     },
     "allowJs": true,
@@ -58,6 +61,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
+    "next.config.ts",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
