@@ -15,9 +15,9 @@ export default function MobileNav({navType, navId, testId, ariaLabel, navItems})
         <div className={shopStyles.mobile_menu} >
             <button className={shopStyles.hamburger} data-testid={testId} type="button" popoverTarget={navId}>
                 <Image src='/hamburger.svg' 
+                alt="Click here to open the navigation menu."/>
                 width={40} 
                 height={30} 
-                alt="Click here to open the navigation menu."/>
             </button>
             <dialog data-testid={navId} id={navId} popover="auto">
                 <ul aria-label={ariaLabel} className={shopStyles.nav_list}>

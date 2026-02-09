@@ -133,8 +133,7 @@ export const shopProduct = defineType({
                 options: {
                     list: [
                         { title: "Print Domestic", value: "print domestic" },
-                        { title: "Wood Panel", value: "wood panel" },
-                        { title: "Mat Board", value: "mat board" },
+                        { title: "Fine Art", value: "fine art" },
                         { title: "Stickers", value: "stickers" },
                         { title: "Books", value: "books" },
                     ],

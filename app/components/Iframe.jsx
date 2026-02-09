@@ -9,7 +9,7 @@ export default function Iframe({title, link}) {
         title={`Watch ${title}`} 
         loading="lazy" 
         frameBorder="0" 
-        allowFullscreen
+        allowFullScreen
         style={{background:'#ccc', borderRadius: '4px'}}
         >
     </iframe>

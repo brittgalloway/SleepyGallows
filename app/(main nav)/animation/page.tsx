@@ -34,9 +34,9 @@ export default async function Animation() {
       <Link key={index} className={link[1]} href={`/animation/${link[3]}`}>
         <p className={`${styles.p} ${textStyles.cinzelDec}`}>{link[0]}</p>
         <Image 
-        className={link[2]}
         src={link[4]} 
         alt={link[5]}
+        className={link[2]}
         width={900}
         height={300}
         placeholder='blur'

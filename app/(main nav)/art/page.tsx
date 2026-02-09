@@ -31,9 +31,9 @@ export default async function Art() {
           <Link className={styles.a} href="/art/illustration">
               <p className={`${styles.p} ${textStyles.cinzelDec}`} >Crystal</p>
               <Image 
-                className={styles.img}
                 src={img.gallery[1].asset.url} 
                 alt={img.gallery[1].alt}
+                className={styles.img}
                 width={700}
                 height={1000}
                 placeholder='blur'
@@ -44,9 +44,9 @@ export default async function Art() {
           <Link className={styles.a} href="/art/drawings">
             <p className={`${styles.p} ${textStyles.cinzelDec}`}>Brittney</p>
             <Image 
-              className={styles.img}
               src={img.gallery[0].asset.url} 
               alt={img.gallery[0].alt}
+              className={styles.img}
               width={700}
               height={1000}
               placeholder='blur'

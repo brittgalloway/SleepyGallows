@@ -61,11 +61,11 @@ export function CartProduct() {
               Remove
             </button>
             <Image
-              data-testid={`item-image_${item.id}`}
               src={item.productDisplay}
+              alt={`${item.productName} product thumbnail`}
+              data-testid={`item-image_${item.id}`}
               width={100}
               height={100}
-              alt={`${item.productName} product thumbnail`}
               title={`${item.productName} product thumbnail`}
               style={{ objectFit: 'cover' }}
             />

@@ -26,11 +26,11 @@ export default function MainNavigation() {
           <li className={`${styles.li} ${styles.logo}`}>
             <Link className={`${styles.a}`} href="/about">
               <Image  
+                src="/sg_logo.svg" 
+                alt="Click here to learn about the Sleepy Gallows."
                 className="logo" 
                 width={250} 
                 height={250} 
-                src="/sg_logo.svg" 
-                alt="Click here to learn about the Sleepy Gallows."
                 placeholder='blur'
                 blurDataURL={rgbDataURL(154, 200, 243)}
                 loading='lazy'/>

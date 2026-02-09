@@ -8,9 +8,9 @@ export function ProductDisplay( {category, productSlug, productName, price, disc
     <Link className={`${styles.product_display}`} href={`/shop/${category}/${productSlug}`}>
         <Image className={`${styles.img}`}
           src={thumbnail}
+          alt={`${productName} thumbnail`}
           width={350}
           height={280}
-          alt={`${productName} thumbnail`}
           title={`${productName} ${category}`}
         />
         <p className={`${styles.product_name}`}>&ldquo;{productName}&rdquo;</p>

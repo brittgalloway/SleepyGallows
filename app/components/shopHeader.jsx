@@ -25,10 +25,10 @@ export default function ShopHeader() {
         {isMobile && 
           <Link href={'/shop/'} aria-label='This link takes you back to the Shop&apos;s home page. It holds the Sleepy Gallows "SG"'>
             <Image
-            width={82} 
-            height={61} 
             src="/sg_logo.svg" 
             alt="sleepy gallows logo"
+            width={82} 
+            height={61} 
             />
           </Link>
         }

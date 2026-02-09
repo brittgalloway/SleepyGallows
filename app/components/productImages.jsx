@@ -24,10 +24,10 @@ export function ProductImages({photos, layout}) {
         <Image className={`${style.img}`}
             key= {photos[index]?.id}
             src= {photos[index]?.asset?.url}
+            alt= {photos[index]?.alt}
             width={photos[index]?.asset.metadata.dimensions.width}
             height={photos[index]?.asset.metadata.dimensions.height}
             title= {photos[index]?.title}
-            alt= {photos[index]?.alt}
         />
       </div>
       {layout === 'portrait' ? 
