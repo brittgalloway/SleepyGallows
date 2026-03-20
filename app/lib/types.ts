@@ -29,7 +29,8 @@ export type ProductDetails = {
     }[], 
     longDescription: [],
     shortDescription:string,
-    img:string
+    img:string,
+    shippingType?:string,
 }
 
 export type CartProduct = {
@@ -40,5 +41,6 @@ export type CartProduct = {
     price:number,
     discount?:number,
     productDescription:any,
-    thumbnail:string
+    thumbnail:string,
+    shipping?: string
 }

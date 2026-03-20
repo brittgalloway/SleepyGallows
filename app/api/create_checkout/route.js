@@ -5,11 +5,10 @@ import { stripe } from '@/lib/stripe'
 export async function POST(req) {
   try {
     const { origin } = new URL(req.url);
-    const { items } = await req.json(); // Extract cart items
+    const { items } = await req.json(); 
     if (!items || items.length === 0) {
       return NextResponse.json({ error: "Cart is empty" }, { status: 400 });
     }
-
     const lineItems = items.map(item => ({
       price_data:{
         product_data:{
@@ -25,7 +24,44 @@ export async function POST(req) {
         unit_amount: item?.productDiscount > 0 ? item?.productDiscount * 100 : item?.productPrice  * 100,
       },
       quantity: item?.quantity,
-    }));
+      })
+    );
+    const getShipping = (items) => {
+      if (!items || items.length === 0) {
+        return { name: 'No items', price: 0 };
+      }
+
+      // Normalize names for safer matching
+      const types = items.map((item) =>
+        item.productName?.toLowerCase()
+      );
+
+      const hasFineArt = types.some((t) => t.includes('fine art'));
+      const hasPrint = types.some((t) => t.includes('print'));
+      const hasBook = types.some((t) => t.includes('book'));
+      const hasSticker = types.some((t) => t.includes('sticker'));
+
+      // 🔴 Priority logic
+      if (hasFineArt) {
+        return { shipping_price: 0 };
+      }
+
+      if (hasPrint && !hasFineArt && !hasBook) {
+        return { shipping_price: 800 }; // cents
+      }
+
+      if (hasBook && !hasFineArt) {
+        return { shipping_price: 1000 }; // cents
+      }
+
+      if (hasSticker && !hasFineArt && !hasPrint && !hasBook) {
+        return { shipping_price: 300 }; // cents
+      }
+
+      // fallback
+      return { shipping_price: 300 }; // cents
+    };
+    const shipping = getShipping(items);
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -35,19 +71,17 @@ export async function POST(req) {
       shipping_address_collection: {
         allowed_countries: [
           'US',
-          'CA',
-          'MX'
         ]
       },
-      shipping_options: [
+       shipping_options: [
         {
       shipping_rate_data: {
         type: 'fixed_amount',
         fixed_amount: {
-          amount: 0,
+          amount: shipping.shipping_price,
           currency: 'usd',
         },
-        display_name: 'Free shipping',
+        display_name: 'Domestic Ground Shipping',
         delivery_estimate: {
           minimum: {
             unit: 'business_day',
@@ -56,26 +90,6 @@ export async function POST(req) {
           maximum: {
             unit: 'business_day',
             value: 7,
-          },
-        },
-      },
-    },
-        {
-      shipping_rate_data: {
-        type: 'fixed_amount',
-        fixed_amount: {
-          amount: 1500,
-          currency: 'usd',
-        },
-        display_name: 'Next day air',
-        delivery_estimate: {
-          minimum: {
-            unit: 'business_day',
-            value: 1,
-          },
-          maximum: {
-            unit: 'business_day',
-            value: 1,
           },
         },
       },
@@ -89,6 +103,7 @@ export async function POST(req) {
     });
     return NextResponse.json({ id: session.id }, { status: 200 });
   } catch (err) {
+    console.error('STRIPE ERROR:', err);
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }

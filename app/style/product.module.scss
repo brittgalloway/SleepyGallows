@@ -15,7 +15,8 @@
 }
 .max_width {
     @media(min-width: 831px) {
-        max-width: 80%;
+        width: 80%;
+        max-width: 975px;
         margin: auto;
     }
 }

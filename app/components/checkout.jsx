@@ -57,7 +57,8 @@ export default function Checkout() {
             </button>
           {cart?.count > 0 && 
           <>
-            {hasError ? <p>Oops, something went wrong! We might be out of stock. Refresh and try again.</p> : ''}
+            {hasError ? <p>Oops, something went wrong! We might be out of stock. Refresh and try again.
+              <br/> <small> If the problem persists, please email support@sleepygallows.com</small> </p> : ''}
             <button 
               className={cartStyles.checkoutBtn}
               data-testid="checkout-button"

@@ -3,11 +3,10 @@ import { useState } from 'react'
 import { PortableText } from '@portabletext/react'
 import { USD } from '@/lib/utils'
 import { ProductDetails } from '@/lib/types'
-import { lato } from '@/fonts'
 import AddToCart from '@/components/addToCart'
 import style from '@/style/product.module.scss'
 
-export default function ProductInfo({ id, title, stock, price, discount, variant, longDescription, shortDescription, img } : ProductDetails) {
+export default function ProductInfo({ id, title, stock, price, discount, variant, longDescription, shortDescription, img, shippingType } : ProductDetails) {
     const [variantProduct, setVariantProduct] = useState({ID:id, title:null, price:price, discountedPrice:discount, stock:stock});
 
     const handleVariant = (event: any) => {
@@ -60,6 +59,7 @@ export default function ProductInfo({ id, title, stock, price, discount, variant
             price={variantProduct.price}
             productDescription={shortDescription}
             thumbnail={img}
+            shipping={shippingType}
           />
           </div>
       </>

@@ -58,6 +58,7 @@ export default async function Product({ params }: { params: { product: string } 
             longDescription={item?.longDescription}
             shortDescription={item?.shortDescription}
             img={item?.cartThumbnail?.url}
+            shippingType={item?.shippingType}
         />
       </div>
       <aside className={`${style.aside}`}>

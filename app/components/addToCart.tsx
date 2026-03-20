@@ -4,7 +4,7 @@ import { useCartContext } from '@/shop/cartContext'
 import styles from '@/style/product.module.scss'
 import { CartProduct } from '@/lib/types'
 
-export default function AddToCart({ id, _productName, variantName, stock, price, discount, productDescription, thumbnail }:CartProduct) {
+export default function AddToCart({ id, _productName, variantName, stock, price, discount, productDescription, thumbnail, shipping }:CartProduct) {
     const { cart, setCart } = useCartContext();
     const [btnText, setBtnText] = useState('Add To Cart');
 
@@ -38,6 +38,7 @@ export default function AddToCart({ id, _productName, variantName, stock, price,
                         productDiscount: discount,
                         productDescription: productDescription,
                         productDisplay: thumbnail,
+                        shipping: shipping,
                     },
                 ];
             }
