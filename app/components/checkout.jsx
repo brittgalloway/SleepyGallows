@@ -18,7 +18,7 @@ export default function Checkout() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({items: cart?.items}),
+      body: JSON.stringify({items: cart?.items, shipping: cart?.shipping}),
     });
     if (!response.ok) {
       setHasError(true);

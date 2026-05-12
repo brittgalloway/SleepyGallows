@@ -5,7 +5,7 @@ import { stripe } from '@/lib/stripe'
 export async function POST(req) {
   try {
     const { origin } = new URL(req.url);
-    const { items } = await req.json(); 
+    const { items, shipping } = await req.json(); 
     if (!items || items.length === 0) {
       return NextResponse.json({ error: "Cart is empty" }, { status: 400 });
     }
@@ -26,42 +26,7 @@ export async function POST(req) {
       quantity: item?.quantity,
       })
     );
-    const getShipping = (items) => {
-      if (!items || items.length === 0) {
-        return { name: 'No items', price: 0 };
-      }
 
-      // Normalize names for safer matching
-      const types = items.map((item) =>
-        item.productName?.toLowerCase()
-      );
-
-      const hasFineArt = types.some((t) => t.includes('fine art'));
-      const hasPrint = types.some((t) => t.includes('print'));
-      const hasBook = types.some((t) => t.includes('book'));
-      const hasSticker = types.some((t) => t.includes('sticker'));
-
-      // 🔴 Priority logic
-      if (hasFineArt) {
-        return { shipping_price: 0 };
-      }
-
-      if (hasPrint && !hasFineArt && !hasBook) {
-        return { shipping_price: 800 }; // cents
-      }
-
-      if (hasBook && !hasFineArt) {
-        return { shipping_price: 1000 }; // cents
-      }
-
-      if (hasSticker && !hasFineArt && !hasPrint && !hasBook) {
-        return { shipping_price: 300 }; // cents
-      }
-
-      // fallback
-      return { shipping_price: 300 }; // cents
-    };
-    const shipping = getShipping(items);
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -78,7 +43,7 @@ export async function POST(req) {
       shipping_rate_data: {
         type: 'fixed_amount',
         fixed_amount: {
-          amount: shipping.shipping_price,
+          amount: shipping,
           currency: 'usd',
         },
         display_name: 'Domestic Ground Shipping',
