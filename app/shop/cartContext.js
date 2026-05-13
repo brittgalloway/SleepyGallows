@@ -4,7 +4,7 @@ import { createContext, useState, useContext, useEffect } from 'react';
 export const CartContext = createContext();
 
 export const StateProvider = ({ children }) => {
-  const [cart, setCart] = useState({ count: 0, items: [], shipping: 800 });
+  const [cart, setCart] = useState({ count: 0, items: [], shipping: 200 });
 
   // Load cart from local storage when the component mounts
   useEffect(() => {

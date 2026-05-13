@@ -61,7 +61,7 @@ export default function AddToCart({ id, _productName, variantName, stock, price,
                                 return currentShipping = cartShipping <= 800 ? 800 : 800;
                             }else
                                 if (itemShipping == 'stickers') {
-                                    return currentShipping = cartShipping < 200 ? 200 : 800;
+                                    return currentShipping = cartShipping <= 200 ? 200 : 800;
                             }
                     } else {
                         currentShipping = 0;
