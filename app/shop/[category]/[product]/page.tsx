@@ -66,7 +66,6 @@ export default async function Product({ params }: { params: { product: string } 
           {item?.originalsSummary && 
             <PortableText
               value={item.originalsSummary.body}
-              // components={/* optional object of custom components to use */}
             />
         }
         {item?.originalsSummary &&  item?.originalsSummary?.slug.current !== null && 

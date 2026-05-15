@@ -4,6 +4,7 @@ import { client } from 'b/sanityLib/client'
 import Grid from '@/components/Grid'
 import styles from '@/style/artGrid.module.scss'
 import textStyles from '@/style/titles.module.scss'
+import marginStyle from '@/animation/page.module.scss'
 
 export default async function artOriginals({params}) {
   const { original } = await params;
@@ -23,9 +24,9 @@ export default async function artOriginals({params}) {
       <header>
         <OriginalsNav 
           navLabel={originalArt[0].link}/>
-        <h1 className={`${textStyles.text_center } ${textStyles.cinzelDec}`}>Art of {originalArt[0].title}</h1>
+        <h1 className={`${textStyles.text_center} ${textStyles.cinzelDec} ${marginStyle.margin}`}>Art of {originalArt[0].title}</h1>
       </header>
-      <div>
+      <div className={`${marginStyle.margin}`}>
         <Grid
           photos={originalArt[0].art.gallery}
           />

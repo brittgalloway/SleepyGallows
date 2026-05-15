@@ -30,10 +30,10 @@ export default async function aboutOriginal({params}) {
       <header>
         <OriginalsNav 
           navLabel={originalData.link}/>
-        <h1 className={`${textStyles.textCenter }`}>What is {originalData.title}?</h1>
+        <h1 className={`${textStyles.text_center} ${textStyles.cinzelDec} ${styles.margin}`}>What is {originalData.title}?</h1>
       </header>
-        <p dangerouslySetInnerHTML={{ __html: originalData.summary }}/>
-        <h2 className={`${textStyles.textCenter }`}>
+        <p dangerouslySetInnerHTML={{ __html: originalData.summary }} className={`${styles.margin}`}/>
+        <h2 className={`${textStyles.text_center} ${textStyles.cinzelDec} ${styles.margin}`}>
           Characters
         </h2>
         <div className={`${styles.videoWrapper} ${styles.charactersBlock}`}>
@@ -47,7 +47,7 @@ export default async function aboutOriginal({params}) {
           ))}
         </div>
         {originalData.hasConceptArt && (
-          <div className={imgGrid.gridImg}>
+          <div className={`${imgGrid.gridImg} ${styles.margin}`}>
             <h2 className={`${textStyles.text_center} ${textStyles.cinzelDec}`}>
               Concept Art
             </h2>
