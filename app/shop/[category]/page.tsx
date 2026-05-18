@@ -4,9 +4,9 @@ import { client } from 'b/sanityLib/client'
 import styles from '@/style/productCategory.module.scss'
 import layoutStyle from '@/shop/page.module.scss'
 
-export default async function Category({params}) {
+export default async function Category({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
-  const POSTS_QUERY = await `*[
+  const POSTS_QUERY = `*[
     _type == "shopProduct"
     && productType == "${category}"
   ] 
@@ -25,7 +25,7 @@ export default async function Category({params}) {
     <main className={`${layoutStyle.main}`}>
       <h1>{category.replace('-', ' ')}</h1>
       <div className={`${styles.grid}`}>
-        {products.map((product)=>(
+        {products.map((product) => (
           <ProductDisplay
             key={product?.id}
             category={category}
@@ -35,7 +35,7 @@ export default async function Category({params}) {
             stock={product?.stock}
             price={product?.price}
             thumbnail={product?.thumbnail?.url}
-        />
+          />
         ))}
       </div>
     </main>

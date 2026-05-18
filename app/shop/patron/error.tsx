@@ -12,8 +12,8 @@ export default function Error({
     <ErrorLayout
       error={error}
       reset={reset}
-      backTo="/"
-      backLabel="Go home"
+      backTo="/shop/patron"
+      backLabel="Back to patron page"
     />
   )
 }

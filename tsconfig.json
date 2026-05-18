@@ -7,43 +7,21 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "app/*"
-      ],
-      "@/styles/*": [
-        "app/styles/*"
-      ],
-      "@/components/*": [
-        "app/components/*"
-      ],
-      "@/api/*": [
-        "app/api/*"
-      ],
-      "@/lib/*": [
-        "app/lib/*"
-      ],
-      "@/json/*": [
-        "app/json/*"
-      ],
-      "@/webdev/*": [
-        "app/webdev/*"
-      ],
-      "@/animation/*": [
-        "app/(main nav)/animation/*"
-      ],
-      "@/art/*": [
-        "app/(main nav)/art/*"
-      ],
-      "@/shop/*": [
-        "app/shop/*"
-      ],
-      "b/sanityLib/*": [
-        "./sanity/lib/*"
-      ]
+      "@/*": ["app/*"],
+      "@/styles/*": ["app/styles/*"],
+      "@/components/*": ["app/components/*"],
+      "@/api/*": ["app/api/*"],
+      "@/lib/*": ["app/lib/*"],
+      "@/json/*": ["app/json/*"],
+      "@/webdev/*": ["app/webdev/*"],
+      "@/animation/*": ["app/(main nav)/animation/*"],
+      "@/art/*": ["app/(main nav)/art/*"],
+      "@/shop/*": ["app/shop/*"],
+      "b/sanityLib/*": ["./sanity/lib/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "noEmit": true,
     "incremental": true,
     "module": "esnext",
@@ -52,6 +30,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
+    "ignoreDeprecations": "6.0",
     "plugins": [
       {
         "name": "next"
