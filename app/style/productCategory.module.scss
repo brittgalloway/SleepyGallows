@@ -54,6 +54,15 @@
         max-width: 309px;
     }
 }
+.img_placeholder {
+    background-color: var(--brand-color);
+    opacity: 0.15;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    width: 165px;
+    @media(min-width: 831px) {
+        width: 309px;
+    }
+}
 @mixin productInfo {
     margin: 1px 0;
     max-width: 140px;

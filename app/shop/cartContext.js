@@ -9,10 +9,16 @@ export const StateProvider = ({ children }) => {
   // Load cart from local storage when the component mounts
   useEffect(() => {
     const storedCart = localStorage.getItem('cart');
-    if (storedCart?.match(/"count":0/)) {
+    if (!storedCart) return;
+    if (storedCart.match(/"count":0/)) {
       localStorage.removeItem('cart');
     } else {
-      setCart(JSON.parse(storedCart));
+      try {
+        const parsed = JSON.parse(storedCart);
+        if (parsed) setCart(parsed);
+      } catch {
+        localStorage.removeItem('cart');
+      }
     }
   }, []);
   
