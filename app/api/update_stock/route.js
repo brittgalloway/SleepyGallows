@@ -19,7 +19,7 @@ export async function POST(req) {
   }
 
   switch (event.type) {
-    case 'checkout.session.completed':
+    case 'checkout.session.completed': {
       const session = event.data.object;
       console.log(`[update_stock] session.payment_status: ${session.payment_status}`);
 
@@ -83,8 +83,6 @@ export async function POST(req) {
             const currentVariantStock = hit.variant[0].stock;
             const newStock = Math.max(0, currentVariantStock - quantity);
             console.log(`[update_stock] Patching variant _key=${variantKey}, stock ${currentVariantStock} → ${newStock}`);
-
-            // Use set() with explicit new value — dec() doesn't support filter expressions
             result = await client
               .patch(hit.id)
               .set({ [`variant[_key=="${variantKey}"].stock`]: newStock })
@@ -92,7 +90,6 @@ export async function POST(req) {
           } else {
             const newStock = Math.max(0, hit.stock - quantity);
             console.log(`[update_stock] Patching product stock ${hit.stock} → ${newStock}`);
-
             result = await client
               .patch(hit.id)
               .set({ stock: newStock })
@@ -108,6 +105,7 @@ export async function POST(req) {
 
       console.log(`[update_stock] Done. ${allResults.length} product(s) updated.`);
       return NextResponse.json({ data: allResults }, { status: 201 });
+    }
 
     default:
       console.log(`[update_stock] Unhandled event type ${event.type}`);

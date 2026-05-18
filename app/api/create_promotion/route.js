@@ -2,11 +2,17 @@ import { NextResponse } from 'next/server'
 import { stripe, PATRON_COUPON } from '@/lib/stripe'
 
 export async function POST(req) {
+  // Only allow calls from create_patron (server-to-server)
+  const internalSecret = req.headers.get('x-internal-secret');
+  if (!internalSecret || internalSecret !== process.env.INTERNAL_API_SECRET) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
     const { interval } = await req.json();
-    
+
     const duration = interval === "year" ? 12 : 1;
-    
+
     const date = new Date();
     date.setMonth(date.getMonth() + duration);
     const expiresAt = Math.floor(date.getTime() / 1000);

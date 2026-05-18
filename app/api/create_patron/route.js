@@ -10,14 +10,22 @@ export async function POST(req) {
       return NextResponse.json({ error: 'Patron tier not selected' }, { status: 400 });
     }
 
+    // Call create_promotion server-to-server with the internal secret
     const promoResponse = await fetch(`${origin}/api/create_promotion`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'x-internal-secret': process.env.INTERNAL_API_SECRET,
+      },
       body: JSON.stringify({ interval: patron?.interval }),
     });
 
+    if (!promoResponse.ok) {
+      console.error('[create_patron] Failed to create promo code');
+    }
+
     const promoData = await promoResponse.json();
-    const promoCode = promoData?.promo?.code || ''; 
+    const promoCode = promoData?.promo?.code || '';
     const unitPrice = patron?.price * 100;
     const successURL = `${origin}/shop/patron/thank_you_patron?promo=${encodeURIComponent(promoCode)}&interval=${patron?.interval || 1}`;
     const cancelURL = `${origin}/shop/patron`;
@@ -37,12 +45,12 @@ export async function POST(req) {
           ],
           mode: 'payment',
           submit_type: 'donate',
-          origin_context:'web',
+          origin_context: 'web',
           invoice_creation: {
             enabled: true,
             invoice_data: {
               description: `Exclusive Patron Coupon Code: ${promoCode}`,
-            }
+            },
           },
           success_url: successURL,
           cancel_url: cancelURL,
@@ -58,7 +66,7 @@ export async function POST(req) {
                 product: PATRON_PRODUCT,
                 unit_amount: unitPrice,
                 recurring: {
-                  interval: patron?.interval, // 'month' or 'year'
+                  interval: patron?.interval,
                 },
               },
             },
@@ -66,9 +74,9 @@ export async function POST(req) {
           mode: 'subscription',
           submit_type: 'donate',
           subscription_data: {
-            description: `Patron discount code: ${promoCode} for ${patron?.interval}.`
+            description: `Patron discount code: ${promoCode} for ${patron?.interval}.`,
           },
-          origin_context:'web',
+          origin_context: 'web',
           success_url: successURL,
           cancel_url: cancelURL,
           automatic_tax: { enabled: false },
@@ -76,6 +84,7 @@ export async function POST(req) {
 
     return NextResponse.json({ id: session.id }, { status: 200 });
   } catch (err) {
+    console.error('PATRON ERROR:', err);
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }
