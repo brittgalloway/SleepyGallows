@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { STRIPE_WH_SECRET, stripe } from '@/lib/stripe'
+import { STRIPE_WH_SECRET, stripe } from '@/lib/stripe.server'
 import { client } from '../../../sanity/lib/client'
 
 const endpointSecret = STRIPE_WH_SECRET;

@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useCartContext } from '@/shop/cartContext'
-import { stripePromise} from '@/lib/stripe'
+import { stripePromise} from '@/lib/stripe.client'
 import { CartProduct } from '@/components/CartProduct'
 import styles from '@/style/shopHeader.module.scss'
 import cartStyles from '@/shop/page.module.scss'

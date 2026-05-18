@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { stripe } from '@/lib/stripe'
+import { stripe } from '@/lib/stripe.server'
 import { client } from '../../../sanity/lib/client'
 
 // https://docs.stripe.com/payments/checkout/after-the-payment

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { stripe, PATRON_COUPON } from '@/lib/stripe'
+import { stripe, PATRON_COUPON } from '@/lib/stripe.server'
 
 export async function POST(req) {
   // Only allow calls from create_patron (server-to-server)
