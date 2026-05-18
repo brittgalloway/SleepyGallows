@@ -11,7 +11,7 @@ import textStyles from '@/style/titles.module.scss'
 export default async function Product({ params }: { params: { product: string } }) {
   const { product } = await params;
 
-  const POSTS_QUERY = await `*[
+  const POSTS_QUERY = `*[
     _type == "shopProduct"
     && productSlug.current == "${product}"
   ] 

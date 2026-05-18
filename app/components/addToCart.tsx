@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useCartContext } from '@/shop/cartContext'
 import styles from '@/style/product.module.scss'
 import { CartProduct } from '@/lib/types'
@@ -75,7 +75,7 @@ export default function AddToCart({ id, _productName, variantName, stock, price,
             return {
                 count: newCount,
                 items: updatedItems,
-                shipping: currentShipping,
+                shipping: currentShipping ?? prevCart.shipping,
             };
         });
         setBtnText('Added!');
@@ -83,8 +83,6 @@ export default function AddToCart({ id, _productName, variantName, stock, price,
             setBtnText('Add To Cart');
         }, 2000);
     };
-
-    useEffect(() => {}, [cart]);
 
     return (
         <> 

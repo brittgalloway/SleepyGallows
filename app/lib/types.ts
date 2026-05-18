@@ -1,4 +1,5 @@
 import type { SanityImageObject } from '@sanity/image-url/lib/types/types'
+import type { PortableTextBlock } from '@portabletext/types'
 
 export type WebProject = {
   id:string, 
@@ -27,7 +28,7 @@ export type ProductDetails = {
         discountedPrice:number|null, 
         stock:number
     }[], 
-    longDescription: [],
+    longDescription: PortableTextBlock[],
     shortDescription:string,
     img:string,
     shippingType?:string,
@@ -40,7 +41,7 @@ export type CartProduct = {
     stock:number, 
     price:number,
     discount?:number,
-    productDescription:any,
+    productDescription:string,
     thumbnail:string,
     shipping?: string
 }

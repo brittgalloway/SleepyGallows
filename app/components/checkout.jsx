@@ -23,6 +23,7 @@ export default function Checkout() {
     if (!response.ok) {
       setHasError(true);
       setLoading(false);
+      return;
     }
     const session = await response.json();
   

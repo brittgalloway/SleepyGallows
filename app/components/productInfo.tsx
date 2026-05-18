@@ -9,14 +9,10 @@ import style from '@/style/product.module.scss'
 export default function ProductInfo({ id, title, stock, price, discount, variant, longDescription, shortDescription, img, shippingType } : ProductDetails) {
     const [variantProduct, setVariantProduct] = useState({ID:id, title:null, price:price, discountedPrice:discount, stock:stock});
 
-    const handleVariant = (event: any) => {
+    const handleVariant = (event: React.ChangeEvent<HTMLSelectElement>) => {
       const item = event.target.value;
-      const selectedVariant = variant.find((items) => {
-        if (items.title === item) {
-          return items;
-        }
-      });
-		  setVariantProduct(selectedVariant);
+      const selectedVariant = variant.find((items) => items.title === item);
+      if (selectedVariant) setVariantProduct(selectedVariant);
     }
     return (
       <>

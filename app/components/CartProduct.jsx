@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import { USD } from '@/lib/utils'
 import { useCartContext } from '@/shop/cartContext'

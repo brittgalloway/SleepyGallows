@@ -2,15 +2,14 @@ import styles from '@/style/shopBanner.module.scss'
 import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
 
-  const POSTS_QUERY = await `*[
+export async function ShopBanner() {
+  const POSTS_QUERY = `*[
     _type == "announcement"
   ] 
   {
     "id": _id,
     "body": body,
   }`;
-
-export async function ShopBanner() {
     
   const banners = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (

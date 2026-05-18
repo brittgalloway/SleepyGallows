@@ -55,6 +55,7 @@ export function StripePatron() {
 			setLoading(false);
 			const errorMessage = await response.text();
 			console.error('Error creating checkout session:', errorMessage);
+			return;
 		}
 		const session = await response.json();
 	  
