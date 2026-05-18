@@ -1,7 +1,7 @@
+/// <reference types="jest" />
 import '@testing-library/jest-dom'
-import { jest} from '@jest/globals'
 
-// Mock next/router to prevent issues in tests
+// next/router mock (pages router)
 jest.mock('next/router', () => ({
   useRouter() {
     return {
@@ -13,6 +13,18 @@ jest.mock('next/router', () => ({
   },
 }));
 
+// next/navigation mock (app router)
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      push: jest.fn(),
+      replace: jest.fn(),
+      prefetch: jest.fn(),
+      back: jest.fn(),
+    };
+  },
+  usePathname: () => '/',
+  useSearchParams: () => new URLSearchParams(),
+}));
 
-// Fix Jest "act" warnings for async operations
 globalThis.queueMicrotask = (callback) => Promise.resolve().then(callback);
