@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { STRIPE_WH_SECRET, stripe } from '@/lib/stripe'
-import { client } from 'b/sanityLib/client'
+import { client } from '../../../sanity/lib/client'
 
 const endpointSecret = STRIPE_WH_SECRET;
 
@@ -18,51 +18,102 @@ export async function POST(req) {
     return NextResponse.json({ error: err.message }, { status: 400 });
   }
 
-  // Handle the event
   switch (event.type) {
-    case 'invoice.payment_succeeded':
-      const invoice = event.data.object;
-      console.log('Invoice payment succeeded. Updating stock values...');
+    case 'checkout.session.completed':
+      const session = event.data.object;
+      console.log(`[update_stock] session.payment_status: ${session.payment_status}`);
 
-      for (const lineItem of invoice.lines.data) {
-        const productId = lineItem.price.product;
+      if (session.payment_status !== 'paid') {
+        console.log(`[update_stock] Session ${session.id} not yet paid, skipping.`);
+        break;
+      }
+
+      console.log(`[update_stock] Fetching line items for session ${session.id}...`);
+      let lineItemsResponse;
+      try {
+        lineItemsResponse = await stripe.checkout.sessions.listLineItems(session.id, {
+          expand: ['data.price.product'],
+          limit: 100,
+        });
+        console.log(`[update_stock] Got ${lineItemsResponse.data.length} line item(s).`);
+      } catch (err) {
+        console.error(`[update_stock] Failed to fetch line items:`, err.message);
+        return NextResponse.json({ error: err.message }, { status: 500 });
+      }
+
+      const allResults = [];
+
+      for (const lineItem of lineItemsResponse.data) {
+        const product = lineItem.price.product;
+        const sanityID = product.metadata?.id;
         const quantity = lineItem.quantity;
-        const product = JSON.parse(JSON.stringify(await stripe.products.retrieve(productId)));
-        const sanityID = product.metadata.id;
+
+        console.log(`[update_stock] Line item — Stripe product: ${product.id}, sanityID: ${sanityID}, qty: ${quantity}`);
+
+        if (!sanityID) {
+          console.error(`[update_stock] No Sanity ID in metadata for Stripe product ${product.id}, skipping.`);
+          continue;
+        }
+
         try {
-          // Fetch current product from Santity
-
-          const products = await client.fetch(`*[_type == "shopProduct" && _id == "${sanityID}" || variant[].ID match "${sanityID}"]
+          const products = await client.fetch(
+            `*[_type == "shopProduct" && (_id == $id || $id in variant[].ID)]
             {
-              _id == '${sanityID}' => {
-                "id": _id, 
-                "stock": stock,
-              },
-              variant[].ID match '${sanityID}' => {
-                "variant": variant[ID == '${sanityID}']{ stock },
-              }
-            }`);
+              "id": _id,
+              "stock": stock,
+              "variant": variant[ID == $id]{ "_key": _key, "stock": stock },
+            }`,
+            { id: sanityID }
+          );
 
-          if (!products) {
-            console.error(`Product ${sanityID} not found in Santity.`);
+          console.log(`[update_stock] Sanity fetch result for ${sanityID}:`, JSON.stringify(products));
+
+          if (!products || products.length === 0) {
+            console.error(`[update_stock] Product ${sanityID} not found in Sanity.`);
             continue;
           }
-          const results = await client.patch(sanityID) ?
-              client.patch(sanityID).dec({stock: quantity}).commit() :
-              client.patch(products[0].variant[0]).dec({stock: quantity}).commit();
 
-          return NextResponse.json({ data: results }, { status: 201 });
+          const hit = products[0];
+          const isVariant = hit.variant && hit.variant.length > 0;
+          console.log(`[update_stock] isVariant: ${isVariant}, hit.id: ${hit.id}, current stock: ${hit.stock}`);
+
+          let result;
+          if (isVariant) {
+            const variantKey = hit.variant[0]._key;
+            const currentVariantStock = hit.variant[0].stock;
+            const newStock = Math.max(0, currentVariantStock - quantity);
+            console.log(`[update_stock] Patching variant _key=${variantKey}, stock ${currentVariantStock} → ${newStock}`);
+
+            // Use set() with explicit new value — dec() doesn't support filter expressions
+            result = await client
+              .patch(hit.id)
+              .set({ [`variant[_key=="${variantKey}"].stock`]: newStock })
+              .commit({ autoGenerateArrayKeys: true });
+          } else {
+            const newStock = Math.max(0, hit.stock - quantity);
+            console.log(`[update_stock] Patching product stock ${hit.stock} → ${newStock}`);
+
+            result = await client
+              .patch(hit.id)
+              .set({ stock: newStock })
+              .commit();
+          }
+
+          console.log(`[update_stock] Patch committed for ${sanityID}:`, JSON.stringify(result));
+          allResults.push(result);
         } catch (error) {
-          console.error(`Error updating stock for product ${sanityID}, product object retrieved ${product}:`, error.message);
+          console.error(`[update_stock] Error patching ${sanityID}: ${error.message}`, error);
         }
       }
-      break;
+
+      console.log(`[update_stock] Done. ${allResults.length} product(s) updated.`);
+      return NextResponse.json({ data: allResults }, { status: 201 });
 
     default:
-      console.log(`Unhandled event type ${event.type}`);
+      console.log(`[update_stock] Unhandled event type ${event.type}`);
   }
 
-  return NextResponse.json({ received: true, data: event.data.object });
+  return NextResponse.json({ received: true });
 }
 
 export async function OPTIONS() {
