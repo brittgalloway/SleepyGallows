@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import { USD } from '@/lib/utils'
+import { USD, calculateShipping } from '@/lib/utils'
 import { useCartContext } from '@/shop/cartContext'
 import styles from '@/shop/page.module.scss'
 
@@ -37,46 +37,13 @@ export function CartProduct() {
       );
 
       if (existingItemIndex !== -1) {
-        let updatedShipping;
         const updatedItems = prevCart.items.filter((item) => item.id !== key);
         const newCount = updatedItems.reduce((total, item) => total + item.quantity, 0);
-        checkShipping(updatedItems);
         return {
           count: newCount,
           items: updatedItems,
-          shipping: updatedShipping,
+          shipping: calculateShipping(updatedItems),
         };
-        function checkShipping(items) {
-          try {
-            const hasFineArt = items.some((item)=>{
-              return item.shipping =='fine art';
-            });
-            const hasBooks = items.some((item)=>{
-              return item.shipping =='books';
-            });
-            const hasPrints = items.some((item)=>{
-              return item.shipping =='print domestic';
-            });
-            const hasStickers = items.every((item)=>{
-              return item.shipping =='stickers';
-            });
-            if (hasFineArt) {
-              return updatedShipping = 0;
-            } else
-              if (hasBooks && !hasFineArt) {
-                return updatedShipping = 1000;
-              } else
-                if(hasPrints && !hasFineArt && !hasBooks) {
-                  return updatedShipping = 800;
-                } else 
-                  if (hasStickers) {
-                    return updatedShipping = 200;
-                  }
-          } catch (error) {
-              console.error('Something went wrong finding the shipping. A default $8 charge was added to your order');
-              return updatedShipping = 800; 
-          }
-        }
       }
 
       return prevCart;
