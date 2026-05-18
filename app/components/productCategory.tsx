@@ -28,7 +28,7 @@ export async function ProductCategory() {
         {categories.map((category) =>(
           <div className={`${styles.wrapper}`} key={category}>
             <h2 style={cinzel_decorative.style} className={`${styles.h2}`}><Link href={`/shop/${category}`}>{category.replace('-', ' ')}</Link></h2>
-              <ul className={`${styles.category_wrapper}`} aria-label={`List of ${category} products, horizonal scroll to view more. Click on a prouct to go to that product's page.`}>
+              <ul className={`${styles.category_wrapper}`} aria-label={`${category} products. Scroll horizontally to view more.`}>
                 {products.filter((product) => product.productType === category).map((product) =>(
                   <li key={product.id}>
                     <ProductDisplay

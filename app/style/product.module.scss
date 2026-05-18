@@ -64,7 +64,7 @@
             .discount {
                 justify-content: right;
             }
-            label > p{
+            label > span{
                 margin:0;
             }
         }
@@ -119,7 +119,7 @@
             .discount {
                 justify-content: right;
             }
-            label > p{
+            label > span{
                 margin:0;
             }
         }
@@ -145,8 +145,8 @@
         font-family: var(--cinzel) !important;
         @include mixins.display-price;
     }
-    p:last-child {
-        text-decoration: line-through;
+    s {
+        font-family: var(--cinzel) !important;
         color: var(--brand-color);
         font-weight: 400;
         font-size: 1.5rem;

@@ -88,10 +88,10 @@ export default function AddToCart({ id, _productName, variantName, stock, price,
 
     return (
         <> 
-            {stock > 0 ?<p className={`${styles.stock}`}>In Stock</p> : <p className={`${styles.no_stock}`}>Sold Out</p>}
+            {stock > 0 ? <p className={`${styles.stock}`}>In Stock</p> : <p className={`${styles.no_stock}`}>Sold Out</p>}
 
-            <button type="button" disabled={stock <= 0} onClick={handleCart} onKeyDown={handleCart}>
-                {btnText}
+            <button type="button" disabled={stock <= 0} onClick={handleCart}>
+                <span aria-live="polite" aria-atomic="true">{btnText}</span>
             </button>
         </>
     );

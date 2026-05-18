@@ -30,7 +30,7 @@
 .wrapper {
     display: flex;
     align-items: flex-end;
-    span {
+    > div > span {
         margin: 1rem;
     }
     @media(max-width: 830px) {

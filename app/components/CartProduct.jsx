@@ -89,8 +89,8 @@ export function CartProduct() {
             <button
               data-testid={`delete-item_${item.id}`}
               type="button"
+              aria-label={`Remove ${item.productName} from cart`}
               onClick={() => handleRemoval(item.id)}
-              onKeyUp={() => handleRemoval(item.id)}
             >
               Remove
             </button>

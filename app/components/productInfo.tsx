@@ -22,8 +22,8 @@ export default function ProductInfo({ id, title, stock, price, discount, variant
       <>
         <div className={`${style.product_info}`}>
           {variantProduct.discountedPrice !== null ? <div className={`${style.discount}`}>
-            <p className={``} aria-label="This is the current sale price.">{USD.format(variantProduct.discountedPrice)}</p>
-            <p className={``} aria-label="This is the former price, not the price you will pay today.">{USD.format(variantProduct.price)}</p>
+            <p aria-label="Current sale price.">{USD.format(variantProduct.discountedPrice)}</p>
+            <s aria-label="Original price, not what you pay today.">{USD.format(variantProduct.price)}</s>
             </div> :
             <div className={`${style.price}`}>
               <p>{USD.format(variantProduct.price)}</p>
@@ -39,7 +39,7 @@ export default function ProductInfo({ id, title, stock, price, discount, variant
           <div className={style.addToCart}>
           {variant && (
             <label>
-              <p>Choose Size</p>
+              <span>Choose Size</span>
               <select name="options" onChange={handleVariant}>
                 {variant.map((listItem) =>(
                     <option key={listItem.title} value={listItem.title}>
