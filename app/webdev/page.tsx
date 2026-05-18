@@ -30,7 +30,7 @@ export default async function Webdev() {
     </header>
     <section id='aboutMe'>
      <p>I&apos;m a frontend developer based in Chicagoland with a background in animation. My journey into web development started when I built a <Link href="/">portfolio site</Link> for my animated projects. That one project turned into a passion for crafting intuitive, accessible, and well-structured web experiences.</p>
-     <p>In 2021, I built an ecommerce platform, <a href="https://candyfluffs.com">Candy Fluffs</a>, for my sister&apos;s artwork, focusing on performance, scalability, and maintainable code. Now, I work at an ecommerce company improving code quality, user experience, and site performance—from refining accessibility to optimizing page load times.</p>
+     <p>In 2021, I built an ecommerce platform, <a href="https://candyfluffs.com" rel="noopener noreferrer">Candy Fluffs</a>, for my sister&apos;s artwork, focusing on performance, scalability, and maintainable code. Now, I work at an ecommerce company improving code quality, user experience, and site performance—from refining accessibility to optimizing page load times.</p>
      <h2 className={`${styles.h2} ${textStyles.grandstander}`}>Experience</h2>
      <p className={`${styles.experience}`}><strong>Cleverbridge</strong> 2021-present</p>
      <ul className={styles.achievements}>

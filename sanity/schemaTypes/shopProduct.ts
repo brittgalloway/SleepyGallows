@@ -1,7 +1,5 @@
 import {defineField, defineType} from 'sanity'
 
-const variantID = crypto.randomUUID();
-
 export const shopProduct = defineType({
   name: 'shopProduct',
   title: 'Shop Product',
@@ -77,7 +75,7 @@ export const shopProduct = defineType({
                 name: 'ID',
                 type: 'string',
                 description: 'Identifier',
-                initialValue: variantID,
+                initialValue: () => crypto.randomUUID(),
             }),
             defineField({
                 name: 'title',
