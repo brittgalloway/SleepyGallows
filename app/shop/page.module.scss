@@ -63,6 +63,10 @@
 }
 .cart {
   max-width: 500px;
+  width: 100%;
+   @media (width <= 500px) {
+    width: revert;
+  }
   padding: 1rem 2rem;
   overflow: clip;
   border-radius: var(--border-radius);
