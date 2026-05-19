@@ -31,14 +31,21 @@ export default async function Client() {
           <h1 className={`${textStyles.text_center } ${textStyles.cinzelDec}`}>Client Work</h1>
         </header>
         <div className={styles.videoWrapper}>
-          {project[0].animations.map((project)=> (
+          {project[0].animations.map((animation: {
+            _key: string
+            link: string
+            summary: string
+            title: string
+            year: string
+            website?: string
+          }) => (
             <Project
-              key={project._key}
-              title={project.title}
-              year={project.year}
-              summary={project.summary}
-              link={project.link}
-              website={project.website}
+              key={animation._key}
+              title={animation.title}
+              year={animation.year}
+              summary={animation.summary}
+              link={animation.link}
+              website={animation.website}
             />
           ))}
         </div>
