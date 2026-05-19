@@ -13,7 +13,7 @@ export default function ThankYou() {
     }, []);
 
     return (
-        <div className={`${styles.wrapper}`}>
+        <div className={`${styles.wrapper} ${styles.thankyou}`}>
             <h1 className={`${textStyles.text_center}`}>Thank you for your order!</h1>
             <p>Every sale helps this small artist continue her art journey~</p>
             <p>Your order confirmation was sent to your email.</p>

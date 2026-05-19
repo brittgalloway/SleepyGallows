@@ -189,3 +189,10 @@
     font-family: var(--lato);
   }
 }
+.thankyou {
+  max-width: 80%;
+  margin-bottom: 3rem;
+  @media(width >= 1024px){
+    max-width: 60%;
+  }
+}
