@@ -6,7 +6,7 @@ import styles from '@/style/artGrid.module.scss'
 import textStyles from '@/style/titles.module.scss'
 import marginStyle from '@/animation/page.module.scss'
 
-export default async function artOriginals({params}) {
+export default async function artOriginals({params}: { params: Promise<{ original: string }> }) {
   const { original } = await params;
     const POSTS_QUERY = `*[
         _type == "original"
