@@ -6,13 +6,32 @@ import { ProductDetails } from '@/lib/types'
 import AddToCart from '@/components/addToCart'
 import style from '@/style/product.module.scss'
 
+type VariantState = {
+  ID: string
+  title: string | undefined
+  price: number
+  discountedPrice: number | null
+  stock: number
+}
+
 export default function ProductInfo({ id, title, stock, price, discount, variant, longDescription, shortDescription, img, shippingType } : ProductDetails) {
-    const [variantProduct, setVariantProduct] = useState({ID:id, title:null, price:price, discountedPrice:discount, stock:stock});
+    const [variantProduct, setVariantProduct] = useState<VariantState>({
+      ID: id,
+      title: undefined,
+      price: price,
+      discountedPrice: discount ?? null,
+      stock: stock,
+    });
 
     const handleVariant = (event: React.ChangeEvent<HTMLSelectElement>) => {
+      if (!variant) return;
       const item = event.target.value;
       const selectedVariant = variant.find((items) => items.title === item);
-      if (selectedVariant) setVariantProduct(selectedVariant);
+      if (selectedVariant) setVariantProduct({
+        ...selectedVariant,
+        title: selectedVariant.title,
+        discountedPrice: selectedVariant.discountedPrice,
+      });
     }
     return (
       <>
@@ -51,7 +70,7 @@ export default function ProductInfo({ id, title, stock, price, discount, variant
             _productName={title}
             variantName={variantProduct.title}
             stock={variantProduct.stock}
-            discount={variantProduct.discountedPrice}
+            discount={variantProduct.discountedPrice ?? undefined}
             price={variantProduct.price}
             productDescription={shortDescription}
             thumbnail={img}
