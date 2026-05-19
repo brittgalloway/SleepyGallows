@@ -1,6 +1,10 @@
 import styles from '@/style/shopBanner.module.scss'
-import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
+
+type Banner = {
+  id: string
+  body: string
+}
 
 export async function ShopBanner() {
   const POSTS_QUERY = `*[
@@ -11,7 +15,7 @@ export async function ShopBanner() {
     "body": body,
   }`;
     
-  const banners = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
+  const banners = await client.fetch<Banner[]>(POSTS_QUERY, {});
   return (
     banners[0] !== undefined && 
     <aside className={styles.aside}>

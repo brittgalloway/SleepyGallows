@@ -45,3 +45,22 @@ export type CartProduct = {
     thumbnail:string,
     shipping?: string
 }
+
+export type CartItem = {
+    id: string
+    quantity: number
+    productName: string
+    variantName?: string
+    productStock: number
+    productPrice: number
+    productDiscount?: number
+    productDescription: string
+    productDisplay: string
+    shipping?: string
+}
+
+export type CartState = {
+    count: number
+    items: CartItem[]
+    shipping: number
+}

@@ -2,15 +2,15 @@
 import { useState } from 'react'
 import { useCartContext } from '@/shop/cartContext'
 import styles from '@/style/product.module.scss'
-import { CartProduct } from '@/lib/types'
+import { CartProduct, CartState, CartItem } from '@/lib/types'
 import { calculateShipping } from '@/lib/utils'
 
 export default function AddToCart({ id, _productName, variantName, stock, price, discount, productDescription, thumbnail, shipping }:CartProduct) {
     const { cart, setCart } = useCartContext();
     const [btnText, setBtnText] = useState('Add To Cart');
     const handleCart = () => {
-        setCart((prevCart) => {
-            const prevItems = prevCart?.items || [];
+        setCart((prevCart: CartState) => {
+            const prevItems: CartItem[] = prevCart?.items || [];
             const existingItemIndex = prevItems.findIndex(
                 (item) => item.id === id
             );

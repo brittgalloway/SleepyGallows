@@ -1,9 +1,19 @@
 import Link from 'next/link'
 import { cinzel_decorative } from '@/fonts'
-import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
 import { ProductDisplay } from './productDisplay'
 import styles from '@/style/productCategory.module.scss'
+
+type ShopProduct = {
+  id: string
+  title: string
+  price: number
+  discount: number | null
+  stock: number
+  productType: string
+  slug: string
+  thumbnail: { url: string } | null
+}
 
 const POSTS_QUERY = `
   *[_type == "shopProduct"]
@@ -22,7 +32,7 @@ const POSTS_QUERY = `
 const categories = ['fine-art', 'prints', 'stationery'];
 
 export async function ProductCategory() {
-  const products = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
+  const products = await client.fetch<ShopProduct[]>(POSTS_QUERY, {});
   return (
       <section className={`${styles.section}`}>
         {categories.map((category) =>(
