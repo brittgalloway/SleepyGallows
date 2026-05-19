@@ -1,16 +1,15 @@
 import OriginalsNav from '@/components/OriginalsNav'
 import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
-import ImageComponent from '@/components/sanityImage'
 import Grid from '@/components/Grid'
 import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 import imgGrid from '@/style/artGrid.module.scss'
 
 
-export default async function aboutOriginal({params}) {
+export default async function aboutOriginal({ params }: { params: Promise<{ original: string }> }) {
   const { original } = await params;
-  const POSTS_QUERY = await `*[
+  const POSTS_QUERY = `*[
       _type == "original"
       && link.current == "${original}"
     ] 
@@ -32,18 +31,21 @@ export default async function aboutOriginal({params}) {
           navLabel={originalData.link}/>
         <h1 className={`${textStyles.text_center} ${textStyles.cinzelDec} ${styles.margin}`}>What is {originalData.title}?</h1>
       </header>
-        <p dangerouslySetInnerHTML={{ __html: originalData.summary }} className={`${styles.margin}`}/>
+        <p className={`${styles.margin}`}>{originalData.summary}</p>
         <h2 className={`${textStyles.text_center} ${textStyles.cinzelDec} ${styles.margin}`}>
           Characters
         </h2>
         <div className={`${styles.videoWrapper} ${styles.charactersBlock}`}>
-          {originalData.characters.gallery.map((character)=> 
-           (
-            <ImageComponent
+          {originalData.characters.gallery.map((character: {
+            alt: string
+            asset: { assetId: string; url: string }
+          }) => (
+            <img
               key={character?.asset?.assetId}
-              image={character?.asset?.url}
-              altText={character?.alt}
-              />
+              src={character?.asset?.url}
+              alt={character?.alt}
+              loading="lazy"
+            />
           ))}
         </div>
         {originalData.hasConceptArt && (
@@ -59,4 +61,3 @@ export default async function aboutOriginal({params}) {
     </section>
   )
 }
-

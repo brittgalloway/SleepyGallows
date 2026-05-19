@@ -24,9 +24,9 @@ export default async function Animation() {
   const images = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   const img = images[0];
   const links = [
-    ['Originals', styles.original, styles.imgOriginal, 'originals', img.gallery[0].asset.url, img.gallery[0].asset.alt],
-    ['Client Work', styles.client, styles.img, 'client', img.gallery[1].asset.url, img.gallery[1].asset.alt],
-    ['For Fun', styles.fun, styles.img, 'fun', img.gallery[2].asset.url, img.gallery[2].asset.alt],
+    ['Originals', styles.original, styles.imgOriginal, 'originals', img.gallery[0].asset.url, img.gallery[0].alt],
+    ['Client Work', styles.client, styles.img, 'client', img.gallery[1].asset.url, img.gallery[1].alt],
+    ['For Fun', styles.fun, styles.img, 'fun', img.gallery[2].asset.url, img.gallery[2].alt],
   ];
   return (
     <main className={styles.main}> 

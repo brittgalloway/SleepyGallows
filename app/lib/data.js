@@ -4,7 +4,7 @@ export const NEWSLETTER = 'https://sleepygallows.beehiiv.com/';
 export const NEWSLETTER_EMBED = 'https://embeds.beehiiv.com/3178b493-940a-49e7-a1e0-c7095d94b9db?slim=true';
 export const YOUTUBE = 'https://www.youtube.com/@sleepygallows';
 export const INSTAGRAM = 'https://www.instagram.com/sleepy_gallows/';
-export const BLUESKY = 'https://bsky.app/blgalloway.bsky.social';
+export const BLUESKY = 'https://bsky.app/profile/blgalloway.bsky.social';
 export const TUMBLR = 'https://sleepygallows.tumblr.com/';
 export const GITHUB = 'https://github.com/brittgalloway/';
 export const LINKEDIN = 'https://www.linkedin.com/in/brittneygalloway/';

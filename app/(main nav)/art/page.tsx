@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { rgbDataURL } from '@/lib/utils'
 import styles from './page.module.scss'
-import MainNavigation from '@/components/MainNavigation'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
@@ -25,9 +24,7 @@ export default async function Art() {
   const images = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   const img = images[0];
   return (
-    <>
-      <MainNavigation/>
-      <main className={styles.main}>
+    <main className={styles.main}>
           <Link className={styles.a} href="/art/illustration">
               <p className={`${styles.p} ${textStyles.cinzelDec}`} >Crystal</p>
               <Image 
@@ -55,6 +52,5 @@ export default async function Art() {
               />
           </Link>
       </main>
-    </>
   )
 }

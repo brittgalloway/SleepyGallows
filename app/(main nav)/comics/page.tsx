@@ -38,14 +38,14 @@ export default async function Comics() {
               <ul className={styles.ul}>
                 {links.map((link, index)=> (
                   <li key={index}>
-                    <a href={link[1]}>{link[0]}</a>
+                    <a href={link[1]} rel="noopener noreferrer">{link[0]}</a>
                   </li>
                 ))}
               </ul>
             </div>
             <section className={styles.section}>
             <p>
-              Come join us on our first journey with Necahual, Quetzalli, and Anacoana as they discover their destiny and help save their people. <a href={WEBTOON}>NECAHUAL</a> is a new and refreshing take on the magical trope that also honors Meso-American cultures. Subscribe to the <a href={WEBTOON}>WEBTOON</a> and never miss an update!
+              Come join us on our first journey with Necahual, Quetzalli, and Anacoana as they discover their destiny and help save their people. <a href={WEBTOON} rel="noopener noreferrer">NECAHUAL</a> is a new and refreshing take on the magical trope that also honors Meso-American cultures. Subscribe to the <a href={WEBTOON} rel="noopener noreferrer">WEBTOON</a> and never miss an update!
             </p>
             <div className={styles.image}>
               <Image 
@@ -63,7 +63,7 @@ export default async function Comics() {
         <article>
           <h3>Already a Fan?</h3>
           <p className={styles.p}>
-            Find Stickers, Buttons, Charms, and Prints at <a href={NECAHUAL}>CandyFluffs.com</a>
+            Find Stickers, Buttons, Charms, and Prints at <a href={NECAHUAL} rel="noopener noreferrer">CandyFluffs.com</a>
           </p>
           <small>
             Patreon supporters get 15% off everything in the store

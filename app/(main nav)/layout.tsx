@@ -1,6 +1,7 @@
 import MainNavigation from '@/components/MainNavigation'
+import { type ReactNode } from 'react'
 
-export default function MainNavLayout({ children }) {
+export default function MainNavLayout({ children }: { children: ReactNode }) {
   return (
       <section className={`wrapper`} >
         <MainNavigation/>
@@ -8,4 +9,3 @@ export default function MainNavLayout({ children }) {
       </section>
   )
 }
-
