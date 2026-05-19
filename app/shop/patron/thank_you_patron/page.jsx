@@ -1,7 +1,7 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
-import styles from '../patron.module.scss'
+import styles from '../../page.module.scss'
 
 function PromoCodeDisplay() {
   const searchParams = useSearchParams();
@@ -32,7 +32,7 @@ function PromoCodeDisplay() {
 
 export default function ThankYouPatron() {
   return (
-    <section className={styles.wrapper}>
+    <section className={`${styles.wrapper} ${styles.thankyou}`}>
       <h1>Thank You for Becoming a Patron!</h1>
       <Suspense>
         <PromoCodeDisplay />
