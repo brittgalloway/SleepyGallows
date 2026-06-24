@@ -3,7 +3,6 @@ import { PortableText } from '@portabletext/react'
 import OriginalsNav from '@/components/OriginalsNav'
 import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
-import ImageComponent from '@/components/sanityImage'
 import Grid from '@/components/Grid'
 import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
@@ -58,11 +57,12 @@ export default async function aboutOriginal({ params }: { params: Promise<{ orig
         </h2>
         <div className={`${styles.videoWrapper} ${styles.charactersBlock}`}>
           {originalData.characters.gallery.map((character) => (
-            <ImageComponent
+            <img
               key={character?.asset?.assetId}
-              image={character?.asset?.url}
-              altText={character?.alt}
-              />
+              src={character?.asset?.url}
+              alt={character?.alt}
+              loading="lazy"
+            />
           ))}
         </div>
         {originalData.hasConceptArt && (
