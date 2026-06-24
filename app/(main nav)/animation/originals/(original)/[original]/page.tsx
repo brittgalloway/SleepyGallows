@@ -57,11 +57,13 @@ export default async function watchOriginal({params}) {
           <h3 className={`${textStyles.textCenter} ${textStyles.lato} ${textStyles.weightNormal}`}>
             Coming Soon
           </h3>
-          <div style={{'height': '500px'}}>
-            <Animation
-              src={orig.inProgress}
-              />
-          </div>
+          {orig?.inProgress &&
+            <div style={{'height': '500px'}}>
+              <Animation
+                src={orig.inProgress}
+                />
+            </div>
+          }
         </main> 
         )
       }
