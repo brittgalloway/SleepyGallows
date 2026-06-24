@@ -27,9 +27,13 @@ export default async function artOriginals({params}) {
         <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>Art of {originalArt[0].title}</h1>
       </header>
       <div>
+        {originalArt[0]?.art?.gallery ?
         <Grid
           photos={originalArt[0].art.gallery}
           />
+          :
+          <h2>Nothing yet, come back soon.</h2>
+        }
       </div>
     </section>
   )
