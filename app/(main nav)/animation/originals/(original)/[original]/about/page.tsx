@@ -1,11 +1,29 @@
+import { PortableText } from '@portabletext/react'
 import OriginalsNav from '@/components/OriginalsNav'
-import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
 import Grid from '@/components/Grid'
 import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 import imgGrid from '@/style/artGrid.module.scss'
 
+type AboutOriginal = {
+  title: string
+  id: string
+  link: string
+  summary: any[] // Portable Text block array
+  characters: {
+    gallery: {
+      alt: string
+      asset: { assetId: string; url: string }
+    }[]
+  }
+  hasConceptArt: boolean
+  conceptArt: {
+    caption: string
+    alt: string
+    asset: { assetId: string; metadata: unknown; _id: string; url: string }
+  }[]
+}
 
 export default async function aboutOriginal({ params }: { params: Promise<{ original: string }> }) {
   const { original } = await params;
@@ -17,12 +35,12 @@ export default async function aboutOriginal({ params }: { params: Promise<{ orig
       "title": title,
       "id": _id,
       "link": link.current,
-      "summary": about.summary[0].children[0].text,
+      "summary": about.summary,
       "characters": about.characters-> { gallery[]{ alt, hotspot{...},  asset-> { assetId, url } } },
       "hasConceptArt": about.hasConceptArt,
       "conceptArt": about.conceptArt[].gallery[]{ caption, alt, hotspot{...},  asset-> { assetId, metadata, _id, url } }
     }`;
-  const originalSanity = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
+  const originalSanity = await client.fetch<AboutOriginal[]>(POSTS_QUERY, {});
   const originalData = originalSanity[0];
   return (
     <section>
@@ -31,15 +49,12 @@ export default async function aboutOriginal({ params }: { params: Promise<{ orig
           navLabel={originalData.link}/>
         <h1 className={`${textStyles.text_center} ${textStyles.cinzelDec} ${styles.margin}`}>What is {originalData.title}?</h1>
       </header>
-        <p className={`${styles.margin}`}>{originalData.summary}</p>
-        <h2 className={`${textStyles.text_center} ${textStyles.cinzelDec} ${styles.margin}`}>
+        <PortableText value={originalData.summary} />
+        <h2 className={`${textStyles.text_center }`}>
           Characters
         </h2>
         <div className={`${styles.videoWrapper} ${styles.charactersBlock}`}>
-          {originalData.characters.gallery.map((character: {
-            alt: string
-            asset: { assetId: string; url: string }
-          }) => (
+          {originalData.characters.gallery.map((character) => (
             <img
               key={character?.asset?.assetId}
               src={character?.asset?.url}

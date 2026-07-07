@@ -61,11 +61,13 @@ export default async function watchOriginal({ params }: { params: Promise<{ orig
           <h3 className={`${textStyles.text_center} ${textStyles.lato} ${textStyles.weightNormal}`}>
             Coming Soon
           </h3>
-          <div style={{'height': '500px'}}>
-            <Animation
-              src={orig.inProgress}
-              />
-          </div>
+          {orig?.inProgress &&
+            <div style={{'height': '500px'}}>
+              <Animation
+                src={orig.inProgress}
+                />
+            </div>
+          }
         </main> 
         )
       }

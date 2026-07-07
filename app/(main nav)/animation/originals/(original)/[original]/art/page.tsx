@@ -27,9 +27,15 @@ export default async function artOriginals({params}: { params: Promise<{ origina
         <h1 className={`${textStyles.text_center} ${textStyles.cinzelDec} ${marginStyle.margin}`}>Art of {originalArt[0].title}</h1>
       </header>
       <div className={`${marginStyle.margin}`}>
+      <div>
+        {originalArt[0]?.art?.gallery ?
         <Grid
           photos={originalArt[0].art.gallery}
           />
+          :
+          <h2>Nothing yet, come back soon.</h2>
+        }
+      </div>
       </div>
     </section>
   )
