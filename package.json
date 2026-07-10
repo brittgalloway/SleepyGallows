@@ -38,6 +38,7 @@
   "devDependencies": {
     "@types/node": "20.14.12",
     "@types/react": "19.1.10",
+    "eslint": "^10.6.0",
     "jest-environment-jsdom": "^29.7.0",
     "sass": "^1.97.0",
     "ts-jest": "^29.2.4",
