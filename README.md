@@ -19,7 +19,7 @@ This project is a work in progress, continuously refined to enhance both functio
 - **Animations** – Includes original shorts, client work, and personal projects.
 - **Comics** – Currently featuring "Necahual" by Crystal and Sergio Silva.
 - **Art Galleries** – Showcasing Crystal’s illustrations & visual development, and Brittney’s sketches & collage art.
-- **Shop (In Progress)** – Soon to feature Sleepy Gallows-related art and merchandise.
+- **Shop (In Progress)** – Soon to feature Sleepy Gallows-related art and merchandise. 
 
 ## Technologies Used
 
