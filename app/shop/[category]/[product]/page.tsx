@@ -8,7 +8,7 @@ import style from '@/style/product.module.scss'
 import layoutStyle from '@/shop/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
-export default async function Product({ params }: { params: Promise<{ product: string }> }) {
+export default async function Product({ params }: { params: { product: string } }) {
   const { product } = await params;
 
   const POSTS_QUERY = `*[
