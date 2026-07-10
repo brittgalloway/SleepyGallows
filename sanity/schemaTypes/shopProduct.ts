@@ -24,7 +24,7 @@ export const shopProduct = defineType({
                 { title: "fine art", value: "fine-art" },
                 { title: "prints", value: "prints" },
                 { title: "books", value: "books" },
-                { title: "stationery", value: "stationery" },
+                { title: "accessories", value: "accessories" },
             ],
         },
         validation: (rule) => rule.required(),
@@ -53,52 +53,6 @@ export const shopProduct = defineType({
         to: [{type: 'imageGallery'}],
         description: 'Max of 4 images, webp. Sizes: 855px x 450px or 430px X 500px',
         validation: (rule) => rule.required(),
-    }),
-    defineField({
-        title: 'Product Thumbnail',
-        name: 'Thumbnail',
-        type: 'image',
-        description: 'webp sized 309px x 240px',
-    }),
-    defineField({
-        title: 'Cart Product Thumbnail',
-        name: 'cartThumbnail',
-        type: 'image',
-        description: 'webp sized 100px x 100px',
-    }),
-    defineField({
-      name: 'variant',
-      type: 'array',
-      of: [{ type:'document',
-        fields: [
-            defineField({
-                name: 'ID',
-                type: 'string',
-                description: 'Identifier',
-                initialValue: () => crypto.randomUUID(),
-            }),
-            defineField({
-                name: 'title',
-                type: 'string',
-                description: 'The defining difference, usually size, color,  or character name. Please put the default first.',
-            }),
-            defineField({
-                name: 'price',
-                type: 'number',
-                description: 'variant price',
-            }),
-            defineField({
-                name: 'discountedPrice',
-                type: 'number',
-                description: 'Discounted price for the variant',
-            }),
-            defineField({
-                name: 'stock',
-                type: 'number',
-                description: 'No negative numbers',
-            }),
-        ]
-      }],
     }),
     defineField({
         name: 'shortDescription',
@@ -131,7 +85,8 @@ export const shopProduct = defineType({
                 options: {
                     list: [
                         { title: "Print Domestic", value: "print domestic" },
-                        { title: "Fine Art", value: "fine art" },
+                        { title: "Wood Panel", value: "wood panel" },
+                        { title: "Mat Board", value: "mat board" },
                         { title: "Stickers", value: "stickers" },
                         { title: "Books", value: "books" },
                     ],

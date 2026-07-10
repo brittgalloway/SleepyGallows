@@ -1,15 +1,16 @@
 import Image from 'next/image'
-import { PortableText } from '@portabletext/react'
+import Link from 'next/link'
 import { type SanityDocument } from 'next-sanity'
-import { client } from 'b/sanityLib/client'
+import { client } from '../../../sanity/lib/client'
+import { cinzel_decorative } from '@/fonts'
+import { rgbDataURL } from '@/lib/utils'
 import { NoClients } from '@/components/NoClients'
 import styles from './page.module.scss'
-import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | About',
-  description: 'About the Sleepy Gallows.',
-  keywords: 'animation, sleepy gallows, brittney, crystal, galloway, art, for peace love harmony,chicago artist, evanston artist, black artist',
+  description: "About the Sleepy Gallows.",
+  keywords: "animation, sleepy gallows, brittney, crystal, galloway, art, for peace love harmony",
 }
 
 
@@ -19,7 +20,12 @@ const POSTS_QUERY = `*[
   ] 
   {
     "header": header,
-    "bodyText": body,
+    "subHeader": body[0].children[0].text,
+    "body1": body[1].children[0].text,
+    "body2": body[2].children[0].text,
+    "body3": body[3].children[0].text,
+    "linkText": body[3].children[1].text,
+    "body4": body[3].children[2].text,
   }`;
 const IMAGE_QUERY = `*[
   _type == "imageGallery" &&
@@ -39,23 +45,32 @@ export default async function About() {
   return (
     <>
       <main className={styles.main}>
-        <article className={`${textStyles.lato}`}>
-          <h1>{text.header}</h1>
-          <PortableText
-            value={text.bodyText}
-            // components={/* optional object of custom components to use */}
-          />
+        <article>
+          <h1 className={`${cinzel_decorative.className}`}>{text.header}</h1>
+          <h3>{text.subHeader}</h3>
+          <p>
+            {text.body1}
+          </p>
+          <p>
+            {text.body2}
+          </p>
+          <p>
+            {text.body3}<Link href='/animation/originals/plh'>{text.linkText}</Link>{text.body4}
+          </p>
         </article>
         <article className={styles.creators}>
-          <h2>About the Creators</h2>
-          <h3 className={`${textStyles.weightNormal}`}>
+          <h2 className={`${cinzel_decorative.className}`}>About the Creators</h2>
+          <h3>
             We are Sisters by blood in sister fields: Animation and Illustration!
-          ​​​​</h3>
+          ​​​​​​​</h3>
           <Image 
           src={img[0].gallery.asset.url}
           alt={img[0].alt}
           width={530} 
           height={600}
+          placeholder='blur'
+          blurDataURL={rgbDataURL(228, 220, 243)}
+          loading='lazy'
           />
           <p>
             We were born and raised in the Chicagoland area and went to California College of the Arts (CCA) in the Bay Area. Brittney (right) got her BFA in Animation (2014) while Crystal (left) got her BFA in Illustration(2015). Now both sisters are back in Chicago making art.

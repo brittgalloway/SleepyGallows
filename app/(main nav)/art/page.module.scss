@@ -17,7 +17,6 @@
   align-items: center;
   background-color: var(--purple-highlight); 
   overflow: hidden;
-  font-weight: 700;
   &:hover {
     text-decoration: none;
     p + img {
@@ -30,9 +29,8 @@
    }
 }
 .h1 {
-  margin-block: 2rem;
-  font-family: var(--cinzel_decorative);
   text-align: center;
+  margin-block: 2rem;
   font-size: 2rem;
 }
 .article {
@@ -40,7 +38,7 @@
 }
 .p {
   font-size: 2.5em;
-  color:#fff;
+  color: white;
   z-index:1;
   text-shadow: 3px 3px 0px var(--text-color);
   -webkit-text-stroke: 1px var(--brand-color);

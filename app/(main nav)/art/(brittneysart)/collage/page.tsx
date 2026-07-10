@@ -1,5 +1,5 @@
 import { type SanityDocument } from 'next-sanity'
-import { client } from 'b/sanityLib/client'
+import { client } from '../../../../../sanity/lib/client'
 import Grid from '@/components/Grid'
 import ArtNav from '@/art/nav'
 import { Footer } from '@/components/Footer'
@@ -7,8 +7,8 @@ import styles from '@/style/artGrid.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Brittney\'s Art',
-  description: 'Showcase the art of Brittney Galloway.',
-  keywords: 'brittney galloway, art, plh, collage, chicago artist, evanston artist, black artist',
+  description: "Showcase the art of Brittney Galloway.",
+  keywords: "brittney galloway, art, plh, collage",
 }
 
 const POSTS_QUERY = `*[
