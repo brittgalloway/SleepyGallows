@@ -1,25 +1,24 @@
 .main {
-  padding:1rem;
-  margin-left: auto;
-  min-height: 100vh;
-  overflow-x: clip;
+  padding:0;
+  height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
   @media(max-width: 830px){
     width: 100%;
   }
 }
 .p {
+  font-size: 2em;
+  color: white;
+  z-index:1;
+  padding: 0.5rem;
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   align-self: center;
   justify-self: center;
-  padding: 0.5rem;
   margin: 0;
-  font-size: 2em;
-  font-weight: 700;
-  color:#fff;
   text-shadow: 3px 3px 0px var(--text-color);
   -webkit-text-stroke: 1px var(--brand-color);
-  z-index:1;
 }
 @mixin a {
   display:grid;
@@ -54,9 +53,7 @@
 }
 .client {
   @include a;
-  & {
-    background-color: var(--seagreen-highlight); 
-  }
+  background-color: var(--seagreen-highlight); 
 }
 .fun {
   @include a;
@@ -74,26 +71,25 @@
 }
 .videoWrapper {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:center;
 }
 .video {
-  margin: 0;
+  margin:1rem;
+  max-width: 300px;
   summary {
     width: 100%;
-    font-weight: 400;
+    font-weight: 700;
   }
   summary::marker {
     color: var(--brand-color);
   }
   details {
+    inline-size: 50ch;
     p {
       margin-top: 0;
       a {
-        transition: color var(--transition);
         word-break: break-all;
       }
     }
@@ -106,7 +102,7 @@
       transition: content-visibility 1s allow-discrete,
                   opacity 1s,
                   block-size 1s;
-      background:#fff;
+      background: white;
       border: 1px solid purple;
       border-radius: 4px;
       padding: 1rem;
@@ -130,7 +126,6 @@
   }
 }
 .project {
-  transition: scale var(--transition) ease-in-out;
   border-radius: 4px;
   transition: transform 0.2s ease-in-out;
   &:hover{
@@ -141,10 +136,6 @@
     height: 100%;
     width: 100%;
   }
-}
-.originalsMain {
-  margin: 0;
-  padding: 0;
 }
 .charactersBlock {
   display: grid;
@@ -162,6 +153,3 @@
     }
   }
 } 
-.margin {
-  margin: 2rem;
-}

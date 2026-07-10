@@ -1,9 +1,6 @@
-import { client } from 'b/sanityLib/client'
+import { type SanityDocument } from 'next-sanity'
+import { client } from '../../sanity/lib/client'
 import Animation from '@/components/rive'
-
-type RiveAsset = {
-  rive: string
-}
 
 const POSTS_QUERY = `*[
   Header == "FE Header"
@@ -11,7 +8,7 @@ const POSTS_QUERY = `*[
     "rive": rive.asset->url
 }`;
 export default async function BrittneyAvitar() {
-  const rive = await client.fetch<RiveAsset[]>(POSTS_QUERY, {});
+  const rive = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   return (
     <div style={{'height': '400px', 'mixBlendMode':'multiply'}}>
       <Animation

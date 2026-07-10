@@ -1,4 +1,4 @@
-@use 'sass:color';
+@use "sass:color";
 .main {
   background:  color.adjust(#9370db, $lightness: 20%);
   width: 100vw;
@@ -21,25 +21,25 @@
   display: inherit;
   grid-template-rows: subgrid;
   overflow: hidden;
-  transition: text-decoration var(--transition);
+  transition: text-decoration 300ms;
   &:hover{
     text-decoration: none;
    }
   p {
-    z-index: 1;  
-    margin: 0;
-    padding: 0 0.5rem;
     justify-self: center;
     align-self: center;
-    grid-row: 1/3;
-    grid-column: 1/3;
     font-size: 3.25em;
+    color: white;
     text-shadow: 3px 3px 0px var(--brand-color);
     font-weight: bold;
-    line-height: 1em;
-    -webkit-text-stroke: 1px var(--brand-color);
-    color:#fff;
     background-color: var(--pink-highlight);
+    -webkit-text-stroke: 1px var(--brand-color);
+    line-height: 1em;
+    z-index: 1;  
+    margin: 0;
+    grid-row: 1/3;
+    grid-column: 1/3;
+    padding: 0 0.5rem;
     &:hover{
       & + img {
         -webkit-filter: blur(5px);
@@ -52,14 +52,14 @@
   }
   img {
     object-fit:cover;
+    mix-blend-mode: multiply;
     margin: 0;
+    transition: all .5s ease-in-out;
+    width: 100%;
+    height: 100%;
     grid-row: 1/3;
     grid-column: 1/3;
-    width: 110%;
-    height: 110%;
     border-radius:0;
-    mix-blend-mode: multiply;
-    transition: all .5s ease-in-out;
     &:hover{
       -webkit-filter: blur(5px);
       filter: blur(5px);

@@ -1,15 +1,16 @@
+import { cinzel_decorative } from '@/fonts'
 import { type SanityDocument } from 'next-sanity'
-import { client } from 'b/sanityLib/client'
+import { client } from '../../../../sanity/lib/client'
 import AnimationNav from '@/components/Nav'
-import Project from '@/animation/projects'
+import Project from '../projects'
 import { Footer } from '@/components/Footer'
-import styles from '@/animation/page.module.scss'
+import styles from '../page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'SG | Fun Animations',
-  description: 'Fun Animation created by Brittney Galloway.',
-  keywords: 'animation, sleepy gallows, brittney, chicago artist, evanston artist, black artist',
+  description: "Fun Animation created by Brittney Galloway.",
+  keywords: "animation, sleepy gallows, brittney galloway",
 }
 
 const POSTS_QUERY = `
@@ -27,22 +28,16 @@ export default async function Fun() {
       <main> 
         <header>
           <AnimationNav/>
-          <h1 className={`${textStyles.text_center } ${textStyles.cinzelDec}`}>Passion Projects</h1>
+          <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>Passion Projects</h1>
         </header>
         <div className={styles.videoWrapper}>
-          {project[0].animations.map((animation: {
-            _key: string
-            link: string
-            summary: string
-            title: string
-            year: string
-          }) => (
+          {project[0].animations.map((project)=> (
             <Project
-              key={animation?._key}
-              title={animation?.title}
-              year={animation?.year}
-              summary={animation?.summary}
-              link={animation?.link}
+              key={project?._key}
+              title={project?.title}
+              year={project?.year}
+              summary={project?.summary}
+              link={project?.link}
             />
           ))}
         </div>
@@ -53,3 +48,4 @@ export default async function Fun() {
     </>
   )
 }
+
