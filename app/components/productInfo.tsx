@@ -53,7 +53,7 @@ export default function ProductInfo({ id, title, stock, price, discount, variant
           </div>
           <div className={style.addToCart}>
           {variant && (
-            <label>
+            <label className={style.variant_label}>
               <span>Choose Size</span>
               <select name="options" onChange={handleVariant}>
                 {variant.map((listItem) =>(
