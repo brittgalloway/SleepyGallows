@@ -1,4 +1,3 @@
-import { cinzel_decorative } from '@/fonts'
 import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
 import OriginalsNav from '@/components/OriginalsNav'
@@ -8,10 +7,10 @@ import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 
-export default async function watchOriginal({params}) {
+export default async function watchOriginal({ params }: { params: Promise<{ original: string }> }) {
   const { original } = await params;
 
-  const POSTS_QUERY = await `*[
+  const POSTS_QUERY = `*[
     _type == "original"
     && link.current == "${original}"
   ] 
@@ -30,12 +29,17 @@ export default async function watchOriginal({params}) {
       <header>
         <OriginalsNav 
           navLabel={orig?.link}/>
-        <h1 className={`${textStyles.textCenter} ${cinzel_decorative.className}`}>{orig.title}</h1>
+        <h1 className={`${textStyles.text_center} ${textStyles.cinzelDec}`}>{orig.title}</h1>
       </header>
       { orig?.hasVideo == true ? (
         <main>
            <div className={styles.videoWrapper}>
-              {orig.watch.animation.map((video)=> (
+              {orig.watch.animation.map((video: {
+                _id: string
+                link: string
+                title: string
+                year: string
+              }) => (
                 <div key={video?._id} className={styles.video}>
                   <Iframe 
                     link={video?.link} 
@@ -51,10 +55,10 @@ export default async function watchOriginal({params}) {
         </main>
       ) : (
         <main>
-          <h2 className={`${textStyles.textCenter} ${cinzel_decorative.className}`}>
+          <h2 className={`${textStyles.text_center} ${textStyles.cinzelDec}`}>
             In Production!
           </h2>
-          <h3 className={`${textStyles.textCenter} ${textStyles.lato} ${textStyles.weightNormal}`}>
+          <h3 className={`${textStyles.text_center} ${textStyles.lato} ${textStyles.weightNormal}`}>
             Coming Soon
           </h3>
           {orig?.inProgress &&

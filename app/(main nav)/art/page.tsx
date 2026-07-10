@@ -1,16 +1,15 @@
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../../sanity/lib/client'
+import { client } from 'b/sanityLib/client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { cinzel_decorative } from '@/fonts'
 import { rgbDataURL } from '@/lib/utils'
 import styles from './page.module.scss'
-import MainNavigation from '@/components/MainNavigation'
+import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Art',
-  description: "Showcase the art of Brittney and Crystal Galloway.",
-  keywords: "brittney galloway, crystal galloway, art, necahual, elusive green elephant, plh",
+  description: 'Showcase the art of Brittney and Crystal Galloway.',
+  keywords: 'brittney galloway, crystal galloway, art, necahual, elusive green elephant, plh, chicago artist, evanston artist, black artist',
 }
 const POSTS_QUERY = `*[
   _type == "imageGallery" &&
@@ -25,15 +24,13 @@ export default async function Art() {
   const images = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
   const img = images[0];
   return (
-    <>
-      <MainNavigation/>
-      <main className={styles.main}>
+    <main className={styles.main}>
           <Link className={styles.a} href="/art/illustration">
-              <p className={`${styles.p} ${cinzel_decorative.className}`} >Crystal</p>
+              <p className={`${styles.p} ${textStyles.cinzelDec}`} >Crystal</p>
               <Image 
-                className={styles.img}
                 src={img.gallery[1].asset.url} 
                 alt={img.gallery[1].alt}
+                className={styles.img}
                 width={700}
                 height={1000}
                 placeholder='blur'
@@ -42,11 +39,11 @@ export default async function Art() {
                 />
           </Link>
           <Link className={styles.a} href="/art/drawings">
-            <p className={`${styles.p} ${cinzel_decorative.className}`}>Brittney</p>
+            <p className={`${styles.p} ${textStyles.cinzelDec}`}>Brittney</p>
             <Image 
-              className={styles.img}
               src={img.gallery[0].asset.url} 
               alt={img.gallery[0].alt}
+              className={styles.img}
               width={700}
               height={1000}
               placeholder='blur'
@@ -55,6 +52,5 @@ export default async function Art() {
               />
           </Link>
       </main>
-    </>
   )
 }

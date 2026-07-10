@@ -2,9 +2,9 @@
   img{
     transition: transform .2s ease-in-out;
     &:hover{
-        transform: scale(1.025);
-        cursor:pointer;
-        box-shadow: 1px 1px 7px var(--brand-color);
+      cursor:pointer;
+      box-shadow: 1px 1px 7px var(--brand-color);
+      transform: scale(1.025);
         @media(max-width: 400px){
           margin-bottom: 1rem;
           margin-left: 0;
