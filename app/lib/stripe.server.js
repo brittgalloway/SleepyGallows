@@ -18,7 +18,7 @@ export const STRIPE_WH_SECRET = env !== 'sandbox'
   : process.env.STRIPE_WH_SECRET_TEST;
 
 export const PATRON_PRODUCT = env !== 'sandbox'
-  ? (process.env.STRIPE_PATRON_PRODUCT ?? 'prod_RnZ1n8UFz12j3c')
+  ? process.env.STRIPE_PATRON_PRODUCT
   : process.env.STRIPE_PATRON_PRODUCT_TEST;
 
 export const PATRON_COUPON = env !== 'sandbox'
