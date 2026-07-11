@@ -10,7 +10,6 @@ export const metadata = {
 
 const internalLinks = [
   ['/', 'Official Website'],
-  ['/webdev', 'Web Development'],
 ];
 
 const externalLinks = [
