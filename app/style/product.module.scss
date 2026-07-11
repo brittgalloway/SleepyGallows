@@ -170,15 +170,20 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+    margin: 1rem 0;
 }
 .stock {
-    margin: 0;
+    @media (width > 830px) {
+        margin: 0;
+    }
 }
 .no_stock {
-    margin: 0;
     font-family: var(--cinzel) !important;
     font-weight: bold;
     color: #ff0000;
+    @media (width > 830px) {
+        margin: 0;
+    }
 }
 .aside {
     margin-block: 2.5em;
