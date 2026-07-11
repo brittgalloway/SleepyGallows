@@ -10,18 +10,17 @@ export const metadata = {
 
 const internalLinks = [
   ['/', 'Official Website'],
-  ['/webdev', 'Web Development'],
 ];
 
 const externalLinks = [
-  ['https://www.prettyprismtarot.com/', 'Pretty Prism Tarot'],
-  [KOFI, 'Ko-fi'],
-  [NEWSLETTER, 'The Newsletter'],
-  [YOUTUBE, 'YouTube'],
-  [INSTAGRAM, 'Instagram'],
-  ['https://bsky.app/profile/blgalloway.bsky.social', 'Bluesky'],
-  [TUMBLR, 'Tumblr'],
-  [NECAHUAL, '2Heroes Necahual'],
+    ['https://www.brittneylauren.com/', 'Brittney Lauren Stationery'],
+    [NEWSLETTER, 'The Newsletter'],
+    [YOUTUBE, 'YouTube'],
+    [INSTAGRAM, 'Instagram'],
+    ['https://bsky.app/profile/blgalloway.bsky.social', 'Bluesky'],
+    [KOFI, 'Ko-fi'],
+    [TUMBLR, 'Tumblr'],
+    [NECAHUAL, '2Heroes Necahual'],
 ];
 
 export default function Links() {
