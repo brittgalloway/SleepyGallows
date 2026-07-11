@@ -1,7 +1,5 @@
-import { cinzel_decorative } from '@/fonts'
 import { PortableText } from '@portabletext/react'
 import OriginalsNav from '@/components/OriginalsNav'
-import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
 import Grid from '@/components/Grid'
 import styles from '@/animation/page.module.scss'
@@ -49,10 +47,10 @@ export default async function aboutOriginal({ params }: { params: Promise<{ orig
       <header>
         <OriginalsNav 
           navLabel={originalData.link}/>
-        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>What is {originalData.title}?</h1>
+        <h1 className={`${textStyles.text_center} ${textStyles.cinzelDec} ${styles.margin}`}>What is {originalData.title}?</h1>
       </header>
         <PortableText value={originalData.summary} />
-        <h2 className={`${textStyles.textCenter }`}>
+        <h2 className={`${textStyles.text_center }`}>
           Characters
         </h2>
         <div className={`${styles.videoWrapper} ${styles.charactersBlock}`}>
@@ -66,8 +64,8 @@ export default async function aboutOriginal({ params }: { params: Promise<{ orig
           ))}
         </div>
         {originalData.hasConceptArt && (
-          <div className={imgGrid.gridImg}>
-            <h2 className={`${textStyles.textCenter} ${cinzel_decorative.className}`}>
+          <div className={`${imgGrid.gridImg} ${styles.margin}`}>
+            <h2 className={`${textStyles.text_center} ${textStyles.cinzelDec}`}>
               Concept Art
             </h2>
             <Grid

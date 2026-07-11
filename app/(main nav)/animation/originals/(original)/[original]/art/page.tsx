@@ -1,12 +1,12 @@
-import { cinzel_decorative } from '@/fonts'
 import OriginalsNav from '@/components/OriginalsNav'
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../../../../../../sanity/lib/client'
+import { client } from 'b/sanityLib/client'
 import Grid from '@/components/Grid'
 import styles from '@/style/artGrid.module.scss'
 import textStyles from '@/style/titles.module.scss'
+import marginStyle from '@/animation/page.module.scss'
 
-export default async function artOriginals({params}) {
+export default async function artOriginals({params}: { params: Promise<{ original: string }> }) {
   const { original } = await params;
     const POSTS_QUERY = `*[
         _type == "original"
@@ -24,8 +24,9 @@ export default async function artOriginals({params}) {
       <header>
         <OriginalsNav 
           navLabel={originalArt[0].link}/>
-        <h1 className={`${textStyles.textCenter } ${cinzel_decorative.className}`}>Art of {originalArt[0].title}</h1>
+        <h1 className={`${textStyles.text_center} ${textStyles.cinzelDec} ${marginStyle.margin}`}>Art of {originalArt[0].title}</h1>
       </header>
+      <div className={`${marginStyle.margin}`}>
       <div>
         {originalArt[0]?.art?.gallery ?
         <Grid
@@ -34,6 +35,7 @@ export default async function artOriginals({params}) {
           :
           <h2>Nothing yet, come back soon.</h2>
         }
+      </div>
       </div>
     </section>
   )

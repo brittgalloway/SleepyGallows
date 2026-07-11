@@ -1,19 +1,56 @@
-import type { Config } from 'jest'
-import nextJest from 'next/jest.js'
+// Explicit Jest config — not using createJestConfig from next/jest because
+// it doesn't propagate transforms/mappers into `projects` sub-configs.
 
-const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
-  dir: './',
-})
- 
-// Add any custom config to be passed to Jest
-const config: Config = {
-  coverageProvider: 'v8',
-  testEnvironment: 'jsdom',
-  preset: "ts-jest",
-  // Add more setup options before each test is run
-  // setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+const sharedModuleNameMapper = {
+  // Stub out CSS/SCSS first — patterns are matched in order, most specific first
+  '^.+\\.module\\.(css|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
+  '^.+\\.(css|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
+  // Stub static assets
+  '^.+\\.(jpg|jpeg|png|gif|webp|svg|ico)$': '<rootDir>/__mocks__/fileMock.js',
+  // Path aliases from tsconfig.json — order matters, specific before general
+  '^@/shop/(.*)$': '<rootDir>/app/shop/$1',
+  '^@/components/(.*)$': '<rootDir>/app/components/$1',
+  '^@/lib/(.*)$': '<rootDir>/app/lib/$1',
+  '^@/api/(.*)$': '<rootDir>/app/api/$1',
+  '^@/style/(.*)$': '<rootDir>/app/style/$1',
+  '^@/(.*)$': '<rootDir>/app/$1',
+  '^b/sanityLib/(.*)$': '<rootDir>/sanity/lib/$1',
 }
- 
-// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-export default createJestConfig(config)
+
+const sharedTransform = {
+  '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', {
+    presets: [['next/babel', { 'preset-react': { runtime: 'automatic' } }]],
+  }],
+}
+
+const config = {
+  coverageProvider: 'v8',
+  projects: [
+    {
+      displayName: 'ui',
+      testEnvironment: 'jsdom',
+      testMatch: [
+        '<rootDir>/app/**/*.test.js',
+        '<rootDir>/app/**/*.test.jsx',
+        '<rootDir>/app/**/*.test.tsx',
+      ],
+      testPathIgnorePatterns: ['<rootDir>/app/api/', '<rootDir>/node_modules/'],
+      moduleNameMapper: sharedModuleNameMapper,
+      transform: sharedTransform,
+      transformIgnorePatterns: ['/node_modules/(?!(@lottiefiles)/)'],
+      setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+    },
+    {
+      displayName: 'api',
+      testEnvironment: 'node',
+      testMatch: ['<rootDir>/app/api/**/*.test.js'],
+      testPathIgnorePatterns: ['<rootDir>/node_modules/'],
+      moduleNameMapper: sharedModuleNameMapper,
+      transform: sharedTransform,
+      transformIgnorePatterns: ['/node_modules/(?!(@lottiefiles)/)'],
+      setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+    },
+  ],
+}
+
+export default config

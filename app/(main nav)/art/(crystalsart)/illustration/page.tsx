@@ -1,5 +1,5 @@
 import { type SanityDocument } from 'next-sanity'
-import { client } from '../../../../../sanity/lib/client'
+import { client } from 'b/sanityLib/client'
 import Grid from '@/components/Grid'
 import ArtNav from '@/art/nav'
 import { Footer } from '@/components/Footer'
@@ -7,8 +7,8 @@ import styles from '@/style/artGrid.module.scss'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Crystal\'s Art',
-  description: "Showcase the art of Crystal Galloway.",
-  keywords: "crystal galloway, art, necahual, plh, the little mermaid, illustration",
+  description: 'Showcase the art of Crystal Galloway.',
+  keywords: 'crystal galloway, art, necahual, plh, the little mermaid, illustration, chicago artist, evanston artist, black artist',
 }
 
 const POSTS_QUERY = `*[

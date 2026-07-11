@@ -34,18 +34,21 @@
       "@/art/*": [
         "app/(main nav)/art/*"
       ],
+      "@/shop/*": [
+        "app/shop/*"
+      ],
       "b/sanityLib/*": [
         "./sanity/lib/*"
       ]
     },
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "noEmit": true,
     "incremental": true,
     "module": "esnext",
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
@@ -62,9 +65,18 @@
     "**/*.ts",
     "**/*.tsx",
     "next.config.ts",
+    "app/shop/[category]/[product]/error.jsx",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "jest.setup.ts",
+    "jest.config.ts",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.test.js",
+    "**/*.test.jsx",
+    "__mocks__",
+    "__test__"
   ]
 }
