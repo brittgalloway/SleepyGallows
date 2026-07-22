@@ -9,6 +9,9 @@
   border-radius: var(--border-radius);
   transition: all var(--transition);
   cursor: pointer;
+  .spinner {
+    border-color: $color;
+  }
   &:not(:disabled) {
     &:hover,
     &:active {
@@ -16,6 +19,9 @@
       background-color: $color;
       color: $bg-color;
       border-color: $bg-color;
+      .spinner {
+        border-color: $bg-color;
+      }
     }
   }
   &:disabled {
