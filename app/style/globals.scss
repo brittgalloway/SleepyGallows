@@ -167,12 +167,9 @@ img {
   height: 30px;
   -webkit-animation: spin 3s linear infinite;
   animation: spin 3s linear infinite;
-  border: 6px dotted #fff;
+  border: 6px dotted;
   border-radius:50%;
   transition: border-color var(--transition) ease-in-out;
-}
-button:hover .spinner {
-  border-color: var(--brand-color);
 }
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
