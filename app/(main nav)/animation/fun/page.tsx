@@ -7,7 +7,7 @@ import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
-  title: 'Fun Animations | Sleepy Gallows',
+  title: 'Fun Animations | Sleepy Gallows Studio',
   description: 'Animation experiments created by Brittney Galloway.',
 }
 
@@ -47,7 +47,7 @@ export default async function Fun() {
         </div>
       </main>
       <Footer
-      name={'Sleepy Gallows'}
+      name={'Sleepy Gallows Studio'}
       />
     </>
   )

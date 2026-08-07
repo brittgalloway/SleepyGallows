@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 import styles from '@/style/artGrid.module.scss'
 
 export const metadata = {
-  title: 'Brittney\'s Art | Sleepy Gallows | Chicago Artist',
+  title: 'Brittney\'s Art | Sleepy Gallows Studio | Chicago Artist',
   description: 'Showcase the drawings of Brittney Galloway.',
 }
 

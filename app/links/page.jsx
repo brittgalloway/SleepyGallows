@@ -4,8 +4,8 @@ import { KOFI, NEWSLETTER, YOUTUBE, INSTAGRAM, NECAHUAL, TUMBLR } from '@/lib/da
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
-    title: 'Sleepy Gallows | Links',
-    description: "Collection of important Sleepy Gallows links. Find our social media and a few of our friends!"
+    title: 'Sleepy Gallows Studio | Links',
+    description: "Collection of important Sleepy Gallows Studio links. Find our social media and a few of our friends!"
   }
 
 const internalLinks = [
@@ -26,7 +26,7 @@ const externalLinks = [
 export default function Links() {
     return (
         <main className={`${styles.main} ${textStyles.lato}`}>
-            <h1 className={`${styles.h1} ${textStyles.cinzelDec}`}>Sleepy Gallows Links</h1>
+            <h1 className={`${styles.h1} ${textStyles.cinzelDec}`}>Sleepy Gallows Studio Links</h1>
             <nav className={styles.nav}>
                 <ul className={styles.ul}>
                     {internalLinks.map((link, index) => (

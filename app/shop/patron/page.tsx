@@ -8,11 +8,11 @@ import { StripePatron } from './PatronBtn'
 
 
 export const metadata = {
-  title: 'Patron Support | Sleepy Gallows | Chicago',
-  description: 'The Sleepy Gallows makes original art, animation and comics. Please consider becoming a patron and get 15% off all orders.',
+  title: 'Patron Support | Sleepy Gallows Studio | Chicago',
+  description: 'The Sleepy Gallows Studio makes original art, animation and comics. Please consider becoming a patron and get 15% off all orders.',
 }
 const POSTS_QUERY = `*[
-  header == "Support the Sleepy Gallows"
+  header == "Support the Sleepy Gallows Studio"
 ]{
   "header": header,
   "text": body

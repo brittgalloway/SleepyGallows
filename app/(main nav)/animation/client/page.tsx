@@ -8,8 +8,8 @@ import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
-  title: 'Client Animation | Sleepy Gallows | Chicago Animation',
-  description: 'Music Video and animated films created by the Sleepy Gallows. Chicagoland area.',
+  title: 'Client Animation | Sleepy Gallows Studio | Chicago Animation',
+  description: 'Music Video and animated films created by the Sleepy Gallows Studio. Chicagoland area.',
 }
 
 const POSTS_QUERY = `
@@ -51,7 +51,7 @@ export default async function Client() {
       </main>
       <NoClients/>
       <Footer
-      name={'Sleepy Gallows'}
+      name={'Sleepy Gallows Studio'}
       />
     </>
   )

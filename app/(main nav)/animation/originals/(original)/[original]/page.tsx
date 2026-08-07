@@ -35,13 +35,13 @@ export async function generateMetadata(
 
   if (!orig) {
     return {
-      title: 'Not Found | Sleepy Gallows',
+      title: 'Not Found | Sleepy Gallows Studio',
     };
   }
 
   return {
-    title: `${orig.title} | Sleepy Gallows | Chicago Animation`,
-    description: `Expirence ${orig.title}, a Sleepy Gallows production.`,
+    title: `${orig.title} | Sleepy Gallows Studio | Chicago Animation`,
+    description: `Expirence ${orig.title}, a Sleepy Gallows Studio production.`,
   };
 }
 

@@ -12,7 +12,7 @@ export default function RootLayout({children}) {
           {children}
         </main>
         <Footer
-          name={'Sleepy Gallows'}
+          name={'Sleepy Gallows Studio'}
         />
       </>
   )

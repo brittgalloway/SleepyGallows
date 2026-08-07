@@ -1,3 +1,6 @@
+import { type Metadata } from 'next'
+import { cache } from 'react'
+import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { PortableText } from '@portabletext/react'
 import { ProductImages } from '@/components/productImages'
@@ -8,32 +11,59 @@ import style from '@/style/product.module.scss'
 import layoutStyle from '@/shop/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
+const POSTS_QUERY = (product: string) => `*[
+  _type == "shopProduct"
+  && productSlug.current == "${product}"
+] 
+{
+ "id": _id, 
+  "title": productName, 
+  "price": price, 
+  "discount": discountedPrice,
+  "stock": stock, 
+  "productType": productType, 
+  "slug": productSlug.current, 
+  "longDescription": detailedDescription,
+  "shortDescription": shortDescription,
+  "hasShipping": shipping.shippable,
+  "shippingType": shipping.shippingOptions,
+  "productDisplay": productDisplay -> {gallery[]{ caption, alt, asset ->{metadata{dimensions}, url}}},
+  "originalsSummary": originalsSummary->{ body[], slug, title },
+  "variant": variant[]{ ID, title, price, discountedPrice, stock },
+  "cartThumbnail": cartThumbnail.asset -> {url}
+}`;
+
+const getProduct = cache(async (product: string) => {
+  const _product = await client.fetch<SanityDocument[]>(POSTS_QUERY(product), {});
+  return _product[0];
+});
+
+export async function generateMetadata(
+  { params }: { params: Promise<{ product: string }> }
+): Promise<Metadata> {
+  const { product } = await params;
+  const item = await getProduct(product);
+
+  if (!item) {
+    return {
+      title: 'Not Found | Sleepy Gallows Shop',
+    };
+  }
+
+  return {
+    title: `${item.title} | Sleepy Gallows Shop`,
+    description: item.shortDescription || `Shop ${item.title} from Sleepy Gallows.`,
+  };
+}
+
 export default async function Product({ params }: { params: Promise<{ product: string }> }) {
   const { product } = await params;
+  const item = await getProduct(product);
 
-  const POSTS_QUERY = `*[
-    _type == "shopProduct"
-    && productSlug.current == "${product}"
-  ] 
-  {
-   "id": _id, 
-    "title": productName, 
-    "price": price, 
-    "discount": discountedPrice,
-    "stock": stock, 
-    "productType": productType, 
-    "slug": productSlug.current, 
-    "longDescription": detailedDescription,
-    "shortDescription": shortDescription,
-    "hasShipping": shipping.shippable,
-    "shippingType": shipping.shippingOptions,
-    "productDisplay": productDisplay -> {gallery[]{ caption, alt, asset ->{metadata{dimensions}, url}}},
-    "originalsSummary": originalsSummary->{ body[], slug, title },
-    "variant": variant[]{ ID, title, price, discountedPrice, stock },
-    "cartThumbnail": cartThumbnail.asset -> {url}
-  }`;
-  const _product = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
-  const item = _product[0];
+  if (!item) {
+    notFound();
+  }
+
   const imgHeight = item?.productDisplay?.gallery[0].asset.metadata.dimensions.height;
   const imgWidth = item?.productDisplay?.gallery[0].asset.metadata.dimensions.width;
   return (

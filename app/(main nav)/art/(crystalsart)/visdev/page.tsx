@@ -7,7 +7,7 @@ import styles from '@/art/page.module.scss'
 import imgGrid from '@/style/artGrid.module.scss'
 
 export const metadata = {
-  title: 'Crystal\'s Art | Sleepy Gallows | Chicago Artist',
+  title: 'Crystal\'s Art | Sleepy Gallows Studio | Chicago Artist',
   description: 'Showcase the art of Crystal Galloway. Desi Little Mermaid and other concept art.',
 }
 

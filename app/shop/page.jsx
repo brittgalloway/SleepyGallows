@@ -3,7 +3,7 @@ import { ProductCategory } from '@/components/productCategory'
 import styles from './page.module.scss'
 
 export const metadata = {
-  title: 'Shop Art | Sleepy Gallows | Chicago',
+  title: 'Shop Art | Sleepy Gallows Studio | Chicago',
   description: 'Browse collages, art prints, and stickers. Find wall art from For Peace, Love and Harmony, the Elusive Green Elephant and more.',
 }
 
