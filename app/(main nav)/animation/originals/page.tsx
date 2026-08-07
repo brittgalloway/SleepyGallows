@@ -7,9 +7,8 @@ import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
-  title: 'Sleepy Gallows Studio | Originals',
-  description: 'Original Animation created by the Sleepy Gallows. Browse our short films and webseries.',
-  keywords: 'animation, sleepy gallows, for peace love and harmony, elusive green elephant, chicago artist, evanston artist, black artist',
+  title: 'Original Animated Shorts and Web Series | Sleepy Gallows Studio | Chicago Animation',
+  description: 'Original Animation created by the Sleepy Gallows Studio. Browse our short films and webseries.',
 }
 
 type Original = {
@@ -56,7 +55,7 @@ export default async function Originals() {
         </div>
       </main>
       <Footer
-      name={'Sleepy Gallows'}
+      name={'Sleepy Gallows Studio'}
       />
     </>
   )

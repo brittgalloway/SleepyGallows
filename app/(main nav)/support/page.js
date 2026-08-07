@@ -4,8 +4,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Sleepy Gallows Studio | Support',
-  description: "The Sleepy Gallows e-commerce store. Soon to launch, for now sign up for the newsletter",
-  keywords: "shop, art, art prints, sleepy gallows",
+  description: "The Sleepy Gallows Studio e-commerce store. Soon to launch, for now sign up for the newsletter",
 }
 
 export default function Shop() {

@@ -27,7 +27,7 @@ export default function MainNavigation() {
             <Link className={`${styles.a}`} href="/about">
               <Image  
                 src="/sg_logo.svg" 
-                alt="Click here to learn about the Sleepy Gallows."
+                alt="Click here to learn about the Sleepy Gallows Studio."
                 className="logo" 
                 width={250} 
                 height={250} 

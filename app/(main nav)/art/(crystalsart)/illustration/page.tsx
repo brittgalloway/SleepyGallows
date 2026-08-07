@@ -6,9 +6,8 @@ import { Footer } from '@/components/Footer'
 import styles from '@/style/artGrid.module.scss'
 
 export const metadata = {
-  title: 'Sleepy Gallows Studio | Crystal\'s Art',
+  title: 'Crystal\'s Art | Sleepy Gallows Studio | Chicago Artist',
   description: 'Showcase the art of Crystal Galloway.',
-  keywords: 'crystal galloway, art, necahual, plh, the little mermaid, illustration, chicago artist, evanston artist, black artist',
 }
 
 const POSTS_QUERY = `*[

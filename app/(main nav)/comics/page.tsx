@@ -7,10 +7,8 @@ import { Footer } from '@/components/Footer'
 import styles from './page.module.scss'
 
 export const metadata = {
-  title: 'Sleepy Gallows Studio | 2Heroes',
+  title: 'Comics | Sleepy Gallows Studio | Chicago',
   description: 'The comics of 2Heros - Crystal Galloway and Serigo Silva. Currently producing the comic Necahual.',
-  keywords: 'comics, manga, Necahual, meso-american, magical girls, chicago artist, evanston artist, black artist',
-  author:'Crystal Galloway',
 }
 const POSTS_QUERY = `*[
   _type == "imageGallery" &&

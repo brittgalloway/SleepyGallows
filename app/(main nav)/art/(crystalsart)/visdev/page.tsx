@@ -7,9 +7,8 @@ import styles from '@/art/page.module.scss'
 import imgGrid from '@/style/artGrid.module.scss'
 
 export const metadata = {
-  title: 'Sleepy Gallows Studio | Crystal\'s Art',
-  description: "Showcase the art of Crystal Galloway.",
-  keywords: "crystal galloway, art, necahual, plh, the little mermaid",
+  title: 'Crystal\'s Art | Sleepy Gallows Studio | Chicago Artist',
+  description: 'Showcase the art of Crystal Galloway. Desi Little Mermaid and other concept art.',
 }
 
 const POSTS_QUERY = `*[

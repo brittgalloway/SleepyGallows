@@ -1,4 +1,4 @@
-# Sleepy Gallows
+# Sleepy Gallows Studio
 
 A portfolio and eCommerce site for the creative work of Brittney and Crystal Galloway — animations, comics, illustrations, and a shop for high-end collage art, prints, stickers, and books.
 

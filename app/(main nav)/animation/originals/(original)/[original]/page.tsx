@@ -1,29 +1,58 @@
 import { type SanityDocument } from 'next-sanity'
+import { type Metadata } from 'next'
+import { cache } from 'react'
+import { notFound } from 'next/navigation'
 import { client } from 'b/sanityLib/client'
 import OriginalsNav from '@/components/OriginalsNav'
-import  Iframe  from '@/components/Iframe'
+import Iframe from '@/components/Iframe'
 import Animation from '@/components/rive'
 import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
+const POSTS_QUERY = (original: string) => `*[
+  _type == "original"
+  && link.current == "${original}"
+] 
+{
+  "title": title,
+  "id": _id,
+  "link": link.current,
+  "hasVideo": production.hasLiveVideo,
+  "inProgress": production.inProduction.asset->url,
+  "watch": production.watch->{ _id, animation[]{link, title,year} },
+}`;
+
+const getOriginal = cache(async (original: string) => {
+  const originalObj = await client.fetch<SanityDocument[]>(POSTS_QUERY(original), {});
+  return originalObj[0];
+});
+
+export async function generateMetadata(
+  { params }: { params: Promise<{ original: string }> }
+): Promise<Metadata> {
+  const { original } = await params;
+  const orig = await getOriginal(original);
+
+  if (!orig) {
+    return {
+      title: 'Not Found | Sleepy Gallows Studio',
+    };
+  }
+
+  return {
+    title: `${orig.title} | Sleepy Gallows Studio | Chicago Animation`,
+    description: `Expirence ${orig.title}, a Sleepy Gallows Studio production.`,
+  };
+}
 
 export default async function watchOriginal({ params }: { params: Promise<{ original: string }> }) {
   const { original } = await params;
+  const orig = await getOriginal(original);
 
-  const POSTS_QUERY = `*[
-    _type == "original"
-    && link.current == "${original}"
-  ] 
-  {
-    "title": title,
-    "id": _id,
-    "link": link.current,
-    "hasVideo": production.hasLiveVideo,
-    "inProgress": production.inProduction.asset->url,
-    "watch": production.watch->{ _id, animation[]{link, title,year} },
-  }`;
-  const originalObj = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
-  const orig = originalObj[0];
+  if (!orig) {
+    notFound();
+  }
+
   return (
     <section style={{display: 'flex', flexDirection: 'column'}}>
       <header>

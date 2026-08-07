@@ -1,3 +1,6 @@
+import { type Metadata } from 'next'
+import { cache } from 'react'
+import { notFound } from 'next/navigation'
 import { PortableText } from '@portabletext/react'
 import OriginalsNav from '@/components/OriginalsNav'
 import { client } from 'b/sanityLib/client'
@@ -25,36 +28,72 @@ type AboutOriginal = {
   }[]
 }
 
+const POSTS_QUERY = (original: string) => `*[
+    _type == "original"
+    && link.current == "${original}"
+  ] 
+  {
+    "title": title,
+    "id": _id,
+    "link": link.current,
+    "summary": about.summary,
+    "characters": about.characters-> { gallery[]{ alt, hotspot{...},  asset-> { assetId, url } } },
+    "hasConceptArt": about.hasConceptArt,
+    "conceptArt": about.conceptArt[].gallery[]{ caption, alt, hotspot{...},  asset-> { assetId, metadata, _id, url } }
+  }`;
+
+const getAboutOriginal = cache(async (original: string) => {
+  const originalSanity = await client.fetch<AboutOriginal[]>(POSTS_QUERY(original), {});
+  return originalSanity[0];
+});
+
+export async function generateMetadata(
+  { params }: { params: Promise<{ original: string }> }
+): Promise<Metadata> {
+  const { original } = await params;
+  const orig = await getAboutOriginal(original);
+
+  if (!orig) {
+    return {
+      title: 'Not Found | Sleepy Gallows',
+    };
+  }
+
+  const plainSummary = orig.summary
+    .map((block) => block.children.map((child:any) => child.text).join(''))
+    .join(' ');
+
+  const description = plainSummary.length > 155
+    ? plainSummary.slice(0, 155) + '…'
+    : plainSummary;
+
+  return {
+    title: `About ${orig.title} | Sleepy Gallows | Chicago Animation`,
+    description: description || `Learn about ${orig.title} from Sleepy Gallows.`,
+  };
+}
+
 export default async function aboutOriginal({ params }: { params: Promise<{ original: string }> }) {
   const { original } = await params;
-  const POSTS_QUERY = `*[
-      _type == "original"
-      && link.current == "${original}"
-    ] 
-    {
-      "title": title,
-      "id": _id,
-      "link": link.current,
-      "summary": about.summary,
-      "characters": about.characters-> { gallery[]{ alt, hotspot{...},  asset-> { assetId, url } } },
-      "hasConceptArt": about.hasConceptArt,
-      "conceptArt": about.conceptArt[].gallery[]{ caption, alt, hotspot{...},  asset-> { assetId, metadata, _id, url } }
-    }`;
-  const originalSanity = await client.fetch<AboutOriginal[]>(POSTS_QUERY, {});
-  const originalData = originalSanity[0];
+  const orig = await getAboutOriginal(original);
+
+  if (!orig) {
+    notFound();
+  }
+
   return (
     <section>
       <header>
         <OriginalsNav 
-          navLabel={originalData.link}/>
-        <h1 className={`${textStyles.text_center} ${textStyles.cinzelDec} ${styles.margin}`}>What is {originalData.title}?</h1>
+          navLabel={orig.link}/>
+        <h1 className={`${textStyles.text_center} ${textStyles.cinzelDec} ${styles.margin}`}>What is {orig.title}?</h1>
       </header>
-        <PortableText value={originalData.summary} />
+        <PortableText value={orig.summary} />
         <h2 className={`${textStyles.text_center }`}>
           Characters
         </h2>
         <div className={`${styles.videoWrapper} ${styles.charactersBlock}`}>
-          {originalData.characters.gallery.map((character) => (
+          {orig.characters.gallery.map((character) => (
             <img
               key={character?.asset?.assetId}
               src={character?.asset?.url}
@@ -63,13 +102,13 @@ export default async function aboutOriginal({ params }: { params: Promise<{ orig
             />
           ))}
         </div>
-        {originalData.hasConceptArt && (
+        {orig.hasConceptArt && (
           <div className={`${imgGrid.gridImg} ${styles.margin}`}>
             <h2 className={`${textStyles.text_center} ${textStyles.cinzelDec}`}>
               Concept Art
             </h2>
             <Grid
-              photos={originalData.conceptArt}
+              photos={orig.conceptArt}
               />
           </div>
         )}
