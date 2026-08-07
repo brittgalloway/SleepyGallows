@@ -6,9 +6,8 @@ import { Footer } from '@/components/Footer'
 import styles from '@/style/artGrid.module.scss'
 
 export const metadata = {
-  title: 'Sleepy Gallows Studio | Brittney\'s Art',
-  description: 'Showcase the art of Brittney Galloway.',
-  keywords: 'brittney galloway, art, plh, collage, chicago artist, evanston artist, black artist',
+  title: 'Brittney\'s Art | Sleepy Gallows | Chicago Artist',
+  description: 'Showcase the collage art of Brittney Galloway.',
 }
 
 const POSTS_QUERY = `*[

@@ -7,9 +7,8 @@ import styles from './page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
-  title: 'Sleepy Gallows Studio | Art',
+  title: 'Art | Sleepy Gallows Studio | Chicago Artists',
   description: 'Showcase the art of Brittney and Crystal Galloway.',
-  keywords: 'brittney galloway, crystal galloway, art, necahual, elusive green elephant, plh, chicago artist, evanston artist, black artist',
 }
 const POSTS_QUERY = `*[
   _type == "imageGallery" &&

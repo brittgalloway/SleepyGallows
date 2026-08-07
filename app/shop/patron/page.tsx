@@ -8,9 +8,8 @@ import { StripePatron } from './PatronBtn'
 
 
 export const metadata = {
-  title: 'Sleepy Gallows Studio | Patron Support',
-  description: 'The Sleepy Gallows e-commerce store. Please consider becoming a patron and get 15% off all orders.',
-  keywords: 'shop, art, art prints, sleepy gallows, chicago artist, evanston artist, black artist',
+  title: 'Patron Support | Sleepy Gallows | Chicago',
+  description: 'The Sleepy Gallows makes original art, animation and comics. Please consider becoming a patron and get 15% off all orders.',
 }
 const POSTS_QUERY = `*[
   header == "Support the Sleepy Gallows"

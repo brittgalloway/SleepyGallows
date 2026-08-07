@@ -7,9 +7,8 @@ import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
-  title: 'SG | Fun Animations',
-  description: 'Fun Animation created by Brittney Galloway.',
-  keywords: 'animation, sleepy gallows, brittney, chicago artist, evanston artist, black artist',
+  title: 'Fun Animations | Sleepy Gallows',
+  description: 'Animation experiments created by Brittney Galloway.',
 }
 
 const POSTS_QUERY = `

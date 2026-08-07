@@ -7,9 +7,8 @@ import styles from './page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
-  title: 'Sleepy Gallows Studio | About',
+  title: 'About | Sleepy Gallows Studio | Chicago Art',
   description: 'About the Sleepy Gallows.',
-  keywords: 'animation, sleepy gallows, brittney, crystal, galloway, art, for peace love harmony,chicago artist, evanston artist, black artist',
 }
 
 

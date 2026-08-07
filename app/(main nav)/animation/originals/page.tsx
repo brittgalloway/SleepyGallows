@@ -7,9 +7,8 @@ import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
-  title: 'Sleepy Gallows Studio | Originals',
+  title: 'Original Animated Shorts and Web Series | Sleepy Gallows | Chicago Animation',
   description: 'Original Animation created by the Sleepy Gallows. Browse our short films and webseries.',
-  keywords: 'animation, sleepy gallows, for peace love and harmony, elusive green elephant, chicago artist, evanston artist, black artist',
 }
 
 type Original = {

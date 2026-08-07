@@ -3,9 +3,8 @@ import { ProductCategory } from '@/components/productCategory'
 import styles from './page.module.scss'
 
 export const metadata = {
-  title: 'Sleepy Gallows Studio | Shop',
-  description: 'The Sleepy Gallows e-commerce store. Browse Collages, Prints, Stickers, and Books',
-  keywords: 'shop, art, art prints, sleepy gallows, chicago artist, evanston artist, black artist',
+  title: 'Shop Art | Sleepy Gallows | Chicago',
+  description: 'Browse collages, art prints, and stickers. Find wall art from For Peace, Love and Harmony, the Elusive Green Elephant and more.',
 }
 
 export default function Shop() {

@@ -7,9 +7,8 @@ import styles from './page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
-  title: 'Sleepy Gallows Studio | Animation',
+  title: 'Sleepy Gallows | Animation | Chicago',
   description: "Animation of the Sleepy Gallows.",
-  keywords: "animation, sleepy gallows, brittney",
 }
 const POSTS_QUERY = `*[
   _type == "imageGallery" &&

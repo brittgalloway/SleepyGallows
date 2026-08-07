@@ -8,9 +8,8 @@ import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
-  title: 'SG | Client Animation',
-  description: 'Client Animation created by the Sleepy Gallows.',
-  keywords: 'animation, sleepy gallows, brittney, chicago artist, evanston artist, black artist',
+  title: 'Client Animation | Sleepy Gallows | Chicago Animation',
+  description: 'Music Video and animated films created by the Sleepy Gallows. Chicagoland area.',
 }
 
 const POSTS_QUERY = `
