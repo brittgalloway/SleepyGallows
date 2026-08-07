@@ -60,7 +60,7 @@ export async function generateMetadata(
   }
 
   const plainSummary = orig.summary
-    .map((block) => block.children.map((child) => child.text).join(''))
+    .map((block) => block.children.map((child:any) => child.text).join(''))
     .join(' ');
 
   const description = plainSummary.length > 155
