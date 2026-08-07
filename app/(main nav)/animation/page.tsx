@@ -28,7 +28,7 @@ export default async function Animation() {
     ['For Fun', styles.fun, styles.img, 'fun', img.gallery[2].asset.url, img.gallery[2].alt],
   ];
   return (
-    <main className={styles.main}> 
+    <main style={{padding:0}}> 
     {links.map((link, index)=> (
       <Link key={index} className={link[1]} href={`/animation/${link[3]}`}>
         <p className={`${styles.p} ${textStyles.cinzelDec}`}>{link[0]}</p>

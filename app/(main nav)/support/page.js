@@ -3,9 +3,8 @@ import styles from './page.module.scss'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Sleepy Gallows Studio | Support',
+  title: 'Sleepy Gallows | Support',
   description: "The Sleepy Gallows e-commerce store. Soon to launch, for now sign up for the newsletter",
-  keywords: "shop, art, art prints, sleepy gallows",
 }
 
 export default function Shop() {

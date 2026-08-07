@@ -7,7 +7,7 @@ import styles from './page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
-  title: 'Art | Sleepy Gallows Studio | Chicago Artists',
+  title: 'Art | Sleepy Gallows | Chicago Artists',
   description: 'Showcase the art of Brittney and Crystal Galloway.',
 }
 const POSTS_QUERY = `*[

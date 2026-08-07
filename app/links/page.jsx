@@ -4,8 +4,8 @@ import { KOFI, NEWSLETTER, YOUTUBE, INSTAGRAM, NECAHUAL, TUMBLR } from '@/lib/da
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
-    title: 'Sleepy Gallows Studio | Links',
-    description: "Collection of important Sleepy Gallows links."
+    title: 'Sleepy Gallows | Links',
+    description: "Collection of important Sleepy Gallows links. Find our social media and a few of our friends!"
   }
 
 const internalLinks = [

@@ -7,7 +7,7 @@ import { Footer } from '@/components/Footer'
 import styles from './page.module.scss'
 
 export const metadata = {
-  title: 'Comics | Sleepy Gallows Studio | Chicago',
+  title: 'Comics | Sleepy Gallows | Chicago',
   description: 'The comics of 2Heros - Crystal Galloway and Serigo Silva. Currently producing the comic Necahual.',
 }
 const POSTS_QUERY = `*[

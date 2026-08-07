@@ -7,7 +7,7 @@ import styles from './page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
-  title: 'About | Sleepy Gallows Studio | Chicago Art',
+  title: 'About | Sleepy Gallows | Chicago Art',
   description: 'About the Sleepy Gallows.',
 }
 
