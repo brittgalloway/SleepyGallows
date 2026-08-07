@@ -12,7 +12,7 @@ export const metadata = {
   description: 'The Sleepy Gallows Studio makes original art, animation and comics. Please consider becoming a patron and get 15% off all orders.',
 }
 const POSTS_QUERY = `*[
-  header == "Support the Sleepy Gallows Studio"
+  header == "Support the Sleepy Gallows"
 ]{
   "header": header,
   "text": body
@@ -26,8 +26,7 @@ export default async function Patron() {
       <h1 className={patronStyles.patron_h1}>{patron[0]?.header}</h1>
       <div className={patronStyles.patronText}>
         <PortableText
-          value={patron[0].text}
-          // components={/* optional object of custom components to use */}
+          value={patron[0]?.text}
         />
       </div>
       <StripePatron/>
