@@ -9,7 +9,7 @@ export default function Project({title, link, year, summary, website = ''}) {
           link={link} 
           title={title} 
           />
-        <details>
+        <details name="video">
             <summary className={`${textStyles.lato}`}>
             {title}
             </summary>
