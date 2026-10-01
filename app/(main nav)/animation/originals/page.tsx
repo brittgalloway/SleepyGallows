@@ -1,0 +1,62 @@
+import Link from 'next/link'
+import { client } from 'b/sanityLib/client'
+import ImageComponent from '@/components/sanityImage'
+import AnimationNav from '@/components/Nav'
+import { Footer } from '@/components/Footer'
+import styles from '@/animation/page.module.scss'
+import textStyles from '@/style/titles.module.scss'
+
+export const metadata = {
+  title: 'Original Animated Shorts and Web Series | Sleepy Gallows Studio | Chicago Animation',
+  description: 'Original Animation created by the Sleepy Gallows Studio. Browse our short films and webseries.',
+}
+
+type Original = {
+  id: string
+  title: string
+  link: string
+  thumbnail: { _type: string; asset: { _ref: string } }
+}
+
+const POSTS_QUERY = `*[
+  _type == "original"
+  ] 
+  {
+    "title": title,
+    "id": _id,
+    "link": link.current,
+    "thumbnail": thumbnail,
+ }`;
+ 
+export default async function Originals() {
+  const originals = await client.fetch<Original[]>(POSTS_QUERY, {});
+  return (
+    <>
+      <main> 
+        <header>
+          <AnimationNav/>
+          <h1 className={`${textStyles.text_center} ${textStyles.cinzelDec}`}>Originals</h1>
+          <h2 className={`${textStyles.text_center} ${textStyles.weightNormal}`}>SG Shorts and Webseries</h2>
+        </header>
+        <div className={styles.projectWrapper}>
+          {originals.map((original) => {
+          return(
+            <div key={original?.id} className={styles.project}>
+              <Link href={`/animation/originals/${original?.link}`}
+                aria-label={original?.title}> 
+                <ImageComponent
+                  image={original?.thumbnail}
+                  altText={original?.title}
+                  />
+              </Link>
+            </div>
+          )}
+          )}
+        </div>
+      </main>
+      <Footer
+      name={'Sleepy Gallows Studio'}
+      />
+    </>
+  )
+}

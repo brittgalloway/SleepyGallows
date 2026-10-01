@@ -1,0 +1,55 @@
+import { type SanityDocument } from 'next-sanity'
+import { client } from 'b/sanityLib/client'
+import Image from 'next/image'
+import Link from 'next/link'
+import { rgbDataURL } from '@/lib/utils'
+import styles from './page.module.scss'
+import textStyles from '@/style/titles.module.scss'
+
+export const metadata = {
+  title: 'Art | Sleepy Gallows Studio | Chicago Artists',
+  description: 'Showcase the art of Brittney and Crystal Galloway.',
+}
+const POSTS_QUERY = `*[
+  _type == "imageGallery" &&
+  title == "Art Home"
+  ] 
+  {
+    "id": _id,
+    "gallery": gallery[]{alt, asset->{ url }},
+    }
+`;
+export default async function Art() {
+  const images = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
+  const img = images[0];
+  return (
+    <main className={styles.main}>
+          <Link className={styles.a} href="/art/illustration">
+              <p className={`${styles.p} ${textStyles.cinzelDec}`} >Crystal</p>
+              <Image 
+                src={img.gallery[1].asset.url} 
+                alt={img.gallery[1].alt}
+                className={styles.img}
+                width={700}
+                height={1000}
+                placeholder='blur'
+                blurDataURL={rgbDataURL(228, 220, 243)}
+                loading='lazy'
+                />
+          </Link>
+          <Link className={styles.a} href="/art/drawings">
+            <p className={`${styles.p} ${textStyles.cinzelDec}`}>Brittney</p>
+            <Image 
+              src={img.gallery[0].asset.url} 
+              alt={img.gallery[0].alt}
+              className={styles.img}
+              width={700}
+              height={1000}
+              placeholder='blur'
+              blurDataURL={rgbDataURL(228, 220, 243)}
+              loading='lazy'
+              />
+          </Link>
+      </main>
+  )
+}

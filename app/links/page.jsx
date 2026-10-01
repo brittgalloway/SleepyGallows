@@ -1,0 +1,46 @@
+import Link from 'next/link'
+import styles from './page.module.scss'
+import { KOFI, NEWSLETTER, YOUTUBE, INSTAGRAM, NECAHUAL, TUMBLR } from '@/lib/data'
+import textStyles from '@/style/titles.module.scss'
+
+export const metadata = {
+    title: 'Sleepy Gallows Studio | Links',
+    description: "Collection of important Sleepy Gallows Studio links. Find our social media and a few of our friends!"
+  }
+
+const internalLinks = [
+  ['/', 'Official Website'],
+];
+
+const externalLinks = [
+    ['https://www.brittneylauren.com/', 'Brittney Lauren Stationery'],
+    [NEWSLETTER, 'The Newsletter'],
+    [YOUTUBE, 'YouTube'],
+    [INSTAGRAM, 'Instagram'],
+    ['https://bsky.app/profile/blgalloway.bsky.social', 'Bluesky'],
+    [KOFI, 'Ko-fi'],
+    [TUMBLR, 'Tumblr'],
+    [NECAHUAL, '2Heroes Necahual'],
+];
+
+export default function Links() {
+    return (
+        <main className={`${styles.main} ${textStyles.lato}`}>
+            <h1 className={`${styles.h1} ${textStyles.cinzelDec}`}>Sleepy Gallows Studio Links</h1>
+            <nav className={styles.nav}>
+                <ul className={styles.ul}>
+                    {internalLinks.map((link, index) => (
+                        <li key={`internal-${index}`} className={styles.li}>
+                            <Link className={styles.a} href={link[0]}>{link[1]}</Link>
+                        </li>
+                    ))}
+                    {externalLinks.map((link, index) => (
+                        <li key={`external-${index}`} className={styles.li}>
+                            <a className={styles.a} href={link[0]} rel="noopener noreferrer">{link[1]}</a>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+        </main>
+    )
+}

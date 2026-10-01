@@ -1,0 +1,58 @@
+import { type SanityDocument } from 'next-sanity'
+import { client } from 'b/sanityLib/client'
+import AnimationNav from '@/components/Nav'
+import Project from '@/animation/projects'
+import { Footer } from '@/components/Footer'
+import { NoClients } from '@/components/NoClients'
+import styles from '@/animation/page.module.scss'
+import textStyles from '@/style/titles.module.scss'
+
+export const metadata = {
+  title: 'Client Animation | Sleepy Gallows Studio | Chicago Animation',
+  description: 'Music Video and animated films created by the Sleepy Gallows Studio. Chicagoland area.',
+}
+
+const POSTS_QUERY = `
+*[ _type == "animatedWork"
+   && Header == "Client Work"
+ ] {
+    "id": _id,
+    "animations": animation[]{ _key, link, summary, title, year}
+ }
+`;
+export default async function Client() {
+  const project = await client.fetch<SanityDocument[]>(POSTS_QUERY, {});
+  return (
+    <>
+      <main> 
+        <header>
+          <AnimationNav/>
+          <h1 className={`${textStyles.text_center } ${textStyles.cinzelDec}`}>Client Work</h1>
+        </header>
+        <div className={styles.videoWrapper}>
+          {project[0].animations.map((animation: {
+            _key: string
+            link: string
+            summary: string
+            title: string
+            year: string
+            website?: string
+          }) => (
+            <Project
+              key={animation._key}
+              title={animation.title}
+              year={animation.year}
+              summary={animation.summary}
+              link={animation.link}
+              website={animation.website}
+            />
+          ))}
+        </div>
+      </main>
+      <NoClients/>
+      <Footer
+      name={'Sleepy Gallows Studio'}
+      />
+    </>
+  )
+}
