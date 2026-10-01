@@ -1,15 +1,6 @@
 import type { SanityImageObject } from '@sanity/image-url/lib/types/types'
 import type { PortableTextBlock } from '@portabletext/types'
 
-export type WebProject = {
-  id:string, 
-  projectName:string, 
-  role:string,
-  description:string, 
-  liveApp:string, 
-  github:string
-}
-
 export type SanityImage = {
     image: SanityImageObject,
     altText: string
