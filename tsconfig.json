@@ -25,9 +25,6 @@
       "@/json/*": [
         "app/json/*"
       ],
-      "@/webdev/*": [
-        "app/webdev/*"
-      ],
       "@/animation/*": [
         "app/(main nav)/animation/*"
       ],

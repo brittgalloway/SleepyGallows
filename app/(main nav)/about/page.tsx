@@ -3,6 +3,7 @@ import { PortableText } from '@portabletext/react'
 import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
 import { NoClients } from '@/components/NoClients'
+import Support from '@/components/Support'
 import styles from './page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
@@ -59,6 +60,7 @@ export default async function About() {
           <p>
             We were born and raised in the Chicagoland area and went to California College of the Arts (CCA) in the Bay Area. Brittney (right) got her BFA in Animation (2014) while Crystal (left) got her BFA in Illustration(2015). Now both sisters are back in Chicago making art.
           </p>
+        <Support/>
         </article>
       </main>
       <NoClients/>

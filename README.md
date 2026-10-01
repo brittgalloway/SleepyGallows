@@ -37,8 +37,6 @@ Live at [sleepygallows.com](https://sleepygallows.com)
 - Promo codes
 - Patron donation tiers (one-time, monthly, yearly) with exclusive discount codes
 
-**Webdev** — Brittney's web development portfolio.
-
 ---
 
 ## Shop Architecture

@@ -10,6 +10,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/webdev/:path*',
+        destination: 'https://github.com/brittgalloway',
+        permanent: true,
+      },
+    ]
+  },
 }
  
 export default nextConfig
