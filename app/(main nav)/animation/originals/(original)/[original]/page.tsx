@@ -5,13 +5,13 @@ import { notFound } from 'next/navigation'
 import { client } from 'b/sanityLib/client'
 import OriginalsNav from '@/components/OriginalsNav'
 import Iframe from '@/components/Iframe'
-import Animation from '@/components/rive'
+import PreviewVideo from '@/components/PreviewVideo'
 import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
 
-const POSTS_QUERY = (original: string) => `*[
+const POSTS_QUERY = `*[
   _type == "original"
-  && link.current == "${original}"
+  && link.current == $original
 ] 
 {
   "title": title,
@@ -19,11 +19,12 @@ const POSTS_QUERY = (original: string) => `*[
   "link": link.current,
   "hasVideo": production.hasLiveVideo,
   "inProgress": production.inProduction.asset->url,
+  "inProgressType": production.inProduction.asset->mimeType,
   "watch": production.watch->{ _id, animation[]{link, title,year} },
 }`;
 
 const getOriginal = cache(async (original: string) => {
-  const originalObj = await client.fetch<SanityDocument[]>(POSTS_QUERY(original), {});
+  const originalObj = await client.fetch<SanityDocument[]>(POSTS_QUERY, { original });
   return originalObj[0];
 });
 
@@ -63,7 +64,7 @@ export default async function watchOriginal({ params }: { params: Promise<{ orig
       { orig?.hasVideo == true ? (
         <main>
            <div className={styles.videoWrapper}>
-              {orig.watch.animation.map((video: {
+              {orig.watch?.animation?.map((video: {
                 _id: string
                 link: string
                 title: string
@@ -90,11 +91,13 @@ export default async function watchOriginal({ params }: { params: Promise<{ orig
           <h3 className={`${textStyles.text_center} ${textStyles.lato} ${textStyles.weightNormal}`}>
             Coming Soon
           </h3>
-          {orig?.inProgress &&
+          {orig?.inProgress && orig?.inProgressType?.startsWith('video/') &&
             <div style={{'height': '500px'}}>
-              <Animation
+              <PreviewVideo
                 src={orig.inProgress}
-                />
+                type={orig.inProgressType}
+                label={`${orig.title} preview`}
+              />
             </div>
           }
         </main> 

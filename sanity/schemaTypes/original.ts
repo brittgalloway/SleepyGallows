@@ -44,7 +44,10 @@ export const original = defineType({
                 title: 'Coming Soon',
                 name: 'inProduction',
                 type: 'file',
-                description: 'This is the riv file',
+                description: 'Short looping preview (mp4 or webm). Keep it small, a few MB, and use H.264 for mp4.',
+                options: {
+                    accept: 'video/mp4,video/webm',
+                },
                 hidden: ({ parent }) => parent?.hasLiveVideo == true,
             },
         ]

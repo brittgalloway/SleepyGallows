@@ -104,9 +104,9 @@
       block-size: 0;
       height: auto;
       overflow: clip; 
-      transition: content-visibility 1s allow-discrete,
-                  opacity 1s,
-                  block-size 1s;
+      transition: content-visibility 300ms allow-discrete,
+                  opacity 300ms,
+                  block-size 300ms;
       background:#fff;
       border: 1px solid purple;
       border-radius: 4px;
