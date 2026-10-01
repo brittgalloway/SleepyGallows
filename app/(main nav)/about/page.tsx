@@ -52,7 +52,7 @@ export default async function About() {
           ​​​​</h3>
           <Image 
           src={img[0].gallery.asset.url}
-          alt={img[0].alt}
+          alt='Cartoon of Crystal (left) and Brittney (right) as characters in the world of "For Peace, Love, and Harmony."'
           width={530} 
           height={600}
           />
