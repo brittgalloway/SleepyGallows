@@ -40,7 +40,15 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/((?!admin).*)',
-        headers: [{ key: 'Content-Security-Policy-Report-Only', value: csp }],
+        headers: [{ key: 'Content-Security-Policy', value: csp }],
+      },
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'X-Frame-Options', value: 'DENY' },
+        ],
       },
     ];
   },
