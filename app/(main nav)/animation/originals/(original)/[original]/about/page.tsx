@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { PortableText } from '@portabletext/react'
 import OriginalsNav from '@/components/OriginalsNav'
 import { client } from 'b/sanityLib/client'
+import { JsonLd, originalJsonLd, galleryJsonLd, STUDIO } from '@/lib/jsonLd'
 import Grid from '@/components/Grid'
 import styles from '@/animation/page.module.scss'
 import textStyles from '@/style/titles.module.scss'
@@ -14,6 +15,7 @@ type AboutOriginal = {
   id: string
   link: string
   summary: any[] // Portable Text block array
+  thumbnailUrl?: string
   characters: {
     gallery: {
       alt: string
@@ -39,6 +41,7 @@ const POSTS_QUERY = (original: string) => `*[
     "summary": about.summary,
     "characters": about.characters-> { gallery[]{ alt, hotspot{...},  asset-> { assetId, url } } },
     "hasConceptArt": about.hasConceptArt,
+    "thumbnailUrl": thumbnail.asset->url,
     "conceptArt": about.conceptArt[].gallery[]{ caption, alt, hotspot{...},  asset-> { assetId, metadata, _id, url } }
   }`;
 
@@ -46,6 +49,8 @@ const getAboutOriginal = cache(async (original: string) => {
   const originalSanity = await client.fetch<AboutOriginal[]>(POSTS_QUERY(original), {});
   return originalSanity[0];
 });
+const toPlainText = (summary: AboutOriginal['summary']) =>
+  summary.map((block) => block.children.map((child: any) => child.text).join('')).join(' ')
 
 export async function generateMetadata(
   { params }: { params: Promise<{ original: string }> }
@@ -59,13 +64,8 @@ export async function generateMetadata(
     };
   }
 
-  const plainSummary = orig.summary
-    .map((block) => block.children.map((child:any) => child.text).join(''))
-    .join(' ');
-
-  const description = plainSummary.length > 155
-    ? plainSummary.slice(0, 155) + '…'
-    : plainSummary;
+  const plainSummary = toPlainText(orig.summary);
+  const description = plainSummary.length > 155 ? plainSummary.slice(0, 155) + '…' : plainSummary;
 
   return {
     title: `About ${orig.title} | Sleepy Gallows | Chicago Animation`,
@@ -80,9 +80,12 @@ export default async function aboutOriginal({ params }: { params: Promise<{ orig
   if (!orig) {
     notFound();
   }
-
+  const workJsonLd = { '@context': 'https://schema.org', ...originalJsonLd({ ...orig, description: toPlainText(orig.summary) }) }
+  const artPhotos = [...(orig.characters?.gallery ?? []), ...(orig.hasConceptArt ? orig.conceptArt ?? [] : [])]
   return (
     <section>
+      <JsonLd data={workJsonLd} />
+      <JsonLd data={galleryJsonLd(`${orig.title} Characters and Concept Art`, `/animation/originals/${orig.link}/about`, STUDIO, artPhotos)} />
       <header>
         <OriginalsNav 
           navLabel={orig.link}/>

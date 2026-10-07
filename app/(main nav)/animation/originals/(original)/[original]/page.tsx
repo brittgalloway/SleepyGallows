@@ -3,6 +3,7 @@ import { type Metadata } from 'next'
 import { cache } from 'react'
 import { notFound } from 'next/navigation'
 import { client } from 'b/sanityLib/client'
+import { JsonLd, originalJsonLd, videoObjects } from '@/lib/jsonLd'
 import OriginalsNav from '@/components/OriginalsNav'
 import Iframe from '@/components/Iframe'
 import PreviewVideo from '@/components/PreviewVideo'
@@ -20,7 +21,8 @@ const POSTS_QUERY = `*[
   "hasVideo": production.hasLiveVideo,
   "inProgress": production.inProduction.asset->url,
   "inProgressType": production.inProduction.asset->mimeType,
-  "watch": production.watch->{ _id, animation[]{link, title,year} },
+  "thumbnailUrl": thumbnail.asset->url,
+  "watch": production.watch->{ _id, animation[]{ _key, link, title, year, summary, uploadDate } },
 }`;
 
 const getOriginal = cache(async (original: string) => {
@@ -53,9 +55,16 @@ export default async function watchOriginal({ params }: { params: Promise<{ orig
   if (!orig) {
     notFound();
   }
+  const videos = orig.hasVideo ? videoObjects(orig.watch?.animation, orig.thumbnailUrl) : []
+  const pageJsonLd = {
+    '@context': 'https://schema.org',
+    ...originalJsonLd({ title: orig.title, link: orig.link, thumbnailUrl: orig.thumbnailUrl }),
+    ...(videos.length > 0 && { hasPart: videos }),
+  }
 
   return (
     <section style={{display: 'flex', flexDirection: 'column'}}>
+      <JsonLd data={pageJsonLd}/>
       <header>
         <OriginalsNav 
           navLabel={orig?.link}/>
@@ -65,12 +74,12 @@ export default async function watchOriginal({ params }: { params: Promise<{ orig
         <main>
            <div className={styles.videoWrapper}>
               {orig.watch?.animation?.map((video: {
-                _id: string
+                _key: string
                 link: string
                 title: string
                 year: string
               }) => (
-                <div key={video?._id} className={styles.video}>
+                <div key={video?._key} className={styles.video}>
                   <Iframe 
                     link={video?.link} 
                     title={video?.title} 

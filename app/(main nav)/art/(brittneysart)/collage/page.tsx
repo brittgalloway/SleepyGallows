@@ -1,5 +1,6 @@
 import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
+import { JsonLd, galleryJsonLd, BRITTNEY } from '@/lib/jsonLd'
 import Grid from '@/components/Grid'
 import ArtNav from '@/art/nav'
 import { Footer } from '@/components/Footer'
@@ -24,6 +25,7 @@ export default async function Collage() {
   return (
     <>
       <main className={styles.gridImg}> 
+        <JsonLd data={galleryJsonLd("Brittney Galloway's Collage Art", '/art/collage', BRITTNEY, images[0]?.gallery)} />
         <ArtNav
         navLabel={'Brittney\'s Art Page Navigation'}
         page1={'drawings'}

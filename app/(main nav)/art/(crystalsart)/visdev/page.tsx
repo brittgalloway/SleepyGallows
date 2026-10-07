@@ -1,5 +1,6 @@
 import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
+import { JsonLd, galleryJsonLd, CRYSTAL } from '@/lib/jsonLd'
 import Grid from '@/components/Grid'
 import ArtNav from '@/art/nav'
 import { Footer } from '@/components/Footer'
@@ -28,6 +29,12 @@ export default async function Visdev() {
   return (
     <>
       <main className={`${styles.gridImg}`}> 
+        <JsonLd data={galleryJsonLd(
+          "Crystal Galloway's Visual Development",
+          '/art/visdev',
+          CRYSTAL,
+          [...(images[0]?.mermaidGallery?.gallery ?? []), ...(images[0]?.visDevGallery?.gallery ?? [])]
+        )} />
         <ArtNav
         navLabel={'Crystal\'s Art Page Navigation'}
         page1={'illustration'}

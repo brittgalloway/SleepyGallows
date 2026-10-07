@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { client } from 'b/sanityLib/client'
+import { JsonLd, originalJsonLd } from '@/lib/jsonLd'
 import ImageComponent from '@/components/sanityImage'
 import AnimationNav from '@/components/Nav'
 import { Footer } from '@/components/Footer'
@@ -16,6 +17,7 @@ type Original = {
   title: string
   link: string
   thumbnail: { _type: string; asset: { _ref: string } }
+  thumbnailUrl?: string
 }
 
 const POSTS_QUERY = `*[
@@ -26,13 +28,22 @@ const POSTS_QUERY = `*[
     "id": _id,
     "link": link.current,
     "thumbnail": thumbnail,
+    "thumbnailUrl": thumbnail.asset->url,
  }`;
  
 export default async function Originals() {
   const originals = await client.fetch<Original[]>(POSTS_QUERY, {});
+
+  const listJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Sleepy Gallows Originals',
+    itemListElement: originals.map((o, i) => ({ '@type': 'ListItem', position: i + 1, item: originalJsonLd(o) })),
+  }
   return (
     <>
       <main> 
+        <JsonLd data={listJsonLd} />
         <header>
           <AnimationNav/>
           <h1 className={`${textStyles.text_center} ${textStyles.cinzelDec}`}>Originals</h1>
