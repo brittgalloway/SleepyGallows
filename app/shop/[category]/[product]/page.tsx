@@ -1,6 +1,7 @@
 import { type Metadata } from 'next'
 import { cache } from 'react'
 import { notFound } from 'next/navigation'
+import { JsonLd, SITE_URL, ORG_ID } from '@/lib/jsonLd'
 import Link from 'next/link'
 import { PortableText } from '@portabletext/react'
 import { ProductImages } from '@/components/productImages'
@@ -56,18 +57,66 @@ export async function generateMetadata(
   };
 }
 
-export default async function Product({ params }: { params: Promise<{ product: string }> }) {
-  const { product } = await params;
+export default async function Product({ params }: { params: Promise<{ category: string; product: string }> }) {
+  const { category, product } = await params;
   const item = await getProduct(product);
 
   if (!item) {
     notFound();
   }
+  const productUrl = `${SITE_URL}/shop/${category}/${item.slug}`
 
+  type OfferInput = { price: number; discountedPrice?: number | null; stock: number; name?: string; sku?: string }
+  const toOffer = (o: OfferInput) => ({
+    '@type': 'Offer',
+    ...(o.name && { name: o.name }),
+    ...(o.sku && { sku: o.sku }),
+    url: productUrl,
+    price: (o.discountedPrice ?? o.price).toFixed(2),
+    priceCurrency: 'USD',
+    availability: o.stock > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+    seller: { '@id': ORG_ID },
+  })
+
+  const offers = item.variant?.length
+    ? item.variant.map((v: { ID: string; title: string; price: number | null; discountedPrice: number | null; stock: number | null }) =>
+        toOffer({
+          name: `${item.title} - ${v.title}`,
+          sku: v.ID,
+          price: v.price ?? item.price,
+          discountedPrice: v.discountedPrice,
+          stock: v.stock ?? 0,
+        }))
+    : toOffer({ sku: item.id, price: item.price, discountedPrice: item.discount, stock: item.stock })
+
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Product',
+        '@id': `${productUrl}#product`,
+        name: item.title,
+        description: item.shortDescription,
+        image: item.productDisplay?.gallery?.map((img: { asset: { url: string } }) => img.asset.url) ?? [],
+        category: category.replace('-', ' '),
+        brand: { '@type': 'Brand', name: 'Sleepy Gallows' },
+        offers,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Shop', item: `${SITE_URL}/shop` },
+          { '@type': 'ListItem', position: 2, name: category.replace('-', ' '), item: `${SITE_URL}/shop/${category}` },
+          { '@type': 'ListItem', position: 3, name: item.title, item: productUrl },
+        ],
+      },
+    ],
+  }
   const imgHeight = item?.productDisplay?.gallery[0].asset.metadata.dimensions.height;
   const imgWidth = item?.productDisplay?.gallery[0].asset.metadata.dimensions.width;
   return (
     <main className={`${layoutStyle.main} ${style.max_width}`}>
+      <JsonLd data={productJsonLd} />
       <div className={`${imgHeight > imgWidth ? style.product_portrait : style.product_landscape}`}>
         <h1 className={`${style.h1}`}>
           {item?.title}

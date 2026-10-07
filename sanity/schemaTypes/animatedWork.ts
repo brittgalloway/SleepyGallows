@@ -42,6 +42,11 @@ export const animatedWork = defineType({
             validation: (rule) => rule.required(),
           },
           {
+            name: 'uploadDate',
+            type: 'date',
+            description: 'Date the video was published on YouTube/Vimeo. Needed for Google video results.',
+          },
+          {
             name: 'summary',
             type: 'text',
           },
