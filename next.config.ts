@@ -9,7 +9,7 @@ const csp = [
   "media-src 'self' https://cdn.sanity.io",
   "font-src 'self'",
   "connect-src 'self'",
-  "frame-src https://ko-fi.com https://www.youtube.com https://www.youtube-nocookie.com",
+  "frame-src https://ko-fi.com https://www.youtube.com https://www.youtube-nocookie.com https://embeds.beehiiv.com",
   "form-action 'self'",
   "frame-ancestors 'none'",
   "object-src 'none'",
