@@ -1,15 +1,18 @@
 /* @jest-environment jsdom */
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { StripePatron } from '@/shop/patron/PatronBtn'
+const mockAssign = jest.fn();
+const originalLocation = window.location;
+
+beforeAll(() => {
+  delete window.location;
+  window.location = { assign: mockAssign };
+});
+afterAll(() => {
+  window.location = originalLocation;
+});
 
 // ─── Mocks ───────────────────────────────────────────────────────────────────
-
-// stripe.client uses loadStripe which needs a real browser
-jest.mock('@/lib/stripe.client', () => ({
-  stripePromise: Promise.resolve({
-    redirectToCheckout: jest.fn().mockResolvedValue({}),
-  }),
-}));
 
 // stripe.server would call new Stripe() without a real key
 jest.mock('@/lib/stripe.server', () => ({
@@ -20,19 +23,12 @@ jest.mock('@/lib/stripe.server', () => ({
 
 global.fetch = jest.fn();
 
-// Access the mock after jest.mock() has run so we can assert on it
-const getMockRedirect = async () => {
-  const { stripePromise } = require('@/lib/stripe.client');
-  const stripe = await stripePromise;
-  return stripe.redirectToCheckout;
-};
-
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
-const mockFetchSuccess = (sessionId = 'mock-session-id') =>
+const mockFetchSuccess = (url = 'https://checkout.stripe.com/c/pay/mock') =>
   fetch.mockResolvedValueOnce({
     ok: true,
-    json: async () => ({ id: sessionId }),
+    json: async () => ({ url }),
   });
 
 const mockFetchFailure = (message = 'Something went wrong') =>
@@ -218,17 +214,32 @@ describe('Support button — checkout flow', () => {
     expect(parseFloat(body.patron.price)).toBe(120);
   });
 
-  it('calls redirectToCheckout with the session id on success', async () => {
-    mockFetchSuccess('test-session-xyz');
+   it('redirects to the Stripe Checkout URL on success', async () => {
+    mockFetchSuccess('https://checkout.stripe.com/c/pay/test-xyz');
     render(<StripePatron />);
     fireEvent.click(screen.getByRole('button', { name: /support/i }));
 
-    const mockRedirectToCheckout = await getMockRedirect();
     await waitFor(() =>
-      expect(mockRedirectToCheckout).toHaveBeenCalledWith({
-        sessionId: 'test-session-xyz',
-      })
+      expect(mockAssign).toHaveBeenCalledWith('https://checkout.stripe.com/c/pay/test-xyz')
     );
+  });
+
+  it('does not redirect when the API call fails', async () => {
+    mockFetchFailure();
+    render(<StripePatron />);
+    fireEvent.click(screen.getByRole('button', { name: /support/i }));
+
+    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(1));
+    expect(mockAssign).not.toHaveBeenCalled();
+  });
+
+  it('shows an error and does not redirect if the response has no url', async () => {
+    fetch.mockResolvedValueOnce({ ok: true, json: async () => ({}) });
+    render(<StripePatron />);
+    fireEvent.click(screen.getByRole('button', { name: /support/i }));
+
+    await waitFor(() => expect(screen.getByRole('alert')).toBeInTheDocument());
+    expect(mockAssign).not.toHaveBeenCalled();
   });
 
   it('shows a spinner while loading', async () => {
@@ -252,13 +263,4 @@ describe('Support button — checkout flow', () => {
     );
   });
 
-  it('does not call redirectToCheckout when the API call fails', async () => {
-    mockFetchFailure();
-    render(<StripePatron />);
-    fireEvent.click(screen.getByRole('button', { name: /support/i }));
-
-    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(1));
-    const mockRedirectToCheckout = await getMockRedirect();
-    expect(mockRedirectToCheckout).not.toHaveBeenCalled();
-  });
 });

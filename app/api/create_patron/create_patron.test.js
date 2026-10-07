@@ -2,19 +2,20 @@ import { POST } from '@/api/create_patron/route'
 
 // ─── Mocks ───────────────────────────────────────────────────────────────────
 
+
+// Mock fetch so create_promotion calls don't go to the network
+global.fetch = jest.fn();
+
 jest.mock('@/lib/stripe.server', () => ({
   stripe: {
     checkout: {
       sessions: {
-        create: jest.fn().mockResolvedValue({ id: 'mock-session-id' }),
+        create: jest.fn().mockResolvedValue({ id: 'mock-session-id', url: 'https://checkout.stripe.com/c/pay/mock' }),
       },
     },
   },
   PATRON_PRODUCT: 'prod_test_patron',
 }));
-
-// Mock fetch so create_promotion calls don't go to the network
-global.fetch = jest.fn();
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -256,13 +257,14 @@ describe('Recurring subscription (month / year)', () => {
 // ─── Status codes ─────────────────────────────────────────────────────────────
 
 describe('Status codes', () => {
-  it('returns 200 with session id on success', async () => {
+  // create_patron.test.js, in 'Status codes'
+  it('returns 200 with the checkout url on success', async () => {
     mockPromoSuccess();
     const res = await POST(makeReq({ patron: { price: 5, interval: 'once' } }));
     expect(res.status).toBe(200);
-    expect(await res.json()).toEqual({ id: 'mock-session-id' });
+    expect(await res.json()).toEqual({ url: 'https://checkout.stripe.com/c/pay/mock' });
   });
-
+  
   it('returns 400 if patron tier is missing', async () => {
     const res = await POST(makeReq({}));
     expect(res.status).toBe(400);

@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import { useCartContext } from '@/shop/cartContext'
-import { stripePromise} from '@/lib/stripe.client'
 import { CartProduct } from '@/components/CartProduct'
 import styles from '@/style/shopHeader.module.scss'
 import cartStyles from '@/shop/page.module.scss'
@@ -25,15 +24,14 @@ export default function Checkout() {
       setLoading(false);
       return;
     }
-    const session = await response.json();
-  
-    const stripe = await stripePromise;
-    const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
-    if (error) {
+    
+    const { url } = await response.json();
+    if (!url) {
       setHasError(true);
-      console.error('Error:', error);
       setLoading(false);
+      return;
     }
+    window.location.assign(url);
   };
 
   return (

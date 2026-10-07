@@ -1,6 +1,5 @@
 // Shared constants — safe to import in both server and client code.
 // For the Stripe SDK (server): import from '@/lib/stripe.server'
-// For stripePromise (client): import from '@/lib/stripe.client'
 
 export const env = process.env.ENVIRONMENT || 'sandbox';
 

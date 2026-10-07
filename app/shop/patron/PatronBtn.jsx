@@ -1,6 +1,5 @@
 'use client'
 import { useState, useRef } from 'react'
-import { stripePromise } from '@/lib/stripe.client'
 import { 
 	PATRON_5,
 	PATRON_10,
@@ -57,15 +56,13 @@ export function StripePatron() {
 			console.error('Error creating checkout session:', errorMessage);
 			return;
 		}
-		const session = await response.json();
-	  
-		const stripe = await stripePromise;
-		const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
-		if (error) {
+				const { url } = await response.json();
+		if (!url) {
 			setHasError(true);
 			setLoading(false);
-		 	console.error('Error:', error);
+			return;
 		}
+		window.location.assign(url);
 	};
 	function PatronField( fieldName, interval, defaultChecked,
 		testId1, testId2, testId3, testId4,

@@ -114,7 +114,7 @@ export async function POST(req) {
       cancel_url: `${origin}/shop`,
     });
 
-    return NextResponse.json({ id: session.id }, { status: 200 });
+    return NextResponse.json({ url: session.url }, { status: 200 });
   } catch (err) {
     console.error('STRIPE ERROR:', err);
     return NextResponse.json({ error: err.message }, { status: 500 });
