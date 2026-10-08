@@ -82,7 +82,7 @@ export async function POST(req) {
           automatic_tax: { enabled: false },
         });
 
-    return NextResponse.json({ id: session.id }, { status: 200 });
+    return NextResponse.json({ url: session.url }, { status: 200 });
   } catch (err) {
     console.error('PATRON ERROR:', err);
     return NextResponse.json({ error: err.message }, { status: 500 });

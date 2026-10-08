@@ -2,21 +2,22 @@ import { POST } from '@/api/create_checkout/route'
 
 // ─── Mocks ───────────────────────────────────────────────────────────────────
 
-// Mock stripe.server so no real Stripe calls are made
-jest.mock('@/lib/stripe.server', () => ({
-  stripe: {
-    checkout: {
-      sessions: {
-        create: jest.fn().mockResolvedValue({ id: 'mock-session-id' }),
-      },
-    },
-  },
-}));
 
 // Mock Sanity client
 jest.mock('../../../sanity/lib/client', () => ({
   client: {
     fetch: jest.fn(),
+  },
+}));
+
+// Mock stripe.server so no real Stripe calls are made
+jest.mock('@/lib/stripe.server', () => ({
+  stripe: {
+    checkout: {
+      sessions: {
+        create: jest.fn().mockResolvedValue({ id: 'mock-session-id', url: 'https://checkout.stripe.com/c/pay/mock' }),
+      },
+    },
   },
 }));
 
@@ -181,10 +182,11 @@ describe('Sanity price lookup', () => {
 // ─── Stripe session properties ────────────────────────────────────────────────
 
 describe('Stripe session properties', () => {
-  it('returns 200 with a session id on success', async () => {
+  // create_checkout.test.js, in 'Stripe session properties'
+  it('returns 200 with the checkout url on success', async () => {
     const res = await POST(makeReq({ items: [validItem], shipping: 800 }));
     expect(res.status).toBe(200);
-    expect(await res.json()).toEqual({ id: 'mock-session-id' });
+    expect(await res.json()).toEqual({ url: 'https://checkout.stripe.com/c/pay/mock' });
   });
 
   it('sets success_url to /shop/thank_you', async () => {

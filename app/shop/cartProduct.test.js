@@ -12,12 +12,6 @@ jest.mock('next/image', () => ({
   default: ({ src, alt, ...props }) => <img src={src} alt={alt} {...props} />,
 }));
 
-jest.mock('@/lib/stripe.client', () => ({
-  stripePromise: Promise.resolve({
-    redirectToCheckout: jest.fn().mockResolvedValue({}),
-  }),
-}));
-
 global.fetch = jest.fn();
 
 // ─── Shared test data ─────────────────────────────────────────────────────────
