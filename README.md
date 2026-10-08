@@ -14,7 +14,6 @@ Live at [sleepygallows.com](https://sleepygallows.com)
 | Language | TypeScript (strict mode) |
 | CMS | [Sanity.io](https://www.sanity.io/) |
 | Payments | [Stripe Checkout](https://stripe.com/payments/checkout) |
-| Animations | [Rive](https://rive.app/) |
 | Styles | SCSS Modules |
 | Testing | [Jest](https://jestjs.io/) + [React Testing Library](https://testing-library.com/) |
 | Design | [Figma](https://www.figma.com/) |
@@ -139,4 +138,4 @@ Tests are split into two environments via Jest `projects`:
 
 ## Project History
 
-Originally built with Gatsby and DatoCMS with Lottie animations. Migrated to Next.js for better routing and maintainability, Sanity for a more flexible CMS, and Rive for performant interactive animations.
+Originally built with Gatsby and DatoCMS with Lottie animations. Migrated to Next.js for better routing and maintainability, Sanity for a more flexible CMS.
