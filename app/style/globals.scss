@@ -150,7 +150,10 @@ img {
 }
  footer { 
   grid-column: 2/3;
-  padding-block: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  padding: 1rem;
   text-align: center;
   @media (max-width: 830px) {
     grid-column: 1/3;
@@ -227,5 +230,9 @@ select::after {
   background: url(/chevron-down-solid-full.svg) no-repeat center;
 }
 
-
-
+iframe#beehiiv {
+    width: 100%;
+    height: 125px;
+    margin-block: 1rem;
+    max-width: 600px;
+}
