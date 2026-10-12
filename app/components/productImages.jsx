@@ -39,6 +39,7 @@ export function ProductImages({photos, layout}) {
             height={100}
             width={100}
             spacing={10}
+            loading="eager"
             onClick={handleClick}
         /> :
         <PhotoAlbum 
@@ -49,6 +50,7 @@ export function ProductImages({photos, layout}) {
             height={100}
             width={100}
             spacing={10}
+            loading="eager"
             onClick={handleClick}
         />
       } 
