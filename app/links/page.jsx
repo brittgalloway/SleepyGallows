@@ -5,22 +5,23 @@ import textStyles from '@/style/titles.module.scss'
 
 export const metadata = {
     title: 'Sleepy Gallows Studio | Links',
-    description: "Collection of important Sleepy Gallows Studio links. Find our social media and a few of our friends!"
+    description: "Collection of important Sleepy Gallows Studio links (Animations, Art Store, Newsletter, Necahual, etc). Find our social media and a few of our friends!"
   }
 
 const internalLinks = [
-  ['/', 'Official Website'],
+  ['/animation/client/', 'Animated Work'],
+  ['/shop/', 'Art Store'],
 ];
 
 const externalLinks = [
-    ['https://www.brittneylauren.com/', 'Brittney Lauren Stationery'],
     [NEWSLETTER, 'The Newsletter'],
-    [YOUTUBE, 'YouTube'],
     [INSTAGRAM, 'Instagram'],
+    [YOUTUBE, 'YouTube'],
     ['https://bsky.app/profile/blgalloway.bsky.social', 'Bluesky'],
     [KOFI, 'Ko-fi'],
     [TUMBLR, 'Tumblr'],
     [NECAHUAL, '2Heroes Necahual'],
+    ['https://www.brittneylauren.com/', 'Brittney Lauren Stationery'],
 ];
 
 export default function Links() {
