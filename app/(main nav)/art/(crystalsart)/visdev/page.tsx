@@ -59,6 +59,7 @@ export default async function Visdev() {
       </main>
       <Footer
       name={'Crystal Galloway'}
+      socials={['instaCandyfluffs', 'tiktokCandyfluffs']}
       />
     </>
   )

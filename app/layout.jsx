@@ -1,7 +1,7 @@
 import { lato, cinzel_decorative } from '@/fonts'
 import '@/style/globals.scss'
 import { JsonLd, SITE_URL, ORG_ID, BRITTNEY_ID, CRYSTAL_ID } from '@/lib/jsonLd'
-import { YOUTUBE, INSTAGRAM, TUMBLR, KOFI, BLUESKY, GITHUB, LINKEDIN } from '@/lib/data'
+import { YOUTUBE, INSTAGRAM, TUMBLR, KOFI, BLUESKY, GITHUB, LINKEDIN, CANDYFLUFFS } from '@/lib/data'
 
 const siteJsonLd = {
   '@context': 'https://schema.org',
@@ -31,7 +31,7 @@ const siteJsonLd = {
       name: 'Crystal Galloway',
       jobTitle: 'Illustrator',
       worksFor: { '@id': ORG_ID },
-      sameAs: ['https://www.candyfluffs.com/'],
+      sameAs: [CANDYFLUFFS],
     },
     {
       '@type': 'WebSite',
@@ -63,6 +63,9 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="text-scale" content="scale" />
+      </head>
       <body style={lato.style} className={`${cinzel_decorative.variable}`}>
         <JsonLd data={siteJsonLd} />
         {children}

@@ -42,6 +42,9 @@ export default function MainNavigation() {
               <Link className={`${styles.a} ${textStyles.cinzelDec}`} href={`/${link}`}>{link}</Link>
             </li>
           ))}
+            <li className={styles.li}>
+              <Link className={`${styles.a} ${textStyles.cinzelDec}`} href={`/shop/patron`}>patron</Link>
+            </li>
         </ul>
     )}
     </nav>

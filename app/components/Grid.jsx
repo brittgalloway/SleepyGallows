@@ -31,6 +31,7 @@ export default function Grid({photos, name='asset'}) {
       <PhotoAlbum
       layout="rows"
       photos={slides}
+      rowConstraints={{ maxPhotos: 4 }}
       onClick={({ index: current }) => setIndex(current)}
       />
 
