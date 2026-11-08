@@ -24,7 +24,7 @@ export const SOCIALS = {
   tiktokCandyfluffs:{ href: TIKTOK_CANDYFLUFFS, platform: 'TikTok',    handle: 'Candyfluffs',    icon: icons.tiktok },
   patreon2heroes:{ href: PATREON_2HEROES, platform: 'Patreon',    handle: '2Heroes',    icon: icons.patreon },
   insta2heroes:{ href: INSTA_2HEROES, platform: 'Instagram',    handle: '2Heroes',    icon: icons.instagram },
-  twitter2heroes:{ href: TWITTER_2HEROES, platform: 'TikTok',    handle: '2Heroes',    icon: icons.twitter },
+  twitter2heroes:{ href: TWITTER_2HEROES, platform: 'Twitter',    handle: '2Heroes',    icon: icons.twitter },
 } satisfies Record<string, Social>
 
 export type SocialKey = keyof typeof SOCIALS
