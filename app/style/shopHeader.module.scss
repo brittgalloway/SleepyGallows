@@ -9,7 +9,7 @@
     svg {
         @include mixins.svg(var(--brand-color), var(--purple-highlight));
     }
-    @media (width < 830px) {
+    @media (width < 52em) {
         flex-direction: column-reverse;
     }
 }
@@ -33,7 +33,7 @@
     > div > span {
         margin: 1rem;
     }
-    @media(max-width: 830px) {
+    @media(max-width: 52em) {
         border-bottom: 1px solid var(--brand-color);
     }
 }
@@ -41,7 +41,7 @@
     width: 100%;
     border-top: 1px solid var(--brand-color);
     text-align: start;
-    @media(max-width: 830px) {
+    @media(max-width: 52em) {
         border: none;
     }
 }
@@ -66,7 +66,7 @@
             color: var(--text-color);
         }
     }
-    @media(min-width: 830px) {
+    @media(min-width: 52em) {
         position: static;
         justify-content: center;
         flex-direction: row;
@@ -96,7 +96,7 @@
     width: 80px;
     cursor: pointer;
     border-radius: var(--border-radius);
-    @media(max-width: 830px) {
+    @media(max-width: 52em) {
       display: inline;
       text-align: center; 
       padding: 2%;
@@ -105,7 +105,7 @@
     }
   }
 .icons {
-    @media(min-width: 831px) {
+    @media(min-width: 51.9em) {
        margin: 1rem;
       }
 }
@@ -118,7 +118,7 @@
     background: transparent;
     color: var(--brand-color);
     cursor: pointer;
-    @media(max-width: 830px) {
+    @media(max-width: 52em) {
         position: absolute;
         top: 4.5rem; 
         right: 1rem;

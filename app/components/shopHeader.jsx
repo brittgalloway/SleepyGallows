@@ -10,7 +10,7 @@ import styles from '@/style/shopHeader.module.scss'
 
 export default function ShopHeader() {
 
-  const isMobile = useMediaQuery({query: `(max-width: 830px)`});
+  const isMobile = useMediaQuery({query: `(max-width: 52em)`});
 
   return(
     <header className={styles.header}>

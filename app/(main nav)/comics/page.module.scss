@@ -10,7 +10,7 @@
   font-family: var(--cinzel_decorative);
 }
 .p { 
-  @media (max-width: 830px){
+  @media (max-width: 52em){
     text-align: justify;
   }
 }
@@ -42,7 +42,7 @@
     img{
       margin:1rem 1rem;
     }
-  @media (max-width: 830px){
+  @media (max-width: 52em){
     margin: 0;
     padding:0;
     }
@@ -57,7 +57,7 @@
     width: 350px;
     font-size: 1.5rem;
   }
-  @media (max-width: 830px){
+  @media (max-width: 52em){
     flex-direction: column;
   }
 }

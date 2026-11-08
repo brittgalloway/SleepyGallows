@@ -1,6 +1,8 @@
+import Link from 'next/link'
 import { year } from '@/lib/utils'
 import { SOCIALS, type SocialKey } from '@/lib/socials'
 import Beehiiv from './beehiiv'
+import { NEWSLETTER } from '@/lib/data'
 import styles from '@/style/shopFooter.module.scss'
 
 export function SocialMedia({ accounts }: { accounts: SocialKey[] }) {
@@ -25,7 +27,33 @@ export function SocialMedia({ accounts }: { accounts: SocialKey[] }) {
     </ul>
   )
 }
-
+const legalLinks = [['terms', 'terms and Conditions'], ['refund', 'refund policy'], ['shipping', 'shipping']];
+export function LegalLinks() {
+  return (
+  <>
+    <h2 className={styles.title}>Legal Links</h2>
+    <ul className={styles.ul}>
+      {legalLinks.map((link, index)=> (
+        <li key={index}>
+            <Link href={`/${link[0]}`}>{link[1]}</Link>
+        </li>
+      ))}
+    </ul>
+  </>
+  )
+}
+const navLinks = ['animation', 'comics', 'art', 'about'];
+export function NavLinks() {
+  return (
+    <ul className={styles.ul}>
+        { navLinks.map((link, index) =>(
+          <li key={index}><Link href={`/${link}`}>{link}</Link></li>
+        ))
+      }
+      <li><Link href={NEWSLETTER}>blog</Link></li>
+    </ul>
+  )
+}
 export function Footer({
   name = 'Sleepy Gallows Studio',
   socials = ['youtube', 'instagram'],
@@ -34,10 +62,12 @@ export function Footer({
   socials?: SocialKey[]
 }) {
   return (
-    <footer>
+    <footer className={`${styles.footer}`}>
       <SocialMedia accounts={socials} />
+      <NavLinks/>
       <Beehiiv />
-      <small>Copyright © {year} <em>{name}</em> - All Rights Reserved.</small>
+      <LegalLinks/>
+      <p>Copyright © {year} <em>{name}</em> - All Rights Reserved.</p>
     </footer>
   )
 }

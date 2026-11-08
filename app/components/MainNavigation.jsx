@@ -10,7 +10,7 @@ import textStyles from '@/style/titles.module.scss'
 export default function MainNavigation() {
   const links = ['animation', 'art', 'comics', 'shop'];
 
-  const isMobile = useMediaQuery({query: `(max-width: 830px)`});
+  const isMobile = useMediaQuery({query: `(max-width: 52em)`});
 
   return(
     <nav aria-label='Main' className={isMobile ? `${styles.mobile} ${styles.nav}` : styles.nav}>

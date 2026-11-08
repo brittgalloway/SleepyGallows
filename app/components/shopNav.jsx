@@ -6,7 +6,7 @@ import styles from '@/style/shopHeader.module.scss'
 
 export default function ShopNavigation() {
 
-  const isMobile = useMediaQuery({query: `(max-width: 830px)`});
+  const isMobile = useMediaQuery({query: `(max-width: 52em)`});
   const links = ['fine-art', 'prints', 'stationery', 'patron'];
 
   return(
