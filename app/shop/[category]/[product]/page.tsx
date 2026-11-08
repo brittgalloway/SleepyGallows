@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { PortableText } from '@portabletext/react'
 import { ProductImages } from '@/components/productImages'
 import ProductInfo from '@/components/productInfo'
+import Iframe from '@/components/Iframe'
 import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
 import style from '@/style/product.module.scss'
@@ -29,7 +30,7 @@ const POSTS_QUERY = (product: string) => `*[
   "hasShipping": shipping.shippable,
   "shippingType": shipping.shippingOptions,
   "productDisplay": productDisplay -> {gallery[]{ caption, alt, asset ->{metadata{dimensions}, url}}},
-  "originalsSummary": originalsSummary->{ body[], slug, title },
+  "originalsSummary": originalsSummary->{ body[], slug, title, video { url, title }},
   "variant": variant[]{ ID, title, price, discountedPrice, stock },
   "cartThumbnail": cartThumbnail.asset -> {url}
 }`;
@@ -146,11 +147,17 @@ export default async function Product({ params }: { params: Promise<{ category: 
             <PortableText
               value={item.originalsSummary.body}
             />
-        }
-        {item?.originalsSummary &&  item?.originalsSummary?.slug.current !== null && 
-          <Link  className={`${style.learn_more}`} href={`${item?.originalsSummary?.slug.current}`}>
-            Learn More
-          </Link>}
+          }
+          {item?.originalsSummary &&  item?.originalsSummary?.slug.current !== null && 
+            <Link  className={`${style.learn_more}`} href={`${item?.originalsSummary?.slug.current}`}>
+              Learn More
+            </Link>}
+        {item.originalsSummary?.video && (
+          <Iframe
+            link={item?.originalsSummary?.video?.url} 
+            title={item?.originalsSummary?.video?.title} 
+            />
+          )}
       </aside>
     </main>
   )

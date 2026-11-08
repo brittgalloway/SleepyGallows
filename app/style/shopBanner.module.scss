@@ -36,7 +36,7 @@
     100% { opacity: 0; transform: translateX(-100%); }
 }
 
-@media (width < 830px) {
+@media (width < 52em) {
     .aside {
         height: 50px;
     }

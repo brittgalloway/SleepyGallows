@@ -10,7 +10,7 @@
     max-width: 1024px;
     font-family: var(--cinzel);
     border-top: 2px solid var(--brand-color);
-    @media(min-width: 830px) {
+    @media(min-width: 52em) {
         border-top: none;
     }
     p {
@@ -21,6 +21,9 @@
     p:first-child {
         font-family: var(--cinzel);
     }
+    h2 {
+        font-weight: 400;
+    }
 }
 .title {
     font-size: 1.64rem !important;
@@ -29,6 +32,8 @@
 }
 .ul {
     display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
     gap: 1rem;
     margin-block: 0 1rem;
     font-size: 1rem;
@@ -38,14 +43,15 @@
         color: var(--text-color);
         transition: color var(--transition);
     }
-    @media(min-width: 830px) {
-        gap: 6rem;
+    @media(min-width: 52em) {
+        row-gap: 6rem;
     }
 }
 .socials {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 100%;
     svg {
         @include mixins.svg(var(--brand-color), var(--purple-highlight));
     }

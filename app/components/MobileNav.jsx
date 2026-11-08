@@ -15,7 +15,7 @@ export default function MobileNav({navType, navId, testId, ariaLabel, navItems})
         <div className={shopStyles.mobile_menu} >
             <button className={shopStyles.hamburger} data-testid={testId} type="button" popoverTarget={navId}>
                 <Image src='/hamburger.svg' 
-                alt="Click here to open the navigation menu."
+                alt="Open navigation menu."
                 width={40} 
                 height={30} 
                 />
@@ -23,11 +23,18 @@ export default function MobileNav({navType, navId, testId, ariaLabel, navItems})
             <dialog data-testid={navId} id={navId} popover="auto">
                 <ul aria-label={ariaLabel} className={shopStyles.nav_list}>
                     {navType === 'main' && (
-                        <li className={`${shopStyles.li} ${shopStyles.about}`}>
-                            <Link className={`${mainStyles.a} ${textStyles.cinzelDec}`} onClick={handleClick} href="/about">
-                                About
-                            </Link>
-                        </li>
+                        <>
+                            <li className={mainStyles.li}>
+                                <Link className={`${textStyles.cinzelDec}`} onClick={handleClick} href="/about">
+                                    About
+                                </Link>
+                            </li>
+                            <li className={mainStyles.li}>
+                                <Link className={`${textStyles.cinzelDec}`} onClick={handleClick} href={`/shop/patron`}>
+                                    patron
+                                </Link>
+                            </li>
+                        </>
                     )}
                     {navItems.map((link, index) => (
                     <li key={index}>

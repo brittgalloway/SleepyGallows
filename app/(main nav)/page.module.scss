@@ -1,0 +1,17 @@
+.main{
+  background:#fff;
+  display:flex;
+  text-align: start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  h1,
+  h2 {
+    font-family: var(--cinzel_decorative);
+  }
+  p {
+    max-width: 70ch;
+  }
+  article {
+    margin-block: 0;
+  }
+}

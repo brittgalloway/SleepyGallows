@@ -40,6 +40,7 @@ export default async function Brittney() {
       </main>
       <Footer
       name={'Brittney Galloway'}
+      socials={['instagramBg']}
       />
     </>
   )

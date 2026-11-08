@@ -36,6 +36,7 @@ export default async function Crystal() {
       </main>
       <Footer
       name={'Crystal Galloway'}
+      socials={['instaCandyfluffs', 'tiktokCandyfluffs']}
       />
     </>
   )

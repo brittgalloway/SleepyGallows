@@ -10,7 +10,7 @@ import textStyles from '@/style/titles.module.scss'
 export default function MainNavigation() {
   const links = ['animation', 'art', 'comics', 'shop'];
 
-  const isMobile = useMediaQuery({query: `(max-width: 830px)`});
+  const isMobile = useMediaQuery({query: `(max-width: 52em)`});
 
   return(
     <nav aria-label='Main' className={isMobile ? `${styles.mobile} ${styles.nav}` : styles.nav}>
@@ -42,6 +42,9 @@ export default function MainNavigation() {
               <Link className={`${styles.a} ${textStyles.cinzelDec}`} href={`/${link}`}>{link}</Link>
             </li>
           ))}
+            <li className={styles.li}>
+              <Link className={`${styles.a} ${textStyles.cinzelDec}`} href={`/shop/patron`}>patron</Link>
+            </li>
         </ul>
     )}
     </nav>

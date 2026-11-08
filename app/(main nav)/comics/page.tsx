@@ -105,6 +105,7 @@ export default async function Comics() {
       </main>
       <Footer
       name={'2Heroes'}
+      socials={['insta2heroes', 'twitter2heroes', 'patreon2heroes']}
       />
     </>
   )

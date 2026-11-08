@@ -39,7 +39,8 @@ export default async function Collage() {
       </main>
       <Footer
       name={'Brittney Galloway'}
-     />
+      socials={['instagramBg']}
+      />
     </>
   )
 }

@@ -1,7 +1,7 @@
 .h2 {
     font-family: var(--cinzel);
     font-size: 1em;
-    @media(min-width: 831px) {
+    @media(min-width: 51.9em) {
         font-size: 1.2rem;
     }
 }
@@ -13,7 +13,7 @@
     &:first-of-type{
         margin-block: 0 2em;
     }
-    @media(min-width: 831px) {
+    @media(min-width: 51.9em) {
         margin-block: 2em;
         &:first-of-type{
             margin-top: 3.5em;
@@ -32,7 +32,7 @@
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: thin;
-    @media(min-width: 831px) {
+    @media(min-width: 51.9em) {
         padding: 20px;
         gap: 20px;
         height: 350px;
@@ -40,7 +40,7 @@
     li {
         height: 100px;
         flex-basis: 33%;
-        @media(min-width: 831px) {
+        @media(min-width: 51.9em) {
             height: 360px;
         }
     }
@@ -63,7 +63,7 @@
     font-weight: normal;
     font-size: .8em;
     color: var(--text-color);
-    @media(min-width: 831px) {
+    @media(min-width: 51.9em) {
         max-width: 309px;
         font-size: 1.2rem;
     }
@@ -73,7 +73,6 @@
     &{
         text-overflow: ellipsis;
         overflow: hidden;
-        white-space: nowrap;
     }
 }
 
@@ -103,7 +102,7 @@
         p, div {
             padding: 0 5px;
             transition: all var(--transition) ease-in-out 0s;
-            @media(max-width: 830px) {
+            @media(max-width: 52em) {
                 padding: 0 2.5px;
             }
         }

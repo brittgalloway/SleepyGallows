@@ -10,7 +10,7 @@
     'kofi kofi';
     max-width: 1024px;
     margin: auto;
-    @media (max-width: 830px) {
+    @media (max-width: 52em) {
       display: block;
     }
 }
@@ -39,7 +39,7 @@
     color: var(--brand-color);
     text-align: center;
   }
-  @media (max-width: 830px) {
+  @media (max-width: 52em) {
     margin: 0;
   }
 }
@@ -74,7 +74,7 @@
     padding: .5rem 1rem;
     transition: border-color var(--transition);
     cursor: pointer;
-    @media (max-width: 830px) {
+    @media (max-width: 52em) {
       padding: 0.5rem;
     }
     &:hover{

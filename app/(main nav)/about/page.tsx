@@ -3,6 +3,7 @@ import { PortableText } from '@portabletext/react'
 import { type SanityDocument } from 'next-sanity'
 import { client } from 'b/sanityLib/client'
 import { NoClients } from '@/components/NoClients'
+import { Footer } from '@/components/Footer'
 import Support from '@/components/Support'
 import styles from './page.module.scss'
 import textStyles from '@/style/titles.module.scss'
@@ -64,6 +65,9 @@ export default async function About() {
         </article>
       </main>
       <NoClients/>
+      <Footer
+      name={'Sleepy Gallows Studio'}
+      />
     </>
   )
 }

@@ -1,17 +1,8 @@
-import { 
-    Grandstander, 
+import {  
     Cinzel_Decorative,
     Cinzel,
     Lato
 } from 'next/font/google'
- 
-export const grandstander = Grandstander({
-    style: ['normal'],
-    subsets: ['latin'],
-    display: 'swap',
-    variable: '--grandstander',
-})
-
 
 export const lato = Lato({
     weight: ['300','400'],
