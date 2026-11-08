@@ -33,6 +33,7 @@
 .ul {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
     gap: 1rem;
     margin-block: 0 1rem;
     font-size: 1rem;
